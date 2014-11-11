@@ -1,0 +1,57 @@
+/**
+ * Customizer modification styles
+ *
+ * @package    Modern
+ * @copyright  2014 WebMan - Oliver Juhas
+ * @version    1.0
+ */
+
+
+
+	/**
+	 * Basic custom styles
+	 */
+
+		.no-overflow { overflow: hidden; }
+
+		.customize-control h3 {
+			margin: 2em 0 .5em;
+			text-transform: uppercase;
+			font-size: 1em;
+			color: #aaa;
+			border-bottom: 2px solid #d3d3d3;
+		}
+
+		.customize-control hr {
+			margin: 1em 0;
+			background: transparent;
+			border: 0;
+			border-top: 1px dashed #d3d3d3;
+		}
+
+
+
+	/**
+	 * Controls
+	 */
+
+		.customize-control select,
+		.customize-control textarea { width: 100%; }
+		.customize-control textarea { resize: vertical; }
+		.customize-control-hidden { display: none !important; }
+
+		/* Hide Custom Background image setup */
+			#accordion-section-background_image { display: none !important; }
+
+
+
+	/**
+	 * Credits
+	 */
+
+		#accordion-section-credits .accordion-section-title { display: none; }
+		#accordion-section-credits .accordion-section-content { display: block; }
+
+
+
+/* End of file */
