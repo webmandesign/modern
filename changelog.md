@@ -2,46 +2,60 @@
 
 ## 1.1
 
-* Added fixed header on window scroll
-* Added Slovak localization file
-* Added email icon to social links menu
-* Added smooth window scroll on anchor links
-* Added support for breadcrumbs plugin
-* Added support for shortcodes in Text widget
-* Improved code structure and notes
-* Improved theme localization
-* Updated the custom CSS filter hook name
+* Added WordPress 4.1 compatibility
+* Added page edit link on front end
+* Added new icons to social links
+* Added breadcrumbs support
+* Added option to override header image
+* Updated stylesheet structure (colors grouped together)
+* Updated styles
+* Updated status post logic
 * Updated custom singular JS output
 * Updated mobile pagination styling
 * Updated tagcloud styles
 * Updated copyright info in readme file
-* Updated minor style issues
-* Updated stylesheet structure (colors grouped together)
-* Updated front page Food menu section button title
 * Updated localization
+* Updated functions names
+* Updated theme options
+* Updated code organization
+* Updated scripts
+* Updated demo.xml file
 * Fixed Jetpack related posts styling
 * Fixed nested ordered lists styling
 * Fixed styling issues
 * Fixed filter hook names
 * Removed unnecessary hooks
 
+
 #### Files changed:
 
 	archive.php
 	comments.php
-	content-food-menu.php
+	content-audio.php
+	content-custom-header.php
+	content-featured-post.php
+	content-gallery.php
+	content-image.php
+	content-link.php
 	content-page.php
+	content-status.php
+	content-video.php
 	content.php
+	demo-content.xml
 	functions.php
+	header.php
 	image.php
 	loop-banner.php
-	loop-blog-condensed.php
-	loop-food-menu.php
+	readme.md
+	readme.txt
 	searchform.php
+	sidebar-footer.php
 	style.css
 	css/_custom.css
 	css/colors.css
 	css/editor-styles.css
+	css/slick.css
+	inc/post-formats.php
 	inc/setup.php
 	inc/setup-theme-options.php
 	inc/customizer/customizer.php
@@ -55,7 +69,7 @@
 	inc/lib/admin.php
 	inc/lib/core.php
 	inc/tgmpa/plugins.php
-	js/scripts.js
+	page-template/_sidebar.php
 	languages/readme.md
 	languages/sk_SK.mo
 	languages/sk_SK.po
