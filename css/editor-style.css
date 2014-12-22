@@ -3,7 +3,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -13,13 +15,15 @@
 /**
  * CONTENT:
  *
- *   0. HTML reset
+ *   0. CSS reset
  *   1. Font icons basics
  *   2. Core styles
  *   3. Typography
  *   4. WordPress styles
- *   5. Headings
- *   6. Site content
+ *   5. Forms
+ *   6. Headings
+ *   7. Site content
+ *   8. Colors
  * 100. Visual Editor specific styles
  */
 
@@ -28,7 +32,7 @@
 
 
 /**
- * 0. HTML reset
+ * 0. CSS reset
  */
 
 	/**
@@ -83,6 +87,10 @@
 		speak: none;
 	}
 
+	.genericon.vertical-align-middle:before   { vertical-align: middle;   }
+	.genericon.vertical-align-baseline:before { vertical-align: baseline; }
+	.genericon.vertical-align-bottom:before   { vertical-align: bottom;   }
+
 
 
 
@@ -92,23 +100,13 @@
  */
 
 	/**
-	 * Main layout
-	 */
-
-		body {
-			background-color: #fff;
-			color: #6a6c6e;
-		}
-
-
-
-	/**
 	 * Global elements and classes
 	 */
 
 		a {
 			text-decoration: none;
-			color: #0aac8e;
+			-ms-word-wrap: break-word;
+			    word-wrap: break-word;
 		}
 		a:hover { text-decoration: underline; }
 		a:active {}
@@ -116,9 +114,9 @@
 		a:focus { outline: 0; }
 
 		hr {
+			clear: both;
 			height: 2px;
 			margin: 6% 0;
-			background-color: #eaecee;
 			border: 0;
 		}
 
@@ -126,6 +124,7 @@
 		acronym[title] { cursor: help; }
 
 		blockquote {
+			clear: both;
 			position: relative;
 			padding: 1em 0;
 			margin: 1.62em 0;
@@ -137,18 +136,18 @@
 				display: block;
 				position: absolute;
 				width: 38%;
-				height: 1px;
+				height: 100%;
 				left: 31%;
 				top: 0;
 				pointer-events: none;
-				border-top: 1px solid #eaecee;
-				border-bottom: 0;
+				border-top: 1px solid;
+				border-bottom: 1px solid;
 			}
 			blockquote:after {
-				top: auto;
-				bottom: 0;
-				border-top: 0;
-				border-bottom: 1px solid #eaecee;
+				width: 2%;
+				left: 49%;
+				border-top: .19em solid;
+				border-bottom: .19em solid;
 			}
 			blockquote p { margin: 1em 0 0; }
 			blockquote p:first-child { margin: 0; }
@@ -165,9 +164,11 @@
 
 		mark,
 		ins {
-			padding: .19em .38em;
-			background-color: #0aac8e;
-			color: #fafcfe;
+			padding: .19em 0;
+			margin: 0 .38em;
+			-webkit-box-decoration-break: clone;
+			    -ms-box-decoration-break: clone;
+			        box-decoration-break: clone;
 		}
 
 		del,
@@ -192,8 +193,6 @@
 			display: inline-block;
 			padding: 0 .62em;
 			margin: 0 .19em;
-			background-color: #eaecee;
-			color: #6a6e6c;
 		}
 			mark code,
 			ins code,
@@ -210,10 +209,10 @@
 			max-width: 100%;
 			padding: 4% 8% 4% 4%;
 			margin-bottom: 1.62em;
-			background: #eaecee;
 			border-radius: .38em;
 			overflow: auto;
-			tab-size: 2;
+			-moz-tab-size: 2;
+			     tab-size: 2;
 		}
 			pre:before {
 				content: '\f462';
@@ -224,16 +223,14 @@
 				padding: 0 3px;
 				font-size: 1.38em;
 				line-height: 1.62;
-				background: #0aac8e;
-				color: #fff;
 				z-index: 5;
 			}
 
 		ul,
 		ol { margin: 0 1.62em 1em 1.38em; }
 
-			ol ol { list-style upper-alpha; }
-			ol ol ol { list-style: lower-roman; }
+			ol ol { list-style: upper-alpha; }
+			ol ol ol { list-style: upper-roman; }
 			ol ol ol ol { list-style: lower-alpha; }
 
 			li > ul,
@@ -242,16 +239,8 @@
 		dl { margin-bottom: 1.62em; }
 			dd { margin-left: 1.62em; }
 
-		::selection {
-			background: #fafcbe;
-			color: #6a6c2e;
-			text-shadow: none;
-		}
-		::-moz-selection {
-			background: #fafcbe;
-			color: #6a6c2e;
-			text-shadow: none;
-		}
+		::selection { text-shadow: none; }
+		::-moz-selection { text-shadow: none; }
 
 
 
@@ -262,17 +251,12 @@
 			table {
 				width: 100%;
 				margin: 0 0 1.62em;
-				border: 1px solid #eaecee;
 				border-collapse: separate;
 				border-radius: .38em;
 			}
 				caption { padding: 1em 0; }
 
-				td, th {
-					padding: .62em 1em;
-					border-bottom: 1px solid #eaecee;
-					border-left: 1px solid #eaecee;
-				}
+				td, th { padding: .62em 1em; }
 				th:first-child,
 				td:first-child { border-left: 0; }
 				th, tfoot td { text-align: left; }
@@ -287,8 +271,13 @@
 				thead + tbody tr:first-child td,
 				thead + tbody tr:first-child th { border-top-width: .19em; }
 
-				tbody tr:hover td,
-				tbody tr:hover th { background-color: #fafcfe; }
+
+
+		/**
+		 * Classes
+		 */
+
+			.text-center { text-align: center; }
 
 
 
@@ -309,6 +298,9 @@
 			.clear:after,
 			.clearfix:after,
 			.gallery:after { clear: both; }
+
+			.clear-left  { clear: left;  }
+			.clear-right { clear: right; }
 
 
 
@@ -399,24 +391,12 @@
 	 * Base
 	 */
 
+		html,
 		body {
 			font-family: 'Fira Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 			font-size: 100%;
 			line-height: 1.62;
 		}
-
-		b,
-		strong { font-weight: 700; }
-
-		dfn,
-		cite,
-		em,
-		i { font-style: italic; }
-
-		small,
-		.small { font-size: .81em; }
-
-		abbr { font-weight: 600; }
 
 		pre,
 		code,
@@ -428,6 +408,7 @@
 			font-style: normal;
 			font-weight: 400;
 			text-transform: none;
+			text-decoration: none;
 		}
 			pre,
 			pre code {
@@ -464,32 +445,51 @@
 	 * Font sizes
 	 */
 
-		body { font-size: 16px; }
+		/**
+		 * Basic font size setup
+		 */
 
-		pre,
-		code,
-		blockquote cite,
-		.gallery-caption,
-		.wp-caption .wp-caption-text  { font-size: .81em; }
+			html,
+			body { font-size: 16px; }
 
-		input,
-		select,
-		textarea,
-		blockquote blockquote { font-size: 1em; }
 
-		h4, h5, h6,
-		.h4, .h5, .h6 { font-size: 1.15em; }
 
-		h3,
-		.h3 { font-size: 1.24em; }
+		/**
+		 * Relative font sizes:
+		 */
 
-		h2,
-		.h2,
-		blockquote { font-size: 1.38em; }
+			/* Relative to root */
 
-		h1,
-		.h1,
-		big { font-size: 1.62em; }
+				/* basic: */
+				input,
+				select,
+				textarea,
+				blockquote blockquote { font-size: 1rem; }
+
+			/* Relative to container */
+
+				/* basic: */
+				small,
+				/* custom: */
+				pre,
+				code,
+				blockquote cite,
+				.small,
+				.gallery-caption,
+				.wp-caption .wp-caption-text { font-size: .81em; }
+
+				h4, h5, h6,
+				.h4, .h5, .h6 { font-size: 1.15em; }
+
+				h3,
+				.h3 { font-size: 1.24em; }
+
+				h2,
+				.h2,
+				blockquote { font-size: 1.38em; }
+
+				h1,
+				.h1 { font-size: 1.62em; }
 
 
 
@@ -501,6 +501,10 @@
 
 		blockquote cite { font-weight: 400; }
 
+		/* basic: */
+		b,
+		strong,
+		/* custom: */
 		h1, h2, h3, h4, h5, h6,
 		.h1, .h2, .h3, .h4, .h5, .h6,
 		dt,
@@ -512,6 +516,12 @@
 	 * Font styles
 	 */
 
+		/* basic: */
+		cite,
+		dfn,
+		em,
+		i,
+		/* custom: */
 		blockquote,
 		.gallery-caption { font-style: italic; }
 
@@ -589,6 +599,7 @@
 
 			blockquote.alignleft,
 			blockquote.alignright {
+				clear: none;
 				width: 38%;
 				padding: 0 6%;
 				margin-top: 0;
@@ -611,7 +622,7 @@
 					left: 0;
 					top: 19%;
 					border: 0;
-					border-left: 1px solid #eaecee;
+					border-left: 1px solid;
 				}
 					blockquote.alignleft:after,
 					blockquote.alignright:after {
@@ -620,7 +631,7 @@
 						left: 0;
 						top: 47%;
 						border: 0;
-						border-left: .19em solid #eaecee;
+						border-left: .19em solid;
 					}
 
 					blockquote.alignleft:before,
@@ -628,13 +639,13 @@
 						left: auto;
 						right: 0;
 						border: 0;
-						border-right: 1px solid #eaecee;
+						border-right: 1px solid;
 					}
 						blockquote.alignleft:after {
 							left: auto;
 							right: 0;
 							border: 0;
-							border-right: .19em solid #eaecee;
+							border-right: .19em solid;
 						}
 
 
@@ -652,12 +663,12 @@
 			text-align: center;
 			text-transform: uppercase;
 			background: transparent;
-			color: #9a9c9e;
 			overflow: hidden;
 		}
 			.wp-caption .wp-caption-text {
 				padding: 1em 0 0;
 				overflow: hidden;
+				opacity: .75;
 			}
 
 
@@ -709,13 +720,8 @@
 				left: 0;
 				bottom: 0;
 				padding: .62em 1em;
-				background: #2a2c2e;
-				background: rgba(0,0,0, .8);
-				color: #ccc;
 				opacity: 0;
 				-webkit-transition: all .3s;
-				   -moz-transition: all .3s;
-				    -ms-transition: all .3s;
 				        transition: all .3s;
 			}
 				.gallery-item:hover .gallery-caption { opacity: 1; }
@@ -745,7 +751,62 @@
 
 
 /**
- * 5. Headings
+ * 5. Forms
+ */
+
+		/* Buttons */
+
+			.button,
+			button,
+			input[type="button"],
+			input[type="reset"],
+			input[type="submit"] {
+				padding: 1em;
+				white-space: nowrap;
+				border: 0;
+				cursor: pointer;
+				-webkit-transition: all .3s;
+				        transition: all .3s;
+			}
+				.button:hover,
+				button:hover,
+				input[type="button"]:hover,
+				input[type="reset"]:hover,
+				input[type="submit"]:hover {
+					text-decoration: none;
+					opacity: .75;
+				}
+				.button:hover,
+				button:hover,
+				input[type="button"]:hover,
+				input[type="reset"]:hover,
+				input[type="submit"]:hover,
+				.button:focus,
+				button:focus,
+				input[type="button"]:focus,
+				input[type="reset"]:focus,
+				input[type="submit"]:focus,
+				.button:active,
+				button:active,
+				input[type="button"]:active,
+				input[type="reset"]:active,
+				input[type="submit"]:active {
+					text-decoration: none;
+					opacity: .75;
+				}
+
+				.button:active,
+				button:active,
+				input[type="button"]:active,
+				input[type="reset"]:active,
+				input[type="submit"]:active { opacity: .9; }
+
+
+
+
+
+/**
+ * 6. Headings
  */
 
 	h1, h2, h3, h4, h5, h6,
@@ -755,7 +816,6 @@
 		margin: 6% 0 4%;
 		-ms-word-wrap: break-word;
 		    word-wrap: break-word;
-		color: #1a1c1e;
 		text-rendering: optimizeLegibility; /* https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
 	}
 
@@ -773,7 +833,7 @@
 
 
 /**
- * 6. Site content
+ * 7. Site content
  */
 
 
@@ -783,12 +843,154 @@
 	 */
 
 		a img {
-			-webkit-transition: all .4s;
-			   -moz-transition: all .4s;
-			    -ms-transition: all .4s;
-			        transition: all .4s;
+			-webkit-transition: all .4s ease-in-out;
+			        transition: all .4s ease-in-out;
 		}
 			a img:hover { opacity: .8; }
+
+
+
+
+
+/**
+ * 8. Colors
+ */
+
+	/**
+	 * Background
+	 */
+
+		/* RGBA backgrounds */
+
+			tbody tr:hover td,
+			tbody tr:hover th { background-color: rgba(0,0,0, .05); }
+
+			.gallery-caption { background-color: rgba(0,0,0, .8); }
+
+		/* Basic background colors */
+
+			button,
+			input,
+			select,
+			textarea { background-color: #fff; }
+
+			hr,
+			code,
+			pre { background-color: #eaecee; }
+
+			body { background-color: #fff; }
+
+		/* Accent background color */
+
+			mark,
+			ins,
+			.highlight,
+			pre:before,
+			.button,
+			button,
+			input[type="button"],
+			input[type="reset"],
+			input[type="submit"] { background-color: #0aac8e; }
+
+		/* Inset shadows */
+
+			.button,
+			button,
+			input[type="button"],
+			input[type="reset"],
+			input[type="submit"] {
+				-webkit-box-shadow: inset 0 0 0 rgba(0,0,0, .2);
+				        box-shadow: inset 0 0 0 rgba(0,0,0, .2);
+			}
+			.button:active,
+			button:active,
+			input[type="button"]:active,
+			input[type="reset"]:active,
+			input[type="submit"]:active {
+				-webkit-box-shadow: inset 0 100px 0 rgba(0,0,0, .2);
+				        box-shadow: inset 0 100px 0 rgba(0,0,0, .2);
+			}
+
+		/* Special background color fix for multiline markers */
+
+			mark,
+			ins,
+			.highlight {
+				-webkit-box-shadow: .38em 0 0 #0aac8e, -.38em 0 0 #0aac8e;
+				        box-shadow: .38em 0 0 #0aac8e, -.38em 0 0 #0aac8e;
+			}
+
+
+
+	/**
+	 * Text color
+	 */
+
+		/* Basic text colors */
+
+			mark,
+			ins,
+			.highlight,
+			pre:before,
+			.button,
+			button,
+			input[type="button"],
+			input[type="reset"],
+			input[type="submit"] { color: #fff; }
+
+			.gallery-caption { color: #caccce; }
+
+			body,
+			code { color: #6a6c6e; }
+
+			h1, h2, h3, h4, h5, h6,
+			.h1, .h2, .h3, .h4, .h5, .h6 { color: #1a1c1e; }
+
+		/* Accent text color */
+
+			a,
+			.accent-color { color: #0aac8e; }
+
+
+
+	/**
+	 * Border color
+	 */
+
+		/* basic border color */
+
+			blockquote:before,
+			blockquote:after,
+			blockquote.alignleft:before,
+			blockquote.alignleft:after,
+			blockquote.alignright:before,
+			blockquote.alignright:after,
+			table, td, th,
+			button,
+			input,
+			select,
+			textarea { border-color: #eaecee; }
+
+		/* accent border color */
+
+			input:focus,
+			select:focus,
+			textarea:focus { border-color: #0aac8e; }
+
+
+
+	/**
+	 * Text selections
+	 */
+
+		::selection {
+			background: #fafcbe;
+			color: #6a6c2e;
+		}
+		::-moz-selection {
+			background: #fafcbe;
+			color: #6a6c2e;
+		}
 
 
 
@@ -809,48 +1011,6 @@
 		padding: 0 !important;
 		border: 0;
 	}
-
-
-
-	/**
-	 * Buttons
-	 */
-
-		.button,
-		button {
-			padding: 1em;
-			background-color: #0aac8e;
-			color: #fff;
-			border: 0;
-			cursor: pointer;
-			-webkit-box-shadow: inset 0 0 0 rgba(0,0,0, .2);
-			        box-shadow: inset 0 0 0 rgba(0,0,0, .2);
-			-webkit-transition: all .3s;
-			   -moz-transition: all .3s;
-			    -ms-transition: all .3s;
-			        transition: all .3s;
-		}
-			.button:hover,
-			button:hover {
-				text-decoration: none;
-				opacity: .75;
-			}
-			.button:hover,
-			button:hover,
-			.button:focus,
-			button:focus,
-			.button:active,
-			button:active {
-				text-decoration: none;
-				opacity: .75;
-			}
-
-			.button:active,
-			button:active {
-				opacity: .9;
-				-webkit-box-shadow: inset 0 100px 0 rgba(0,0,0, .2);
-				        box-shadow: inset 0 100px 0 rgba(0,0,0, .2);
-			}
 
 
 

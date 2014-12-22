@@ -8,7 +8,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -24,7 +26,7 @@ get_header();
 
 		?>
 
-		<div class="post-media">
+		<div class="entry-media">
 
 			<figure class="post-thumbnail"<?php echo wm_schema_org( 'image' ); ?>>
 

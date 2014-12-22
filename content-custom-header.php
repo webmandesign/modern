@@ -4,7 +4,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 ?>
@@ -25,19 +27,42 @@
 
 			<?php
 
-			if ( is_singular() && has_post_thumbnail() ) {
+			$banner_image = trim( get_post_meta( get_the_ID(), 'banner_image', true ) );
 
-				the_post_thumbnail( WM_IMAGE_SIZE_BANNER );
+			if (
+					is_singular()
+					&& $banner_image
+					&& '-' !== $banner_image
+				) {
+
+				//Custom banner image
+					if ( is_numeric( $banner_image ) ) {
+						echo wp_get_attachment_image( absint( $banner_image ), WM_IMAGE_SIZE_BANNER );
+					} elseif ( 0 === strpos( $banner_image, '<img ' ) ) {
+						echo $banner_image;
+					} else {
+						echo '<img src="' . esc_url( $banner_image ) . '" alt="' . the_title_attribute( 'echo=0' ) . '" title="' . the_title_attribute( 'echo=0' ) . '" />';
+					}
+
+			} elseif (
+					is_singular()
+					&& has_post_thumbnail()
+					&& empty( $banner_image )
+				) {
+
+				//Post featured image
+					the_post_thumbnail( WM_IMAGE_SIZE_BANNER );
 
 			} elseif ( is_attachment() ) {
 
-				echo wp_get_attachment_image( get_the_ID(), WM_IMAGE_SIZE_BANNER );
+				//Attachment post image
+					echo wp_get_attachment_image( get_the_ID(), WM_IMAGE_SIZE_BANNER );
 
 			} else {
 
-				$image_url = ( get_header_image() ) ? ( get_header_image() ) : ( wm_get_stylesheet_directory_uri( 'images/header.jpg' ) );
-
-				echo '<img src="' . esc_url( $image_url ) . '" width="' . esc_attr( get_custom_header()->width ) . '" height="' . esc_attr( get_custom_header()->height ) . '" alt="" />';
+				//Fallback to Custom Header image
+					$image_url = ( get_header_image() ) ? ( get_header_image() ) : ( wm_get_stylesheet_directory_uri( 'images/header.jpg' ) );
+					echo '<img src="' . esc_url( $image_url ) . '" width="' . esc_attr( get_custom_header()->width ) . '" height="' . esc_attr( get_custom_header()->height ) . '" alt="" />';
 
 			}
 
@@ -57,7 +82,7 @@
 	 * Displays only on homepage.
 	 */
 
-	if ( is_front_page() ) {
+	if ( is_front_page() && ! is_paged() ) {
 
 	?>
 
@@ -71,7 +96,7 @@
 				if ( $banner_text = trim( strip_tags( get_theme_mod( 'banner-text' ) ) ) ) {
 					echo $banner_text;
 				} else {
-					echo __( 'Set the default text in Customizer > Banner', 'wm_domain' );
+					echo __( 'Set the default text in Customizer > Predefined Texts', 'wm_domain' );
 				}
 
 		} elseif ( $custom_title = trim( get_post_meta( get_the_ID(), 'banner_text', true ) ) ) {

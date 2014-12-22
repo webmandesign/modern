@@ -4,7 +4,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -23,14 +25,14 @@ $pagination_suffix = wm_paginated_suffix( 'small', 'post' );
 	if (
 			has_post_thumbnail()
 			&& ! $pagination_suffix
-			&& apply_filters( 'wmhook-entry-featured-image-display', true )
+			&& apply_filters( 'wmhook_entry_featured_image_display', true )
 		) :
 
-		$image_link = array_filter( (array) apply_filters( 'wmhook-entry-image-link', wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' ) ) );
+		$image_link = array_filter( (array) apply_filters( 'wmhook_entry_image_link', wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' ) ) );
 
 		?>
 
-		<div class="post-media">
+		<div class="entry-media">
 
 			<figure class="post-thumbnail"<?php echo wm_schema_org( 'image' ); ?>>
 

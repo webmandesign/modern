@@ -18,7 +18,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 ?>
@@ -38,7 +40,7 @@
 		$post_media = '';
 		$image_size = ( is_single() ) ? ( WM_IMAGE_SIZE_SINGULAR ) : ( WM_IMAGE_SIZE_ITEMS );
 		$image_link = ( is_single() ) ? ( wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' ) ) : ( array( get_permalink() ) );
-		$image_link = array_filter( (array) apply_filters( 'wmhook-entry-image-link', $image_link ) );
+		$image_link = array_filter( (array) apply_filters( 'wmhook_entry_image_link', $image_link ) );
 
 	//Get image HTML
 		if ( has_post_thumbnail() ) {
@@ -64,12 +66,12 @@
 	//Display the image
 	if (
 			! empty( $post_media )
-			&& apply_filters( 'wmhook-entry-featured-image-display', true )
+			&& apply_filters( 'wmhook_entry_featured_image_display', true )
 		) :
 
 	?>
 
-	<div class="post-media">
+	<div class="entry-media">
 
 		<figure class="post-thumbnail"<?php echo wm_schema_org( 'image' ); ?>>
 

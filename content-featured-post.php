@@ -4,7 +4,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 ?>
@@ -25,7 +27,20 @@
 
 			<?php
 
-			if ( has_post_thumbnail() ) {
+			$banner_image = trim( get_post_meta( get_the_ID(), 'banner_image', true ) );
+
+			if ( $banner_image && '-' !== $banner_image ) {
+
+				//Custom banner image
+					if ( is_numeric( $banner_image ) ) {
+						echo wp_get_attachment_image( absint( $banner_image ), WM_IMAGE_SIZE_BANNER );
+					} elseif ( 0 === strpos( $banner_image, '<img ' ) ) {
+						echo $banner_image;
+					} else {
+						echo '<img src="' . esc_url( $banner_image ) . '" alt="' . the_title_attribute( 'echo=0' ) . '" title="' . the_title_attribute( 'echo=0' ) . '" />';
+					}
+
+			} elseif ( has_post_thumbnail() && empty( $banner_image ) ) {
 
 				//Post featured image
 					the_post_thumbnail( WM_IMAGE_SIZE_BANNER );

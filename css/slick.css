@@ -3,7 +3,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -119,7 +121,7 @@
 			.slick-slider button .genericon { font-size: 1.62em; }
 
 				.slick-prev.slick-disabled,
-				.slick-next.slick-disabled { opacity: 0.25; }
+				.slick-next.slick-disabled { opacity: .25; }
 
 
 
@@ -144,8 +146,7 @@
 				text-align: center;
 				font-size: 1em;
 				background-color: transparent;
-				color: #fff;
-				border: 1px solid #fff;
+				border: 1px solid;
 				border-radius: 50%;
 				opacity: .5;
 				-webkit-transition: opacity .4s ease-in-out;
@@ -179,7 +180,7 @@
 					height: .62em;
 					padding: 0;
 					background: transparent;
-					border: 1px solid #fff;
+					border: 1px solid;
 					border-radius: 50%;
 					overflow: hidden;
 					opacity: .5;
@@ -190,8 +191,6 @@
 		/**
 		 * Gallery post format slider
 		 */
-
-			.format-gallery .slick-slider { background-color: #eaecee; }
 
 			.format-gallery .slick-list {
 				position: relative;
@@ -204,8 +203,6 @@
 				width: 47%;
 				padding: .38em 0;
 				margin: 2%;
-				background-color: #0aac8e;
-				color: #fff;
 				border: 0;
 			}
 				.format-gallery .slick-slider .slick-prev { margin-right: 1%; }

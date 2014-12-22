@@ -14,7 +14,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -37,14 +39,14 @@ $hover_title = sprintf(
 
 	if (
 			! is_single()
-			&& apply_filters( 'wmhook-entry-featured-image-display', true )
+			&& apply_filters( 'wmhook_entry_featured_image_display', true )
 		) :
 
 		$image_size = WM_IMAGE_SIZE_ITEMS;
 
 		?>
 
-		<div class="post-media">
+		<div class="entry-media">
 
 			<figure class="post-thumbnail">
 
@@ -101,7 +103,11 @@ $hover_title = sprintf(
 
 			echo '<div class="entry-content"' . wm_schema_org( 'entry_body' ) . '>';
 
-				the_content();
+				if ( get_the_content() ) {
+					the_content();
+				} else {
+					echo '<p>' . strip_tags( get_the_title() ) . '</p>';
+				}
 
 			echo '</div>';
 

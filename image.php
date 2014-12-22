@@ -4,7 +4,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -28,11 +30,11 @@ get_header();
 			 */
 
 				$image_size = WM_IMAGE_SIZE_SINGULAR;
-				$image_link = array_filter( (array) apply_filters( 'wmhook-entry-image-link', wp_get_attachment_image_src( get_the_ID(), 'full' ) ) );
+				$image_link = array_filter( (array) apply_filters( 'wmhook_entry_image_link', wp_get_attachment_image_src( get_the_ID(), 'full' ) ) );
 
 				?>
 
-				<div class="post-media">
+				<div class="entry-media">
 
 					<figure class="post-thumbnail"<?php echo wm_schema_org( 'image' ); ?>>
 
@@ -73,7 +75,7 @@ get_header();
 						<table>
 							<tbody>
 								<tr class="date">
-									<th><?php _e( 'Image published on:', 'wm_domain' ); ?></th>
+									<th><?php _ex( 'Image published on:', 'Attachment page publish time.', 'wm_domain' ); ?></th>
 									<td><?php the_time( get_option( 'date_format' ) ); ?></td>
 								</tr>
 								<tr class="size">

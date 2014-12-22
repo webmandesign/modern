@@ -4,7 +4,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -24,9 +26,9 @@
 	 */
 
 		//Apply customizer options
-			add_filter( 'wmhook_theme_options_skin_array', 'wm_theme_options_skin_array', 10 );
+			add_filter( 'wmhook_theme_options', 'wm_theme_options_array', 10 );
 		//Theme custom styles to be outputed in HTML head
-			add_filter( 'wmhook_wm_custom_styles_output_preprocess', 'wm_custom_css_template', 10 );
+			add_filter( 'wmhook_custom_styles', 'wm_custom_css_template', 10 );
 
 
 
@@ -37,12 +39,15 @@
  */
 
 	/**
-	 * Set $wm_skin_design array
+	 * Set theme options array
 	 *
-	 * @param  array $wm_skin_design
+	 * @since    1.0
+	 * @version  1.1
+	 *
+	 * @param  array $options
 	 */
-	if ( ! function_exists( 'wm_theme_options_skin_array' ) ) {
-		function wm_theme_options_skin_array( $wm_skin_design = array() ) {
+	if ( ! function_exists( 'wm_theme_options_array' ) ) {
+		function wm_theme_options_array( $options = array() ) {
 			//Preparing output
 
 				/**
@@ -51,17 +56,18 @@
 
 					$prefix = '';
 
-					$wm_skin_design = array(
+					$options = array(
 
 						/**
 						 * Colors
 						 */
-						'colors' => array(
+						100 . 'colors' => array(
+							'id'                       => 'colors',
 							'type'                     => 'section',
-							'theme-customizer-section' => __( 'Colors', 'wm_domain' )
+							'theme-customizer-section' => _x( 'Colors', 'Customizer section title.', 'wm_domain' ),
 						),
 
-							'colors' . 10 => array(
+							100 . 'colors' . 110 => array(
 								'type'        => 'color',
 								'id'          => $prefix . 'color' . '-text',
 								'label'       => __( 'Text color', 'wm_domain' ),
@@ -69,51 +75,57 @@
 								'default'     => '#ffffff',
 							),
 
-							'colors' . 20 => array(
-								'type'        => 'color',
-								'id'          => $prefix . 'color' . '-accent',
-								'label'       => __( 'Accent color', 'wm_domain' ),
-								'description' => __( 'This color affects links, buttons and other elements of the website', 'wm_domain' ),
-								'default'     => '#2accae',
+							100 . 'colors' . 120 => array(
+								'type'    => 'theme-customizer-html',
+								'content' => '<h3>' . __( 'Accent color', 'wm_domain' ) . '</h3>',
 							),
-							'colors' . 30 => array(
-								'type'        => 'color',
-								'id'          => $prefix . 'color' . '-accent-text',
-								'label'       => __( 'Accent text color', 'wm_domain' ),
-								'description' => __( 'Color of text over accent color background', 'wm_domain' ),
-								'default'     => '#ffffff',
-							),
+
+								100 . 'colors' . 130 => array(
+									'type'        => 'color',
+									'id'          => $prefix . 'color' . '-accent',
+									'label'       => __( 'Accent color', 'wm_domain' ),
+									'description' => __( 'This color affects links, buttons and other elements of the website', 'wm_domain' ),
+									'default'     => '#0aac8e',
+								),
+								100 . 'colors' . 140 => array(
+									'type'        => 'color',
+									'id'          => $prefix . 'color' . '-accent-text',
+									'label'       => __( 'Accent text color', 'wm_domain' ),
+									'description' => __( 'Color of text over accent color background', 'wm_domain' ),
+									'default'     => '#ffffff',
+								),
 
 
 
 						/**
 						 * Fonts
 						 */
-						'fonts' => array(
+						200 . 'fonts' => array(
+							'id'                       => 'fonts',
 							'type'                     => 'section',
-							'theme-customizer-section' => __( 'Fonts', 'wm_domain' )
+							'theme-customizer-section' => _x( 'Fonts', 'Customizer section title.', 'wm_domain' ),
 						),
 
-							'fonts' . 10 => array(
+							200 . 'fonts' . 110 => array(
 								'type'    => 'theme-customizer-html',
 								'content' => '<p class="description">' . __( 'Set a Google Font to be used for website logo, headings and general text.', 'wm_domain' ) . '<br />' . sprintf( __( 'Font matches recommendations from <a%s>Google Web Fonts Typographic Project</a>.', 'wm_domain' ), ' href="http://femmebot.github.io/google-type/" target="_blank"' ) . '</p>',
 							),
 
-								'fonts' . 20 => array(
+								200 . 'fonts' . 120 => array(
 									'type'    => 'select',
 									'id'      => $prefix . 'font' . '-family-logo',
 									'label'   => __( 'Logo (site title) font', 'wm_domain' ),
 									'options' => wm_helper_var( 'google-fonts' ),
 									'default' => 'Fira Sans:400,300',
 								),
-								'fonts' . 30 => array(
+								200 . 'fonts' . 130 => array(
 									'type'    => 'select',
 									'id'      => $prefix . 'font' . '-family-headings',
 									'label'   => __( 'Headings font', 'wm_domain' ),
 									'options' => wm_helper_var( 'google-fonts' ),
 									'default' => 'Fira Sans:400,300',
 								),
-								'fonts' . 40 => array(
+								200 . 'fonts' . 140 => array(
 									'type'    => 'select',
 									'id'      => $prefix . 'font' . '-family-body',
 									'label'   => __( 'General text font', 'wm_domain' ),
@@ -121,7 +133,7 @@
 									'default' => 'Fira Sans:400,300',
 								),
 
-								'fonts' . 50 => array(
+								200 . 'fonts' . 150 => array(
 									'type'    => 'multiselect',
 									'id'      => $prefix . 'font' . '-subset',
 									'label'   => __( 'Font subset', 'wm_domain' ),
@@ -129,7 +141,7 @@
 									'default' => 'latin',
 								),
 
-								'fonts' . 60 => array(
+								200 . 'fonts' . 160 => array(
 									'type'          => 'text',
 									'id'            => $prefix . 'font' . '-size-body',
 									'label'         => __( 'Basic font size', 'wm_domain' ),
@@ -146,19 +158,20 @@
 
 
 						/**
-						 * Branding
+						 * Texts
 						 */
-						'banner' => array(
+						300 . 'text' => array(
+							'id'                       => 'text',
 							'type'                     => 'section',
-							'theme-customizer-section' => __( 'Banner', 'wm_domain' )
+							'theme-customizer-section' => __( 'Predefined texts', 'wm_domain' )
 						),
 
-							'banner' . 10 => array(
+							300 . 'text' . 110 => array(
 								'type'    => 'theme-customizer-html',
 								'content' => '<p class="description">' . __( 'Front page banner area will display Header Images and custom text.', 'wm_domain' ) . '</p><p class="description">' . __( 'If you set a Static Front Page, the page title will be displayed as banner text. Or you can override the text by setting <code>banner_text</code> custom field for your front page. Page featured image will be used as banner image.', 'wm_domain' ) . '</p><p class="description">' . __( 'Or, if you are using Featured Content module of the Jetpack plugin, just set it up and posts slideshow will be displayed in the banner.', 'wm_domain' ) . '</p>',
 							),
 
-								'banner' . 20 => array(
+								300 . 'text' . 120 => array(
 									'type'        => 'textarea',
 									'id'          => $prefix . 'banner-text',
 									'label'       => __( 'Banner default text', 'wm_domain' ),
@@ -171,24 +184,24 @@
 						/**
 						 * Credits
 						 */
-						'credits' => array(
+						999 . 'credits' => array(
 							'id'                       => 'credits',
 							'type'                     => 'section',
 							'theme-customizer-section' => 'Credits',
 						),
 
-							'credits' . 10 => array(
+							999 . 'credits' . 100 => array(
 								'id'      => 'credits-text',
 								'type'    => 'theme-customizer-html',
-								'content' => '<h3>' . __( 'Theme Credits', 'wm_domain' ) . '</h3><p class="description">' . sprintf( __( '%s is free WordPress theme developed by WebMan. You can buy other professional WordPress themes at <strong><a href="%s" target="_blani">WebManDesign.eu</a></strong>. Thank you for using this awesome theme!', 'wm_domain' ), '<strong>' . WM_THEME_NAME . '</strong>', add_query_arg( array( 'utm_source' => WM_THEME_SHORTNAME . '-theme-credits' ), esc_url( WM_DEVELOPER_URL ) ) ) . '</p>',
+								'content' => '<h3>' . __( 'Theme Credits', 'wm_domain' ) . '</h3><p class="description">' . sprintf( __( '%s is free WordPress theme developed by WebMan. You can obtain other professional WordPress themes at <strong><a href="%s" target="_blank">WebManDesign.eu</a></strong>. Thank you for using this awesome theme!', 'wm_domain' ), '<strong>' . WM_THEME_NAME . '</strong>', add_query_arg( array( 'utm_source' => WM_THEME_SHORTNAME . '-theme-credits' ), esc_url( WM_DEVELOPER_URL ) ) ) . '</p><p><a href="' . esc_url( trailingslashit( WM_DEVELOPER_URL ) . WM_THEME_SHORTNAME . '-wordpress-theme/#donate' ) . '" class="donation-link" target="_blank">Donate</a></p>',
 							),
 
 					);
 
 			//Output
-				return apply_filters( 'wmhook_wm_theme_options_skin_array_output', $wm_skin_design );
+				return apply_filters( 'wmhook_wm_theme_options_array_output', $options );
 		}
-	} // /wm_theme_options_skin_array
+	} // /wm_theme_options_array
 
 
 
@@ -198,6 +211,9 @@
 	 * Use a '[[skin-option-id]]' tags in your custom CSS styles string
 	 * where the specific option value should be used.
 	 *
+	 * @since    1.0
+	 * @version  1.1
+	 *
 	 * @param  string $styles
 	 */
 	if ( ! function_exists( 'wm_custom_css_template' ) ) {
@@ -205,7 +221,8 @@
 			//Preparing output
 				ob_start();
 
-				locate_template( 'css/_custom.css', true );
+				locate_template( 'css/_custom.css',      true );
+				locate_template( 'css/_custom-plus.css', true );
 
 				$styles = ob_get_clean();
 

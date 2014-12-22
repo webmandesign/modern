@@ -23,7 +23,9 @@
  * @license    GPL-2.0+
  * @link       http://www.webmandesign.eu
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -38,24 +40,23 @@
 		$theme_data = wp_get_theme();
 
 	//Basic constants
-		if ( ! defined( 'WM_THEME_NAME' ) )          define( 'WM_THEME_NAME',          $theme_data->Name                       );
-		if ( ! defined( 'WM_THEME_SHORTNAME' ) )     define( 'WM_THEME_SHORTNAME',     get_template()                          );
-		if ( ! defined( 'WM_THEME_VERSION' ) )       define( 'WM_THEME_VERSION',       $theme_data->Version                    );
+		if ( ! defined( 'WM_THEME_NAME' ) )            define( 'WM_THEME_NAME',            $theme_data->Name                          );
+		if ( ! defined( 'WM_THEME_SHORTNAME' ) )       define( 'WM_THEME_SHORTNAME',       str_replace( '-plus', '', get_template() ) );
+		if ( ! defined( 'WM_THEME_VERSION' ) )         define( 'WM_THEME_VERSION',         $theme_data->Version                       );
 
-		if ( ! defined( 'WM_SCRIPTS_VERSION' ) )     define( 'WM_SCRIPTS_VERSION',     esc_attr( trim( WM_THEME_VERSION ) )    );
-		if ( ! defined( 'WM_WP_COMPATIBILITY' ) )    define( 'WM_WP_COMPATIBILITY',    4.0                                     );
+		if ( ! defined( 'WM_SCRIPTS_VERSION' ) )       define( 'WM_SCRIPTS_VERSION',       esc_attr( trim( WM_THEME_VERSION ) )       );
+		if ( ! defined( 'WM_WP_COMPATIBILITY' ) )      define( 'WM_WP_COMPATIBILITY',      4.0                                        );
 
 	//Dir constants
-		if ( ! defined( 'WM_LANGUAGES' ) )           define( 'WM_LANGUAGES',           get_template_directory() . '/languages' );
-		if ( ! defined( 'WM_INC_DIR' ) )             define( 'WM_INC_DIR',             trailingslashit( 'inc/' )               );
+		if ( ! defined( 'WM_INC_DIR' ) )               define( 'WM_INC_DIR',               trailingslashit( 'inc/' )                  );
 
 	//URL constants
-		if ( ! defined( 'WM_DEVELOPER_URL' ) )       define( 'WM_DEVELOPER_URL',       $theme_data->get( 'AuthorURI' )         );
+		if ( ! defined( 'WM_DEVELOPER_URL' ) )         define( 'WM_DEVELOPER_URL',         $theme_data->get( 'AuthorURI' )            );
 
 	//Theme design constants
-		if ( ! defined( 'WM_IMAGE_SIZE_ITEMS' ) )    define( 'WM_IMAGE_SIZE_ITEMS',    'thumbnail'                             );
-		if ( ! defined( 'WM_IMAGE_SIZE_SINGULAR' ) ) define( 'WM_IMAGE_SIZE_SINGULAR', 'large'                                 );
-		if ( ! defined( 'WM_IMAGE_SIZE_BANNER' ) )   define( 'WM_IMAGE_SIZE_BANNER',   'banner'                                );
+		if ( ! defined( 'WM_IMAGE_SIZE_ITEMS' ) )    define( 'WM_IMAGE_SIZE_ITEMS',    'thumbnail'                                    );
+		if ( ! defined( 'WM_IMAGE_SIZE_SINGULAR' ) ) define( 'WM_IMAGE_SIZE_SINGULAR', 'large'                                        );
+		if ( ! defined( 'WM_IMAGE_SIZE_BANNER' ) )   define( 'WM_IMAGE_SIZE_BANNER',   'banner'                                       );
 
 
 
@@ -66,15 +67,21 @@
  */
 
 	//Global functions
-		locate_template( WM_INC_DIR . 'core.php',  true );
+		locate_template( WM_INC_DIR . 'lib/core.php', true );
 
 	//Theme setup
 		locate_template( WM_INC_DIR . 'setup.php', true );
 
+	//Post formats support
+		locate_template( WM_INC_DIR . 'post-formats.php', true );
+
 	//Custom header
-		locate_template( WM_INC_DIR . 'custom-header.php', true );
+		locate_template( WM_INC_DIR . 'custom-header/custom-header.php', true );
 
 	//Customizer
-		locate_template( WM_INC_DIR . 'customizer.php', true );
+		locate_template( WM_INC_DIR . 'customizer/customizer.php', true );
+
+	//Jetpack setup
+		locate_template( WM_INC_DIR . 'jetpack/jetpack.php', true );
 
 ?>

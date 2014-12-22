@@ -4,7 +4,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  *
  * CONTENT:
  * -  10) Actions and filters
@@ -28,15 +30,12 @@
 	 */
 
 		//Styles and scripts
-			add_action( 'init',               'wm_register_assets',     10  );
-			add_action( 'wp_enqueue_scripts', 'wm_enqueue_assets',      100 );
-			add_action( 'wp_enqueue_scripts', 'wm_post_nav_background', 110 );
+			add_action( 'init',               'wm_register_assets',       10   );
+			add_action( 'wp_enqueue_scripts', 'wm_enqueue_assets',        100  );
+			add_action( 'wp_enqueue_scripts', 'wm_post_nav_background',   110  );
+			add_action( 'wp_footer',          'wm_footer_custom_scripts', 9998 );
 		//Theme setup
-			add_action( 'after_setup_theme', 'wm_setup',   10 );
-			add_action( 'after_setup_theme', 'wm_jetpack', 20 );
-		//Jetpack Portfolio taxonomy links above posts lists
-			add_action( 'wmhook_postslist_top',                            'wm_portfolio_taxonomy', 10 );
-			add_action( 'wmhook_template_front_portfolio_postslist_top',   'wm_portfolio_taxonomy', 10 );
+			add_action( 'after_setup_theme', 'wm_setup', 10 );
 		//Front page template more links
 			add_action( 'wmhook_template_front_portfolio_postslist_after', 'wm_portfolio_more_link', 10 );
 			add_action( 'wmhook_template_front_blog_postslist_after',      'wm_blog_more_link',      10 );
@@ -44,34 +43,36 @@
 			add_action( 'widgets_init', 'wm_register_widget_areas', 1 );
 		//Pagination fallback
 			add_action( 'wmhook_postslist_after', 'wm_pagination', 10 );
+		//Shortcodes in text widget
+			add_filter( 'widget_text', 'do_shortcode' );
 		//Website sections
 			//DOCTYPE
-				add_action( 'wmhook_html_before',          'wm_doctype',                10   );
+				add_action( 'wmhook_html_before',          'wm_doctype',              10   );
 			//HEAD
-				add_action( 'wmhook_head_bottom',          'wm_head',                   10   );
-				add_action( 'wp_footer',                   'wm_footer_custom_scripts',  9998 );
+				add_action( 'wmhook_head_bottom',          'wm_head',                 10   );
 			//Body
-				add_action( 'wmhook_body_top',             'wm_site_top',               10   );
-				add_action( 'wmhook_footer_before',        'wm_site_bottom',            100  );
+				add_action( 'wmhook_body_top',             'wm_site_top',             10   );
+				add_action( 'wmhook_footer_before',        'wm_site_bottom',          100  );
 			//Header
-				add_action( 'wmhook_header_top',           'wm_section_header_top',     10   );
-				add_action( 'wmhook_header',               'wm_section_navigation',     10   );
-				add_action( 'wmhook_header',               'wm_logo',                   20   );
-				add_action( 'wmhook_header',               'wm_menu_social',            30   );
-				add_action( 'wmhook_header_bottom',        'wm_section_header_bottom',  10   );
+				add_action( 'wmhook_header_top',           'wm_header_top',           10   );
+				add_action( 'wmhook_header',               'wm_navigation',           10   );
+				add_action( 'wmhook_header',               'wm_logo',                 20   );
+				add_action( 'wmhook_header',               'wm_menu_social',          30   );
+				add_action( 'wmhook_header_bottom',        'wm_header_bottom',        10   );
 			//Content
-				add_action( 'wmhook_content_top',          'wm_section_content_top',    10   );
-				add_action( 'wmhook_entry_container_atts', 'wm_entry_container_atts',   10   );
-				add_action( 'wmhook_entry_top',            'wm_post_title',             10   );
-				add_action( 'wmhook_entry_top',            'wm_entry_top',              20   );
-				add_action( 'wmhook_entry_bottom',         'wm_entry_bottom',           10   );
-				add_action( 'wmhook_entry_bottom',         'wm_sticky_label',           20   );
-				add_action( 'wmhook_entry_after',          'wm_entry_after',            10   );
-				add_action( 'wmhook_content_bottom',       'wm_section_content_bottom', 10   );
+				add_action( 'wmhook_content_top',          'wm_content_top',          10   );
+				add_action( 'wmhook_entry_container_atts', 'wm_entry_container_atts', 10   );
+				add_action( 'wmhook_entry_top',            'wm_post_title',           10   );
+				add_action( 'wmhook_entry_top',            'wm_entry_top',            30   );
+				add_action( 'wmhook_entry_bottom',         'wm_entry_bottom',         10   );
+				add_action( 'wmhook_entry_bottom',         'wm_sticky_label',         20   );
+				add_action( 'wmhook_entry_after',          'wm_entry_after',          10   );
+				add_action( 'wmhook_entry_after',          'wm_post_nav',             20   );
+				add_action( 'wmhook_content_bottom',       'wm_content_bottom',       100  );
 			//Footer
-				add_action( 'wmhook_footer_top',           'wm_section_footer_top',     10   );
-				add_action( 'wmhook_footer',               'wm_section_footer',         10   );
-				add_action( 'wmhook_footer_bottom',        'wm_section_footer_bottom',  10   );
+				add_action( 'wmhook_footer_top',           'wm_footer_top',           100  );
+				add_action( 'wmhook_footer',               'wm_footer',               100  );
+				add_action( 'wmhook_footer_bottom',        'wm_footer_bottom',        100  );
 
 		//Remove actions
 			remove_action( 'wp_head', 'wp_generator'     );
@@ -98,15 +99,9 @@
 			add_filter( 'excerpt_more',                       'wm_excerpt_more',             10 );
 			add_filter( 'wmhook_wm_excerpt_continue_reading', 'wm_excerpt_continue_reading', 10 );
 		//Post thumbnail
-			add_filter( 'wmhook-entry-featured-image-display', 'wm_post_media_display' );
+			add_filter( 'wmhook_entry_featured_image_display', 'wm_post_media_display' );
 		//Custom CSS fonts
 			add_filter( 'wmhook_wm_custom_styles_value', 'wm_css_font_name', 10, 2 );
-		//Plugins integration
-			//Jetpack
-				add_filter( 'sharing_show',                'wm_jetpack_sharing',                     10, 2 );
-				add_filter( 'infinite_scroll_js_settings', 'wm_jetpack_infinite_scroll_js_settings', 10    );
-			//ZillaLikes
-				add_filter( 'wmhook_wm_post_meta_replacements', 'wm_post_custom_metas', 10, 3 );
 
 		//Remove filters
 			remove_filter( 'widget_title', 'esc_html' );
@@ -137,6 +132,9 @@
 	/**
 	 * Theme helper variables
 	 *
+	 * @since    1.0
+	 * @version  1.1
+	 *
 	 * @param  string $variable Helper variables array key to return
 	 * @param  string $key      Additional key if the variable is array
 	 */
@@ -151,60 +149,60 @@
 								' ' => __( ' - do not use Google Font', 'wm_domain' ),
 
 							//Default theme font
-								'optgroup' . 0  => sprintf( __( 'Theme default', 'wm_domain' ), 1 ),
+								'optgroup' . 0  => sprintf( _x( 'Theme default', 'Google Font default setup options group title.', 'wm_domain' ), 1 ),
 									'Fira Sans:400,300'  => 'Fira Sans',
 								'/optgroup' . 0 => '',
 
 							//Insipration from http://femmebot.github.io/google-type/
-								'optgroup' . 1  => sprintf( __( 'Recommendation #%d', 'wm_domain' ), 1 ),
+								'optgroup' . 1  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), 1 ),
 									'Playfair Display' => 'Playfair Display',
 									'Fauna One'        => 'Fauna One',
 								'/optgroup' . 1 => '',
 
-								'optgroup' . 2  => sprintf( __( 'Recommendation #%d', 'wm_domain' ), 2 ),
+								'optgroup' . 2  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), 2 ),
 									'Fugaz One'   => 'Fugaz One',
 									'Oleo Script' => 'Oleo Script',
 									'Monda'       => 'Monda',
 								'/optgroup' . 2 => '',
 
-								'optgroup' . 3  => sprintf( __( 'Recommendation #%d', 'wm_domain' ), 3 ),
+								'optgroup' . 3  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), 3 ),
 									'Unica One' => 'Unica One',
 									'Vollkorn'  => 'Vollkorn',
 								'/optgroup' . 3 => '',
 
-								'optgroup' . 4  => sprintf( __( 'Recommendation #%d', 'wm_domain' ), 4 ),
+								'optgroup' . 4  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), 4 ),
 									'Megrim'                  => 'Megrim',
 									'Roboto Slab:400,300,100' => 'Roboto Slab',
 								'/optgroup' . 4 => '',
 
-								'optgroup' . 5  => sprintf( __( 'Recommendation #%d', 'wm_domain' ), 5 ),
+								'optgroup' . 5  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), 5 ),
 									'Open Sans:400,300' => 'Open Sans',
 									'Gentium Basic'     => 'Gentium Basic',
 								'/optgroup' . 5 => '',
 
-								'optgroup' . 6  => sprintf( __( 'Recommendation #%d', 'wm_domain' ), 6 ),
+								'optgroup' . 6  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), 6 ),
 									'Ovo'          => 'Ovo',
 									'Muli:300,400' => 'Muli',
 								'/optgroup' . 6 => '',
 
-								'optgroup' . 7  => sprintf( __( 'Recommendation #%d', 'wm_domain' ), 7 ),
+								'optgroup' . 7  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), 7 ),
 									'Neuton:200,300,400' => 'Neuton',
 								'/optgroup' . 7 => '',
 
-								'optgroup' . 8  => sprintf( __( 'Recommendation #%d', 'wm_domain' ), 8 ),
+								'optgroup' . 8  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), 8 ),
 									'Quando' => 'Quando',
 									'Judson' => 'Judson',
 									'Montserrat' => 'Montserrat',
 								'/optgroup' . 8 => '',
 
-								'optgroup' . 9  => sprintf( __( 'Recommendation #%d', 'wm_domain' ), 9 ),
+								'optgroup' . 9  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), 9 ),
 									'Ultra'                => 'Ultra',
 									'Stint Ultra Expanded' => 'Stint Ultra Expanded',
 									'Slabo 13px'           => 'Slabo 13px',
 								'/optgroup' . 9 => '',
 
 							//Google Fonts selection
-								'optgroup' . 10  => sprintf( __( 'Fonts selection', 'wm_domain' ), 10 ),
+								'optgroup' . 10  => sprintf( _x( 'Fonts selection', 'Title for selection of fonts picked from Google Fontss', 'wm_domain' ), 10 ),
 									'Abril Fatface'             => 'Abril Fatface',
 									'Arvo'                      => 'Arvo',
 									'Domine'                    => 'Domine',
@@ -289,6 +287,9 @@
 
 	/**
 	 * Theme setup
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
 	if ( ! function_exists( 'wm_setup' ) ) {
 		function wm_setup() {
@@ -303,8 +304,20 @@
 							add_query_arg( array( 'ver' => WM_THEME_VERSION ), wm_get_stylesheet_directory_uri( 'css/editor-style.css' ) ),
 						) ) );
 
-			//Localization
-				load_theme_textdomain( 'wm_domain', WM_LANGUAGES );
+			/**
+			 * Load Localisation files.
+			 *
+			 * Note: the first-loaded translation file overrides any following ones if the same translation is present.
+			 */
+
+				//wp-content/languages/theme-name/it_IT.mo
+					load_theme_textdomain( 'wm_domain', trailingslashit( WP_LANG_DIR ) . 'themes/' . WM_THEME_SHORTNAME );
+
+				//wp-content/themes/child-theme-name/languages/it_IT.mo
+					load_theme_textdomain( 'wm_domain', get_stylesheet_directory() . '/languages' );
+
+				//wp-content/themes/theme-name/languages/it_IT.mo
+					load_theme_textdomain( 'wm_domain', get_template_directory() . '/languages' );
 
 			//Visual editor styles
 				add_editor_style( $visual_editor_css );
@@ -378,6 +391,11 @@
 							update_option( $name . '_crop',   $default_image_sizes[ $name ][2] );
 						}
 
+			//WordPress 4.1+
+				if ( function_exists( '_wp_render_title_tag' ) ) {
+					add_theme_support( 'title-tag' );
+				}
+
 		}
 	} // /wm_setup
 
@@ -391,20 +409,23 @@
 
 	/**
 	 * Registering theme styles and scripts
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
 	if ( ! function_exists( 'wm_register_assets' ) ) {
 		function wm_register_assets() {
-
 			/**
 			 * Styles
 			 */
 
 				$register_styles = apply_filters( 'wmhook_wm_register_assets_register_styles', array(
-						'wm-customizer'   => array( get_template_directory_uri() . '/css/customizer.css'                          ),
-						'wm-genericons'   => array( wm_get_stylesheet_directory_uri( 'genericons/genericons.css' )                ),
-						'wm-google-fonts' => array( wm_google_fonts_url()                                                         ),
-						'wm-stylesheet'   => array( 'src' => get_stylesheet_uri(), 'deps' => array( 'wm-genericons', 'wm-slick' ) ),
-						'wm-slick'        => array( wm_get_stylesheet_directory_uri( 'css/slick.css' )                            ),
+						'wm-customizer'   => array( get_template_directory_uri() . '/css/customizer.css'                                    ),
+						'wm-genericons'   => array( wm_get_stylesheet_directory_uri( 'genericons/genericons.css' )                          ),
+						'wm-google-fonts' => array( wm_google_fonts_url()                                                                   ),
+						'wm-stylesheet'   => array( 'src' => get_stylesheet_uri(), 'deps' => array( 'wm-genericons', 'wm-slick' )           ),
+						'wm-colors'       => array( wm_get_stylesheet_directory_uri( 'css/colors.css' ), 'deps' => array( 'wm-stylesheet' ) ),
+						'wm-slick'        => array( wm_get_stylesheet_directory_uri( 'css/slick.css' )                                      ),
 					) );
 
 				foreach ( $register_styles as $handle => $atts ) {
@@ -436,12 +457,6 @@
 
 					wp_register_script( $handle, $src, $deps, $ver, $in_footer );
 				}
-
-			/**
-			 * Custom actions
-			 */
-
-				do_action( 'wmhook_wm_register_assets' );
 		}
 	} // /wm_register_assets
 
@@ -449,15 +464,19 @@
 
 	/**
 	 * Frontend HTML head assets enqueue
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
 	if ( ! function_exists( 'wm_enqueue_assets' ) ) {
 		function wm_enqueue_assets() {
 			//Helper variables
-				global $is_IE;
-
 				$enqueue_styles = $enqueue_scripts = array();
 
 				$custom_styles = wm_custom_styles();
+
+				$inline_styles_handle = ( wp_style_is( 'wm-colors', 'registered' ) ) ? ( 'wm-colors' ) : ( 'wm-stylesheet' );
+				$inline_styles_handle = apply_filters( 'wmhook_wm_enqueue_assets_inline_styles_handle', $inline_styles_handle );
 
 			/**
 			 * Styles
@@ -470,7 +489,12 @@
 				//Main
 					$enqueue_styles[] = 'wm-stylesheet';
 
-				$enqueue_styles = apply_filters( 'wmhook_wm_enqueue_assets_enqueue_styles', $enqueue_styles, $is_IE );
+				//Colors
+					if ( 'wm-colors' === $inline_styles_handle ) {
+						$enqueue_styles[] = 'wm-colors';
+					}
+
+				$enqueue_styles = apply_filters( 'wmhook_wm_enqueue_assets_enqueue_styles', $enqueue_styles );
 
 				foreach ( $enqueue_styles as $handle ) {
 					wp_enqueue_style( $handle );
@@ -482,16 +506,16 @@
 
 				//Customizer setup custom styles
 					if ( $custom_styles ) {
-						wp_add_inline_style( 'wm-stylesheet', "\r\n" . $custom_styles . "\r\n" );
+						wp_add_inline_style( $inline_styles_handle, "\r\n" . $custom_styles . "\r\n" );
 					}
 				//Custom styles set in post/page 'custom-css' custom field
 					if (
 							is_singular()
 							&& $output = get_post_meta( get_the_ID(), 'custom_css', true )
 						) {
-						$output = apply_filters( 'wmhook_wm_enqueue_assets_singular_inline_styles', "\r\n\r\n/* Custom singular styles */\r\n" . $output . "\r\n", $is_IE );
+						$output = apply_filters( 'wmhook_wm_enqueue_assets_singular_inline_styles', "\r\n\r\n/* Custom singular styles */\r\n" . $output . "\r\n" );
 
-						wp_add_inline_style( 'wm-stylesheet', $output . "\r\n" );
+						wp_add_inline_style( $inline_styles_handle, $output . "\r\n" );
 					}
 
 			/**
@@ -512,7 +536,7 @@
 				//Skip link focus fix
 					$enqueue_scripts[] = 'wm-skip-link-focus-fix';
 
-				$enqueue_scripts = apply_filters( 'wmhook_wm_enqueue_assets_enqueue_scripts', $enqueue_scripts, $is_IE );
+				$enqueue_scripts = apply_filters( 'wmhook_wm_enqueue_assets_enqueue_scripts', $enqueue_scripts );
 
 				foreach ( $enqueue_scripts as $handle ) {
 					wp_enqueue_script( $handle );
@@ -526,12 +550,6 @@
 						) {
 						wp_enqueue_script( 'comment-reply', false, false, false, true );
 					}
-
-			/**
-			 * Custom actions
-			 */
-
-				do_action( 'wmhook_wm_enqueue_assets', $is_IE );
 		}
 	} // /wm_enqueue_assets
 
@@ -631,14 +649,13 @@
 
 	/**
 	 * Website DOCTYPE
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
 	if ( ! function_exists( 'wm_doctype' ) ) {
 		function wm_doctype() {
-			//Helper variables
-				$output = '<!doctype html>';
-
-			//Output
-				echo apply_filters( 'wmhook_wm_doctype_output', $output );
+			echo '<!doctype html>';
 		}
 	} // /wm_doctype
 
@@ -646,24 +663,26 @@
 
 	/**
 	 * Website HEAD
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
 	if ( ! function_exists( 'wm_head' ) ) {
 		function wm_head() {
 			//Helper variables
-				global $is_IE;
-
 				$output = array();
 
 			//Preparing output
-				$output[10] = '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />';
-				$output[20] = '<link rel="profile" href="http://gmpg.org/xfn/11" />';
-				$output[30] = '<link rel="pingback" href="' . get_bloginfo( 'pingback_url' ) . '" />';
+				$output[10] = '<meta charset="' . get_bloginfo( 'charset' ) . '" />';
+				$output[20] = '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />';
+				$output[30] = '<link rel="profile" href="http://gmpg.org/xfn/11" />';
+				$output[40] = '<link rel="pingback" href="' . get_bloginfo( 'pingback_url' ) . '" />';
 
 				//Filter output array
 					$output = apply_filters( 'wmhook_wm_head_output_array', $output );
 
 			//Output
-				echo apply_filters( 'wmhook_wm_head_output', implode( "\r\n\t", $output ) . "\r\n" );
+				echo apply_filters( 'wmhook_wm_head_output', implode( "\r\n", $output ) . "\r\n" );
 		}
 	} // /wm_head
 
@@ -671,6 +690,9 @@
 
 	/**
 	 * Body top
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
 	if ( ! function_exists( 'wm_site_top' ) ) {
 		function wm_site_top() {
@@ -679,7 +701,7 @@
 				$output .= "\t" . '<div class="site-inner">' . "\r\n";
 
 			//Output
-				echo apply_filters( 'wmhook_wm_site_top_output', $output );
+				echo $output;
 		}
 	} // /wm_site_top
 
@@ -687,6 +709,9 @@
 
 		/**
 		 * Body bottom
+		 *
+		 * @since    1.0
+		 * @version  1.1
 		 */
 		if ( ! function_exists( 'wm_site_bottom' ) ) {
 			function wm_site_bottom() {
@@ -695,7 +720,7 @@
 					$output .= "\r\n" . '</div><!-- /#page -->' . "\r\n\r\n";
 
 				//Output
-					echo apply_filters( 'wmhook_wm_site_bottom_output', $output );
+					echo $output;
 			}
 		} // /wm_site_bottom
 
@@ -703,31 +728,37 @@
 
 	/**
 	 * Header top
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
-	if ( ! function_exists( 'wm_section_header_top' ) ) {
-		function wm_section_header_top() {
+	if ( ! function_exists( 'wm_header_top' ) ) {
+		function wm_header_top() {
 			//Preparing output
 				$output = "\r\n\r\n" . '<header id="masthead" class="site-header" role="banner"' . wm_schema_org( 'WPHeader' ) . '>' . "\r\n\r\n";
 
 			//Output
-				echo apply_filters( 'wmhook_wm_section_header_top_output', $output );
+				echo $output;
 		}
-	} // /wm_section_header_top
+	} // /wm_header_top
 
 
 
 		/**
 		 * Header bottom
+		 *
+		 * @since    1.0
+		 * @version  1.1
 		 */
-		if ( ! function_exists( 'wm_section_header_bottom' ) ) {
-			function wm_section_header_bottom() {
+		if ( ! function_exists( 'wm_header_bottom' ) ) {
+			function wm_header_bottom() {
 				//Helper variables
 					$output = "\r\n\r\n" . '</header>' . "\r\n\r\n";
 
 				//Output
-					echo apply_filters( 'wmhook_wm_section_header_bottom_output', $output );
+					echo $output;
 			}
-		} // /wm_section_header_bottom
+		} // /wm_header_bottom
 
 
 
@@ -744,13 +775,16 @@
 
 	/**
 	 * Navigation
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
-	if ( ! function_exists( 'wm_section_navigation' ) ) {
-		function wm_section_navigation() {
+	if ( ! function_exists( 'wm_navigation' ) ) {
+		function wm_navigation() {
 			//Helper variables
 				$output = '';
 
-				$args = apply_filters( 'wmhook_wm_section_navigation_args', array(
+				$args = apply_filters( 'wmhook_wm_navigation_args', array(
 						'theme_location'  => 'primary',
 						'container'       => 'div',
 						'container_class' => 'menu',
@@ -765,15 +799,15 @@
 					$output .= wm_accessibility_skip_link( 'to_content' );
 					$output .= '<div class="main-navigation-inner">';
 						$output .= wp_nav_menu( $args );
-						$output .= '<div id="nav-search-form" class="nav-search-form"><a href="#" id="search-toggle" class="search-toggle"><span class="screen-reader-text">' . __( 'Search', 'wm_domain' ) . '</span></a>' . get_search_form( false ) . '</div>';
+						$output .= '<div id="nav-search-form" class="nav-search-form"><a href="#" id="search-toggle" class="search-toggle"><span class="screen-reader-text">' . _x( 'Search', 'Display search form button title.', 'wm_domain' ) . '</span></a>' . get_search_form( false ) . '</div>';
 					$output .= '</div>';
-					$output .= '<button id="menu-toggle" class="menu-toggle">' . __( 'Menu', 'wm_domain' ) . '</button>';
+					$output .= '<button id="menu-toggle" class="menu-toggle">' . _x( 'Menu', 'Mobile navigation toggle button title.', 'wm_domain' ) . '</button>';
 				$output .= '</nav>';
 
 			//Output
-				echo apply_filters( 'wmhook_wm_section_navigation_output', $output );
+				echo apply_filters( 'wmhook_wm_navigation_output', $output );
 		}
-	} // /wm_section_navigation
+	} // /wm_navigation
 
 
 
@@ -830,6 +864,9 @@
 	/**
 	 * Post/page heading (title)
 	 *
+	 * @since    1.0
+	 * @version  1.1
+	 *
 	 * @param  array $args Heading setup arguments
 	 */
 	if ( ! function_exists( 'wm_post_title' ) ) {
@@ -846,6 +883,7 @@
 					if (
 							! ( $title = get_the_title() )
 							|| in_array( get_post_format(), array_filter( (array) apply_filters( 'wmhook_wm_post_title_disabled_post_formats', $disabled_post_formats ) ) )
+							|| apply_filters( 'wm_post_title_disable', false )
 						) {
 						return;
 					}
@@ -865,9 +903,19 @@
 				//Singular title (no link applied)
 					if (
 							is_single()
-							|| ( is_page() && 'page' === get_post_type() )
+							|| ( is_page() && 'page' === get_post_type() ) //not to display the below stuff on posts list on static front page
 						) {
-						$args['title'] = $title . wm_paginated_suffix( 'small' );
+
+						if ( $suffix = wm_paginated_suffix( 'small' ) ) {
+							$args['title'] .= $suffix;
+						} else {
+							$args['title'] = $title;
+						}
+
+						if ( ( $helper = get_edit_post_link( get_the_ID() ) ) && is_page() ) {
+							$args['title'] .= ' <a href="' . esc_url( $helper ) . '" class="entry-edit" title="' . esc_attr( sprintf( __( 'Edit the "%s"', 'wm_domain' ), the_title_attribute( array( 'echo' => false ) ) ) ) . '"><span>' . _x( 'Edit', 'Edit post link.', 'wm_domain' ) . '</span></a>';
+						}
+
 					}
 
 				//Filter processed $args
@@ -891,35 +939,58 @@
 
 	/**
 	 * Content top
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
-	if ( ! function_exists( 'wm_section_content_top' ) ) {
-		function wm_section_content_top() {
+	if ( ! function_exists( 'wm_content_top' ) ) {
+		function wm_content_top() {
 			//Helper variables
 				$output  = "\r\n\r\n" . '<div id="content" class="site-content">';
+				$output .= "\r\n\r\n" . wm_get_breadcrumbs();
 				$output .= "\r\n\t"   . '<div id="primary" class="content-area">';
 				$output .= "\r\n\t\t" . '<main id="main" class="site-main clearfix" role="main">' . "\r\n\r\n";
 
 			//Output
-				echo apply_filters( 'wmhook_wm_section_content_top_output', $output );
+				echo $output;
 		}
-	} // /wm_section_content_top
+	} // /wm_content_top
 
 
 
 		/**
 		 * Content bottom
+		 *
+		 * @since    1.0
+		 * @version  1.1
 		 */
-		if ( ! function_exists( 'wm_section_content_bottom' ) ) {
-			function wm_section_content_bottom() {
+		if ( ! function_exists( 'wm_content_bottom' ) ) {
+			function wm_content_bottom() {
 				//Helper variables
 					$output  = "\r\n\r\n\t\t" . '</main><!-- /#main -->';
 					$output .= "\r\n\t"       . '</div><!-- /#primary -->';
 					$output .= "\r\n"         . '</div><!-- /#content -->' . "\r\n\r\n";
 
 				//Output
-					echo apply_filters( 'wmhook_wm_section_content_bottom_output', $output );
+					echo $output;
 			}
-		} // /wm_section_content_bottom
+		} // /wm_content_bottom
+
+
+
+		/**
+		 * Breadcrumbs
+		 *
+		 * @since    1.1
+		 * @version  1.1
+		 */
+		if ( ! function_exists( 'wm_get_breadcrumbs' ) ) {
+			function wm_get_breadcrumbs() {
+				if ( function_exists( 'bcn_display' ) && ! is_front_page() ) {
+					return '<div class="breadcrumbs-container"><nav class="breadcrumbs" itemprop="breadcrumbs">' . bcn_display( true ) . '</nav></div>';
+				}
+			}
+		} // /wm_get_breadcrumbs
 
 
 
@@ -984,16 +1055,19 @@
 
 		/**
 		 * Entry after
+		 *
+		 * @since    1.0
+		 * @version  1.1
 		 */
 		if ( ! function_exists( 'wm_entry_after' ) ) {
 			function wm_entry_after() {
 				//Comments
-					if ( ! is_page_template( 'page-template/_front.php' ) ) {
+					if (
+							! ( is_page() && is_front_page() )
+							&& ! is_page_template( 'page-template/_front.php' )
+						) {
 						comments_template( '', true );
 					}
-
-				//Post navigation
-					wm_post_nav();
 			}
 		} // /wm_entry_after
 
@@ -1233,9 +1307,12 @@
 	 * It is completely optional, but if you like this
 	 * WordPress theme, I would appreciate it if you keep the credit link
 	 * in the theme's footer area.
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
-	if ( ! function_exists( 'wm_section_footer' ) ) {
-		function wm_section_footer() {
+	if ( ! function_exists( 'wm_footer' ) ) {
+		function wm_footer() {
 			//Footer widgets
 				get_sidebar( 'footer' );
 
@@ -1245,7 +1322,11 @@
 						echo '<div class="site-info" role="contentinfo">';
 							echo apply_filters( 'wmhook_wm_credits_output',
 									'&copy; ' . date( 'Y' ) . ' <a href="' . home_url( '/' ) . '" title="' . get_bloginfo( 'name' ) . '">' . get_bloginfo( 'name' ) . '</a>. '
-									. ' Powered by <a href="https://wordpress.org">' . __( 'WordPress', 'wm_domain' ) . '</a>. '
+									. sprintf(
+											__( 'Powered by %s.', 'wm_domain' ),
+											'<a href="https://wordpress.org">WordPress</a>'
+										)
+									. ' '
 									. sprintf(
 											__( 'Theme by %s.', 'wm_domain' ),
 											'<a href="' . esc_url( WM_DEVELOPER_URL ) . '">WebMan Design</a>'
@@ -1257,37 +1338,43 @@
 					echo '</div>';
 				echo '</div>';
 		}
-	} // /wm_section_footer
+	} // /wm_footer
 
 
 
 		/**
 		 * Footer top
+		 *
+		 * @since    1.0
+		 * @version  1.1
 		 */
-		if ( ! function_exists( 'wm_section_footer_top' ) ) {
-			function wm_section_footer_top() {
+		if ( ! function_exists( 'wm_footer_top' ) ) {
+			function wm_footer_top() {
 				//Preparing output
 					$output = "\r\n\r\n" . '<footer id="colophon" class="site-footer"' . wm_schema_org( 'WPFooter' ) . '>' . "\r\n\r\n";
 
 				//Output
-					echo apply_filters( 'wmhook_wm_section_footer_top_output', $output );
+					echo $output;
 			}
-		} // /wm_section_footer_top
+		} // /wm_footer_top
 
 
 
 		/**
 		 * Footer bottom
+		 *
+		 * @since    1.0
+		 * @version  1.1
 		 */
-		if ( ! function_exists( 'wm_section_footer_bottom' ) ) {
-			function wm_section_footer_bottom() {
+		if ( ! function_exists( 'wm_footer_bottom' ) ) {
+			function wm_footer_bottom() {
 				//Preparing output
 					$output = "\r\n\r\n" . '</footer>' . "\r\n\r\n";
 
 				//Output
-					echo apply_filters( 'wmhook_wm_section_footer_bottom_output', $output );
+					echo $output;
 			}
-		} // /wm_section_footer_bottom
+		} // /wm_footer_bottom
 
 
 
@@ -1295,19 +1382,22 @@
 		 * Website footer custom scripts
 		 *
 		 * Outputs custom scripts set in post/page 'custom-js' custom field.
+		 *
+		 * @since    1.0
+		 * @version  1.1
 		 */
 		if ( ! function_exists( 'wm_footer_custom_scripts' ) ) {
 			function wm_footer_custom_scripts() {
 				//Requirements check
 					if (
 							! is_singular()
-							|| ! $output = get_post_meta( get_the_ID(), 'custom_js', true )
+							|| ! ( $output = get_post_meta( get_the_ID(), 'custom_js', true ) )
 						) {
 						return;
 					}
 
 				//Helper variables
-					$output = "\r\n\r\n<!--Custom singular JS -->\r\n<script type='text/javascript'>\r\n/* <![CDATA[ */\r\n" . wp_unslash( esc_js( $output ) ) . "\r\n/* ]]> */\r\n</script>\r\n";
+					$output = "\r\n\r\n<!--Custom singular JS -->\r\n<script type='text/javascript'>\r\n/* <![CDATA[ */\r\n" . wp_unslash( esc_js( str_replace( array( "\r", "\n", "\t" ), '', $output ) ) ) . "\r\n/* ]]> */\r\n</script>\r\n";
 
 				//Output
 					echo apply_filters( 'wmhook_wm_footer_custom_scripts_output', $output );
@@ -1403,190 +1493,5 @@
 				return $value;
 		}
 	} // /wm_css_font_name
-
-
-
-	/**
-	 * Display custom taxonomy archives links
-	 *
-	 * @param  string $taxonomy_name
-	 *
-	 * @return  HTML Unordered list of taxonomy archive links.
-	 */
-	if ( ! function_exists( 'wm_portfolio_taxonomy' ) ) {
-		function wm_portfolio_taxonomy() {
-			//Helper variables
-				$output = '';
-
-				$post_type     = 'jetpack-portfolio';
-				$taxonomy_name = apply_filters( 'wmhook_wm_portfolio_taxonomy_name', 'jetpack-portfolio-type' );
-				$taxonomy_args = (array) apply_filters( 'wmhook_wm_portfolio_taxonomy_args', array() );
-
-			//Requirements check
-				if (
-						! taxonomy_exists( $taxonomy_name )
-						|| is_home()
-						|| is_search()
-						|| (
-								is_archive()
-								&& $post_type != get_post_type()
-							)
-					) {
-					return;
-				}
-
-			//Preparing output
-				$terms = get_terms( $taxonomy_name, $taxonomy_args );
-
-				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-
-					$output .= apply_filters( 'wmhook_wm_portfolio_taxonomy_link_all', '<li class="link-all"><a href="' . esc_url( get_post_type_archive_link( $post_type ) ) . '">' . __( 'All projects', 'wm_domain' ) . '</a></li>' );
-
-					foreach ( $terms as $term ) {
-						//The $term is an object, so we don't need to specify the $taxonomy
-							$term_link = get_term_link( $term );
-
-						//If there was an error, continue to the next term
-							if ( is_wp_error( $term_link ) ) {
-								continue;
-							}
-
-						//Current link class
-							$class = ( is_tax( $taxonomy_name, $term->name ) ) ? ( ' class="current"' ) : ( '' );
-
-						//We successfully got a link, use it
-							$output .= '<li' . $class . '><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></li>';
-					}
-
-				}
-
-			//Output
-				echo apply_filters( 'wmhook_wm_portfolio_taxonomy_output', '<ul class="taxonomy-links taxonomy-' . $taxonomy_name . '">' . $output . '</ul>' );
-		}
-	} // /wm_portfolio_taxonomy
-
-
-
-	/**
-	 * Plugins integration
-	 */
-
-		/**
-		 * JetPack integration
-		 */
-
-			/**
-			 * Enables JetPack features
-			 */
-			if ( ! function_exists( 'wm_jetpack' ) ) {
-				function wm_jetpack() {
-					//Site logo
-						add_theme_support( 'site-logo' );
-
-					//Portfolio post type
-						add_theme_support( 'jetpack-portfolio' );
-						add_post_type_support( 'jetpack-portfolio', array( 'excerpt', 'post-formats', 'custom-fields' ) );
-
-					//Featured content
-						add_theme_support( 'featured-content', apply_filters( 'wmhook_wm_jetpack_featured_content', array(
-								'featured_content_filter' => 'wm_get_banner_posts',
-								'max_posts'               => 6,
-								'post_types'              => array( 'post', 'jetpack-portfolio' ),
-							) ) );
-
-					//Infinite scroll
-						add_theme_support( 'infinite-scroll', apply_filters( 'wmhook_wm_jetpack_infinite_scroll', array(
-								'type'           => 'scroll',
-								'container'      => 'posts',
-								'footer'         => false,
-								'posts_per_page' => 6,
-							) ) );
-				}
-			} // /wm_jetpack
-
-
-
-			/**
-			 * JetPack sharing display
-			 *
-			 * @param  bool $show
-			 * @param  obj  $post
-			 */
-			if ( ! function_exists( 'wm_jetpack_sharing' ) ) {
-				function wm_jetpack_sharing( $show, $post ) {
-					//Helper variables
-						global $wp_current_filter;
-
-					//Preparing output
-						if ( in_array( 'the_excerpt', (array) $wp_current_filter ) ) {
-							$show = false;
-						}
-
-					//Output
-						return $show;
-				}
-			} // /wm_jetpack_sharing
-
-
-
-			/**
-			 * JetPack infinite scroll JS settings array modifier
-			 *
-			 * @param  array $settings
-			 */
-			if ( ! function_exists( 'wm_jetpack_infinite_scroll_js_settings' ) ) {
-				function wm_jetpack_infinite_scroll_js_settings( $settings ) {
-					//Helper variables
-						$settings['text'] = esc_js( __( 'Load more&hellip;', 'wm_domain' ) );
-
-					//Output
-						return $settings;
-				}
-			} // /wm_jetpack_infinite_scroll_js_settings
-
-
-
-		/**
-		 * ZillaLikes integration
-		 */
-
-			/**
-			 * Post custom meta
-			 *
-			 * @param  string $replacements
-			 * @param  string $meta
-			 * @param  array  $args
-			 */
-			if ( ! function_exists( 'wm_post_custom_metas' ) ) {
-				function wm_post_custom_metas( $replacements, $meta, $args ) {
-					//Requirements check
-						if (
-								! in_array( $meta, array( 'likes' ) )
-								|| ! function_exists( 'zilla_likes' )
-							) {
-							return $replacements;
-						}
-
-					//Helper variables
-						$meta_output = '';
-
-						if ( 'likes' === $meta ) {
-
-							global $zilla_likes;
-							$meta_output = $zilla_likes->do_likes();
-
-						}
-
-					//Add new meta
-						$replacements = array(
-								'{attributes}' => '',
-								'{class}'      => 'entry-' . $meta . ' entry-meta-element',
-								'{content}'    => $meta_output,
-							);
-
-					//Output
-						return $replacements;
-				}
-			} // /wm_post_custom_metas
 
 ?>

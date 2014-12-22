@@ -19,7 +19,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -40,6 +42,9 @@ $image_size        = ( is_single() ) ? ( WM_IMAGE_SIZE_SINGULAR ) : ( WM_IMAGE_S
 		if ( ! is_single() ) {
 
 			$post_media = wm_get_post_format_media();
+			if ( ! is_array( $post_media ) ) {
+				$post_media = explode( ',', $post_media );
+			}
 
 			//Output [gallery] shortcode images
 				if (
@@ -47,7 +52,7 @@ $image_size        = ( is_single() ) ? ( WM_IMAGE_SIZE_SINGULAR ) : ( WM_IMAGE_S
 						&& ! empty( $post_media )
 					) {
 
-					echo '<div class="post-media enable-slider">';
+					echo '<div class="entry-media enable-slider">';
 
 						foreach( $post_media as $image_id ) {
 							echo '<a href="' . get_permalink() . '" class="slide">' . wp_get_attachment_image( absint( $image_id ), $image_size ) . '</a>';
@@ -73,11 +78,11 @@ $image_size        = ( is_single() ) ? ( WM_IMAGE_SIZE_SINGULAR ) : ( WM_IMAGE_S
 			) {
 
 			$image_link = ( is_single() ) ? ( wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' ) ) : ( array( get_permalink() ) );
-			$image_link = array_filter( (array) apply_filters( 'wmhook-entry-image-link', $image_link ) );
+			$image_link = array_filter( (array) apply_filters( 'wmhook_entry_image_link', $image_link ) );
 
 			?>
 
-			<div class="post-media">
+			<div class="entry-media">
 
 				<figure class="post-thumbnail"<?php echo wm_schema_org( 'image' ); ?>>
 

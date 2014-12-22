@@ -4,7 +4,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -23,10 +25,10 @@
 	}
 	$widgets_count = count( $widgets_count );
 
-	$footer_columns = absint( apply_filters( 'wmhook_footer_columns_max_count', 3 ) );
+	$widgets_columns = absint( apply_filters( 'wmhook_footer_columns_max_count', 3 ) );
 
-	if ( $widgets_count < $footer_columns ) {
-		$footer_columns = $widgets_count;
+	if ( $widgets_count < $widgets_columns ) {
+		$widgets_columns = $widgets_count;
 	}
 
 
@@ -38,7 +40,7 @@
 	if ( is_active_sidebar( $sidebar_id ) ) {
 
 		echo '<div class="site-footer-area footer-area-footer-widgets">';
-			echo '<div id="footer-widgets" class="footer-widgets clearfix columns-' . $footer_columns . '" data-columns="' . $footer_columns . '">';
+			echo '<div id="footer-widgets" class="footer-widgets clearfix columns-' . $widgets_columns . '" data-columns="' . $widgets_columns . '">';
 
 				echo "\r\n\r\n" . '<div id="footer-widgets-container" class="widget-area footer-widgets-container widgets-count-' . $widgets_count . '" data-widgets-count="' . $widgets_count . '">' . "\r\n";
 

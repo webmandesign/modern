@@ -3,19 +3,21 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
 
 	/* Background color */
+
 		body { background-color: [[background_color]]; }
 
 		.site-banner-media:before,
 		.banner-images:before {
 			background: transparent;
 			background: -webkit-linear-gradient(       top, [[background_color|alpha=0]] 0%, [[background_color]] 100% );
-			background:     -ms-linear-gradient(       top, [[background_color|alpha=0]] 0%, [[background_color]] 100% );
 			background:         linear-gradient( to bottom, [[background_color|alpha=0]] 0%, [[background_color]] 100% );
 		}
 
@@ -25,6 +27,7 @@
 		.site-header .social-links,
 		.page-title,
 		.taxonomy-description,
+		.page-title,
 		.error-404,
 		.not-found {
 			color: [[color-text]];
@@ -33,10 +36,12 @@
 
 	/* Accent color and accent text color */
 
-		a { color: [[color-accent]]; }
+		a,
+		.accent-color { color: [[color-accent]]; }
 
 		mark,
 		ins,
+		.highlight,
 		pre:before,
 		.pagination a,
 		.pagination span,
@@ -46,24 +51,35 @@
 		input[type="button"],
 		input[type="reset"],
 		input[type="submit"],
+		.taxonomy-links a,
 		.format-quote,
 		.posts .format-quote,
 		.format-status,
 		.posts .format-status,
-		.taxonomy-links a,
 		.entry-content div.sharedaddy .sd-content ul li a.sd-button:not(.no-text),
 		.post-navigation .nav-previous,
 		.post-navigation .nav-next,
-		.bypostauthor .comment-author:before,
+		.bypostauthor > .comment-body .comment-author:before,
 		.comment-navigation a,
 		.widget_calendar tbody a,
-		.widget .tagcloud a,
+		.widget .tagcloud a:hover,
 		body #infinite-handle span,
-		.menu-toggle:before {
+		.menu-toggle:before,
+		.format-gallery .slick-prev,
+		.format-gallery .slick-next {
 			background-color: [[color-accent]];
 			color: [[color-accent-text]];
 		}
-		.entry-content div.sharedaddy .sd-content ul li a.sd-button:not(.no-text) { color: [[color-accent-text]] !important; }
+
+			.entry-content div.sharedaddy .sd-content ul li a.sd-button:not(.no-text) { color: [[color-accent-text]] !important; }
+
+		mark,
+		ins,
+		.highlight {
+			-webkit-box-shadow: .38em 0 0 [[color-accent]], -.38em 0 0 [[color-accent]];
+			        box-shadow: .38em 0 0 [[color-accent]], -.38em 0 0 [[color-accent]];
+		}
+
 		.infinite-loader .spinner > div > div { background: [[color-accent]] !important; }
 
 		.label-sticky:before,
@@ -74,18 +90,17 @@
 
 		input:focus,
 		select:focus,
-		textarea:focus { border-color: [[color-accent]]; }
+		textarea:focus,
+		.widget .tagcloud a:hover { border-color: [[color-accent]]; }
 
 		.post-navigation .has-post-thumbnail:before {
 			background: [[color-accent]];
-			background: -webkit-linear-gradient(   right, [[color-accent|alpha=0]] 19%, [[color-accent]] 81% ); /* Chrome10+,Safari5.1+ */
-			background:     -ms-linear-gradient(   right, [[color-accent|alpha=0]] 19%, [[color-accent]] 81% ); /* IE10+ */
+			background: -webkit-linear-gradient(   right, [[color-accent|alpha=0]] 19%, [[color-accent]] 81% );
 			background:         linear-gradient( to left, [[color-accent|alpha=0]] 19%, [[color-accent]] 81% );
 		}
 			.post-navigation .nav-next.has-post-thumbnail:before {
 				background: [[color-accent]];
-				background: -webkit-linear-gradient(     left, [[color-accent|alpha=0]] 19%, [[color-accent]] 81% ); /* Chrome10+,Safari5.1+ */
-				background:     -ms-linear-gradient(     left, [[color-accent|alpha=0]] 19%, [[color-accent]] 81% ); /* IE10+ */
+				background: -webkit-linear-gradient(     left, [[color-accent|alpha=0]] 19%, [[color-accent]] 81% );
 				background:         linear-gradient( to right, [[color-accent|alpha=0]] 19%, [[color-accent]] 81% );
 			}
 

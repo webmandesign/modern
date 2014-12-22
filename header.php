@@ -4,7 +4,9 @@
  *
  * @package    Modern
  * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -22,8 +24,7 @@
 
 <head>
 
-	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<?php
+<?php
 
 	/**
 	 * HTML head
@@ -31,17 +32,19 @@
 
 	wmhook_head_top();
 
+	if ( ! function_exists( '_wp_render_title_tag' ) ) :
 	?>
 
-	<title><?php wp_title( '' ); ?></title>
+	<title><?php wp_title( '|', true, 'right' ); ?></title>
 
 	<?php
+	endif;
 
 	wmhook_head_bottom();
 
 	wp_head();
 
-	?>
+?>
 
 </head>
 

@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modern\n"
 "POT-Creation-Date: 2014-12-22 10:06+0100\n"
-"PO-Revision-Date: 2014-12-22 10:07+0100\n"
+"PO-Revision-Date: 2014-12-22 10:43+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
-"Language: en\n"
+"Language: sk_SK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,300 +15,301 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
+"X-Poedit-SearchPath-0: .\n"
 
 # Copyright (C) 2014 WebMan - Oliver Juhas
 # This file is distributed under the same license as the WordPress package.
-
-
-
-
-
 #: 404.php:20
 msgid "Oops! That page can not be found."
-msgstr ""
+msgstr "Hľadaná stránka nebola nájdená."
 
 #: 404.php:24
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
+"Vyzerá to tak, že sa nenašli žiadne záznamy. Možno skúste vyhľadávanie?"
 
 #: archive.php:31
 #, php-format
 msgctxt "Archive page title."
 msgid "Author: %s"
-msgstr ""
+msgstr "Autor: %s"
 
 #: archive.php:34
 #, php-format
 msgctxt "Archive page title."
 msgid "Day: %s"
-msgstr ""
+msgstr "Deň: %s"
 
 #: archive.php:37
 #, php-format
 msgctxt "Archive page title."
 msgid "Month: %s"
-msgstr ""
+msgstr "Mesiac: %s"
 
 #: archive.php:37
 msgctxt "Monthly archives date format."
 msgid "F Y"
-msgstr ""
+msgstr "F Y"
 
 #: archive.php:40
 #, php-format
 msgctxt "Archive page title."
 msgid "Year: %s"
-msgstr ""
+msgstr "Rok: %s"
 
 #: archive.php:40
 msgctxt "Yearly archives date format."
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: archive.php:45
 #, php-format
 msgctxt "Archive page title."
 msgid "Post format: %s"
-msgstr ""
+msgstr "Formát článku: %s"
 
 #: archive.php:54
 msgctxt "Archive page title."
 msgid "Archives"
-msgstr ""
+msgstr "Archív"
 
 #: comments.php:43
 #, php-format
 msgctxt "Comments list title."
 msgid "1 comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 komentár k &quot;%2$s&quot;"
+msgstr[1] "%1$s komentáre k &quot;%2$s&quot;"
+msgstr[2] "%1$s komentárov k &quot;%2$s&quot;"
 
 #: comments.php:48
 msgctxt "Add new comment link text."
 msgid "Add yours &rarr;"
-msgstr ""
+msgstr "Pridajte vlastný &rarr;"
 
 #: comments.php:63
 msgid "Comments are closed. You can not add new comments."
-msgstr ""
+msgstr "Komentáre sú uzatvorené. Nie je možné pridávať ďalšie."
 
 #: comments.php:87
 msgid "Comment navigation"
-msgstr ""
+msgstr "Navigácia v komentároch"
 
 #: comments.php:90
 msgid "&larr; Older comments"
-msgstr ""
+msgstr "&larr; Staršie komentáre"
 
 #: comments.php:94
 msgid "Newer comments &rarr;"
-msgstr ""
+msgstr "Novšie komentáre &rarr;"
 
 #: content-custom-header.php:95
 msgid "Set the default text in Customizer > Predefined Texts"
-msgstr ""
+msgstr "Nastavte text v Prispôsobiť > Preddefinované Texty"
 
 #: content-none.php:16
 msgid "Nothing Found"
-msgstr ""
+msgstr "Nenašli sa žiadne záznamy"
 
 #: content-none.php:22
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
+"Pripravený publikovať svoj prvý článok? <a href=\"%1$s\">Začnite tu</a>."
 
 #: content-none.php:26
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
+"Vášmu vyhľadávaniu nezodpovedajú žiadne záznamy. Skúste znovu pomocou iných "
+"kľúčových slov."
 
 #: content-none.php:32
 msgid ""
 "It seems we can not find what you are looking for. Perhaps searching can "
 "help."
-msgstr ""
+msgstr "Nemôžeme nájsť, čo hľadáte. Skúste vyhľadávacie pole."
 
 #: content-status.php:25
 #, php-format
 msgid "Status: %s on %s"
-msgstr ""
+msgstr "Status: %s dňa %s"
 
 #: image.php:78
 msgctxt "Attachment page publish time."
 msgid "Image published on:"
-msgstr ""
+msgstr "Obrázok publikovaný dňa:"
 
 #: image.php:82
 msgid "Image size:"
-msgstr ""
+msgstr "Veľkosť obrázku:"
 
 #: image.php:86
 msgid "Image file name:"
-msgstr ""
+msgstr "Názov súboru obrázku:"
 
 #: inc/customizer/controls/class-WM_Customizer_Multiselect.php:42
 msgid "Press CTRL key for multiple selection."
-msgstr ""
+msgstr "Pridržte klávesu CTRL pre viacnásobnú voľbu"
 
 #: inc/jetpack/jetpack.php:122
 msgid "Load more&hellip;"
-msgstr ""
+msgstr "Načítať viac&hellip;"
 
 #: inc/jetpack/jetpack.php:169 inc/setup.php:1296
 msgid "All projects"
-msgstr ""
+msgstr "Všetky projekty"
 
 #: inc/lib/admin.php:114
 msgid "Image"
-msgstr ""
+msgstr "Obrázok"
 
 #: inc/lib/admin.php:228
 msgctxt "Visual editor blockquote formats group title."
 msgid "Quotes"
-msgstr ""
+msgstr "Citácie"
 
 #: inc/lib/admin.php:232
 msgid "Blockquote"
-msgstr ""
+msgstr "Citácia"
 
 #: inc/lib/admin.php:236
 msgid "Pullquote - align left"
-msgstr ""
+msgstr "Vytrhnutý citát vľavo"
 
 #: inc/lib/admin.php:241
 msgid "Pullquote - align right"
-msgstr ""
+msgstr "Vytrhnutý citát vpravo"
 
 #: inc/lib/admin.php:246
 msgctxt ""
 "Visual editor format label for HTML CITE tag used to set the blockquote "
 "source."
 msgid "Cite"
-msgstr ""
+msgstr "Citovaný autor"
 
 #: inc/lib/admin.php:255
 msgid "Text styles"
-msgstr ""
+msgstr "Textové štýly"
 
 #: inc/lib/admin.php:259
 msgid "Uppercase heading or paragraph"
-msgstr ""
+msgstr "Text veľkým písmom"
 
 #: inc/lib/admin.php:265
 msgid "Highlighted (marked) text"
-msgstr ""
+msgstr "Zvýraznený text"
 
 #: inc/lib/admin.php:270
 msgid "Button link"
-msgstr ""
+msgstr "Tlačidlo z odkazu"
 
 #: inc/lib/core.php:125
 #, php-format
 msgctxt "Site logo image \"alt\" HTML attribute text."
 msgid "%s logo"
-msgstr ""
+msgstr "%s logo"
 
 #. translators: %s will be replaced with parted post title. Copy it, do not translate.
 #: inc/lib/core.php:384
 #, php-format
 msgctxt "Parted/paginated post table of content title."
 msgid "\"%s\" table of contents"
-msgstr ""
+msgstr "Obsah článku \"%s\""
 
 #: inc/lib/core.php:428
 #, php-format
 msgid "Page %s"
-msgstr ""
+msgstr "Stránka %s"
 
 #: inc/lib/core.php:479
 msgid "Part %"
-msgstr ""
+msgstr "Časť %"
 
 #: inc/lib/core.php:581
 #, php-format
 msgctxt "Number of comments in post meta."
 msgid "Comments: %s"
-msgstr ""
+msgstr "Komentáre: %s"
 
 #: inc/lib/core.php:581
 #, php-format
 msgctxt "Number of comments in post meta (keep the HTML tags)."
 msgid "<span class=\"comments-title\">Comments: </span>%s"
-msgstr ""
+msgstr "<span class=\"comments-title\">Komentáre: </span>%s"
 
 #: inc/lib/core.php:612 inc/setup.php:916
 #, php-format
 msgid "Edit the \"%s\""
-msgstr ""
+msgstr "Upraviť \"%s\""
 
 #: inc/lib/core.php:612 inc/setup.php:916
 msgctxt "Edit post link."
 msgid "Edit"
-msgstr ""
+msgstr "Upraviť"
 
 #: inc/lib/core.php:645
 #, php-format
 msgid "Permalink to \"%s\""
-msgstr ""
+msgstr "Odkaz na \"%s\""
 
 #: inc/lib/core.php:734
 #, php-format
 msgctxt "Paginated content title suffix."
 msgid "(page %s)"
-msgstr ""
+msgstr "(stránka %s)"
 
 #: inc/lib/core.php:919
 msgid "Skip to content"
-msgstr ""
+msgstr "Preskočiť na obsah"
 
 #: inc/lib/core.php:920
 msgid "Skip to navigation"
-msgstr ""
+msgstr "Preskočiť na navigáciu"
 
 #: inc/setup-theme-options.php:67
 msgctxt "Customizer section title."
 msgid "Colors"
-msgstr ""
+msgstr "Farby"
 
 #: inc/setup-theme-options.php:73
 msgid "Text color"
-msgstr ""
+msgstr "Farba textu"
 
 #: inc/setup-theme-options.php:74
 msgid "Color of text over background color"
-msgstr ""
+msgstr "Farba textu na farbe pozadia"
 
 #: inc/setup-theme-options.php:80 inc/setup-theme-options.php:86
 msgid "Accent color"
-msgstr ""
+msgstr "Akcentová farba"
 
 #: inc/setup-theme-options.php:87
 msgid "This color affects links, buttons and other elements of the website"
-msgstr ""
+msgstr "Táto farba ovplyvňuje odkazy, tlačidlá a iné elementy webstránky"
 
 #: inc/setup-theme-options.php:93
 msgid "Accent text color"
-msgstr ""
+msgstr "Farba textu na akcentovej farbe"
 
 #: inc/setup-theme-options.php:94
 msgid "Color of text over accent color background"
-msgstr ""
+msgstr "Farba textu zobrazeného na pozadí akcentovej farby"
 
 #: inc/setup-theme-options.php:106
 msgctxt "Customizer section title."
 msgid "Fonts"
-msgstr ""
+msgstr "Písmo"
 
 #: inc/setup-theme-options.php:111
 msgid ""
 "Set a Google Font to be used for website logo, headings and general text."
 msgstr ""
+"Nastavte Google Font použitý pre logo, nadpisy a ostatný text webstránky."
 
 #: inc/setup-theme-options.php:111
 #, php-format
@@ -316,39 +317,42 @@ msgid ""
 "Font matches recommendations from <a%s>Google Web Fonts Typographic Project</"
 "a>."
 msgstr ""
+"Odporúčané skupiny písma z <a%s>Google Web Fonts Typographic Project</a>."
 
 #: inc/setup-theme-options.php:117
 msgid "Logo (site title) font"
-msgstr ""
+msgstr "Písmo loga"
 
 #: inc/setup-theme-options.php:124
 msgid "Headings font"
-msgstr ""
+msgstr "Písmo nadpisov"
 
 #: inc/setup-theme-options.php:131
 msgid "General text font"
-msgstr ""
+msgstr "Základný typ písma"
 
 #: inc/setup-theme-options.php:139
 msgid "Font subset"
-msgstr ""
+msgstr "Znaková sada písma"
 
 #: inc/setup-theme-options.php:147
 msgid "Basic font size"
-msgstr ""
+msgstr "Základná veľkosť písma"
 
 #: inc/setup-theme-options.php:148
 msgid ""
 "All other font sizes are calculated automatically from this basic font size"
 msgstr ""
+"Všetky ostatné veľkosti písma sú kalkulované automaticky z tejto základnej "
+"hodnoty"
 
 #: inc/setup-theme-options.php:166
 msgid "Predefined texts"
-msgstr ""
+msgstr "Preddefinované texty"
 
 #: inc/setup-theme-options.php:171
 msgid "Front page banner area will display Header Images and custom text."
-msgstr ""
+msgstr "Banner na úvodnej stránke zobrazuje obrázky hlavičky a text."
 
 #: inc/setup-theme-options.php:171
 msgid ""
@@ -357,28 +361,33 @@ msgid ""
 "custom field for your front page. Page featured image will be used as banner "
 "image."
 msgstr ""
+"Ak nastavíte statickú úvodnú stránku, jej nadpis sa zobrazí ako text v "
+"banneri. Alebo môžete nastaviť vlastný text pomocou <code>banner_text</code> "
+"vlastného poľa. Prezentačný obrázok stránky sa použije ako obrázok v banneri."
 
 #: inc/setup-theme-options.php:171
 msgid ""
 "Or, if you are using Featured Content module of the Jetpack plugin, just set "
 "it up and posts slideshow will be displayed in the banner."
 msgstr ""
+"Alebo, ak používate funkciu \"Promovaný obsah\" z Jetpack modulu, jednoducho "
+"ju nastavte a v banneri sa zobrazí animácia týchto článkov."
 
 #: inc/setup-theme-options.php:177
 msgid "Banner default text"
-msgstr ""
+msgstr "Preddefinovaný text banneru"
 
 #: inc/setup-theme-options.php:178
 msgid "Used only when displaying latest posts on homepage"
-msgstr ""
+msgstr "Použije sa iba ak sú na úvodnej stránke zobrazené aktuálne články"
 
 #: inc/setup-theme-options.php:179
 msgid "Hello! Welcome to my awesome website!"
-msgstr ""
+msgstr "Ahoj! Vitaj na mojej úžasnej webstránke!"
 
 #: inc/setup-theme-options.php:196
 msgid "Theme Credits"
-msgstr ""
+msgstr "O téme"
 
 #: inc/setup-theme-options.php:196
 #, php-format
@@ -387,15 +396,18 @@ msgid ""
 "professional WordPress themes at <strong><a href=\"%s\" target=\"_blank"
 "\">WebManDesign.eu</a></strong>. Thank you for using this awesome theme!"
 msgstr ""
+"%s je voľne dostupná WordPress téma. Ďalšie profesionálne WordPress témy od "
+"jej autora sú k dispozícií na <strong><a href=\"%s\" target=\"_blank"
+"\">WebManDesign.eu</a></strong>. Ďakujeme, že používate túto úžasnú tému!"
 
 #: inc/setup.php:149
 msgid " - do not use Google Font"
-msgstr ""
+msgstr "- nepoužiť Google Fonty"
 
 #: inc/setup.php:152
 msgctxt "Google Font default setup options group title."
 msgid "Theme default"
-msgstr ""
+msgstr "Pôvodné nastavenie"
 
 #: inc/setup.php:157 inc/setup.php:162 inc/setup.php:168 inc/setup.php:173
 #: inc/setup.php:178 inc/setup.php:183 inc/setup.php:188 inc/setup.php:192
@@ -403,55 +415,57 @@ msgstr ""
 #, php-format
 msgctxt "Google Font setup recommendation (numbered) group title."
 msgid "Recommendation #%d"
-msgstr ""
+msgstr "Odporúčanie č. %d"
 
 #: inc/setup.php:205
 msgctxt "Title for selection of fonts picked from Google Fontss"
 msgid "Fonts selection"
-msgstr ""
+msgstr "Výber typov písma"
 
 #: inc/setup.php:255
 msgid "Sidebar"
-msgstr ""
+msgstr "Bočný panel"
 
 #: inc/setup.php:256
 msgid "Page sidebar."
-msgstr ""
+msgstr "Bočný panel na stránke."
 
 #: inc/setup.php:259
 msgid "Footer Widgets"
-msgstr ""
+msgstr "Widgety v pätke"
 
 #: inc/setup.php:260
 msgid "Masonry layout is used to display footer widgets."
 msgstr ""
+"Widgety v pätke budú automaticky rozložené aby sa ušetrilo čo najviac miesta "
+"(tzv. \"masonry\" rozloženie)."
 
 #: inc/setup.php:351
 msgid "Primary Menu"
-msgstr ""
+msgstr "Hlavné menu"
 
 #: inc/setup.php:352
 msgid "Social Links Menu"
-msgstr ""
+msgstr "Odkazy sociálnych sietí"
 
 #: inc/setup.php:798
 #, php-format
 msgid "%s site navigation"
-msgstr ""
+msgstr "Navigácia webstránky %s"
 
 #: inc/setup.php:802
 msgctxt "Display search form button title."
 msgid "Search"
-msgstr ""
+msgstr "Vyhľadávanie"
 
 #: inc/setup.php:804
 msgctxt "Mobile navigation toggle button title."
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: inc/setup.php:1082
 msgid "This is sticky post"
-msgstr ""
+msgstr "Výrazný článok"
 
 #: inc/setup.php:1103
 #, php-format
@@ -459,73 +473,80 @@ msgid ""
 "This content is password protected. To view it please <a%s>enter the "
 "password</a>."
 msgstr ""
+"Tento obsah je chránený heslom. Na jeho prezeranie <a%s>zadajte heslo/a>."
 
 #: inc/setup.php:1185
 #, php-format
 msgid "Continue reading%s&hellip;"
-msgstr ""
+msgstr "Pokračovať v čítaní%s&hellip;"
 
 #: inc/setup.php:1224
 msgid ""
 "<span class=\"meta-nav\">Published In</span><span class=\"post-title\">"
 "%title</span>"
 msgstr ""
+"<span class=\"meta-nav\">Publikované v</span><span class=\"post-title\">"
+"%title</span>"
 
 #: inc/setup.php:1226
 msgid ""
 "<span class=\"meta-nav\">Previous</span><span class=\"post-title\">%title</"
 "span>"
 msgstr ""
+"<span class=\"meta-nav\">Predchádzajúce</span><span class=\"post-title\">"
+"%title</span>"
 
 #: inc/setup.php:1227
 msgid ""
 "<span class=\"meta-nav\">Next</span><span class=\"post-title\">%title</span>"
 msgstr ""
+"<span class=\"meta-nav\">Nasledujúce</span><span class=\"post-title\">"
+"%title</span>"
 
 #: inc/setup.php:1231
 msgid "Post navigation"
-msgstr ""
+msgstr "Navigácia v článkoch"
 
 #: inc/setup.php:1284
 msgid "All posts"
-msgstr ""
+msgstr "Všetky články"
 
 #: inc/setup.php:1326
 #, php-format
 msgid "Powered by %s."
-msgstr ""
+msgstr "Používame %s."
 
 #: inc/setup.php:1331
 #, php-format
 msgid "Theme by %s."
-msgstr ""
+msgstr "Autor témy: %s."
 
 #: inc/setup.php:1334
 msgid "Back to top &uarr;"
-msgstr ""
+msgstr "Späť nahor &uarr;"
 
 #: page-template/_front.php:43
 msgid "Portfolio"
-msgstr ""
+msgstr "Portfólio"
 
 #: page-template/_front.php:105 page-template/_front.php:107
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: search.php:20
 #, php-format
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Výsledky vyhľadávania pre: %s"
 
 #: searchform.php:15
 msgctxt "Search field label."
 msgid "Search"
-msgstr ""
+msgstr "Vyhľadávanie"
 
 #: searchform.php:16
 msgid "Search field: type and press enter"
-msgstr ""
+msgstr "Zadajte výraz a stlačte Enter"
 
 #: sidebar.php:20
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Zobraziť/skryť bočný panel"

@@ -1,6 +1,6 @@
 # Modern
 
-* **Theme URI:** http://www.webmandesign.eu/modern/
+* **Theme URI:** http://www.webmandesign.eu/modern-wordpress-theme/
 * **Author:** WebMan
 * **Author URI:** http://www.webmandesign.eu/
 * **License:** GNU General Public License v2 or later
@@ -8,17 +8,17 @@
 
 ## Description
 
-**Modern** is responsive, retina-ready blog and portfolio WordPress theme. It's perfect for personal and small business portfolios. Supports Jetpack plugin, Schema.org markup, Theme Hook Alliance action hooks, translation-ready code, header slideshow and other cool features. The theme is compatible with Chrome, Safari, Opera, Firefox, Internet Explorer 9+ browsers. Thank you for using one of WebMan's themes (more cool WordPress themes can be found at www.webmandesign.eu). Theme demo at [http://themedemos.webmandesign.eu/modern/]
+**Modern** is responsive, retina-ready blog and portfolio WordPress theme. It's perfect for personal and small business portfolios. Supports Jetpack plugin, Schema.org markup, Theme Hook Alliance action hooks, translation-ready code, header slideshow and other cool features. The theme is compatible with Chrome, Safari, Opera, Firefox, Internet Explorer 9+ browsers. Thank you for using one of WebMan's themes (more cool WordPress themes can be found at www.webmandesign.eu). Theme demo at [http://themedemos.webmandesign.eu/modern-wordpress-theme/]
 
 Follow WebMan on Twitter [https://twitter.com/webmandesigneu] and become a fan on Facebook [https://www.facebook.com/webmandesigneu].
 
-Full theme demo website at [http://themedemos.webmandesign.eu/modern/].
+Full theme demo website at [http://themedemos.webmandesign.eu/modern-wordpress-theme/].
 
 Theme user manual with demo data at [http://www.webmandesign.eu/manual/modern/].
 
 ## Demo
 
-http://themedemos.webmandesign.eu/modern/
+http://themedemos.webmandesign.eu/modern-wordpress-theme/
 
 ## Browser Compatibility
 
@@ -26,7 +26,7 @@ The theme was tested and is compatible with Chrome, Safari, Opera, Firefox, Inte
 
 ## Changelog
 
-*See the `readme.txt` file.*
+*See the `changelog.md` file.*
 
 ## Documentation
 
@@ -80,3 +80,10 @@ http://www.google.com/fonts/specimen/Fira+Sans, https://github.com/mozilla/Fira
 Copyright (c) 2014 Crew Labs Inc., Samuel Rohl, Rula Sibai, Sylwia Bartyzel, Dorothy Lin
 Licensed under the CC0 license - http://creativecommons.org/publicdomain/zero/1.0/, https://unsplash.com/license
 https://unsplash.com
+
+### PHP scripts copyright
+
+**TGM-Plugin-Activation**
+Copyright (c) 2012, Thomas Griffin
+Licensed under GPL v2 or later
+https://github.com/thomasgriffin/TGM-Plugin-Activation
