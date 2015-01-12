@@ -1,5 +1,15 @@
 # Modern Changelog
 
+## 1.1.5
+
+* Added original (not minified) JS scripts
+
+#### Files changed:
+
+	js/dev/imagesloaded.pkgd.js
+	js/dev/slick.js
+
+
 ## 1.1
 
 * Added WordPress 4.1 compatibility
@@ -25,7 +35,6 @@
 * Fixed styling issues
 * Fixed filter hook names
 * Removed unnecessary hooks
-
 
 #### Files changed:
 
