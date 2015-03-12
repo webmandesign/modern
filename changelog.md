@@ -1,5 +1,68 @@
 # Modern Changelog
 
+## 1.2.1
+
+* Fixed: Incorrect filter hook name
+
+#### Files changed:
+
+	inc/setup.php
+
+
+## 1.2
+
+* Added: Posts Views Count plugin support
+* Added: NS Featured Posts plugin support for populating banner slideshow
+* Updated: Updated core framework
+* Updated: Updated copyright year
+* Updated: Optimized code
+* Updated: Updated scripts
+* Updated: Reorganized Customizer options
+* Updated: Using starter.css stylesheet
+* Updated: Optimized editor-style.css
+* Updated: Localization texts
+* Updated: Removed obsolete files and functions
+* Updated: User manual update
+* Fixed: Fixed and updated hooks
+* Fixed: Styles fixes
+* Fixed: Responsive styles
+
+#### Files changed:
+
+	archive.php
+	content-audio.php
+	content-featured-post.php
+	content-gallery.php
+	content-image.php
+	content-link.php
+	content-page.php
+	content-quote.php
+	content-status.php
+	content-video.php
+	content.php
+	functions.php
+	header.php
+	image.php
+	sidebar-footer.php
+	sidebar.php
+	css/customizer.css
+	css/editor-style.css
+	css/starter.css
+	inc/setup-theme-options.php
+	inc/setup.php
+	inc/custom-header/custom-header.php
+	inc/customizer/customizer.php
+	inc/jetpack/jetpack.php
+	inc/lib/admin.php
+	inc/lib/core.php
+	inc/lib/hooks.php
+	inc/lib/visual-editor.php
+	inc/tgmpa/class-tgm-plugin-activation.php
+	inc/tgmpa/plugins.php
+	js/scripts.js
+	js/skip-link-focus-fix.js
+
+
 ## 1.1.5
 
 * Added original (not minified) JS scripts

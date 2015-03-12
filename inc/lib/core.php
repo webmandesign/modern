@@ -3,10 +3,10 @@
  * A set of core functions.
  *
  * @package    Modern
- * @copyright  2014 WebMan - Oliver Juhas
+ * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.2
  *
  * CONTENT:
  * -   1) Required files
@@ -62,10 +62,6 @@
 			add_action( 'switch_theme',  'wm_image_ids_transient_flusher'      );
 			add_action( 'edit_category', 'wm_all_categories_transient_flusher' );
 			add_action( 'save_post',     'wm_all_categories_transient_flusher' );
-		//Home query alteration
-			add_action( 'pre_get_posts', 'wm_home_query_ignore_sticky_posts' );
-		//Archives improvements
-			add_action( 'wp', 'wm_setup_author' );
 
 
 
@@ -74,10 +70,16 @@
 	 * Filters
 	 */
 
-		//HTML in widget title
+		//Escape inline CSS
+			add_filter( 'wmhook_esc_css', 'wm_esc_css' );
+		//Widgets improvements
 			add_filter( 'widget_title', 'wm_html_widget_title' );
+			add_filter( 'widget_text',  'do_shortcode'         );
 		//Table of contents
 			add_filter( 'the_content', 'wm_nextpage_table_of_contents', 10 );
+
+		//Remove filters
+			remove_filter( 'widget_title', 'esc_html' );
 
 
 
@@ -171,44 +173,68 @@
 	/**
 	 * SEO website meta title
 	 *
-	 * Not needed since WordPress 4.1, that's why the add_filter()
-	 * is encapsulated in the conditional check.
+	 * Not needed since WordPress 4.1.
 	 *
-	 * @param  string $title
-	 * @param  string $sep
+	 * @todo Remove this when WordPress 4.3 is released.
+	 *
+	 * @since    1.0
+	 * @version  1.2
 	 */
-	if ( ! function_exists( 'wm_title' ) && ! function_exists( '_wp_render_title_tag' ) ) {
+	if ( ! function_exists( '_wp_render_title_tag' ) ) {
 
-		function wm_title( $title, $sep ) {
-			//Requirements check
-				if ( is_feed() ) {
-					return $title;
-				}
-
-			//Helper variables
-				$sep = ' ' . trim( $sep ) . ' ';
-
-			//Preparing output
-				$title .= get_bloginfo( 'name', 'display' );
-
-				//Site description
-					if (
-							( $site_description = get_bloginfo( 'description', 'display' ) )
-							&& ( is_home() || is_front_page() )
-						) {
-						$title .= $sep . $site_description;
+		/**
+		 * SEO website meta title
+		 *
+		 * @param  string $title
+		 * @param  string $sep
+		 */
+		if ( ! function_exists( 'wm_title' ) ) {
+			function wm_title( $title, $sep ) {
+				//Requirements check
+					if ( is_feed() ) {
+						return $title;
 					}
 
-				//Pagination / parts
-					if ( wm_paginated_suffix() && ! is_404() ) {
-						$title .= $sep . wm_paginated_suffix();
-					}
+				//Helper variables
+					$sep = ' ' . trim( $sep ) . ' ';
 
-			//Output
-				return esc_attr( $title );
+				//Preparing output
+					$title .= get_bloginfo( 'name', 'display' );
+
+					//Site description
+						if (
+								( $site_description = get_bloginfo( 'description', 'display' ) )
+								&& ( is_home() || is_front_page() )
+							) {
+							$title .= $sep . $site_description;
+						}
+
+					//Pagination / parts
+						if ( wm_paginated_suffix() && ! is_404() ) {
+							$title .= $sep . wm_paginated_suffix();
+						}
+
+				//Output
+					return esc_attr( $title );
+			}
+
+			add_filter( 'wp_title', 'wm_title', 10, 2 );
+		} // /wm_title
+
+
+
+		/**
+		 * Title shim
+		 *
+		 * @link https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
+		 */
+		function _wp_render_title_tag() {
+			?>
+			<title><?php wp_title( '|', true, 'right' ); ?></title>
+			<?php
 		}
 
-		add_filter( 'wp_title', 'wm_title', 10, 2 );
+		add_action( 'wp_head', '_wp_render_title_tag', -99 );
 
 	} // /wm_title
 
@@ -222,6 +248,9 @@
 	 * @link    http://schema.org/docs/gs.html
 	 * @link    http://leaves-and-love.net/how-to-improve-wordpress-seo-with-schema-org/
 	 *
+	 * @since    1.0
+	 * @version  1.2
+	 *
 	 * @param   string  $element
 	 * @param   boolean $output_meta_tag  Wraps output in a <meta> tag.
 	 *
@@ -230,12 +259,15 @@
 	if ( ! function_exists( 'wm_schema_org' ) ) {
 		function wm_schema_org( $element = '', $output_meta_tag = false ) {
 			//Requirements check
+				if ( function_exists( 'wma_schema_org' ) ) {
+					return wma_schema_org( $element, $output_meta_tag );
+				}
 				if ( ! $element || ! apply_filters( 'wmhook_wm_schema_org_enable', true ) ) {
 					return;
 				}
 
 			//Helper variables
-				$output = apply_filters( 'wmhook_schema_org_output_premature', '', $element, $output_meta_tag );
+				$output = apply_filters( 'wmhook_schema_org_output_pre', '', $element, $output_meta_tag );
 
 				if ( $output ) {
 					return apply_filters( 'wmhook_wm_schema_org_output', ' ' . $output, $element, $output_meta_tag );
@@ -371,7 +403,7 @@
 	 * Appends the output at the top and bottom of post content.
 	 *
 	 * @since    1.0
-	 * @version  1.1
+	 * @version  1.2
 	 *
 	 * @param  string $content
 	 */
@@ -418,7 +450,7 @@
 						//Get title for post part
 							if ( $args['disable_first'] && 1 === $i ) {
 
-								$part_title = get_the_title();
+								$part_title = the_title_attribute( 'echo=0' );
 
 							} else {
 
@@ -489,9 +521,10 @@
 	 *
 	 * hAtom microformats compatible. @link http://goo.gl/LHi4Dy
 	 * Supports ZillaLikes plugin. @link http://www.themezilla.com/plugins/zillalikes/
+	 * Supports Post Views Count plugin. @link https://wordpress.org/plugins/baw-post-views-count/
 	 *
 	 * @since    1.0
-	 * @version  1.1
+	 * @version  1.2
 	 *
 	 * @param  array $args
 	 */
@@ -551,8 +584,8 @@
 							case 'category':
 
 								if (
-										wm_is_categorized_blog()
-										&& apply_filters( 'wmhook_wm_post_meta_enable_' . $meta, true, $args )
+										apply_filters( 'wmhook_wm_post_meta_enable_' . $meta, true, $args )
+										&& wm_is_categorized_blog()
 										&& ( $helper = get_the_category_list( ', ', '', $args['post_id'] ) )
 									) {
 									$replacements = array(
@@ -578,7 +611,7 @@
 									$replacements = array(
 											'{attributes}' => '',
 											'{class}'      => 'comments-link entry-meta-element',
-											'{content}'    => '<a href="' . get_permalink( $args['post_id'] ) . $element_id . '" title="' . esc_attr( sprintf( _x( 'Comments: %s', 'Number of comments in post meta.', 'wm_domain' ), $helper ) ) . '">' . sprintf( _x( '<span class="comments-title">Comments: </span>%s', 'Number of comments in post meta (keep the HTML tags).', 'wm_domain' ), '<span class="comments-count">' . $helper . '</span>' ) . '</a>',
+											'{content}'    => '<a href="' . esc_url( get_permalink( $args['post_id'] ) ) . $element_id . '" title="' . esc_attr( sprintf( _x( 'Comments: %s', 'Number of comments in post meta.', 'wm_domain' ), $helper ) ) . '">' . sprintf( _x( '<span class="comments-title">Comments: </span>%s', 'Number of comments in post meta (keep the HTML tags).', 'wm_domain' ), '<span class="comments-count">' . $helper . '</span>' ) . '</a>',
 										);
 								}
 
@@ -617,16 +650,16 @@
 							case 'likes':
 
 								if (
-										function_exists( 'zilla_likes' )
-										&& apply_filters( 'wmhook_wm_post_meta_enable_' . $meta, true, $args )
+										apply_filters( 'wmhook_wm_post_meta_enable_' . $meta, true, $args )
+										&& function_exists( 'zilla_likes' )
 									) {
 									global $zilla_likes;
-									$meta_output = $zilla_likes->do_likes();
+									$helper = $zilla_likes->do_likes();
 
 									$replacements = array(
 											'{attributes}' => '',
 											'{class}'      => 'entry-likes entry-meta-element',
-											'{content}'    => $meta_output,
+											'{content}'    => $helper,
 										);
 								}
 
@@ -642,7 +675,7 @@
 									$replacements = array(
 											'{attributes}' => wm_schema_org( 'url' ),
 											'{class}'      => 'entry-permalink entry-meta-element',
-											'{content}'    => '<a href="' . get_permalink( $args['post_id'] ) . '" title="' . esc_attr( sprintf( __( 'Permalink to "%s"', 'wm_domain' ), the_title_attribute( $the_title_attribute_args ) ) ) . '" rel="bookmark"><span>' . get_the_title( $args['post_id'] ) . '</span></a>',
+											'{content}'    => '<a href="' . esc_url( get_permalink( $args['post_id'] ) ) . '" title="' . esc_attr( sprintf( __( 'Permalink to "%s"', 'wm_domain' ), the_title_attribute( $the_title_attribute_args ) ) ) . '" rel="bookmark"><span>' . get_the_title( $args['post_id'] ) . '</span></a>',
 										);
 								}
 
@@ -656,6 +689,21 @@
 									$replacements = array(
 											'{attributes}' => wm_schema_org( 'keywords' ),
 											'{class}'      => 'tags-links entry-meta-element',
+											'{content}'    => $helper,
+										);
+								}
+
+							break;
+							case 'views':
+
+								if (
+										apply_filters( 'wmhook_wm_post_meta_enable_' . $meta, true, $args )
+										&& function_exists( 'bawpvc_views_sc' )
+										&& ( $helper = bawpvc_views_sc( array() ) )
+									) {
+									$replacements = array(
+											'{attributes}' => ' title="' . __( 'Views count', 'wm_domain' ) . '"',
+											'{class}'      => 'entry-views entry-meta-element',
 											'{content}'    => $helper,
 										);
 								}
@@ -779,13 +827,16 @@
 	/**
 	 * Check WordPress version
 	 *
+	 * @since    1.0
+	 * @version  1.2
+	 *
 	 * @param  float $version
 	 */
 	if ( ! function_exists( 'wm_check_wp_version' ) ) {
 		function wm_check_wp_version( $version = WM_WP_COMPATIBILITY ) {
 			global $wp_version;
 
-			return apply_filters( 'wmhook_wm_check_wp_version_output', version_compare( (float) $wp_version, $version, '>=' ) );
+			return apply_filters( 'wmhook_wm_check_wp_version_output', version_compare( (float) $wp_version, $version, '>=' ), $version, $wp_version );
 		}
 	} // /wm_check_wp_version
 
@@ -809,6 +860,27 @@
 				}
 		}
 	} // /wm_theme_upgrade
+
+
+
+	/**
+	 * CSS escaping
+	 *
+	 * Use this for custom CSS output only!
+	 * Uses `esc_attr()` while keeping quote marks.
+	 *
+	 * @uses  esc_attr()
+	 *
+	 * @since    1.2
+	 * @version  1.2
+	 *
+	 * @param  string $css Code to escape
+	 */
+	if ( ! function_exists( 'wm_esc_css' ) ) {
+		function wm_esc_css( $css ) {
+			return str_replace( array( '&gt;', '&quot;', '&#039;' ), array( '>', '"', '\'' ), esc_attr( (string) $css ) );
+		}
+	} // /wm_esc_css
 
 
 
@@ -936,7 +1008,10 @@
 	 * Returns a string such as:
 	 * //fonts.googleapis.com/css?family=Alegreya+Sans:300,400|Exo+2:400,700|Allan&subset=latin,latin-ext
 	 *
-	 * @param  array $fonts  Force particular fonts
+	 * @since    1.0
+	 * @version  1.2
+	 *
+	 * @param  array $fonts Fallback fonts.
 	 */
 	if ( ! function_exists( 'wm_google_fonts_url' ) ) {
 		function wm_google_fonts_url( $fonts = array() ) {
@@ -945,7 +1020,11 @@
 				$family = array();
 				$subset = get_theme_mod( 'font-subset' );
 
-				$fonts_setup = ( ! empty( $fonts ) ) ? ( $fonts ) : ( array( get_theme_mod( 'font-family-body' ), get_theme_mod( 'font-family-headings' ), get_theme_mod( 'font-family-logo' ) ) );
+				$fonts_setup = array_filter( array( get_theme_mod( 'font-family-body' ), get_theme_mod( 'font-family-headings' ), get_theme_mod( 'font-family-logo' ) ) );
+				if ( empty( $fonts_setup ) && ! empty( $fonts ) ) {
+					$fonts_setup = (array) $fonts;
+				}
+
 				$fonts_setup = array_filter( (array) apply_filters( 'wmhook_wm_google_fonts_url_fonts_setup', $fonts_setup ) );
 
 			//Requirements check
@@ -1074,6 +1153,10 @@
 		 */
 		if ( ! function_exists( 'wm_all_categories_transient_flusher' ) ) {
 			function wm_all_categories_transient_flusher() {
+				if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+					return;
+				}
+				//Like, beat it. Dig?
 				delete_transient( 'wm-all-categories' );
 			}
 		} // /wm_all_categories_transient_flusher
@@ -1081,43 +1164,137 @@
 
 
 	/**
-	 * Ignore sticky posts in main loop
+	 * Shim for `get_the_archive_title()`.
 	 *
-	 * @param  obj $query
+	 * @todo Remove this function when WordPress 4.3 is released.
+	 *
+	 * @since    1.2
+	 * @version  1.2
 	 */
-	if ( ! function_exists( 'wm_home_query_ignore_sticky_posts' ) ) {
-		function wm_home_query_ignore_sticky_posts( $query ) {
-			if (
-					$query->is_home()
-					&& $query->is_main_query()
-				) {
-				$query->set( 'ignore_sticky_posts', 1 );
+	if ( ! function_exists( 'get_the_archive_title' ) ) {
+		function get_the_archive_title() {
+			if ( is_category() ) {
+				$title = sprintf( __( 'Category: %s', 'wm_domain' ), single_cat_title( '', false ) );
+			} elseif ( is_tag() ) {
+				$title = sprintf( __( 'Tag: %s', 'wm_domain' ), single_tag_title( '', false ) );
+			} elseif ( is_author() ) {
+				$title = sprintf( __( 'Author: %s', 'wm_domain' ), '<span class="vcard">' . get_the_author() . '</span>' );
+			} elseif ( is_year() ) {
+				$title = sprintf( __( 'Year: %s', 'wm_domain' ), get_the_date( _x( 'Y', 'yearly archives date format', 'wm_domain' ) ) );
+			} elseif ( is_month() ) {
+				$title = sprintf( __( 'Month: %s', 'wm_domain' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'wm_domain' ) ) );
+			} elseif ( is_day() ) {
+				$title = sprintf( __( 'Day: %s', 'wm_domain' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'wm_domain' ) ) );
+			} elseif ( is_tax( 'post_format' ) ) {
+				if ( is_tax( 'post_format', 'post-format-aside' ) ) {
+					$title = _x( 'Asides', 'post format archive title', 'wm_domain' );
+				} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
+					$title = _x( 'Galleries', 'post format archive title', 'wm_domain' );
+				} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
+					$title = _x( 'Images', 'post format archive title', 'wm_domain' );
+				} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
+					$title = _x( 'Videos', 'post format archive title', 'wm_domain' );
+				} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
+					$title = _x( 'Quotes', 'post format archive title', 'wm_domain' );
+				} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
+					$title = _x( 'Links', 'post format archive title', 'wm_domain' );
+				} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
+					$title = _x( 'Statuses', 'post format archive title', 'wm_domain' );
+				} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
+					$title = _x( 'Audio', 'post format archive title', 'wm_domain' );
+				} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
+					$title = _x( 'Chats', 'post format archive title', 'wm_domain' );
+				}
+			} elseif ( is_post_type_archive() ) {
+				$title = sprintf( __( 'Archives: %s', 'wm_domain' ), post_type_archive_title( '', false ) );
+			} elseif ( is_tax() ) {
+				$tax = get_taxonomy( get_queried_object()->taxonomy );
+				/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
+				$title = sprintf( __( '%1$s: %2$s', 'wm_domain' ), $tax->labels->singular_name, single_term_title( '', false ) );
+			} else {
+				$title = __( 'Archives', 'wm_domain' );
 			}
+
+			/**
+			* Filter the archive title.
+			*
+			* @param string $title Archive title to be displayed.
+			*/
+			return apply_filters( 'get_the_archive_title', $title );
 		}
-	} // /wm_home_query_ignore_sticky_posts
+	} // /get_the_archive_title
+
+
+
+		/**
+		 * Shim for `the_archive_title()`.
+		 *
+		 * Display the archive title based on the queried object.
+		 *
+		 * @todo Remove this function when WordPress 4.3 is released.
+		 *
+		 * @since    1.2
+		 * @version  1.2
+		 *
+		 * @param  string $before Optional. Content to prepend to the title. Default empty.
+		 * @param  string $after  Optional. Content to append to the title. Default empty.
+		 */
+		if ( ! function_exists( 'the_archive_title' ) ) {
+			function the_archive_title( $before = '', $after = '' ) {
+				$title = get_the_archive_title();
+
+				if ( ! empty( $title ) ) {
+					echo $before . $title . $after;
+				}
+			}
+		} // /the_archive_title
 
 
 
 	/**
-	 * Sets the authordata global when viewing an author archive.
+	 * Shim for `get_the_archive_description()`.
 	 *
-	 * This provides backwards compatibility with
-	 * http://core.trac.wordpress.org/changeset/25574
+	 * @todo Remove this function when WordPress 4.3 is released.
 	 *
-	 * It removes the need to call the_post() and rewind_posts() in an author
-	 * template to print information about the author.
-	 *
-	 * @global WP_Query $wp_query WordPress Query object.
-	 * @return void
+	 * @since    1.2
+	 * @version  1.2
 	 */
-	if ( ! function_exists( 'wm_setup_author' ) ) {
-		function wm_setup_author() {
-			global $wp_query;
-
-			if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
-				$GLOBALS['authordata'] = get_userdata( $wp_query->post->post_author );
-			}
+	if ( ! function_exists( 'get_the_archive_description' ) ) {
+		function get_the_archive_description() {
+			/**
+			 * Filter the archive description.
+			 *
+			 * @see term_description()
+			 *
+			 * @param string $description Archive description to be displayed.
+			 */
+			return apply_filters( 'get_the_archive_description', term_description() );
 		}
-	} // /wm_setup_author
+	} // /get_the_archive_description
+
+
+
+		/**
+		 * Shim for `the_archive_description()`.
+		 *
+		 * Display category, tag, or term description.
+		 *
+		 * @todo Remove this function when WordPress 4.3 is released.
+		 *
+		 * @since    1.2
+		 * @version  1.2
+		 *
+		 * @param  string $before Optional. Content to prepend to the description. Default empty.
+		 * @param  string $after  Optional. Content to append to the description. Default empty.
+		 */
+		if ( ! function_exists( 'the_archive_description' ) ) {
+			function the_archive_description( $before = '', $after = '' ) {
+				$description = get_the_archive_description();
+
+				if ( $description ) {
+					echo $before . $description . $after;
+				}
+			}
+		} // /the_archive_description
 
 ?>

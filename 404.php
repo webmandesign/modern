@@ -3,7 +3,7 @@
  * Error 404 page template
  *
  * @package    Modern
- * @copyright  2014 WebMan - Oliver Juhas
+ * @copyright  2015 WebMan - Oliver Juhas
  * @version    1.0
  */
 

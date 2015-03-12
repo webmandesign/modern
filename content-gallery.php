@@ -18,10 +18,10 @@
  * - content
  *
  * @package    Modern
- * @copyright  2014 WebMan - Oliver Juhas
+ * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.2
  */
 
 
@@ -31,7 +31,7 @@ $image_size        = ( is_single() ) ? ( WM_IMAGE_SIZE_SINGULAR ) : ( WM_IMAGE_S
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); wmhook_entry_container_atts(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); echo apply_filters( 'wmhook_entry_container_atts', '' ); ?>>
 
 	<?php
 
@@ -55,7 +55,7 @@ $image_size        = ( is_single() ) ? ( WM_IMAGE_SIZE_SINGULAR ) : ( WM_IMAGE_S
 					echo '<div class="entry-media enable-slider">';
 
 						foreach( $post_media as $image_id ) {
-							echo '<a href="' . get_permalink() . '" class="slide">' . wp_get_attachment_image( absint( $image_id ), $image_size ) . '</a>';
+							echo '<a href="' . esc_url( get_permalink() ) . '" class="slide">' . wp_get_attachment_image( absint( $image_id ), $image_size ) . '</a>';
 						}
 
 					echo '</div>';
@@ -77,7 +77,7 @@ $image_size        = ( is_single() ) ? ( WM_IMAGE_SIZE_SINGULAR ) : ( WM_IMAGE_S
 				|| ( ! is_single() && has_post_thumbnail() && empty( $post_media ) )
 			) {
 
-			$image_link = ( is_single() ) ? ( wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' ) ) : ( array( get_permalink() ) );
+			$image_link = ( is_single() ) ? ( wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' ) ) : ( array( esc_url( get_permalink() ) ) );
 			$image_link = array_filter( (array) apply_filters( 'wmhook_entry_image_link', $image_link ) );
 
 			?>

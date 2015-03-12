@@ -22,10 +22,10 @@
  * - content
  *
  * @package    Modern
- * @copyright  2014 WebMan - Oliver Juhas
+ * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.2
  */
 
 
@@ -35,7 +35,7 @@ $content           = get_the_content();
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); wmhook_entry_container_atts(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); echo apply_filters( 'wmhook_entry_container_atts', '' ); ?>>
 
 	<?php
 
@@ -84,7 +84,7 @@ $content           = get_the_content();
 			) {
 
 			$image_size = WM_IMAGE_SIZE_ITEMS;
-			$image_link = ( is_single() ) ? ( wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' ) ) : ( array( get_permalink() ) );
+			$image_link = ( is_single() ) ? ( wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' ) ) : ( array( esc_url( get_permalink() ) ) );
 			$image_link = array_filter( (array) apply_filters( 'wmhook_entry_image_link', $image_link ) );
 
 			?>

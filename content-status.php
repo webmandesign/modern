@@ -13,23 +13,23 @@
  * - content
  *
  * @package    Modern
- * @copyright  2014 WebMan - Oliver Juhas
+ * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.2
  */
 
 
 
 $hover_title = sprintf(
-		__( 'Status: %s on %s', 'wm_domain' ),
+		_x( 'Status: %s on %s', 'Status post format text on mouse hover (Status: John Doe on 1st January 2015).', 'wm_domain' ),
 		get_the_author(),
 		get_the_date() . ' | ' . get_the_time()
 	);
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" title="<?php echo esc_attr( $hover_title ); ?>" <?php post_class(); wmhook_entry_container_atts(); ?>>
+<article id="post-<?php the_ID(); ?>" title="<?php echo esc_attr( $hover_title ); ?>" <?php post_class(); echo apply_filters( 'wmhook_entry_container_atts', '' ); ?>>
 
 	<?php
 

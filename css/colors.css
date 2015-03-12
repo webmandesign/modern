@@ -2,7 +2,7 @@
  * Theme colors stylesheet
  *
  * @package    Modern
- * @copyright  2014 WebMan - Oliver Juhas
+ * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.1
  * @version  1.1
@@ -251,7 +251,8 @@
 		.format-gallery .slick-prev,
 		.format-gallery .slick-next { border-color: #eaecee; }
 
-		.widget ul li { border-color: #caccce; }
+		.widget ul li,
+		.widget .tagcloud a { border-color: #caccce; }
 
 	/* accent border color */
 

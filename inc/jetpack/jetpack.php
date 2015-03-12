@@ -1,17 +1,34 @@
 <?php
 /**
- * Jetpack setup
+ * Plugin integration
+ *
+ * Jetpack
+ *
+ * @link  https://wordpress.org/plugins/jetpack/
  *
  * @package    Modern
- * @copyright  2014 WebMan - Oliver Juhas
+ * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.1
- * @version  1.1
+ * @version  1.2
  *
  * CONTENT:
- * -  10) Actions and filters
- * -  20) Jetpack integration
+ * -  1) Requirements check
+ * - 10) Actions and filters
+ * - 20) Plugin integration
  */
+
+
+
+
+
+/**
+ * 1) Requirements check
+ */
+
+	if ( ! class_exists( 'Jetpack' ) ) {
+		return;
+	}
 
 
 
@@ -46,14 +63,20 @@
 
 
 /**
- * 20) Jetpack integration
+ * 20) Plugin integration
  */
 
 	/**
 	 * Enables Jetpack features
+	 *
+	 * @since    1.0
+	 * @version  1.2
 	 */
 	if ( ! function_exists( 'wm_jetpack' ) ) {
 		function wm_jetpack() {
+			//Responsive videos
+				add_theme_support( 'jetpack-responsive-videos' );
+
 			//Site logo
 				add_theme_support( 'site-logo' );
 
@@ -70,10 +93,11 @@
 
 			//Infinite scroll
 				add_theme_support( 'infinite-scroll', apply_filters( 'wmhook_wm_jetpack_infinite_scroll', array(
-						'type'           => 'scroll',
 						'container'      => 'posts',
 						'footer'         => false,
 						'posts_per_page' => 6,
+						'type'           => 'scroll',
+						'wrapper'        => true,
 					) ) );
 		}
 	} // /wm_jetpack

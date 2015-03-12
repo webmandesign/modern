@@ -3,10 +3,10 @@
  * Website header template
  *
  * @package    Modern
- * @copyright  2014 WebMan - Oliver Juhas
+ * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.2
  */
 
 
@@ -19,8 +19,7 @@
 
 ?>
 
-<!--[if IE 9]><html class="ie ie9 lie9 no-js" <?php language_attributes(); ?>><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
+<html class="no-js" <?php language_attributes(); ?>>
 
 <head>
 
@@ -31,14 +30,6 @@
 	 */
 
 	wmhook_head_top();
-
-	if ( ! function_exists( '_wp_render_title_tag' ) ) :
-	?>
-
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
-
-	<?php
-	endif;
 
 	wmhook_head_bottom();
 

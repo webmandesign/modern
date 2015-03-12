@@ -1,18 +1,22 @@
 # Modern
 
-* **Theme URI:** http://www.webmandesign.eu/modern-wordpress-theme/
-* **Author:** WebMan
-* **Author URI:** http://www.webmandesign.eu/
-* **License:** GNU General Public License v2 or later
-* **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
+* **Theme URI:**    http://www.webmandesign.eu/modern-wordpress-theme/
+* **Author:**       WebMan
+* **Author URI:**   http://www.webmandesign.eu/
+* **License:**      GNU General Public License v2 or later
+* **License URI:**  http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Description
 
-**Modern** is responsive, retina-ready blog and portfolio WordPress theme. It's perfect for personal and small business portfolios. Supports Jetpack plugin, Schema.org markup, Theme Hook Alliance action hooks, translation-ready code, header slideshow and other cool features. The theme is compatible with Chrome, Safari, Opera, Firefox, Internet Explorer 9+ browsers. Thank you for using one of WebMan's themes (more cool WordPress themes can be found at www.webmandesign.eu). Theme demo at [http://themedemos.webmandesign.eu/modern-wordpress-theme/]
+**Modern** is responsive, retina-ready blog and portfolio WordPress theme. It's perfect for personal and small business portfolios. Supports Jetpack plugin, Schema.org markup, Theme Hook Alliance action hooks, translation-ready code, header slideshow and other cool features.
+
+The theme is compatible with Chrome, Safari, Opera, Firefox, Internet Explorer 9+ browsers.
+
+Thank you for using one of WebMan's themes (more cool WordPress themes can be found at www.webmandesign.eu).
 
 Follow WebMan on Twitter [https://twitter.com/webmandesigneu] and become a fan on Facebook [https://www.facebook.com/webmandesigneu].
 
-Full theme demo website at [http://themedemos.webmandesign.eu/modern-wordpress-theme/].
+Full theme demo website at [http://themedemos.webmandesign.eu/modern/].
 
 Theme user manual with demo data at [http://www.webmandesign.eu/manual/modern/].
 
@@ -37,7 +41,7 @@ User manual available at http://www.webmandesign.eu/manual/modern/
 ### Theme copyright
 
 **Modern WordPress Theme**
-Copyright (c) 2014 WebMan [http://www.webmandesign.eu/]
+Copyright (c) 2015 WebMan [http://www.webmandesign.eu/]
 Distributed under the terms of the GNU GPL
 
 **Modern is based on Underscores**

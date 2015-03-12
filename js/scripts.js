@@ -2,8 +2,10 @@
  * Theme frontend scripts
  *
  * @package    Modern
- * @copyright  2014 WebMan - Oliver Juhas
- * @version    1.0
+ * @copyright  2015 WebMan - Oliver Juhas
+ *
+ * @since    1.0
+ * @version  1.2
  *
  * CONTENT:
  * -  10) Basics
@@ -48,67 +50,6 @@ jQuery( function() {
 
 
 
-		/**
-		 * YouTube embed fix (prevent video being on top of elements)
-		 */
-
-			jQuery( 'iframe[src*="youtube.com"]' ).each( function( item ) {
-
-				var srcAtt = jQuery( this ).attr( 'src' );
-
-				if ( -1 == srcAtt.indexOf( '?' ) ) {
-					srcAtt += '?wmode=transparent';
-				} else {
-					srcAtt += '&amp;wmode=transparent';
-				}
-
-				jQuery( this ).attr( 'src', srcAtt );
-
-			} );
-
-
-
-		/**
-		 * Applying scrolling class on HTML body
-		 *
-		 * Firefox smooth scrolling may cause issues. The only workaround is to disable
-		 * the smooth scrolling or change the 'mousewheel.min_line_scroll_amount' value
-		 * in 'about:config' to something higher (such as '20'). However, this is not
-		 * controlable via CSS or JS, you need to set up the browser. :(
-		 *
-		 * @link  http://codepen.io/josiahruddell/pen/piFfq
-		 */
-
-			if ( jQuery( 'body' ).hasClass( 'downscroll-enabled' ) ) {
-
-				var $lastScrollTop = 0;
-
-				jQuery( window ).on( 'scroll', function( e ) {
-
-					var $st = jQuery( this ).scrollTop();
-
-					if (
-							Math.abs( $lastScrollTop - $st ) <= 1
-							|| ( $st + + jQuery( window ).height() + 300 ) > jQuery( 'body' ).outerHeight() //Footer reached
-						) {
-						jQuery( 'body' ).removeClass( 'scrolling-down' );
-						return;
-					}
-
-					if ( $st > $lastScrollTop ) {
-						jQuery( 'body' ).addClass( 'scrolling-down' );
-					} else {
-						jQuery( 'body' ).removeClass( 'scrolling-down' );
-					}
-
-					$lastScrollTop = $st;
-
-				} );
-
-			}
-
-
-
 	/**
 	 * 20) Site header
 	 */
@@ -131,6 +72,9 @@ jQuery( function() {
 
 		/**
 		 * Mobile navigation
+		 *
+		 * @since    1.0
+		 * @version  1.2
 		 */
 
 			jQuery( '#menu-toggle' ).on( 'click', function( e ) {
@@ -141,6 +85,20 @@ jQuery( function() {
 						.toggleClass( 'active' )
 						.find( '.main-navigation-inner' )
 							.slideToggle();
+
+				if ( jQuery( this ).parent( '#site-navigation' ).hasClass( 'active' ) ) {
+					jQuery( this )
+						.attr( 'aria-expanded', 'true' )
+						.parent( '#site-navigation' )
+							.find( '.main-navigation-inner ul' )
+								.attr( 'aria-expanded', 'true' );
+				} else {
+					jQuery( this )
+						.attr( 'aria-expanded', 'false' )
+						.parent( '#site-navigation' )
+							.find( '.main-navigation-inner ul' )
+								.attr( 'aria-expanded', 'false' );
+				}
 			} );
 
 
@@ -217,20 +175,24 @@ jQuery( function() {
 	 */
 
 		/**
-		 * [gallery] shortcode Masonry layout
+		 * Masonry layout
 		 */
 
 			if ( jQuery().masonry ) {
 
-				var $galleryContainers = jQuery( '.gallery' );
+				/**
+				 * [gallery] shortcode Masonry layout
+				 */
 
-				$galleryContainers.imagesLoaded( function() {
+					var $galleryContainers = jQuery( '.gallery' );
 
-					$galleryContainers.masonry( {
-							itemSelector : '.gallery-item'
-						} );
+					$galleryContainers.imagesLoaded( function() {
 
-				} );
+						$galleryContainers.masonry( {
+								itemSelector : '.gallery-item'
+							} );
+
+					} );
 
 			} // /masonry
 
@@ -288,13 +250,58 @@ jQuery( function() {
 	 */
 
 		/**
+		 * Applying scrolling class on HTML body
+		 *
+		 * Firefox smooth scrolling may cause issues. The only workaround is to disable
+		 * the smooth scrolling or change the 'mousewheel.min_line_scroll_amount' value
+		 * in 'about:config' to something higher (such as '20'). However, this is not
+		 * controlable via CSS or JS, you need to set up the browser. :(
+		 *
+		 * @link  http://codepen.io/josiahruddell/pen/piFfq
+		 */
+
+			if ( jQuery( 'body' ).hasClass( 'downscroll-enabled' ) ) {
+
+				var $lastScrollTop = 0;
+
+				jQuery( window ).on( 'scroll', function( e ) {
+
+					var $st = jQuery( this ).scrollTop();
+
+					if (
+							Math.abs( $lastScrollTop - $st ) <= 1
+							|| ( $st + + jQuery( window ).height() + 300 ) > jQuery( 'body' ).outerHeight() //Footer reached
+						) {
+						jQuery( 'body' ).removeClass( 'scrolling-down' );
+						return;
+					}
+
+					if ( $st > $lastScrollTop ) {
+						jQuery( 'body' ).addClass( 'scrolling-down' );
+					} else {
+						jQuery( 'body' ).removeClass( 'scrolling-down' );
+					}
+
+					$lastScrollTop = $st;
+
+				} );
+
+			}
+
+
+
+		/**
 		 * Sidebar mobile toggle
+		 *
+		 * @since    1.0
+		 * @version  1.2
 		 */
 
 			//Disable sidebar toggle on wider screens
 				jQuery( window ).on( 'resize orientationchange', function( e ) {
 					if ( 960 < document.body.clientWidth ) {
 						jQuery( '#toggle-mobile-sidebar' )
+							.attr( 'aria-expanded', 'true' )
 							.siblings( '.widget' )
 								.show();
 					}
@@ -304,7 +311,17 @@ jQuery( function() {
 				jQuery( '#toggle-mobile-sidebar' ).on( 'click', function( e ) {
 					e.preventDefault();
 
-					jQuery( this )
+					var $this                 = jQuery( this ),
+					    mobileSidebarExpanded = $this.attr( 'aria-expanded' );
+
+					if ( 'false' == mobileSidebarExpanded ) {
+						mobileSidebarExpanded = 'true';
+					} else {
+						mobileSidebarExpanded = 'false';
+					}
+
+					$this
+						.attr( 'aria-expanded', mobileSidebarExpanded )
 						.siblings( '.widget' )
 							.slideToggle();
 				} );
