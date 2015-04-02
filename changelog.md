@@ -1,5 +1,23 @@
 # Modern Changelog
 
+## 1.2.2
+
+* Updated: Allowed to set custom image sizes via WordPress admin
+* Updated: Localization
+* Updated: Editor styles
+* Fixed: Displaying `title` tag in HTML head
+* Fixed: Comments display condition
+
+#### Files changed:
+
+	comments.php
+	css/editor-styles.css
+	inc/setup.php
+	languages/sk_SK.mo
+	languages/sk_SK.po
+	languages/xx_XX.pot
+
+
 ## 1.2.1
 
 * Fixed: Incorrect filter hook name

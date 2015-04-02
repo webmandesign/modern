@@ -6,7 +6,7 @@
  * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.2
+ * @version  1.2.2
  *
  * CONTENT:
  * -  10) Actions and filters
@@ -46,6 +46,8 @@
 			add_action( 'widgets_init', 'wm_register_widget_areas', 1 );
 		//Pagination fallback
 			add_action( 'wmhook_postslist_after', 'wm_pagination', 10 );
+		//Display Settings > Media recommended images sizes notice
+			add_action( 'admin_init', 'wm_image_size_notice' );
 		//Website sections
 			//DOCTYPE
 				add_action( 'wmhook_html_before',    'wm_doctype',        10   );
@@ -80,6 +82,8 @@
 	 * Filters
 	 */
 
+		//Set up image sizes
+			add_filter( 'wmhook_wm_setup_image_sizes', 'wm_image_sizes' );
 		//BODY classes
 			add_filter( 'body_class', 'wm_body_classes', 98 );
 		//[gallery] shortcode modifications
@@ -130,7 +134,7 @@
 	 * Theme helper variables
 	 *
 	 * @since    1.0
-	 * @version  1.2
+	 * @version  1.2.2
 	 *
 	 * @param  string $variable Helper variables array key to return
 	 * @param  string $key      Additional key if the variable is array
@@ -152,55 +156,55 @@
 								'/optgroup' . $i => '',
 
 							//Insipration from http://femmebot.github.io/google-type/
-								'optgroup' . ++$i  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
+								'optgroup' . ++$i => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
 									'Playfair Display' => 'Playfair Display',
 									'Fauna One'        => 'Fauna One',
 								'/optgroup' . $i => '',
 
-								'optgroup' . ++$i  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
+								'optgroup' . ++$i => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
 									'Fugaz One'   => 'Fugaz One',
 									'Oleo Script' => 'Oleo Script',
 									'Monda'       => 'Monda',
 								'/optgroup' . $i => '',
 
-								'optgroup' . ++$i  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
+								'optgroup' . ++$i => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
 									'Unica One' => 'Unica One',
 									'Vollkorn'  => 'Vollkorn',
 								'/optgroup' . $i => '',
 
-								'optgroup' . ++$i  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
+								'optgroup' . ++$i => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
 									'Megrim'                  => 'Megrim',
 									'Roboto Slab:400,300,100' => 'Roboto Slab',
 								'/optgroup' . $i => '',
 
-								'optgroup' . ++$i  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
+								'optgroup' . ++$i => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
 									'Open Sans:400,300' => 'Open Sans',
 									'Gentium Basic'     => 'Gentium Basic',
 								'/optgroup' . $i => '',
 
-								'optgroup' . ++$i  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
+								'optgroup' . ++$i => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
 									'Ovo'          => 'Ovo',
 									'Muli:300,400' => 'Muli',
 								'/optgroup' . $i => '',
 
-								'optgroup' . ++$i  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
+								'optgroup' . ++$i => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
 									'Neuton:200,300,400' => 'Neuton',
 								'/optgroup' . $i => '',
 
-								'optgroup' . ++$i  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
+								'optgroup' . ++$i => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
 									'Quando' => 'Quando',
 									'Judson' => 'Judson',
 									'Montserrat' => 'Montserrat',
 								'/optgroup' . $i => '',
 
-								'optgroup' . ++$i  => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
+								'optgroup' . ++$i => sprintf( _x( 'Recommendation #%d', 'Google Font setup recommendation (numbered) group title.', 'wm_domain' ), $i ),
 									'Ultra'                => 'Ultra',
 									'Stint Ultra Expanded' => 'Stint Ultra Expanded',
 									'Slabo 13px'           => 'Slabo 13px',
 								'/optgroup' . $i => '',
 
 							//Google Fonts selection
-								'optgroup' . ++$i  => sprintf( _x( 'Fonts selection', 'Title for selection of fonts picked from Google Fontss', 'wm_domain' ), $i ),
+								'optgroup' . ++$i => _x( 'Fonts selection', 'Title for selection of fonts picked from Google Fontss', 'wm_domain' ),
 									'Abril Fatface'             => 'Abril Fatface',
 									'Arvo'                      => 'Arvo',
 									'Domine'                    => 'Domine',
@@ -287,13 +291,13 @@
 	 * Theme setup
 	 *
 	 * @since    1.0
-	 * @version  1.2
+	 * @version  1.2.2
 	 */
 	if ( ! function_exists( 'wm_setup' ) ) {
 		function wm_setup() {
 
 			//Helper variables
-				global $content_width;
+				$image_sizes = array_filter( apply_filters( 'wmhook_wm_setup_image_sizes', array() ) );
 
 				//WordPress visual editor CSS stylesheets
 					$visual_editor_css = array_filter( (array) apply_filters( 'wmhook_wm_setup_visual_editor_css', array(
@@ -316,6 +320,9 @@
 
 				//wp-content/themes/theme-name/languages/it_IT.mo
 					load_theme_textdomain( 'wm_domain', get_template_directory() . '/languages' );
+
+			//Title tag
+				add_theme_support( 'title-tag' );
 
 			//Visual editor styles
 				add_editor_style( $visual_editor_css );
@@ -374,29 +381,163 @@
 				add_theme_support( 'post-thumbnails' );
 
 				//Image sizes (x, y, crop)
-					add_image_size( WM_IMAGE_SIZE_BANNER, 1920, 1080, true );
+					if ( ! empty( $image_sizes ) ) {
 
-					//Set default WordPress image sizes
-						$default_image_sizes = apply_filters( 'wmhook_wm_setup_default_image_sizes', array(
-								'thumbnail' => array( 420,                      9999, false ), //Posts list thumbnails
-								'medium'    => array( absint( $content_width ), 9999, false ), //Content width image
-								'large'     => array( 1200,                     9999, false ), //Single post featured image
-							) );
+						foreach ( $image_sizes as $size => $setup ) {
 
-						foreach ( $default_image_sizes as $size => $setup ) {
-							if ( $default_image_sizes[ $size ][0] != get_option( $size . '_size_w' ) ) {
-								update_option( $size . '_size_w', $default_image_sizes[ $size ][0] );
+							if (
+									in_array( $size, array( 'thumbnail', 'medium', 'large' ) )
+									&& empty( get_option( 'wm-' . WM_THEME_SHORTNAME . '-image-size-' . $size ) )
+								) {
+
+								/**
+								 * Force the default image sizes on theme installation only.
+								 * This allows users to set their own sizes later, but a notification is displayed.
+								 */
+
+								if ( $image_sizes[ $size ][0] != get_option( $size . '_size_w' ) ) {
+									update_option( $size . '_size_w', $image_sizes[ $size ][0] );
+								}
+								if ( $image_sizes[ $size ][1] != get_option( $size . '_size_h' ) ) {
+									update_option( $size . '_size_h', $image_sizes[ $size ][1] );
+								}
+								if ( $image_sizes[ $size ][2] != get_option( $size . '_crop' ) ) {
+									update_option( $size . '_crop', $image_sizes[ $size ][2] );
+								}
+
+								update_option( 'wm-' . WM_THEME_SHORTNAME . '-image-size-' . $size, true );
+
+							} else {
+
+								add_image_size( $size, $image_sizes[ $size ][0], $image_sizes[ $size ][1], $image_sizes[ $size ][2] );
+
 							}
-							if ( $default_image_sizes[ $size ][1] != get_option( $size . '_size_h' ) ) {
-								update_option( $size . '_size_h', $default_image_sizes[ $size ][1] );
-							}
-							if ( $default_image_sizes[ $size ][2] != get_option( $size . '_crop' ) ) {
-								update_option( $size . '_crop', $default_image_sizes[ $size ][2] );
-							}
-						}
+
+						} // /foreach
+
+					}
 
 		}
 	} // /wm_setup
+
+
+
+		/**
+		 * Set default image sizes
+		 *
+		 * @since    1.2.2
+		 * @version  1.2.2
+		 *
+		 * @param  array $image_sizes
+		 */
+		if ( ! function_exists( 'wm_image_sizes' ) ) {
+			function wm_image_sizes( $image_sizes ) {
+				//Helper variables
+					global $content_width;
+
+				//Preparing output
+					$image_sizes = array(
+							'thumbnail' => array( 420, 9999, false ), //Posts list thumbnails
+							'medium'    => array( absint( $content_width ), 9999, false ), //Content width image
+							'large'     => array( 1200, 9999, false ), //Single post featured image
+							'banner'    => array( 1920, 1080, true ),
+						);
+
+				//Output
+					return $image_sizes;
+			}
+		} // /wm_image_sizes
+
+
+
+		/**
+		 * Register recommended image sizes notice
+		 *
+		 * @since    1.2.2
+		 * @version  1.2.2
+		 */
+		if ( ! function_exists( 'wm_image_size_notice' ) ) {
+			function wm_image_size_notice() {
+				add_settings_field(
+						//$id
+						'recommended-image-sizes',
+						//$title
+						'',
+						//$callback
+						'wm_image_size_notice_html',
+						//$page
+						'media',
+						//$section
+						'default',
+						//$args
+						array()
+					);
+
+				register_setting(
+						//$option_group
+						'media',
+						//$option_name
+						'recommended-image-sizes',
+						//$sanitize_callback
+						'esc_attr'
+					);
+			}
+		} // /wm_image_size_notice
+
+
+
+		/**
+		 * Display recommended image sizes notice
+		 *
+		 * @since    1.2.2
+		 * @version  1.2.2
+		 */
+		if ( ! function_exists( 'wm_image_size_notice_html' ) ) {
+			function wm_image_size_notice_html() {
+				//Helper variables
+					$default_image_size_names = array(
+							'thumbnail' => _x( 'Thumbnail size', 'WordPress predefined image size name.', 'wm_domain' ),
+							'medium'    => _x( 'Medium size', 'WordPress predefined image size name.', 'wm_domain' ),
+							'large'     => _x( 'Large size', 'WordPress predefined image size name.', 'wm_domain' ),
+						);
+
+					$image_sizes = array_filter( apply_filters( 'wmhook_wm_setup_image_sizes', array() ) );
+
+				//Requirements check
+					if ( empty( $image_sizes ) ) {
+						return;
+					}
+
+				//Output
+					echo '<style type="text/css" media="screen">';
+						echo '.recommended-image-sizes { display: inline-block; padding: 1.62em; border: 2px solid #dadcde; }';
+						echo '.recommended-image-sizes h3 { margin-top: 0; }';
+						echo '.recommended-image-sizes table { margin-top: 1em; }';
+						echo '.recommended-image-sizes th, .recommended-image-sizes td { padding: .19em; border-bottom: 2px dotted #dadcde; }';
+					echo '</style>';
+
+					echo '<div class="recommended-image-sizes">';
+
+						echo '<h3>' . __( 'Recommended image sizes', 'wm_domain' ) . '</h3>';
+						echo '<p>' . __( 'For the theme to work correctly, please, set these recommended image sizes:', 'wm_domain' ) . '</p>';
+
+						echo '<table>';
+							foreach ( $image_sizes as $size => $setup ) {
+								if ( isset( $default_image_size_names[ $size ] ) ) {
+									$crop = ( $setup[2] ) ? ( __( 'cropped', 'wm_domain' ) ) : ( __( 'scaled', 'wm_domain' ) );
+									echo '<tr><th>' . $default_image_size_names[ $size ] . ':</th><td>' . sprintf(
+											_x( '%1$s &times; %2$s, %3$s', '1: image width, 2: image height, 3: cropped or scaled?', 'wm_domain' ),
+											$setup[0],
+											$setup[1],
+											$crop
+										) . '</td></tr>';
+								}
+							} // /foreach
+						echo '</table>';
+
+					echo '</div>';
+			}
+		} // /wm_image_size_notice_html
 
 
 
