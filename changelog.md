@@ -1,5 +1,14 @@
 # Modern Changelog
 
+## 1.2.3
+
+* Fixed: Error on older versions of PHP
+
+#### Files changed:
+
+	inc/setup.php
+
+
 ## 1.2.2
 
 * Updated: Allowed to set custom image sizes via WordPress admin

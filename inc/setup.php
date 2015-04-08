@@ -6,7 +6,7 @@
  * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.2.2
+ * @version  1.2.3
  *
  * CONTENT:
  * -  10) Actions and filters
@@ -291,7 +291,7 @@
 	 * Theme setup
 	 *
 	 * @since    1.0
-	 * @version  1.2.2
+	 * @version  1.2.3
 	 */
 	if ( ! function_exists( 'wm_setup' ) ) {
 		function wm_setup() {
@@ -387,7 +387,7 @@
 
 							if (
 									in_array( $size, array( 'thumbnail', 'medium', 'large' ) )
-									&& empty( get_option( 'wm-' . WM_THEME_SHORTNAME . '-image-size-' . $size ) )
+									&& ! get_option( 'wm-' . WM_THEME_SHORTNAME . '-image-size-' . $size )
 								) {
 
 								/**
