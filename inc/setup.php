@@ -6,7 +6,7 @@
  * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.2.3
+ * @version  1.3
  *
  * CONTENT:
  * -  10) Actions and filters
@@ -31,23 +31,27 @@
 
 		//Styles and scripts
 			add_action( 'init',               'wm_register_assets',       10   );
-			add_action( 'init',               'wm_visual_editor',         999  );
 			add_action( 'wp_enqueue_scripts', 'wm_enqueue_assets',        100  );
 			add_action( 'wp_enqueue_scripts', 'wm_post_nav_background',   110  );
 			add_action( 'wp_footer',          'wm_footer_custom_scripts', 9998 );
+		//Customizer assets
+			add_action( 'customize_controls_enqueue_scripts', 'wm_customizer_enqueue_assets'             );
+			add_action( 'customize_preview_init',             'wm_customizer_preview_enqueue_assets', 10 );
 		//Theme setup
 			add_action( 'after_setup_theme', 'wm_setup', 10 );
-		//Home query alteration
+		//Register widget areas
+			add_action( 'widgets_init', 'wm_register_widget_areas', 1 );
+		//Sticky posts
 			add_action( 'pre_get_posts', 'wm_home_query_ignore_sticky_posts' );
+		//Pagination fallback
+			add_action( 'wmhook_postslist_after', 'wm_pagination', 10 );
+		//Visual Editor addons
+			add_action( 'init', 'wm_visual_editor', 999 );
+		//Display Settings > Media recommended images sizes notice
+			add_action( 'admin_init', 'wm_image_size_notice' );
 		//Front page template more links
 			add_action( 'wmhook_template_front_portfolio_postslist_after', 'wm_portfolio_more_link', 10 );
 			add_action( 'wmhook_template_front_blog_postslist_after',      'wm_blog_more_link',      10 );
-		//Register widget areas
-			add_action( 'widgets_init', 'wm_register_widget_areas', 1 );
-		//Pagination fallback
-			add_action( 'wmhook_postslist_after', 'wm_pagination', 10 );
-		//Display Settings > Media recommended images sizes notice
-			add_action( 'admin_init', 'wm_image_size_notice' );
 		//Website sections
 			//DOCTYPE
 				add_action( 'wmhook_html_before',    'wm_doctype',        10   );
@@ -84,11 +88,14 @@
 
 		//Set up image sizes
 			add_filter( 'wmhook_wm_setup_image_sizes', 'wm_image_sizes' );
+		//Set required Google Fonts
+			add_filter( 'wmhook_wm_google_fonts_url_fonts_setup', 'wm_google_fonts' );
 		//BODY classes
 			add_filter( 'body_class', 'wm_body_classes', 98 );
+		//Post classes
+			add_filter( 'post_class', 'wm_post_classes', 98 );
 		//[gallery] shortcode modifications
-			add_filter( 'post_gallery',              'wm_shortcode_gallery_assets', 10, 2 );
-			add_filter( 'use_default_gallery_style', '__return_false'                     );
+			add_filter( 'post_gallery', 'wm_shortcode_gallery_assets', 10, 2 );
 		//Navigation improvements
 			add_filter( 'nav_menu_css_class',       'wm_nav_item_classes', 10, 4 );
 			add_filter( 'walker_nav_menu_start_el', 'wm_nav_item_process', 10, 4 );
@@ -98,12 +105,13 @@
 			add_filter( 'excerpt_length',                     'wm_excerpt_length',           10 );
 			add_filter( 'excerpt_more',                       'wm_excerpt_more',             10 );
 			add_filter( 'wmhook_wm_excerpt_continue_reading', 'wm_excerpt_continue_reading', 10 );
-		//Post thumbnail
-			add_filter( 'wmhook_entry_featured_image_display', 'wm_post_media_display' );
-		//Custom CSS fonts
-			add_filter( 'wmhook_wm_custom_styles_value', 'wm_css_font_name', 10, 2 );
 		//Entry HTML attributes
 			add_filter( 'wmhook_entry_container_atts', 'wm_entry_container_atts', 10 );
+		//Post thumbnail
+			add_filter( 'wmhook_entry_featured_image_size',    'wm_post_thumbnail_size' );
+			add_filter( 'wmhook_entry_featured_image_display', 'wm_post_media_display'  );
+		//Custom CSS fonts
+			add_filter( 'wmhook_wm_custom_styles_value', 'wm_css_font_name', 10, 2 );
 		//Disable post title
 			add_filter( 'wmhook_wm_post_title_disable', 'wm_disable_post_title' );
 
@@ -301,7 +309,7 @@
 
 				//WordPress visual editor CSS stylesheets
 					$visual_editor_css = array_filter( (array) apply_filters( 'wmhook_wm_setup_visual_editor_css', array(
-							str_replace( ',', '%2C', wm_google_fonts_url( array( 'Fira Sans:400,300' ) ) ),
+							str_replace( ',', '%2C', wm_google_fonts_url() ),
 							add_query_arg( array( 'ver' => WM_THEME_VERSION ), wm_get_stylesheet_directory_uri( 'genericons/genericons.css' ) ),
 							add_query_arg( array( 'ver' => WM_THEME_VERSION ), wm_get_stylesheet_directory_uri( 'css/editor-style.css' ) ),
 						) ) );
@@ -422,36 +430,63 @@
 
 
 
+	/**
+	 * Set images: default image sizes
+	 *
+	 * @since    1.2.2
+	 * @version  1.3
+	 *
+	 * @param  array $image_sizes
+	 */
+	if ( ! function_exists( 'wm_image_sizes' ) ) {
+		function wm_image_sizes( $image_sizes ) {
+			//Helper variables
+				global $content_width;
+
+			//Preparing output
+				/**
+				 * image_size = array(
+				 *   width,
+				 *   height,
+				 *   cropped?,
+				 *   theme_usage //Optional
+				 * )
+				 */
+				$image_sizes = array(
+						'thumbnail' => array(
+								420,
+								9999,
+								false,
+								__( 'In posts list.', 'wm_domain' )
+							),
+						'medium' => array(
+								absint( $content_width ),
+								9999,
+								false
+							),
+						'large' => array(
+								1200,
+								9999,
+								false,
+								__( 'In single post or page.', 'wm_domain' )
+							),
+						'banner' => array(
+								1920,
+								1080,
+								true,
+								__( 'In banner and post/page background.', 'wm_domain' )
+							),
+					);
+
+			//Output
+				return $image_sizes;
+		}
+	} // /wm_image_sizes
+
+
+
 		/**
-		 * Set default image sizes
-		 *
-		 * @since    1.2.2
-		 * @version  1.2.2
-		 *
-		 * @param  array $image_sizes
-		 */
-		if ( ! function_exists( 'wm_image_sizes' ) ) {
-			function wm_image_sizes( $image_sizes ) {
-				//Helper variables
-					global $content_width;
-
-				//Preparing output
-					$image_sizes = array(
-							'thumbnail' => array( 420, 9999, false ), //Posts list thumbnails
-							'medium'    => array( absint( $content_width ), 9999, false ), //Content width image
-							'large'     => array( 1200, 9999, false ), //Single post featured image
-							'banner'    => array( 1920, 1080, true ),
-						);
-
-				//Output
-					return $image_sizes;
-			}
-		} // /wm_image_sizes
-
-
-
-		/**
-		 * Register recommended image sizes notice
+		 * Set images: register recommended image sizes notice
 		 *
 		 * @since    1.2.2
 		 * @version  1.2.2
@@ -487,10 +522,10 @@
 
 
 		/**
-		 * Display recommended image sizes notice
+		 * Set images: display recommended image sizes notice
 		 *
 		 * @since    1.2.2
-		 * @version  1.2.2
+		 * @version  1.3
 		 */
 		if ( ! function_exists( 'wm_image_size_notice_html' ) ) {
 			function wm_image_size_notice_html() {
@@ -509,35 +544,104 @@
 					}
 
 				//Output
-					echo '<style type="text/css" media="screen">';
-						echo '.recommended-image-sizes { display: inline-block; padding: 1.62em; border: 2px solid #dadcde; }';
-						echo '.recommended-image-sizes h3 { margin-top: 0; }';
-						echo '.recommended-image-sizes table { margin-top: 1em; }';
-						echo '.recommended-image-sizes th, .recommended-image-sizes td { padding: .19em; border-bottom: 2px dotted #dadcde; }';
-					echo '</style>';
+					echo '<style type="text/css" media="screen">'
+						. '.recommended-image-sizes { display: inline-block; padding: 1.62em; border: 2px solid #dadcde; }'
+						. '.recommended-image-sizes h3:first-child { margin-top: 0; }'
+						. '.recommended-image-sizes table { margin-top: 1em; }'
+						. '.recommended-image-sizes th, .recommended-image-sizes td { width: auto; padding: .19em 1em; border-bottom: 2px dotted #dadcde; vertical-align: top; }'
+						. '.recommended-image-sizes thead th { padding: .62em 1em; border-bottom-style: solid; }'
+						. '.recommended-image-sizes tr[title] { cursor: help; }'
+						. '.recommended-image-sizes .small, .recommended-image-sizes tr[title] th, .recommended-image-sizes tr[title] td { font-size: .81em; }'
+						. '</style>';
 
 					echo '<div class="recommended-image-sizes">';
 
-						echo '<h3>' . __( 'Recommended image sizes', 'wm_domain' ) . '</h3>';
-						echo '<p>' . __( 'For the theme to work correctly, please, set these recommended image sizes:', 'wm_domain' ) . '</p>';
+						do_action( 'wmhook_wm_image_size_notice_html_top' );
+
+						echo '<h3>' . __( 'Recommended image sizes', 'wm_domain' ) . '</h3>'
+							. '<p>' . __( 'For the theme to work correctly, please, set these recommended image sizes:', 'wm_domain' ) . '</p>';
 
 						echo '<table>';
-							foreach ( $image_sizes as $size => $setup ) {
-								if ( isset( $default_image_size_names[ $size ] ) ) {
-									$crop = ( $setup[2] ) ? ( __( 'cropped', 'wm_domain' ) ) : ( __( 'scaled', 'wm_domain' ) );
-									echo '<tr><th>' . $default_image_size_names[ $size ] . ':</th><td>' . sprintf(
-											_x( '%1$s &times; %2$s, %3$s', '1: image width, 2: image height, 3: cropped or scaled?', 'wm_domain' ),
-											$setup[0],
-											$setup[1],
-											$crop
-										) . '</td></tr>';
-								}
-							} // /foreach
+
+							echo '<thead>'
+								. '<tr>'
+								. '<th>' . __( 'Size name', 'wm_domain' ) . '</th>'
+								. '<th>' . __( 'Size parameters', 'wm_domain' ) . '</th>'
+								. '<th>' . __( 'Theme usage', 'wm_domain' ) . '</th>'
+								. '</tr>'
+								. '</thead>';
+
+							echo '<tbody>';
+
+								foreach ( $image_sizes as $size => $setup ) {
+
+									if ( isset( $default_image_size_names[ $size ] ) ) {
+
+										$crop = ( $setup[2] ) ? ( __( 'cropped', 'wm_domain' ) ) : ( __( 'scaled', 'wm_domain' ) );
+
+										echo '<tr>'
+											. '<th>' . $default_image_size_names[ $size ] . ':</th>'
+											. '<td>' . sprintf(
+													_x( '%1$s &times; %2$s, %3$s', '1: image width, 2: image height, 3: cropped or scaled?', 'wm_domain' ),
+													$setup[0],
+													$setup[1],
+													$crop
+												) . '</td>'
+											. '<td class="small">' . ( ( isset( $setup[3] ) ) ? ( $setup[3] ) : ( '&mdash;' ) ) . '</td>'
+											. '</tr>';
+
+									} else {
+
+										$crop = ( $setup[2] ) ? ( __( 'cropped', 'wm_domain' ) ) : ( __( 'scaled', 'wm_domain' ) );
+
+										echo '<tr title="' . __( 'Additional image size added by the theme. Can not be changed on this page.', 'wm_domain' ) . '">'
+											. '<th>' . '<code>' . $size . '</code>:</th>'
+											. '<td>' . sprintf(
+													_x( '%1$s &times; %2$s, %3$s', '1: image width, 2: image height, 3: cropped or scaled?', 'wm_domain' ),
+													$setup[0],
+													$setup[1],
+													$crop
+												) . '</td>'
+											. '<td class="small">' . ( ( isset( $setup[3] ) ) ? ( $setup[3] ) : ( '&mdash;' ) ) . '</td>'
+											. '</tr>';
+
+									}
+
+								} // /foreach
+
+							echo '</tbody>';
+
 						echo '</table>';
+
+						do_action( 'wmhook_wm_image_size_notice_html_bottom' );
 
 					echo '</div>';
 			}
 		} // /wm_image_size_notice_html
+
+
+
+	/**
+	 * Set typography: Google Fonts
+	 *
+	 * @since    1.3
+	 * @version  1.3
+	 *
+	 * @param  array $fonts_setup
+	 */
+	if ( ! function_exists( 'wm_google_fonts' ) ) {
+		function wm_google_fonts( $fonts_setup ) {
+			//Helper variables
+				$fonts_setup = array_unique( array_filter( array( get_theme_mod( 'font-family-body' ), get_theme_mod( 'font-family-headings' ), get_theme_mod( 'font-family-logo' ) ) ) );
+
+				if ( empty( $fonts_setup ) ) {
+					$fonts_setup = array( 'Fira Sans:400,300' );
+				}
+
+			//Output
+				return $fonts_setup;
+		}
+	} // /wm_google_fonts
 
 
 
@@ -551,22 +655,22 @@
 	 * Registering theme styles and scripts
 	 *
 	 * @since    1.0
-	 * @version  1.2
+	 * @version  1.3
 	 */
 	if ( ! function_exists( 'wm_register_assets' ) ) {
 		function wm_register_assets() {
+
 			/**
 			 * Styles
 			 */
 
 				$register_styles = apply_filters( 'wmhook_wm_register_assets_register_styles', array(
-						'wm-customizer'   => array( get_template_directory_uri() . '/css/customizer.css'                                        ),
-						'wm-genericons'   => array( wm_get_stylesheet_directory_uri( 'genericons/genericons.css' )                              ),
-						'wm-google-fonts' => array( wm_google_fonts_url( array( 'Fira Sans:400,300' ) )                                         ),
-						'wm-starter'      => array( wm_get_stylesheet_directory_uri( 'css/starter.css' )                                        ),
+						'wm-genericons'   => array( wm_get_stylesheet_directory_uri( 'genericons/genericons.css' ) ),
+						'wm-google-fonts' => array( wm_google_fonts_url() ),
+						'wm-starter'      => array( wm_get_stylesheet_directory_uri( 'css/starter.css' ) ),
 						'wm-stylesheet'   => array( 'src' => get_stylesheet_uri(), 'deps' => array( 'wm-genericons', 'wm-slick', 'wm-starter' ) ),
-						'wm-colors'       => array( wm_get_stylesheet_directory_uri( 'css/colors.css' ), 'deps' => array( 'wm-stylesheet' )     ),
-						'wm-slick'        => array( wm_get_stylesheet_directory_uri( 'css/slick.css' )                                          ),
+						'wm-colors'       => array( wm_get_stylesheet_directory_uri( 'css/colors.css' ), 'deps' => array( 'wm-stylesheet' ) ),
+						'wm-slick'        => array( wm_get_stylesheet_directory_uri( 'css/slick.css' ) ),
 					) );
 
 				foreach ( $register_styles as $handle => $atts ) {
@@ -583,21 +687,21 @@
 			 */
 
 				$register_scripts = apply_filters( 'wmhook_wm_register_assets_register_scripts', array(
-						'wm-customizer-preview'  => array( 'src' => wm_get_stylesheet_directory_uri( 'js/customizer-preview.js' ), 'deps' => array( 'customizer-preview' )         ),
-						'wm-imagesloaded'        => array( wm_get_stylesheet_directory_uri( 'js/imagesloaded.pkgd.min.js' )                                                        ),
-						'wm-slick'               => array( 'src' => wm_get_stylesheet_directory_uri( 'js/slick.min.js' ), 'deps' => array( 'jquery' )                              ),
-						'wm-theme-scripts'       => array( 'src' => wm_get_stylesheet_directory_uri( 'js/scripts.js' ), 'deps' => array( 'jquery', 'wm-imagesloaded', 'wm-slick' ) ),
-						'wm-skip-link-focus-fix' => array( wm_get_stylesheet_directory_uri( 'js/skip-link-focus-fix.js' )                                                          ),
+						'wm-imagesloaded'        => array( wm_get_stylesheet_directory_uri( 'js/imagesloaded.pkgd.min.js' ) ),
+						'wm-slick'               => array( wm_get_stylesheet_directory_uri( 'js/slick.min.js' ) ),
+						'wm-theme-scripts'       => array( 'src' => wm_get_stylesheet_directory_uri( 'js/scripts.js' ), 'deps' => array( 'wm-imagesloaded', 'wm-slick' ) ),
+						'wm-skip-link-focus-fix' => array( wm_get_stylesheet_directory_uri( 'js/skip-link-focus-fix.js' ) ),
 					) );
 
 				foreach ( $register_scripts as $handle => $atts ) {
 					$src       = ( isset( $atts['src'] )       ) ? ( $atts['src']       ) : ( $atts[0]           );
-					$deps      = ( isset( $atts['deps'] )      ) ? ( $atts['deps']      ) : ( false              );
+					$deps      = ( isset( $atts['deps'] )      ) ? ( $atts['deps']      ) : ( array( 'jquery' )  );
 					$ver       = ( isset( $atts['ver'] )       ) ? ( $atts['ver']       ) : ( WM_SCRIPTS_VERSION );
 					$in_footer = ( isset( $atts['in_footer'] ) ) ? ( $atts['in_footer'] ) : ( true               );
 
 					wp_register_script( $handle, $src, $deps, $ver, $in_footer );
 				}
+
 		}
 	} // /wm_register_assets
 
@@ -607,10 +711,11 @@
 	 * Frontend HTML head assets enqueue
 	 *
 	 * @since    1.0
-	 * @version  1.2
+	 * @version  1.3
 	 */
 	if ( ! function_exists( 'wm_enqueue_assets' ) ) {
 		function wm_enqueue_assets() {
+
 			//Helper variables
 				$enqueue_styles = $enqueue_scripts = array();
 
@@ -624,7 +729,7 @@
 			 */
 
 				//Google Fonts
-					if ( wm_google_fonts_url( array( 'Fira Sans:400,300' ) ) ) {
+					if ( wm_google_fonts_url() ) {
 						$enqueue_styles[] = 'wm-google-fonts';
 					}
 				//Main
@@ -672,8 +777,10 @@
 						) {
 						$enqueue_scripts[] = 'jquery-masonry';
 					}
+
 				//Global theme scripts
 					$enqueue_scripts[] = 'wm-theme-scripts';
+
 				//Skip link focus fix
 					$enqueue_scripts[] = 'wm-skip-link-focus-fix';
 
@@ -691,8 +798,51 @@
 						) {
 						wp_enqueue_script( 'comment-reply', false, false, false, true );
 					}
+
 		}
 	} // /wm_enqueue_assets
+
+
+
+	/**
+	 * Customizer controls assets enqueue
+	 *
+	 * @since    1.3
+	 * @version  1.3
+	 */
+	if ( ! function_exists( 'wm_customizer_enqueue_assets' ) ) {
+		function wm_customizer_enqueue_assets() {
+			//Styles
+				wp_enqueue_style(
+						'wm-customizer',
+						get_template_directory_uri() . '/css/customizer.css',
+						false,
+						WM_SCRIPTS_VERSION,
+						'all'
+					);
+		}
+	} // /wm_customizer_enqueue_assets
+
+
+
+		/**
+		 * Customizer preview assets enqueue
+		 *
+		 * @since    1.3
+		 * @version  1.3
+		 */
+		if ( ! function_exists( 'wm_customizer_preview_enqueue_assets' ) ) {
+			function wm_customizer_preview_enqueue_assets() {
+				//Scripts
+					wp_enqueue_script(
+							'wm-customizer-preview',
+							wm_get_stylesheet_directory_uri( 'js/customizer-preview.js' ),
+							array( 'customize-preview' ),
+							WM_SCRIPTS_VERSION,
+							true
+						);
+			}
+		} // /wm_customizer_preview_enqueue_assets
 
 
 
@@ -700,7 +850,7 @@
 	 * HTML Body classes
 	 *
 	 * @since    1.0
-	 * @version  1.2
+	 * @version  1.3
 	 *
 	 * @param  array $classes
 	 */
@@ -720,6 +870,8 @@
 				//Singular?
 					if ( is_singular() ) {
 						$body_classes['is-singular'] = ++$i;
+					} else {
+						$body_classes['is-not-singular'] = ++$i;
 					}
 
 				//Has featured image?
@@ -730,6 +882,18 @@
 				//Is posts list?
 					if ( is_archive() || is_search() ) {
 						$body_classes['is-posts-list'] = ++$i;
+					}
+
+				//Featured posts
+					if (
+							class_exists( 'NS_Featured_Posts' )
+							&& (
+									is_home()
+									|| is_archive()
+									|| is_search()
+								)
+						) {
+						$body_classes['has-featured-posts'] = ++$i;
 					}
 
 				//Enable hiding site navigation and footer credits on down scroll
@@ -744,6 +908,41 @@
 				return $classes;
 		}
 	} // /wm_body_classes
+
+
+
+	/**
+	 * Post classes
+	 *
+	 * @since    1.3
+	 * @version  1.3
+	 *
+	 * @param  array $classes
+	 */
+	if ( ! function_exists( 'wm_post_classes' ) ) {
+		function wm_post_classes( $classes ) {
+			//Preparing output
+				//Sticky post
+					/**
+					 * On paginated posts list the sticky class is not
+					 * being applied, so, we need to compensate.
+					 */
+					if ( is_sticky() ) {
+						$classes[] = 'is-sticky';
+					}
+
+				//Featured post
+					if (
+							class_exists( 'NS_Featured_Posts' )
+							&& get_post_meta( get_the_ID(), '_is_ns_featured_post', true )
+						) {
+						$classes[] = 'is-featured';
+					}
+
+			//Output
+				return $classes;
+		}
+	} // /wm_post_classes
 
 
 
@@ -1253,14 +1452,14 @@
 		 * Entry after
 		 *
 		 * @since    1.0
-		 * @version  1.1
+		 * @version  1.3
 		 */
 		if ( ! function_exists( 'wm_entry_after' ) ) {
 			function wm_entry_after() {
 				//Comments
 					if (
 							! ( is_page() && is_front_page() )
-							&& ! is_page_template( 'page-template/_front.php' )
+							&& ! is_page_template()
 						) {
 						comments_template( '', true );
 					}
@@ -1279,6 +1478,37 @@
 				}
 			}
 		} // /wm_sticky_label
+
+
+
+		/**
+		 * Post thumbnail (featured image) display size
+		 *
+		 * @since    1.3
+		 * @version  1.3
+		 *
+		 * @param  string $image_size
+		 */
+		if ( ! function_exists( 'wm_post_thumbnail_size' ) ) {
+			function wm_post_thumbnail_size( $image_size ) {
+				//Preparing output
+					if (
+							is_single( get_the_ID() )
+							|| is_page()
+						) {
+
+						$image_size = 'large';
+
+					} else {
+
+						$image_size = 'thumbnail';
+
+					}
+
+				//Output
+					return $image_size;
+			}
+		} // /wm_post_thumbnail_size
 
 
 

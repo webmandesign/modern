@@ -16,7 +16,7 @@
  * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.2
+ * @version  1.3
  */
 
 
@@ -42,7 +42,7 @@ $hover_title = sprintf(
 			&& apply_filters( 'wmhook_entry_featured_image_display', true )
 		) :
 
-		$image_size = WM_IMAGE_SIZE_ITEMS;
+		$image_size = apply_filters( 'wmhook_entry_featured_image_size', 'thumbnail' );
 
 		?>
 

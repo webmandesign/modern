@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Modern v1.2.2\n"
+"Project-Id-Version: Modern v1.3\n"
 "Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
-"POT-Creation-Date: 2015-04-02 14:19+0100\n"
-"PO-Revision-Date: 2015-04-02 14:19+0100\n"
+"POT-Creation-Date: 2015-04-15 10:00+0100\n"
+"PO-Revision-Date: 2015-04-15 10:00+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language: en\n"
@@ -113,11 +113,11 @@ msgstr ""
 msgid "Load more&hellip;"
 msgstr ""
 
-#: inc/jetpack/jetpack.php:193 inc/setup.php:1504
+#: inc/jetpack/jetpack.php:193 inc/setup.php:1734
 msgid "All projects"
 msgstr ""
 
-#: inc/lib/admin.php:105
+#: inc/lib/admin.php:108
 msgid "Image"
 msgstr ""
 
@@ -139,197 +139,197 @@ msgstr ""
 msgid "Page %s"
 msgstr ""
 
-#: inc/lib/core.php:511
+#: inc/lib/core.php:514
 msgid "Part %"
 msgstr ""
 
-#: inc/lib/core.php:614
+#: inc/lib/core.php:617
 #, php-format
 msgctxt "Number of comments in post meta."
 msgid "Comments: %s"
 msgstr ""
 
-#: inc/lib/core.php:614
+#: inc/lib/core.php:617
 #, php-format
 msgctxt "Number of comments in post meta (keep the HTML tags)."
 msgid "<span class=\"comments-title\">Comments: </span>%s"
 msgstr ""
 
-#: inc/lib/core.php:645 inc/setup.php:1069
+#: inc/lib/core.php:648 inc/setup.php:1268
 #, php-format
 msgid "Edit the \"%s\""
 msgstr ""
 
-#: inc/lib/core.php:645 inc/setup.php:1069
+#: inc/lib/core.php:648 inc/setup.php:1268
 msgctxt "Edit post link."
 msgid "Edit"
 msgstr ""
 
-#: inc/lib/core.php:678
+#: inc/lib/core.php:681
 #, php-format
 msgid "Permalink to \"%s\""
 msgstr ""
 
-#: inc/lib/core.php:705
+#: inc/lib/core.php:708
 msgid "Views count"
 msgstr ""
 
-#: inc/lib/core.php:782
+#: inc/lib/core.php:785
 #, php-format
 msgctxt "Paginated content title suffix."
 msgid "(page %s)"
 msgstr ""
 
-#: inc/lib/core.php:991
+#: inc/lib/core.php:1015
 msgid "Skip to content"
 msgstr ""
 
-#: inc/lib/core.php:992
+#: inc/lib/core.php:1016
 msgid "Skip to navigation"
 msgstr ""
 
-#: inc/lib/core.php:1177
+#: inc/lib/core.php:1212
 #, php-format
 msgid "Category: %s"
 msgstr ""
 
-#: inc/lib/core.php:1179
+#: inc/lib/core.php:1214
 #, php-format
 msgid "Tag: %s"
 msgstr ""
 
-#: inc/lib/core.php:1181
+#: inc/lib/core.php:1216
 #, php-format
 msgid "Author: %s"
 msgstr ""
 
-#: inc/lib/core.php:1183
+#: inc/lib/core.php:1218
 #, php-format
 msgid "Year: %s"
 msgstr ""
 
-#: inc/lib/core.php:1183
+#: inc/lib/core.php:1218
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: inc/lib/core.php:1185
+#: inc/lib/core.php:1220
 #, php-format
 msgid "Month: %s"
 msgstr ""
 
-#: inc/lib/core.php:1185
+#: inc/lib/core.php:1220
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr ""
 
-#: inc/lib/core.php:1187
+#: inc/lib/core.php:1222
 #, php-format
 msgid "Day: %s"
 msgstr ""
 
-#: inc/lib/core.php:1187
+#: inc/lib/core.php:1222
 msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr ""
 
-#: inc/lib/core.php:1190
+#: inc/lib/core.php:1225
 msgctxt "post format archive title"
 msgid "Asides"
 msgstr ""
 
-#: inc/lib/core.php:1192
+#: inc/lib/core.php:1227
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr ""
 
-#: inc/lib/core.php:1194
+#: inc/lib/core.php:1229
 msgctxt "post format archive title"
 msgid "Images"
 msgstr ""
 
-#: inc/lib/core.php:1196
+#: inc/lib/core.php:1231
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr ""
 
-#: inc/lib/core.php:1198
+#: inc/lib/core.php:1233
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr ""
 
-#: inc/lib/core.php:1200
+#: inc/lib/core.php:1235
 msgctxt "post format archive title"
 msgid "Links"
 msgstr ""
 
-#: inc/lib/core.php:1202
+#: inc/lib/core.php:1237
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr ""
 
-#: inc/lib/core.php:1204
+#: inc/lib/core.php:1239
 msgctxt "post format archive title"
 msgid "Audio"
 msgstr ""
 
-#: inc/lib/core.php:1206
+#: inc/lib/core.php:1241
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr ""
 
-#: inc/lib/core.php:1209
+#: inc/lib/core.php:1244
 #, php-format
 msgid "Archives: %s"
 msgstr ""
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
-#: inc/lib/core.php:1213
+#: inc/lib/core.php:1248
 #, php-format
 msgid "%1$s: %2$s"
 msgstr ""
 
-#: inc/lib/core.php:1215
+#: inc/lib/core.php:1250
 msgid "Archives"
 msgstr ""
 
-#: inc/lib/visual-editor.php:102
+#: inc/lib/visual-editor.php:111
 msgctxt "Visual editor blockquote formats group title."
 msgid "Quotes"
 msgstr ""
 
-#: inc/lib/visual-editor.php:106
+#: inc/lib/visual-editor.php:115
 msgid "Blockquote"
 msgstr ""
 
-#: inc/lib/visual-editor.php:110
+#: inc/lib/visual-editor.php:119
 msgid "Pullquote - align left"
 msgstr ""
 
-#: inc/lib/visual-editor.php:115
+#: inc/lib/visual-editor.php:124
 msgid "Pullquote - align right"
 msgstr ""
 
-#: inc/lib/visual-editor.php:120
+#: inc/lib/visual-editor.php:129
 msgctxt ""
 "Visual editor format label for HTML CITE tag used to set the blockquote "
 "source."
 msgid "Cite"
 msgstr ""
 
-#: inc/lib/visual-editor.php:129
+#: inc/lib/visual-editor.php:138
 msgid "Text styles"
 msgstr ""
 
-#: inc/lib/visual-editor.php:133
+#: inc/lib/visual-editor.php:142
 msgid "Uppercase heading or paragraph"
 msgstr ""
 
-#: inc/lib/visual-editor.php:139
+#: inc/lib/visual-editor.php:148
 msgid "Highlighted (marked) text"
 msgstr ""
 
-#: inc/lib/visual-editor.php:144
+#: inc/lib/visual-editor.php:153
 msgid "Button link"
 msgstr ""
 
@@ -456,157 +456,186 @@ msgid ""
 "\">WebManDesign.eu</a></strong>. Thank you for using this awesome theme!"
 msgstr ""
 
-#: inc/setup.php:151
+#: inc/setup.php:159
 msgid " - do not use Google Font"
 msgstr ""
 
-#: inc/setup.php:154
+#: inc/setup.php:162
 msgctxt "Google Font default setup options group title."
 msgid "Theme default"
 msgstr ""
 
-#: inc/setup.php:159 inc/setup.php:164 inc/setup.php:170 inc/setup.php:175
-#: inc/setup.php:180 inc/setup.php:185 inc/setup.php:190 inc/setup.php:194
-#: inc/setup.php:200
+#: inc/setup.php:167 inc/setup.php:172 inc/setup.php:178 inc/setup.php:183
+#: inc/setup.php:188 inc/setup.php:193 inc/setup.php:198 inc/setup.php:202
+#: inc/setup.php:208
 #, php-format
 msgctxt "Google Font setup recommendation (numbered) group title."
 msgid "Recommendation #%d"
 msgstr ""
 
-#: inc/setup.php:207
+#: inc/setup.php:215
 msgctxt "Title for selection of fonts picked from Google Fontss"
 msgid "Fonts selection"
 msgstr ""
 
-#: inc/setup.php:257
+#: inc/setup.php:265
 msgid "Sidebar"
 msgstr ""
 
-#: inc/setup.php:258
+#: inc/setup.php:266
 msgid "Page sidebar."
 msgstr ""
 
-#: inc/setup.php:261
+#: inc/setup.php:269
 msgid "Footer Widgets"
 msgstr ""
 
-#: inc/setup.php:262
+#: inc/setup.php:270
 msgid "Masonry layout is used to display footer widgets."
 msgstr ""
 
-#: inc/setup.php:356
+#: inc/setup.php:364
 msgid "Primary Menu"
 msgstr ""
 
-#: inc/setup.php:357
+#: inc/setup.php:365
 msgid "Social Links Menu"
 msgstr ""
 
-#: inc/setup.php:499
+#: inc/setup.php:460
+msgid "In posts list."
+msgstr ""
+
+#: inc/setup.php:471
+msgid "In single post or page."
+msgstr ""
+
+#: inc/setup.php:477
+msgid "In banner and post/page background."
+msgstr ""
+
+#: inc/setup.php:534
 msgctxt "WordPress predefined image size name."
 msgid "Thumbnail size"
 msgstr ""
 
-#: inc/setup.php:500
+#: inc/setup.php:535
 msgctxt "WordPress predefined image size name."
 msgid "Medium size"
 msgstr ""
 
-#: inc/setup.php:501
+#: inc/setup.php:536
 msgctxt "WordPress predefined image size name."
 msgid "Large size"
 msgstr ""
 
-#: inc/setup.php:521
+#: inc/setup.php:561
 msgid "Recommended image sizes"
 msgstr ""
 
-#: inc/setup.php:522
+#: inc/setup.php:562
 msgid ""
 "For the theme to work correctly, please, set these recommended image sizes:"
 msgstr ""
 
-#: inc/setup.php:527
+#: inc/setup.php:568
+msgid "Size name"
+msgstr ""
+
+#: inc/setup.php:569
+msgid "Size parameters"
+msgstr ""
+
+#: inc/setup.php:570
+msgid "Theme usage"
+msgstr ""
+
+#: inc/setup.php:580 inc/setup.php:595
 msgid "cropped"
 msgstr ""
 
-#: inc/setup.php:527
+#: inc/setup.php:580 inc/setup.php:595
 msgid "scaled"
 msgstr ""
 
-#: inc/setup.php:529
+#: inc/setup.php:585 inc/setup.php:600
 #, php-format
 msgctxt "1: image width, 2: image height, 3: cropped or scaled?"
 msgid "%1$s &times; %2$s, %3$s"
 msgstr ""
 
-#: inc/setup.php:949
+#: inc/setup.php:597
+msgid ""
+"Additional image size added by the theme. Can not be changed on this page."
+msgstr ""
+
+#: inc/setup.php:1148
 #, php-format
 msgid "%s site navigation"
 msgstr ""
 
-#: inc/setup.php:953
+#: inc/setup.php:1152
 msgctxt "Display search form button title."
 msgid "Search"
 msgstr ""
 
-#: inc/setup.php:955
+#: inc/setup.php:1154
 msgctxt "Mobile navigation toggle button title."
 msgid "Menu"
 msgstr ""
 
-#: inc/setup.php:1278
+#: inc/setup.php:1477
 msgid "This is sticky post"
 msgstr ""
 
-#: inc/setup.php:1302
+#: inc/setup.php:1532
 #, php-format
 msgid ""
 "This content is password protected. To view it please <a%s>enter the "
 "password</a>."
 msgstr ""
 
-#: inc/setup.php:1387
+#: inc/setup.php:1617
 #, php-format
 msgid "Continue reading%s&hellip;"
 msgstr ""
 
-#: inc/setup.php:1432
+#: inc/setup.php:1662
 msgid ""
 "<span class=\"meta-nav\">Published In</span><span class=\"post-title\">"
 "%title</span>"
 msgstr ""
 
-#: inc/setup.php:1434
+#: inc/setup.php:1664
 msgid ""
 "<span class=\"meta-nav\">Previous</span><span class=\"post-title\">%title</"
 "span>"
 msgstr ""
 
-#: inc/setup.php:1435
+#: inc/setup.php:1665
 msgid ""
 "<span class=\"meta-nav\">Next</span><span class=\"post-title\">%title</span>"
 msgstr ""
 
-#: inc/setup.php:1439
+#: inc/setup.php:1669
 msgid "Post navigation"
 msgstr ""
 
-#: inc/setup.php:1492
+#: inc/setup.php:1722
 msgid "All posts"
 msgstr ""
 
-#: inc/setup.php:1534
+#: inc/setup.php:1764
 #, php-format
 msgid "Powered by %s."
 msgstr ""
 
-#: inc/setup.php:1539
+#: inc/setup.php:1769
 #, php-format
 msgid "Theme by %s."
 msgstr ""
 
-#: inc/setup.php:1542
+#: inc/setup.php:1772
 msgid "Back to top &uarr;"
 msgstr ""
 

@@ -6,7 +6,7 @@
  * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.2
+ * @version  1.3
  */
 
 ?>
@@ -33,7 +33,7 @@
 
 				//Custom banner image
 					if ( is_numeric( $banner_image ) ) {
-						echo wp_get_attachment_image( absint( $banner_image ), WM_IMAGE_SIZE_BANNER );
+						echo wp_get_attachment_image( absint( $banner_image ), 'banner' );
 					} elseif ( 0 === strpos( $banner_image, '<img ' ) ) {
 						echo $banner_image;
 					} else {
@@ -43,7 +43,7 @@
 			} elseif ( has_post_thumbnail() && empty( $banner_image ) ) {
 
 				//Post featured image
-					the_post_thumbnail( WM_IMAGE_SIZE_BANNER );
+					the_post_thumbnail( 'banner' );
 
 			} else {
 

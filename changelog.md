@@ -1,5 +1,41 @@
 # Modern Changelog
 
+## 1.3
+
+* Added: Additional post classes
+* Updated: Image size setup message
+* Updated: Typography setup simplified
+* Updated: Library and custimizer
+* Updated: Localization
+* Updated: Scripts
+* Fixed: Page with sidebar template layout when comments enabled (disabled comments for this page template)
+* Fixed: Responsive sidebar width
+* Fixed: Customizer script dependency
+
+#### Files changed:
+
+	content-audio.php
+	content-custom-header.php
+	content-featured-post.php
+	content-gallery.php
+	content-image.php
+	content-link.php
+	content-page.php
+	content-status.php
+	content-video.php
+	content.php
+	functions.php
+	image.php
+	css/starter.css
+	inc/setup.php
+	inc/customizer/customizer.php
+	inc/lib/core.php
+	languages/sk_SK.mo
+	languages/sk_SK.po
+	languages/xx_XX.pot
+	page-template/_sidebar.php
+
+
 ## 1.2.3
 
 * Fixed: Error on older versions of PHP

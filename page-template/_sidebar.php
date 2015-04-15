@@ -10,7 +10,7 @@
  * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.3
  */
 
 
@@ -30,7 +30,7 @@ get_header();
 
 			<figure class="post-thumbnail"<?php echo wm_schema_org( 'image' ); ?>>
 
-				<?php the_post_thumbnail( WM_IMAGE_SIZE_SINGULAR ); ?>
+				<?php the_post_thumbnail( apply_filters( 'wmhook_entry_featured_image_size', 'thumbnail' ) ); ?>
 
 			</figure>
 

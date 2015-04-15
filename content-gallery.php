@@ -21,13 +21,13 @@
  * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.2
+ * @version  1.3
  */
 
 
 
 $pagination_suffix = wm_paginated_suffix( 'small', 'post' );
-$image_size        = ( is_single() ) ? ( WM_IMAGE_SIZE_SINGULAR ) : ( WM_IMAGE_SIZE_ITEMS );
+$image_size        = apply_filters( 'wmhook_entry_featured_image_size', 'thumbnail' );
 
 ?>
 
