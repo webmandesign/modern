@@ -6,7 +6,7 @@
  * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.3
+ * @version  1.4
  *
  * CONTENT:
  * -  10) Actions and filters
@@ -49,9 +49,6 @@
 			add_action( 'init', 'wm_visual_editor', 999 );
 		//Display Settings > Media recommended images sizes notice
 			add_action( 'admin_init', 'wm_image_size_notice' );
-		//Front page template more links
-			add_action( 'wmhook_template_front_portfolio_postslist_after', 'wm_portfolio_more_link', 10 );
-			add_action( 'wmhook_template_front_blog_postslist_after',      'wm_blog_more_link',      10 );
 		//Website sections
 			//DOCTYPE
 				add_action( 'wmhook_html_before',    'wm_doctype',        10   );
@@ -79,6 +76,9 @@
 				add_action( 'wmhook_footer_top',     'wm_footer_top',     100  );
 				add_action( 'wmhook_footer',         'wm_footer',         100  );
 				add_action( 'wmhook_footer_bottom',  'wm_footer_bottom',  100  );
+		//Front page template more links
+			add_action( 'wmhook_template_front_portfolio_postslist_after', 'wm_portfolio_more_link', 10 );
+			add_action( 'wmhook_template_front_blog_postslist_after',      'wm_blog_more_link',      10 );
 
 
 
@@ -299,7 +299,7 @@
 	 * Theme setup
 	 *
 	 * @since    1.0
-	 * @version  1.2.3
+	 * @version  1.4
 	 */
 	if ( ! function_exists( 'wm_setup' ) ) {
 		function wm_setup() {
@@ -310,8 +310,8 @@
 				//WordPress visual editor CSS stylesheets
 					$visual_editor_css = array_filter( (array) apply_filters( 'wmhook_wm_setup_visual_editor_css', array(
 							str_replace( ',', '%2C', wm_google_fonts_url() ),
-							add_query_arg( array( 'ver' => WM_THEME_VERSION ), wm_get_stylesheet_directory_uri( 'genericons/genericons.css' ) ),
-							add_query_arg( array( 'ver' => WM_THEME_VERSION ), wm_get_stylesheet_directory_uri( 'css/editor-style.css' ) ),
+							esc_url( add_query_arg( array( 'ver' => WM_THEME_VERSION ), wm_get_stylesheet_directory_uri( 'genericons/genericons.css' ) ) ),
+							esc_url( add_query_arg( array( 'ver' => WM_THEME_VERSION ), wm_get_stylesheet_directory_uri( 'css/editor-style.css' ) ) ),
 						) ) );
 
 			/**
@@ -625,14 +625,25 @@
 	 * Set typography: Google Fonts
 	 *
 	 * @since    1.3
-	 * @version  1.3
+	 * @version  1.4
 	 *
 	 * @param  array $fonts_setup
 	 */
 	if ( ! function_exists( 'wm_google_fonts' ) ) {
 		function wm_google_fonts( $fonts_setup ) {
 			//Helper variables
-				$fonts_setup = array_unique( array_filter( array( get_theme_mod( 'font-family-body' ), get_theme_mod( 'font-family-headings' ), get_theme_mod( 'font-family-logo' ) ) ) );
+				$fonts_setup = array_unique( array_filter( array(
+						get_theme_mod( 'font-family-body' ),
+						get_theme_mod( 'font-family-headings' )
+					) ) );
+
+				if (
+						! is_admin()
+						&& ! ( function_exists( 'jetpack_get_site_logo' ) && jetpack_get_site_logo( 'id' ) )
+						&& get_theme_mod( 'font-family-logo' )
+					)  {
+					$fonts_setup[] = get_theme_mod( 'font-family-logo' );
+				}
 
 				if ( empty( $fonts_setup ) ) {
 					$fonts_setup = array( 'Fira Sans:400,300' );
@@ -655,7 +666,7 @@
 	 * Registering theme styles and scripts
 	 *
 	 * @since    1.0
-	 * @version  1.3
+	 * @version  1.4
 	 */
 	if ( ! function_exists( 'wm_register_assets' ) ) {
 		function wm_register_assets() {
@@ -689,7 +700,7 @@
 				$register_scripts = apply_filters( 'wmhook_wm_register_assets_register_scripts', array(
 						'wm-imagesloaded'        => array( wm_get_stylesheet_directory_uri( 'js/imagesloaded.pkgd.min.js' ) ),
 						'wm-slick'               => array( wm_get_stylesheet_directory_uri( 'js/slick.min.js' ) ),
-						'wm-theme-scripts'       => array( 'src' => wm_get_stylesheet_directory_uri( 'js/scripts.js' ), 'deps' => array( 'wm-imagesloaded', 'wm-slick' ) ),
+						'wm-scripts-global'      => array( 'src' => wm_get_stylesheet_directory_uri( 'js/scripts-global.js' ), 'deps' => array( 'wm-imagesloaded', 'wm-slick' ) ),
 						'wm-skip-link-focus-fix' => array( wm_get_stylesheet_directory_uri( 'js/skip-link-focus-fix.js' ) ),
 					) );
 
@@ -711,7 +722,7 @@
 	 * Frontend HTML head assets enqueue
 	 *
 	 * @since    1.0
-	 * @version  1.3
+	 * @version  1.4
 	 */
 	if ( ! function_exists( 'wm_enqueue_assets' ) ) {
 		function wm_enqueue_assets() {
@@ -779,7 +790,7 @@
 					}
 
 				//Global theme scripts
-					$enqueue_scripts[] = 'wm-theme-scripts';
+					$enqueue_scripts[] = 'wm-scripts-global';
 
 				//Skip link focus fix
 					$enqueue_scripts[] = 'wm-skip-link-focus-fix';
@@ -1678,6 +1689,9 @@
 
 		/**
 		 * Pagination
+		 *
+		 * @since    1.0
+		 * @version  1.4
 		 */
 		if ( ! function_exists( 'wm_pagination' ) ) {
 			function wm_pagination() {
@@ -1693,10 +1707,6 @@
 					$output = '';
 
 					$pagination = array(
-							'base'      => @add_query_arg( 'paged', '%#%' ),
-							'format'    => '',
-							'current'   => max( 1, get_query_var( 'paged' ) ),
-							'total'     => $wp_query->max_num_pages,
 							'prev_text' => '&laquo;',
 							'next_text' => '&raquo;',
 						);

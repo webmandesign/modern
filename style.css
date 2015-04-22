@@ -4,7 +4,7 @@
  * Author:       WebMan
  * Author URI:   http://www.webmandesign.eu/
  * Description:  <strong>Modern</strong> is responsive, retina-ready blog and portfolio WordPress theme. It's perfect for personal and small business portfolios. Supports Jetpack plugin, Schema.org markup, Theme Hook Alliance action hooks, translation-ready code, header slideshow and other cool features. The theme is compatible with Chrome, Safari, Opera, Firefox, Internet Explorer 9+ browsers. Thank you for using one of WebMan's themes (more cool WordPress themes can be found at www.webmandesign.eu). Theme demo at http://themedemos.webmandesign.eu/modern-wordpress-theme/
- * Version:      1.3
+ * Version:      1.4
  * License:      GNU General Public License v2 or later
  * License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:  wm_domain
@@ -838,6 +838,7 @@
 							top: -20px;
 							-webkit-transform: scaleX(-1);
 							   -moz-transform: scaleX(-1);
+							    -ms-transform: scaleX(-1);
 							        transform: scaleX(-1);
 							-webkit-filter: blur(10px) grayscale(100%) contrast(66%);
 							   -moz-filter: blur(10px) grayscale(100%) contrast(66%);
@@ -1530,7 +1531,7 @@
 
 					.main-navigation {
 						position: relative;
-						padding-bottom: 2.62em;
+						padding-bottom: 5em;
 						background: transparent;
 						opacity: 1;
 					}
@@ -1541,6 +1542,7 @@
 						position: relative;
 						padding: 4.62em 4% 1em;
 					}
+					.active .main-navigation-inner { display: block; }
 
 					/* Navigation menu */
 
@@ -1613,16 +1615,30 @@
 
 					/* Mobile menu toggle */
 
+						.menu-toggle {
+							position: fixed;
+							left: 50%;
+							top: 0;
+							margin-left: -1em;
+						}
+							.admin-bar .menu-toggle { top: 32px; }
+
+							.active .menu-toggle,
+							.admin-bar .active .menu-toggle {
+								position: relative;
+								left: auto;
+								top: auto;
+								margin: 0 auto;
+							}
+
 						.menu-toggle,
 						.menu-toggle:hover,
 						.menu-toggle:active,
 						.menu-toggle:focus {
 							display: block;
-							position: relative;
 							width: 2em;
 							height: 2em;
 							padding: 0;
-							margin: 0 auto;
 							line-height: 2em;
 							text-indent: -999em;
 							font-size: 1.62em;
@@ -1752,13 +1768,6 @@
 						border: 0;
 					}
 
-				/* Navigation */
-
-					.menu-toggle,
-					.menu-toggle:hover,
-					.menu-toggle:active,
-					.menu-toggle:focus { margin: 0 auto; }
-
 				/* Social links */
 
 					.social-links,
@@ -1885,7 +1894,7 @@
 		@media screen and ( max-width: 782px ) {
 
 			html[class] { margin-top: 0 !important; }
-			body { padding-top: 46px !important; }
+			body.admin-bar { padding-top: 46px !important; }
 
 		} /* /(max-width: 782px) */
 

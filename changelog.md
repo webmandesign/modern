@@ -1,5 +1,22 @@
 # Modern Changelog
 
+## 1.4
+
+* Added: Sticky mobile navigation button
+* Updated: Removed obsolete `loop-singular.php` file
+* Updated: Tightening security
+* Updated: Improved code
+
+#### Files changed:
+
+	style.css
+	inc/setup-theme-options.php
+	inc/setup.php
+	inc/lib/core.php
+	inc/tgmpa/class-tgm-plugin-activation.php
+	js/scripts-global.js
+
+
 ## 1.3
 
 * Added: Additional post classes

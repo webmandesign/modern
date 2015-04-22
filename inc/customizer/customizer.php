@@ -165,6 +165,9 @@
 	/**
 	 * Sanitize texts
 	 *
+	 * @since    1.0
+	 * @version  1.0
+	 *
 	 * @param  mixed $value WP customizer value to sanitize.
 	 */
 	if ( ! function_exists( 'wm_sanitize_text' ) ) {
