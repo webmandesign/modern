@@ -1,5 +1,16 @@
 # Modern Changelog
 
+## 1.4.1
+
+* Updated: TGM Plugin Activation 2.4.1
+* Updated: Starter CSS
+
+#### Files changed:
+
+	css/starter.css
+	inc/tgmpa/class-tgm-plugin-activation.php
+
+
 ## 1.4
 
 * Added: Sticky mobile navigation button
