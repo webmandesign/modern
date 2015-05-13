@@ -34,7 +34,7 @@
 			add_action( 'wp_enqueue_scripts',  'wm_enqueue_assets',        100  );
 			add_action( 'wp_enqueue_scripts',  'wm_post_nav_background',   110  );
 			add_action( 'wp_footer',           'wm_footer_custom_scripts', 9998 );
-			add_action( 'comment_form_before', 'wm_comment_reply_js_enqueue'      );
+			add_action( 'comment_form_before', 'wm_comment_reply_js_enqueue'    );
 		//Customizer assets
 			add_action( 'customize_controls_enqueue_scripts', 'wm_customizer_enqueue_assets'             );
 			add_action( 'customize_preview_init',             'wm_customizer_preview_enqueue_assets', 10 );

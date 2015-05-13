@@ -6,7 +6,7 @@
  * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.3
+ * @version  1.4.3
  */
 
 ?>
@@ -37,7 +37,7 @@
 
 				//Custom banner image
 					if ( is_numeric( $banner_image ) ) {
-						echo wp_get_attachment_image( absint( $banner_image ), 'banner' );
+						echo wp_get_attachment_image( absint( $banner_image ), 'modern_banner' );
 					} elseif ( 0 === strpos( $banner_image, '<img ' ) ) {
 						echo $banner_image;
 					} else {
@@ -51,12 +51,12 @@
 				) {
 
 				//Post featured image
-					the_post_thumbnail( 'banner' );
+					the_post_thumbnail( 'modern_banner' );
 
 			} elseif ( is_attachment() ) {
 
 				//Attachment post image
-					echo wp_get_attachment_image( get_the_ID(), 'banner' );
+					echo wp_get_attachment_image( get_the_ID(), 'modern_banner' );
 
 			} else {
 

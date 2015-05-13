@@ -1,5 +1,15 @@
 # Modern Changelog
 
+## 1.4.3
+
+* **Update**: Using new prefixed image sizes
+
+#### Files changed:
+
+	content-custom-header.php
+	content-featured-post.php
+
+
 ## 1.4.2
 
 * **Update**: TGM Plugin Activation 2.4.2
