@@ -1,9 +1,29 @@
 # Modern Changelog
 
+## 1.4.2
+
+* **Update**: TGM Plugin Activation 2.4.2
+* **Update**: Removing `example.html` Genericons file
+* **Update**: Prefixed custom theme image sizes
+* **Update**: Enqueuing `comment-reply.js` the right way
+* **Update**: Saving image size setup into theme mod, not individual options
+* **Update**: Removing obsolete constants
+
+#### Files changed:
+
+	functions.php
+	genericons/example.html
+	inc/setup.php
+	inc/setup-theme-options.php
+	inc/lib/admin.php
+	inc/lib/core.php
+	inc/tgmpa/class-tgm-plugin-activation.php
+
+
 ## 1.4.1
 
-* Updated: TGM Plugin Activation 2.4.1
-* Updated: Starter CSS
+* **Update**: TGM Plugin Activation 2.4.1
+* **Update**: Starter CSS
 
 #### Files changed:
 
@@ -13,10 +33,10 @@
 
 ## 1.4
 
-* Added: Sticky mobile navigation button
-* Updated: Removed obsolete `loop-singular.php` file
-* Updated: Tightening security
-* Updated: Improved code
+* **Add**: Sticky mobile navigation button
+* **Update**: Removed obsolete `loop-singular.php` file
+* **Update**: Tightening security
+* **Update**: Improved code
 
 #### Files changed:
 
@@ -30,15 +50,15 @@
 
 ## 1.3
 
-* Added: Additional post classes
-* Updated: Image size setup message
-* Updated: Typography setup simplified
-* Updated: Library and custimizer
-* Updated: Localization
-* Updated: Scripts
-* Fixed: Page with sidebar template layout when comments enabled (disabled comments for this page template)
-* Fixed: Responsive sidebar width
-* Fixed: Customizer script dependency
+* **Add**: Additional post classes
+* **Update**: Image size setup message
+* **Update**: Typography setup simplified
+* **Update**: Library and custimizer
+* **Update**: Localization
+* **Update**: Scripts
+* **Fix**: Page with sidebar template layout when comments enabled (disabled comments for this page template)
+* **Fix**: Responsive sidebar width
+* **Fix**: Customizer script dependency
 
 #### Files changed:
 
@@ -66,7 +86,7 @@
 
 ## 1.2.3
 
-* Fixed: Error on older versions of PHP
+* **Fix**: Error on older versions of PHP
 
 #### Files changed:
 
@@ -75,11 +95,11 @@
 
 ## 1.2.2
 
-* Updated: Allowed to set custom image sizes via WordPress admin
-* Updated: Localization
-* Updated: Editor styles
-* Fixed: Displaying `title` tag in HTML head
-* Fixed: Comments display condition
+* **Update**: Allowed to set custom image sizes via WordPress admin
+* **Update**: Localization
+* **Update**: Editor styles
+* **Fix**: Displaying `title` tag in HTML head
+* **Fix**: Comments display condition
 
 #### Files changed:
 
@@ -93,7 +113,7 @@
 
 ## 1.2.1
 
-* Fixed: Incorrect filter hook name
+* **Fix**: Incorrect filter hook name
 
 #### Files changed:
 
@@ -102,21 +122,21 @@
 
 ## 1.2
 
-* Added: Posts Views Count plugin support
-* Added: NS Featured Posts plugin support for populating banner slideshow
-* Updated: Updated core framework
-* Updated: Updated copyright year
-* Updated: Optimized code
-* Updated: Updated scripts
-* Updated: Reorganized Customizer options
-* Updated: Using starter.css stylesheet
-* Updated: Optimized editor-style.css
-* Updated: Localization texts
-* Updated: Removed obsolete files and functions
-* Updated: User manual update
-* Fixed: Fixed and updated hooks
-* Fixed: Styles fixes
-* Fixed: Responsive styles
+* **Add**: Posts Views Count plugin support
+* **Add**: NS Featured Posts plugin support for populating banner slideshow
+* **Update**: Updated core framework
+* **Update**: Updated copyright year
+* **Update**: Optimized code
+* **Update**: Updated scripts
+* **Update**: Reorganized Customizer options
+* **Update**: Using starter.css stylesheet
+* **Update**: Optimized editor-style.css
+* **Update**: Localization texts
+* **Update**: Removed obsolete files and functions
+* **Update**: User manual update
+* **Fix**: Fixed and updated hooks
+* **Fix**: Styles fixes
+* **Fix**: Responsive styles
 
 #### Files changed:
 
@@ -156,7 +176,7 @@
 
 ## 1.1.5
 
-* Added original (not minified) JS scripts
+* **Add**: Original (not minified) JS scripts
 
 #### Files changed:
 
@@ -166,29 +186,29 @@
 
 ## 1.1
 
-* Added WordPress 4.1 compatibility
-* Added page edit link on front end
-* Added new icons to social links
-* Added breadcrumbs support
-* Added option to override header image
-* Updated stylesheet structure (colors grouped together)
-* Updated styles
-* Updated status post logic
-* Updated custom singular JS output
-* Updated mobile pagination styling
-* Updated tagcloud styles
-* Updated copyright info in readme file
-* Updated localization
-* Updated functions names
-* Updated theme options
-* Updated code organization
-* Updated scripts
-* Updated demo.xml file
-* Fixed Jetpack related posts styling
-* Fixed nested ordered lists styling
-* Fixed styling issues
-* Fixed filter hook names
-* Removed unnecessary hooks
+* **Add**: WordPress 4.1 compatibility
+* **Add**: Page edit link on front end
+* **Add**: New icons to social links
+* **Add**: Breadcrumbs support
+* **Add**: Option to override header image
+* **Update**: Stylesheet structure (colors grouped together)
+* **Update**: Styles
+* **Update**: Status post logic
+* **Update**: Custom singular JS output
+* **Update**: Mobile pagination styling
+* **Update**: Tagcloud styles
+* **Update**: Copyright info in readme file
+* **Update**: Localization
+* **Update**: Functions names
+* **Update**: Theme options
+* **Update**: Code organization
+* **Update**: Scripts
+* **Update**: `demo.xml` file
+* **Update**: Removed unnecessary hooks
+* **Fix**: Jetpack related posts styling
+* **Fix**: Nested ordered lists styling
+* **Fix**: Styling issues
+* **Fix**: Filter hook names
 
 #### Files changed:
 
