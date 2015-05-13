@@ -1,5 +1,16 @@
 # Modern Changelog
 
+## 1.4.4
+
+* **Fix**: Search field text color on error 404 and nothing found page
+* **Fix**: `wmhook_entry_image_link` is not applied correctly on page content
+
+#### Files changed:
+
+	style.css
+	content-page.php
+
+
 ## 1.4.3
 
 * **Update**: Using new prefixed image sizes
