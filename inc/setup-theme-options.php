@@ -6,7 +6,7 @@
  * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.4
+ * @version  1.4.5
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -42,7 +42,7 @@
 	 * Set theme options array
 	 *
 	 * @since    1.0
-	 * @version  1.4.2
+	 * @version  1.4.5
 	 *
 	 * @param  array $options
 	 */
@@ -62,10 +62,15 @@
 						 * Colors
 						 */
 						100 . 'colors' => array(
-							'id'                       => 'colors',
-							'type'                     => 'section',
-							'theme-customizer-section' => _x( 'Colors', 'Customizer section title.', 'wm_domain' ),
-							'theme-customizer-panel'   => _x( 'Theme', 'Customizer panel title.', 'wm_domain' ),
+							'id'                   => 'colors',
+							'type'                 => 'section',
+							'create_section'       => _x( 'Colors', 'Customizer section title.', 'wm_domain' ),
+							'in_panel'             => _x( 'Theme', 'Customizer panel title.', 'wm_domain' ),
+							'in_panel-description' => '<h3>' . __( 'Theme Credits', 'wm_domain' ) . '</h3><p class="description">' . sprintf(
+									__( '%s is free WordPress theme developed by WebMan. You can obtain other professional WordPress themes at <strong><a href="%s" target="_blank">WebManDesign.eu</a></strong>. Thank you for using this awesome theme!', 'wm_domain' ),
+									'<strong>' . wp_get_theme()->get( 'Name' ) . '</strong>',
+									esc_url( add_query_arg( array( 'utm_source' => WM_THEME_SHORTNAME . '-theme-credits' ), esc_url( wp_get_theme()->get( 'AuthorURI' ) ) ) )
+								) . '</p><p><a href="' . esc_url( trailingslashit( wp_get_theme()->get( 'AuthorURI' ) ) . WM_THEME_SHORTNAME . '-wordpress-theme/#donate' ) . '" class="donation-link" target="_blank">Donate</a></p>',
 						),
 
 							100 . 'colors' . 100 => array(
@@ -77,7 +82,7 @@
 							),
 
 							100 . 'colors' . 110 => array(
-								'type'    => 'theme-customizer-html',
+								'type'    => 'html',
 								'content' => '<h3>' . __( 'Accent color', 'wm_domain' ) . '</h3>',
 							),
 
@@ -102,14 +107,14 @@
 						 * Fonts
 						 */
 						200 . 'fonts' => array(
-							'id'                       => 'fonts',
-							'type'                     => 'section',
-							'theme-customizer-section' => _x( 'Fonts', 'Customizer section title.', 'wm_domain' ),
-							'theme-customizer-panel'   => _x( 'Theme', 'Customizer panel title.', 'wm_domain' ),
+							'id'             => 'fonts',
+							'type'           => 'section',
+							'create_section' => _x( 'Fonts', 'Customizer section title.', 'wm_domain' ),
+							'in_panel'       => _x( 'Theme', 'Customizer panel title.', 'wm_domain' ),
 						),
 
 							200 . 'fonts' . 100 => array(
-								'type'    => 'theme-customizer-html',
+								'type'    => 'html',
 								'content' => '<p class="description">' . __( 'Set a Google Font to be used for website logo, headings and general text.', 'wm_domain' ) . '<br />' . sprintf( __( 'Font matches recommendations from <a%s>Google Web Fonts Typographic Project</a>.', 'wm_domain' ), ' href="http://femmebot.github.io/google-type/" target="_blank"' ) . '</p>',
 							),
 
@@ -163,14 +168,14 @@
 						 * Texts
 						 */
 						300 . 'text' => array(
-							'id'                       => 'text',
-							'type'                     => 'section',
-							'theme-customizer-section' => __( 'Texts', 'wm_domain' ),
-							'theme-customizer-panel'   => _x( 'Theme', 'Customizer panel title.', 'wm_domain' ),
+							'id'             => 'text',
+							'type'           => 'section',
+							'create_section' => __( 'Texts', 'wm_domain' ),
+							'in_panel'       => _x( 'Theme', 'Customizer panel title.', 'wm_domain' ),
 						),
 
 							300 . 'text' . 110 => array(
-								'type'    => 'theme-customizer-html',
+								'type'    => 'html',
 								'content' => '<p class="description">' . __( 'Front page banner area will display Header Images and custom text.', 'wm_domain' ) . '</p><p class="description">' . __( 'If you set a Static Front Page, the page title will be displayed as banner text. Or you can override the text by setting <code>banner_text</code> custom field for your front page. Page featured image will be used as banner image.', 'wm_domain' ) . '</p><p class="description">' . __( 'Or, if you are using Featured Content module of the Jetpack plugin, just set it up and posts slideshow will be displayed in the banner.', 'wm_domain' ) . '</p>',
 							),
 
@@ -181,27 +186,6 @@
 									'description' => __( 'Used only when displaying latest posts on homepage', 'wm_domain' ),
 									'default'     => __( 'Hello! Welcome to my awesome website!', 'wm_domain' ),
 								),
-
-
-
-						/**
-						 * Credits
-						 */
-						999 . 'credits' => array(
-							'id'                       => 'credits',
-							'type'                     => 'section',
-							'theme-customizer-section' => 'Credits',
-						),
-
-							999 . 'credits' . 100 => array(
-								'id'      => 'credits-text',
-								'type'    => 'theme-customizer-html',
-								'content' => '<h3>' . __( 'Theme Credits', 'wm_domain' ) . '</h3><p class="description">' . sprintf(
-										__( '%s is free WordPress theme developed by WebMan. You can obtain other professional WordPress themes at <strong><a href="%s" target="_blank">WebManDesign.eu</a></strong>. Thank you for using this awesome theme!', 'wm_domain' ),
-										'<strong>' . wp_get_theme()->get( 'Name' ) . '</strong>',
-										esc_url( add_query_arg( array( 'utm_source' => WM_THEME_SHORTNAME . '-theme-credits' ), esc_url( wp_get_theme()->get( 'AuthorURI' ) ) ) )
-									) . '</p><p><a href="' . esc_url( trailingslashit( wp_get_theme()->get( 'AuthorURI' ) ) . WM_THEME_SHORTNAME . '-wordpress-theme/#donate' ) . '" class="donation-link" target="_blank">Donate</a></p>',
-							),
 
 					);
 

@@ -5,7 +5,7 @@
  * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.4
+ * @version  1.4.5
  *
  * CONTENT:
  * -  10) Basics
@@ -67,53 +67,6 @@ jQuery( function() {
 						.find( '.search-field' )
 							.focus();
 			} );
-
-
-
-		/**
-		 * Mobile navigation
-		 *
-		 * @since    1.0
-		 * @version  1.4
-		 */
-
-			jQuery( '#menu-toggle' ).on( 'click', function( e ) {
-				e.preventDefault();
-
-				jQuery( this )
-					.parent( '#site-navigation' )
-						.toggleClass( 'active' );
-
-				if ( jQuery( this ).parent( '#site-navigation' ).hasClass( 'active' ) ) {
-
-					jQuery( this )
-						.attr( 'aria-expanded', 'true' )
-						.parent( '#site-navigation' )
-							.find( '.main-navigation-inner ul' )
-								.attr( 'aria-expanded', 'true' );
-
-					jQuery( 'html, body' )
-						.stop()
-						.animate( { scrollTop : '0px' }, 0 );
-
-				} else {
-
-					jQuery( this )
-						.attr( 'aria-expanded', 'false' )
-						.parent( '#site-navigation' )
-							.find( '.main-navigation-inner ul' )
-								.attr( 'aria-expanded', 'false' );
-
-				}
-			} );
-
-
-			//Disable mobile navigation on wider screens
-				jQuery( window ).on( 'resize orientationchange', function( e ) {
-					if ( 960 < document.body.clientWidth ) {
-						jQuery( '#site-navigation .main-navigation-inner' ).show();
-					}
-				} );
 
 
 
@@ -214,11 +167,21 @@ jQuery( function() {
 				    		'autoplay'  : true,
 				    		'slide'     : '.slide',
 				    		'prevArrow' : '<button type="button" class="slick-prev"><span class="genericon genericon-previous"></span></button>',
-				    		'nextArrow' : '<button type="button" class="slick-next"><span class="genericon genericon-next"></span></button>',
-				    		'onInit'    : function( slider ) { slider.options.autoplaySpeed = ( 2800 + Math.floor( Math.random() * 4 ) * 400 ); }
+				    		'nextArrow' : '<button type="button" class="slick-next"><span class="genericon genericon-next"></span></button>'
 				    	};
 
-				jQuery( '.format-gallery .enable-slider' ).slick( $sliderAttsGallery );
+				jQuery( '.format-gallery .enable-slider' )
+					.on( 'init', function( event, slick ) {
+
+						slick
+							.options
+								.autoplaySpeed = ( 2800 + Math.floor( Math.random() * 4 ) * 400 );
+
+						jQuery( '.format-gallery .slick-next' )
+							.before( jQuery( '.format-gallery .slick-prev' ) );
+
+					} )
+					.slick( $sliderAttsGallery );
 
 			} // /slick
 
@@ -420,9 +383,37 @@ jQuery( function() {
 
 					if ( jQuery().slick ) {
 
-						jQuery( $infiniteScrollPageID + ' .format-gallery  .enable-slider' ).slick( $sliderAttsGallery );
+						jQuery( $infiniteScrollPageID + ' .format-gallery  .enable-slider' )
+							.on( 'init', function( event, slick ) {
+
+								slick
+									.options
+										.autoplaySpeed = ( 2800 + Math.floor( Math.random() * 4 ) * 400 );
+
+								jQuery( $infiniteScrollPageID + ' .slick-next' )
+									.before( jQuery( $infiniteScrollPageID + ' .slick-prev' ) );
+
+							} )
+							.slick( $sliderAttsGallery );
 
 					} // /slick
+
+
+
+				/**
+				 * Masonry footer widgets
+				 */
+
+					if ( jQuery().masonry ) {
+
+						setInterval( function() {
+
+							jQuery( '#footer-widgets-container' )
+								.masonry( 'reload' );
+
+						}, 100 );
+
+					} // /masonry
 
 			} );
 

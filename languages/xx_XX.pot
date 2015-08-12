@@ -1,8 +1,9 @@
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Modern v1.3\n"
+"Project-Id-Version: Modern\n"
 "Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
-"POT-Creation-Date: 2015-04-15 10:00+0100\n"
+"POT-Creation-Date: 2015-08-12 12:21+0200\n"
 "PO-Revision-Date: 2015-04-15 10:00+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
@@ -10,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -19,8 +20,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-# Copyright (C) 2015 WebMan - Oliver Juhas
-# This file is distributed under the same license as the WordPress package.
 #: 404.php:20
 msgid "Oops! That page can not be found."
 msgstr ""
@@ -113,11 +112,11 @@ msgstr ""
 msgid "Load more&hellip;"
 msgstr ""
 
-#: inc/jetpack/jetpack.php:193 inc/setup.php:1734
+#: inc/jetpack/jetpack.php:193 inc/setup.php:1783
 msgid "All projects"
 msgstr ""
 
-#: inc/lib/admin.php:108
+#: inc/lib/admin.php:102
 msgid "Image"
 msgstr ""
 
@@ -127,7 +126,6 @@ msgctxt "Site logo image \"alt\" HTML attribute text."
 msgid "%s logo"
 msgstr ""
 
-#. translators: %s will be replaced with parted post title. Copy it, do not translate.
 #: inc/lib/core.php:416
 #, php-format
 msgctxt "Parted/paginated post table of content title."
@@ -155,12 +153,12 @@ msgctxt "Number of comments in post meta (keep the HTML tags)."
 msgid "<span class=\"comments-title\">Comments: </span>%s"
 msgstr ""
 
-#: inc/lib/core.php:648 inc/setup.php:1268
+#: inc/lib/core.php:648 inc/setup.php:1318
 #, php-format
 msgid "Edit the \"%s\""
 msgstr ""
 
-#: inc/lib/core.php:648 inc/setup.php:1268
+#: inc/lib/core.php:648 inc/setup.php:1318
 msgctxt "Edit post link."
 msgid "Edit"
 msgstr ""
@@ -283,7 +281,6 @@ msgstr ""
 msgid "Archives: %s"
 msgstr ""
 
-#. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/lib/core.php:1248
 #, php-format
 msgid "%1$s: %2$s"
@@ -338,117 +335,17 @@ msgctxt "Customizer section title."
 msgid "Colors"
 msgstr ""
 
-#: inc/setup-theme-options.php:68 inc/setup-theme-options.php:108
-#: inc/setup-theme-options.php:169
+#: inc/setup-theme-options.php:68 inc/setup-theme-options.php:113
+#: inc/setup-theme-options.php:174
 msgctxt "Customizer panel title."
 msgid "Theme"
 msgstr ""
 
-#: inc/setup-theme-options.php:74
-msgid "Text color"
-msgstr ""
-
-#: inc/setup-theme-options.php:75
-msgid "Color of text over background color"
-msgstr ""
-
-#: inc/setup-theme-options.php:81 inc/setup-theme-options.php:87
-msgid "Accent color"
-msgstr ""
-
-#: inc/setup-theme-options.php:88
-msgid "This color affects links, buttons and other elements of the website"
-msgstr ""
-
-#: inc/setup-theme-options.php:94
-msgid "Accent text color"
-msgstr ""
-
-#: inc/setup-theme-options.php:95
-msgid "Color of text over accent color background"
-msgstr ""
-
-#: inc/setup-theme-options.php:107
-msgctxt "Customizer section title."
-msgid "Fonts"
-msgstr ""
-
-#: inc/setup-theme-options.php:113
-msgid ""
-"Set a Google Font to be used for website logo, headings and general text."
-msgstr ""
-
-#: inc/setup-theme-options.php:113
-#, php-format
-msgid ""
-"Font matches recommendations from <a%s>Google Web Fonts Typographic Project</"
-"a>."
-msgstr ""
-
-#: inc/setup-theme-options.php:119
-msgid "Logo (site title) font"
-msgstr ""
-
-#: inc/setup-theme-options.php:126
-msgid "Headings font"
-msgstr ""
-
-#: inc/setup-theme-options.php:133
-msgid "General text font"
-msgstr ""
-
-#: inc/setup-theme-options.php:141
-msgid "Font subset"
-msgstr ""
-
-#: inc/setup-theme-options.php:149
-msgid "Basic font size"
-msgstr ""
-
-#: inc/setup-theme-options.php:150
-msgid ""
-"All other font sizes are calculated automatically from this basic font size"
-msgstr ""
-
-#: inc/setup-theme-options.php:168
-msgid "Texts"
-msgstr ""
-
-#: inc/setup-theme-options.php:174
-msgid "Front page banner area will display Header Images and custom text."
-msgstr ""
-
-#: inc/setup-theme-options.php:174
-msgid ""
-"If you set a Static Front Page, the page title will be displayed as banner "
-"text. Or you can override the text by setting <code>banner_text</code> "
-"custom field for your front page. Page featured image will be used as banner "
-"image."
-msgstr ""
-
-#: inc/setup-theme-options.php:174
-msgid ""
-"Or, if you are using Featured Content module of the Jetpack plugin, just set "
-"it up and posts slideshow will be displayed in the banner."
-msgstr ""
-
-#: inc/setup-theme-options.php:180
-msgid "Banner default text"
-msgstr ""
-
-#: inc/setup-theme-options.php:181
-msgid "Used only when displaying latest posts on homepage"
-msgstr ""
-
-#: inc/setup-theme-options.php:182
-msgid "Hello! Welcome to my awesome website!"
-msgstr ""
-
-#: inc/setup-theme-options.php:199
+#: inc/setup-theme-options.php:69
 msgid "Theme Credits"
 msgstr ""
 
-#: inc/setup-theme-options.php:199
+#: inc/setup-theme-options.php:70
 #, php-format
 msgid ""
 "%s is free WordPress theme developed by WebMan. You can obtain other "
@@ -456,41 +353,141 @@ msgid ""
 "\">WebManDesign.eu</a></strong>. Thank you for using this awesome theme!"
 msgstr ""
 
-#: inc/setup.php:159
+#: inc/setup-theme-options.php:79
+msgid "Text color"
+msgstr ""
+
+#: inc/setup-theme-options.php:80
+msgid "Color of text over background color"
+msgstr ""
+
+#: inc/setup-theme-options.php:86 inc/setup-theme-options.php:92
+msgid "Accent color"
+msgstr ""
+
+#: inc/setup-theme-options.php:93
+msgid "This color affects links, buttons and other elements of the website"
+msgstr ""
+
+#: inc/setup-theme-options.php:99
+msgid "Accent text color"
+msgstr ""
+
+#: inc/setup-theme-options.php:100
+msgid "Color of text over accent color background"
+msgstr ""
+
+#: inc/setup-theme-options.php:112
+msgctxt "Customizer section title."
+msgid "Fonts"
+msgstr ""
+
+#: inc/setup-theme-options.php:118
+msgid ""
+"Set a Google Font to be used for website logo, headings and general text."
+msgstr ""
+
+#: inc/setup-theme-options.php:118
+#, php-format
+msgid ""
+"Font matches recommendations from <a%s>Google Web Fonts Typographic Project</"
+"a>."
+msgstr ""
+
+#: inc/setup-theme-options.php:124
+msgid "Logo (site title) font"
+msgstr ""
+
+#: inc/setup-theme-options.php:131
+msgid "Headings font"
+msgstr ""
+
+#: inc/setup-theme-options.php:138
+msgid "General text font"
+msgstr ""
+
+#: inc/setup-theme-options.php:146
+msgid "Font subset"
+msgstr ""
+
+#: inc/setup-theme-options.php:154
+msgid "Basic font size"
+msgstr ""
+
+#: inc/setup-theme-options.php:155
+msgid ""
+"All other font sizes are calculated automatically from this basic font size"
+msgstr ""
+
+#: inc/setup-theme-options.php:173
+msgid "Texts"
+msgstr ""
+
+#: inc/setup-theme-options.php:179
+msgid "Front page banner area will display Header Images and custom text."
+msgstr ""
+
+#: inc/setup-theme-options.php:179
+msgid ""
+"If you set a Static Front Page, the page title will be displayed as banner "
+"text. Or you can override the text by setting <code>banner_text</code> "
+"custom field for your front page. Page featured image will be used as banner "
+"image."
+msgstr ""
+
+#: inc/setup-theme-options.php:179
+msgid ""
+"Or, if you are using Featured Content module of the Jetpack plugin, just set "
+"it up and posts slideshow will be displayed in the banner."
+msgstr ""
+
+#: inc/setup-theme-options.php:185
+msgid "Banner default text"
+msgstr ""
+
+#: inc/setup-theme-options.php:186
+msgid "Used only when displaying latest posts on homepage"
+msgstr ""
+
+#: inc/setup-theme-options.php:187
+msgid "Hello! Welcome to my awesome website!"
+msgstr ""
+
+#: inc/setup.php:160
 msgid " - do not use Google Font"
 msgstr ""
 
-#: inc/setup.php:162
+#: inc/setup.php:163
 msgctxt "Google Font default setup options group title."
 msgid "Theme default"
 msgstr ""
 
-#: inc/setup.php:167 inc/setup.php:172 inc/setup.php:178 inc/setup.php:183
-#: inc/setup.php:188 inc/setup.php:193 inc/setup.php:198 inc/setup.php:202
-#: inc/setup.php:208
+#: inc/setup.php:168 inc/setup.php:173 inc/setup.php:179 inc/setup.php:184
+#: inc/setup.php:189 inc/setup.php:194 inc/setup.php:199 inc/setup.php:203
+#: inc/setup.php:209
 #, php-format
 msgctxt "Google Font setup recommendation (numbered) group title."
 msgid "Recommendation #%d"
 msgstr ""
 
-#: inc/setup.php:215
+#: inc/setup.php:216
 msgctxt "Title for selection of fonts picked from Google Fontss"
 msgid "Fonts selection"
 msgstr ""
 
-#: inc/setup.php:265
+#: inc/setup.php:266
 msgid "Sidebar"
 msgstr ""
 
-#: inc/setup.php:266
+#: inc/setup.php:267
 msgid "Page sidebar."
 msgstr ""
 
-#: inc/setup.php:269
+#: inc/setup.php:270
 msgid "Footer Widgets"
 msgstr ""
 
-#: inc/setup.php:270
+#: inc/setup.php:271
 msgid "Masonry layout is used to display footer widgets."
 msgstr ""
 
@@ -569,73 +566,73 @@ msgid ""
 "Additional image size added by the theme. Can not be changed on this page."
 msgstr ""
 
-#: inc/setup.php:1148
+#: inc/setup.php:1170
 #, php-format
 msgid "%s site navigation"
 msgstr ""
 
-#: inc/setup.php:1152
+#: inc/setup.php:1174
 msgctxt "Display search form button title."
 msgid "Search"
 msgstr ""
 
-#: inc/setup.php:1154
+#: inc/setup.php:1176
 msgctxt "Mobile navigation toggle button title."
 msgid "Menu"
 msgstr ""
 
-#: inc/setup.php:1477
+#: inc/setup.php:1527
 msgid "This is sticky post"
 msgstr ""
 
-#: inc/setup.php:1532
+#: inc/setup.php:1582
 #, php-format
 msgid ""
 "This content is password protected. To view it please <a%s>enter the "
 "password</a>."
 msgstr ""
 
-#: inc/setup.php:1617
+#: inc/setup.php:1667
 #, php-format
 msgid "Continue reading%s&hellip;"
 msgstr ""
 
-#: inc/setup.php:1662
+#: inc/setup.php:1712
 msgid ""
 "<span class=\"meta-nav\">Published In</span><span class=\"post-title\">"
 "%title</span>"
 msgstr ""
 
-#: inc/setup.php:1664
+#: inc/setup.php:1714
 msgid ""
 "<span class=\"meta-nav\">Previous</span><span class=\"post-title\">%title</"
 "span>"
 msgstr ""
 
-#: inc/setup.php:1665
+#: inc/setup.php:1715
 msgid ""
 "<span class=\"meta-nav\">Next</span><span class=\"post-title\">%title</span>"
 msgstr ""
 
-#: inc/setup.php:1669
+#: inc/setup.php:1719
 msgid "Post navigation"
 msgstr ""
 
-#: inc/setup.php:1722
+#: inc/setup.php:1771
 msgid "All posts"
 msgstr ""
 
-#: inc/setup.php:1764
+#: inc/setup.php:1813
 #, php-format
 msgid "Powered by %s."
 msgstr ""
 
-#: inc/setup.php:1769
+#: inc/setup.php:1818
 #, php-format
 msgid "Theme by %s."
 msgstr ""
 
-#: inc/setup.php:1772
+#: inc/setup.php:1821
 msgid "Back to top &uarr;"
 msgstr ""
 

@@ -1,5 +1,36 @@
 # Modern Changelog
 
+## 1.4.5
+
+* **Add**: WordPress 4.3 support
+* **Add**: Touch enabled navigation, accessible with Tab key
+* **Update**: Updated scripts: TGM Plugin Activation 2.5.2, Slick 1.5.8
+* **Update**: Improved featured image size setup for pages
+* **Update**: Licensed under GPLv3
+* **Update**: Admin interface
+* **Update**: Documentation (user manual)
+* **Fix**: Google Fonts URL function subset issue
+* **Fix**: Fixed issue with masonry footer layout when using Jetpack's infinite scroll
+* **Fix**: Slider issue
+
+#### Files changed:
+
+	license.txt
+	readme.md
+	style.css
+	css/admin.css
+	css/customizer.css
+	css/slick.css
+	inc/setup-theme-options.php
+	inc/setup.php
+	inc/customizer/customizer.php
+	inc/lib/admin.php
+	inc/lib/core.php
+	inc/tgmpa/class-tgm-plugin-activation.php
+	js/scripts-global.js
+	js/scripts-navigation.js
+
+
 ## 1.4.4
 
 * **Fix**: Search field text color on error 404 and nothing found page
