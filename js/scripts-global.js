@@ -5,7 +5,7 @@
  * @copyright  2015 WebMan - Oliver Juhas
  *
  * @since    1.0
- * @version  1.4.5
+ * @version  1.4.6
  *
  * CONTENT:
  * -  10) Basics
@@ -173,12 +173,15 @@ jQuery( function() {
 				jQuery( '.format-gallery .enable-slider' )
 					.on( 'init', function( event, slick ) {
 
+						var $this = jQuery( this );
+
 						slick
 							.options
 								.autoplaySpeed = ( 2800 + Math.floor( Math.random() * 4 ) * 400 );
 
-						jQuery( '.format-gallery .slick-next' )
-							.before( jQuery( '.format-gallery .slick-prev' ) );
+						$this
+							.find( '.slick-next' )
+								.before( $this.find( '.slick-prev' ) );
 
 					} )
 					.slick( $sliderAttsGallery );
@@ -386,12 +389,15 @@ jQuery( function() {
 						jQuery( $infiniteScrollPageID + ' .format-gallery  .enable-slider' )
 							.on( 'init', function( event, slick ) {
 
+								var $this = jQuery( this );
+
 								slick
 									.options
 										.autoplaySpeed = ( 2800 + Math.floor( Math.random() * 4 ) * 400 );
 
-								jQuery( $infiniteScrollPageID + ' .slick-next' )
-									.before( jQuery( $infiniteScrollPageID + ' .slick-prev' ) );
+								$this
+									.find( '.slick-next' )
+										.before( $this.find( '.slick-prev' ) );
 
 							} )
 							.slick( $sliderAttsGallery );

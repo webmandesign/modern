@@ -1,5 +1,14 @@
 # Modern Changelog
 
+## 1.4.6
+
+* **Fix**: Gallery post slidshow navigation issue
+
+#### Files changed:
+
+	js/scripts-global.js
+
+
 ## 1.4.5
 
 * **Add**: WordPress 4.3 support
