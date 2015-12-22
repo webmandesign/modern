@@ -1,0 +1,1205 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Modern 1.1\n"
+"Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
+"POT-Creation-Date: 2015-12-20 11:44+0100\n"
+"PO-Revision-Date: 2015-12-22 13:59+0100\n"
+"Last-Translator: \n"
+"Language-Team: Christian Posluschni <christianposluschni"
+"+modern_deDE@googlemail.com>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:20
+msgid "Oops! That page can not be found."
+msgstr "Oops! Die Seite kann nicht gefunden werden."
+
+#: 404.php:24
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+"Wie es aussieht, wurde an dieser Stelle nichts gefunden. Möchtest Du danach "
+"suchen?"
+
+#: comments.php:43
+#, php-format
+msgctxt "Comments list title."
+msgid "1 comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+"1 Kommentar <span class=\"u-assistive-text\">zu &ldquo;%1$s&rdquo;</span>"
+msgstr[1] ""
+"%1$s Kommentare <span class=\"u-assistive-text\">zu &ldquo;%2$s&rdquo;</span>"
+
+#: comments.php:48
+msgctxt "Add new comment link text."
+msgid "Add yours &rarr;"
+msgstr "Deinen Kommentar hinzufügen &rarr;"
+
+#: comments.php:63
+msgid "Comments are closed. You can not add new comments."
+msgstr ""
+"Diese Diskussion ist geschlossen: Du kannst keine neuen Kommentare "
+"schreiben ."
+
+#: comments.php:87
+msgid "Comment navigation"
+msgstr "Kommentar Navigation"
+
+#: comments.php:90
+msgid "&larr; Older comments"
+msgstr "&larr; Ältere Kommentare"
+
+#: comments.php:94
+msgid "Newer comments &rarr;"
+msgstr "Neuere Kommentare &rarr;"
+
+#: content-custom-header.php:99
+msgid "Set the default text in Customizer > Predefined Texts"
+msgstr "Leg den Standardtext in Customizer > vordefinierte Texte fest"
+
+#: content-none.php:16
+msgid "Nothing Found"
+msgstr "Es wurde leider nichts gefunden."
+
+#: content-none.php:22
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Bereit deinen ersten Beitrag zu ver&ouml;ffentlichen? <a href=\"%1$s"
+"\">Starte hier.</a>."
+
+#: content-none.php:26
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Entschuldigung, deine Suche war nicht erfolgreich. Bitte versuche es mit "
+"anderen Suchbegriffen erneut."
+
+#: content-none.php:32
+msgid ""
+"It seems we can not find what you are looking for. Perhaps searching can "
+"help."
+msgstr ""
+"So wie es aussieht konnten wir den gewünschten Inhalt nicht finden. "
+"Vielleicht kann Dir die Suchfunktion weiterhelfen."
+
+#: content-status.php:25
+#, php-format
+msgctxt ""
+"Status post format text on mouse hover (Status: John Doe on 1st January "
+"2015)."
+msgid "Status: %s on %s"
+msgstr "Status: %s von %s"
+
+#: image.php:78
+msgctxt "Attachment page publish time."
+msgid "Image published on:"
+msgstr "Bild ver&ouml;ffentlicht am:"
+
+#: image.php:82
+msgid "Image size:"
+msgstr "Bildgr&ouml;ße:"
+
+#: image.php:86
+msgid "Image file name:"
+msgstr "Bild-Dateiname:"
+
+#: inc/customizer/controls/class-WM_Customizer_Multiselect.php:42
+msgid "Press CTRL key for multiple selection."
+msgstr "Drücke die STRG-Taste um eine Mehrfachauswahl zu treffen."
+
+#: inc/jetpack/jetpack.php:146
+msgid "Load more&hellip;"
+msgstr "Weitere laden&hellip;"
+
+#: inc/jetpack/jetpack.php:193 inc/setup.php:1783
+msgid "All projects"
+msgstr "Alle Projekte"
+
+#: inc/lib/admin.php:102
+msgid "Image"
+msgstr "Bild"
+
+#: inc/lib/core.php:127
+#, php-format
+msgctxt "Site logo image \"alt\" HTML attribute text."
+msgid "%s logo"
+msgstr "%s logo"
+
+#: inc/lib/core.php:416
+#, php-format
+msgctxt "Parted/paginated post table of content title."
+msgid "\"%s\" table of contents"
+msgstr "\"%s\" Inhaltsverzeichnis"
+
+#: inc/lib/core.php:460
+#, php-format
+msgid "Page %s"
+msgstr "Seite %s"
+
+#: inc/lib/core.php:514
+msgid "Part %"
+msgstr "Teil %"
+
+#: inc/lib/core.php:617
+#, php-format
+msgctxt "Number of comments in post meta."
+msgid "Comments: %s"
+msgstr "Kommentare: %s"
+
+#: inc/lib/core.php:617
+#, php-format
+msgctxt "Number of comments in post meta (keep the HTML tags)."
+msgid "<span class=\"comments-title\">Comments: </span>%s"
+msgstr "<span class=\"comments-title\">Kommentare: </span>%s"
+
+#: inc/lib/core.php:648 inc/setup.php:1318
+#, php-format
+msgid "Edit the \"%s\""
+msgstr "Bearbeiten \"%s\""
+
+#: inc/lib/core.php:648 inc/setup.php:1318
+msgctxt "Edit post link."
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: inc/lib/core.php:681
+#, php-format
+msgid "Permalink to \"%s\""
+msgstr "Permalink zu \"%s\""
+
+#: inc/lib/core.php:708
+msgid "Views count"
+msgstr "Ansichten"
+
+#: inc/lib/core.php:785
+#, php-format
+msgctxt "Paginated content title suffix."
+msgid "(page %s)"
+msgstr "(Seite %s)"
+
+#: inc/lib/core.php:1015
+msgid "Skip to content"
+msgstr "Zum Inhalt"
+
+#: inc/lib/core.php:1016
+msgid "Skip to navigation"
+msgstr "Zur Navigation"
+
+#: inc/lib/core.php:1212
+#, php-format
+msgid "Category: %s"
+msgstr "Kategorie: %s"
+
+#: inc/lib/core.php:1214
+#, php-format
+msgid "Tag: %s"
+msgstr "Etikett: %s"
+
+#: inc/lib/core.php:1216
+#, php-format
+msgid "Author: %s"
+msgstr "Author: %s"
+
+#: inc/lib/core.php:1218
+#, php-format
+msgid "Year: %s"
+msgstr "Jahr: %s"
+
+#: inc/lib/core.php:1218
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: inc/lib/core.php:1220
+#, php-format
+msgid "Month: %s"
+msgstr "Monat: %s"
+
+#: inc/lib/core.php:1220
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "F Y"
+
+#: inc/lib/core.php:1222
+#, php-format
+msgid "Day: %s"
+msgstr "Tag: %s"
+
+#: inc/lib/core.php:1222
+msgctxt "daily archives date format"
+msgid "F j, Y"
+msgstr "F j, Y"
+
+#: inc/lib/core.php:1225
+msgctxt "post format archive title"
+msgid "Asides"
+msgstr "Randbemerkungen"
+
+#: inc/lib/core.php:1227
+msgctxt "post format archive title"
+msgid "Galleries"
+msgstr "Gallerien"
+
+#: inc/lib/core.php:1229
+msgctxt "post format archive title"
+msgid "Images"
+msgstr "Bilder"
+
+#: inc/lib/core.php:1231
+msgctxt "post format archive title"
+msgid "Videos"
+msgstr "Videos"
+
+#: inc/lib/core.php:1233
+msgctxt "post format archive title"
+msgid "Quotes"
+msgstr "Zitate"
+
+#: inc/lib/core.php:1235
+msgctxt "post format archive title"
+msgid "Links"
+msgstr "Links"
+
+#: inc/lib/core.php:1237
+msgctxt "post format archive title"
+msgid "Statuses"
+msgstr "Status"
+
+#: inc/lib/core.php:1239
+msgctxt "post format archive title"
+msgid "Audio"
+msgstr "Audio"
+
+#: inc/lib/core.php:1241
+msgctxt "post format archive title"
+msgid "Chats"
+msgstr "Chats"
+
+#: inc/lib/core.php:1244
+#, php-format
+msgid "Archives: %s"
+msgstr "Archive: %s"
+
+#: inc/lib/core.php:1248
+#, php-format
+msgid "%1$s: %2$s"
+msgstr "%1$s: %2$s"
+
+#: inc/lib/core.php:1250
+msgid "Archives"
+msgstr "Archive"
+
+#: inc/lib/visual-editor.php:111
+msgctxt "Visual editor blockquote formats group title."
+msgid "Quotes"
+msgstr "Zitate"
+
+#: inc/lib/visual-editor.php:115
+msgid "Blockquote"
+msgstr "Block-Zitat"
+
+#: inc/lib/visual-editor.php:119
+msgid "Pullquote - align left"
+msgstr "Pullquote - links ausgerichtet"
+
+#: inc/lib/visual-editor.php:124
+msgid "Pullquote - align right"
+msgstr "Pullquote - rechts ausgerichtet"
+
+#: inc/lib/visual-editor.php:129
+msgctxt ""
+"Visual editor format label for HTML CITE tag used to set the blockquote "
+"source."
+msgid "Cite"
+msgstr "Zitieren"
+
+#: inc/lib/visual-editor.php:138
+msgid "Text styles"
+msgstr "Teststile"
+
+#: inc/lib/visual-editor.php:142
+msgid "Uppercase heading or paragraph"
+msgstr "Großbuchstaben &Uuml;berschrift oder Absatz"
+
+#: inc/lib/visual-editor.php:148
+msgid "Highlighted (marked) text"
+msgstr "Hervorgehobener (markierter) Text"
+
+#: inc/lib/visual-editor.php:153
+msgid "Button link"
+msgstr "Button link"
+
+#: inc/setup-theme-options.php:67
+msgctxt "Customizer section title."
+msgid "Colors"
+msgstr "Farben"
+
+#: inc/setup-theme-options.php:68 inc/setup-theme-options.php:113
+#: inc/setup-theme-options.php:174
+msgctxt "Customizer panel title."
+msgid "Theme"
+msgstr "Theme"
+
+#: inc/setup-theme-options.php:69
+msgid "Theme Credits"
+msgstr "Theme Credits"
+
+#: inc/setup-theme-options.php:70
+#, php-format
+msgid ""
+"%s is free WordPress theme developed by WebMan. You can obtain other "
+"professional WordPress themes at <strong><a href=\"%s\" target=\"_blank"
+"\">WebManDesign.eu</a></strong>. Thank you for using this awesome theme!"
+msgstr ""
+"%s ist ein von WebMan entwickeltes kostenloses WordPress Theme. Andere "
+"professionelle WordPress Themes findest du unter <strong><a href=\"%s\" "
+"target=\"_blank\">WebManDesign.eu</a></strong>. Danke das Du dieses "
+"großartige Theme benutzt!"
+
+#: inc/setup-theme-options.php:79
+msgid "Text color"
+msgstr "Textfarbe"
+
+#: inc/setup-theme-options.php:80
+msgid "Color of text over background color"
+msgstr "Textfarbe auf der Hintergrundfarbe"
+
+#: inc/setup-theme-options.php:86 inc/setup-theme-options.php:92
+msgid "Accent color"
+msgstr "Akzentfarbe"
+
+#: inc/setup-theme-options.php:93
+msgid "This color affects links, buttons and other elements of the website"
+msgstr ""
+"Diese Farbe betrifft Links, Buttons und andere Elemente dieser Website."
+
+#: inc/setup-theme-options.php:99
+msgid "Accent text color"
+msgstr "Akzent-Textfarbe"
+
+#: inc/setup-theme-options.php:100
+msgid "Color of text over accent color background"
+msgstr "Textfarbe auf der Akzent-Hintergrundfarbe"
+
+#: inc/setup-theme-options.php:112
+msgctxt "Customizer section title."
+msgid "Fonts"
+msgstr "Schriftarten"
+
+#: inc/setup-theme-options.php:118
+msgid ""
+"Set a Google Font to be used for website logo, headings and general text."
+msgstr ""
+"Setze eine Google Schriftart f&uuml;r das Webseiten-Logo, &Uuml;berschriften "
+"und den Text."
+
+#: inc/setup-theme-options.php:118
+#, php-format
+msgid ""
+"Font matches recommendations from <a%s>Google Web Fonts Typographic Project</"
+"a>."
+msgstr ""
+"Diese Schriftart entspricht einer Empfehlung des <a%s>Google Web Fonts "
+"Typographic Project</a>."
+
+#: inc/setup-theme-options.php:124
+msgid "Logo (site title) font"
+msgstr "Logo (Seitentitel) Schriftart"
+
+#: inc/setup-theme-options.php:131
+msgid "Headings font"
+msgstr "&Uuml;berschriften Schriftart"
+
+#: inc/setup-theme-options.php:138
+msgid "General text font"
+msgstr "Text Schriftart"
+
+#: inc/setup-theme-options.php:146
+msgid "Font subset"
+msgstr "Schriftarten Untergruppe"
+
+#: inc/setup-theme-options.php:154
+msgid "Basic font size"
+msgstr "Basis Schriftgr&ouml;ße"
+
+#: inc/setup-theme-options.php:155
+msgid ""
+"All other font sizes are calculated automatically from this basic font size"
+msgstr ""
+"Alle anderen Schriftgr&ouml;ßen werden automatisch aus dieser Basis "
+"Schriftgr&ouml;ße berechnet."
+
+#: inc/setup-theme-options.php:173
+msgid "Texts"
+msgstr "Texte"
+
+#: inc/setup-theme-options.php:179
+msgid "Front page banner area will display Header Images and custom text."
+msgstr ""
+"Der Front Page Banner Bereich zeigt das Header Bild und den "
+"benutzerdefinierten Text."
+
+#: inc/setup-theme-options.php:179
+msgid ""
+"If you set a Static Front Page, the page title will be displayed as banner "
+"text. Or you can override the text by setting <code>banner_text</code> "
+"custom field for your front page. Page featured image will be used as banner "
+"image."
+msgstr ""
+"Falls Du eine Statische Front Page benutzt, wird der Seitentitel im Banner "
+"angezeigt. Der Text kann durch das Setzen des <code>banner_text</code> "
+"benutzerdefinierten Feldes für deine Front Page überschrieben werden. Das "
+"Beitragsbild wird als Banner-Bild genutzt."
+
+#: inc/setup-theme-options.php:179
+msgid ""
+"Or, if you are using Featured Content module of the Jetpack plugin, just set "
+"it up and posts slideshow will be displayed in the banner."
+msgstr ""
+"Oder, falls Du das Featured Content Modul des Jetpack Plugins benutzt, "
+"richte dieses ein und die Beitrags-Slideshow wird im Banner gezeigt."
+
+#: inc/setup-theme-options.php:185
+msgid "Banner default text"
+msgstr "Banner Standard Text"
+
+#: inc/setup-theme-options.php:186
+msgid "Used only when displaying latest posts on homepage"
+msgstr ""
+"Wird nur genutzt wenn die letzen Beiträge auf der Homepage genutzt werden."
+
+#: inc/setup-theme-options.php:187
+msgid "Hello! Welcome to my awesome website!"
+msgstr "Hallo! Herzlich Willkommen auf dieser Website!"
+
+#: inc/setup.php:160
+msgid " - do not use Google Font"
+msgstr "- Google Schriftart nicht benutzen"
+
+#: inc/setup.php:163
+msgctxt "Google Font default setup options group title."
+msgid "Theme default"
+msgstr "Theme Voreinstellung"
+
+#: inc/setup.php:168 inc/setup.php:173 inc/setup.php:179 inc/setup.php:184
+#: inc/setup.php:189 inc/setup.php:194 inc/setup.php:199 inc/setup.php:203
+#: inc/setup.php:209
+#, php-format
+msgctxt "Google Font setup recommendation (numbered) group title."
+msgid "Recommendation #%d"
+msgstr "Empfehlung #%d"
+
+#: inc/setup.php:216
+msgctxt "Title for selection of fonts picked from Google Fontss"
+msgid "Fonts selection"
+msgstr "Schriftartenauswahl"
+
+#: inc/setup.php:266
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: inc/setup.php:267
+msgid "Page sidebar."
+msgstr "Seiten Sidebar."
+
+#: inc/setup.php:270
+msgid "Footer Widgets"
+msgstr "Footer Widgets"
+
+#: inc/setup.php:271
+msgid "Masonry layout is used to display footer widgets."
+msgstr "Es wird ein Masonry-Layout genutzt um die Footer Widgets darzustellen."
+
+#: inc/setup.php:364
+msgid "Primary Menu"
+msgstr "Hauptmen&uuml;"
+
+#: inc/setup.php:365
+msgid "Social Links Menu"
+msgstr "Social Links Men&uuml;"
+
+#: inc/setup.php:460
+msgid "In posts list."
+msgstr "In Beitragsliste."
+
+#: inc/setup.php:471
+msgid "In single post or page."
+msgstr "In einzelnem Beitrag oder einer Seite."
+
+#: inc/setup.php:477
+msgid "In banner and post/page background."
+msgstr "Banner-/Beitrags-/Seiten-Hintergrund"
+
+#: inc/setup.php:534
+msgctxt "WordPress predefined image size name."
+msgid "Thumbnail size"
+msgstr "Vorschaubild"
+
+#: inc/setup.php:535
+msgctxt "WordPress predefined image size name."
+msgid "Medium size"
+msgstr "Mittel"
+
+#: inc/setup.php:536
+msgctxt "WordPress predefined image size name."
+msgid "Large size"
+msgstr "Groß"
+
+#: inc/setup.php:561
+msgid "Recommended image sizes"
+msgstr "Empfohlene Bildgr&ouml;ßen:"
+
+#: inc/setup.php:562
+msgid ""
+"For the theme to work correctly, please, set these recommended image sizes:"
+msgstr ""
+"Damit das Theme korrekt arbeiten kann bitte die folgenden Bildgr&ouml;ßen "
+"w&auml;hlen:"
+
+#: inc/setup.php:568
+msgid "Size name"
+msgstr "Gr&ouml;ßen Name"
+
+#: inc/setup.php:569
+msgid "Size parameters"
+msgstr "Gr&ouml?en Parameter"
+
+#: inc/setup.php:570
+msgid "Theme usage"
+msgstr "Theme usage"
+
+#: inc/setup.php:580 inc/setup.php:595
+msgid "cropped"
+msgstr "beschnitten"
+
+#: inc/setup.php:580 inc/setup.php:595
+msgid "scaled"
+msgstr "skaliert"
+
+#: inc/setup.php:585 inc/setup.php:600
+#, php-format
+msgctxt "1: image width, 2: image height, 3: cropped or scaled?"
+msgid "%1$s &times; %2$s, %3$s"
+msgstr "%1$s &times; %2$s, %3$s"
+
+#: inc/setup.php:597
+msgid ""
+"Additional image size added by the theme. Can not be changed on this page."
+msgstr ""
+"Durch das Theme wurde eine zus&auml;tzliche Bildgr&ouml;ße festgelegt. Diese "
+"kann hier nicht ge&auml;ndert werden. "
+
+#: inc/setup.php:1170
+#, php-format
+msgid "%s site navigation"
+msgstr "%s Seiten Navigation"
+
+#: inc/setup.php:1174
+msgctxt "Display search form button title."
+msgid "Search"
+msgstr "Suche"
+
+#: inc/setup.php:1176
+msgctxt "Mobile navigation toggle button title."
+msgid "Menu"
+msgstr "Men&uuml;"
+
+#: inc/setup.php:1527
+msgid "This is sticky post"
+msgstr "Dies ist eine Haftnotiz"
+
+#: inc/setup.php:1582
+#, php-format
+msgid ""
+"This content is password protected. To view it please <a%s>enter the "
+"password</a>."
+msgstr ""
+"Dieser Inhalt ist Passwort gesch&uuml;tzt. Bitte <a%s>das Passwort eingeben</"
+"a>."
+
+#: inc/setup.php:1667
+#, php-format
+msgid "Continue reading%s&hellip;"
+msgstr "Weiterlesen%s&hellip;"
+
+#: inc/setup.php:1712
+msgid ""
+"<span class=\"meta-nav\">Published In</span><span class=\"post-title\">"
+"%title</span>"
+msgstr ""
+"<span class=\"meta-nav\">Ver&ouml;ffentlicht in</span><span class=\"post-"
+"title\">%title</span>"
+
+#: inc/setup.php:1714
+msgid ""
+"<span class=\"meta-nav\">Previous</span><span class=\"post-title\">%title</"
+"span>"
+msgstr ""
+"<span class=\"meta-nav\">Vorheriger</span><span class=\"post-title\">%title</"
+"span>"
+
+#: inc/setup.php:1715
+msgid ""
+"<span class=\"meta-nav\">Next</span><span class=\"post-title\">%title</span>"
+msgstr ""
+"<span class=\"meta-nav\">N&auml;chster</span><span class=\"post-title\">"
+"%title</span>"
+
+#: inc/setup.php:1719
+msgid "Post navigation"
+msgstr "Beitrags-Navigation"
+
+#: inc/setup.php:1771
+msgid "All posts"
+msgstr "Alle Beitr&auml;ge"
+
+#: inc/setup.php:1813
+#, php-format
+msgid "Powered by %s."
+msgstr "Powered by %s."
+
+#: inc/setup.php:1818
+#, php-format
+msgid "Theme by %s."
+msgstr "Theme von %s"
+
+#: inc/setup.php:1821
+msgid "Back to top &uarr;"
+msgstr "Zur&uuml;ck nach oben &uarr;"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:345
+msgid "Install Required Plugins"
+msgstr "Installation benötigter Plugins"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:346
+msgid "Install Plugins"
+msgstr ""
+"Installiere \n"
+"Plugins"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:347
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+"Installiere\n"
+" Plugin: %s"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:348
+msgid "Something went wrong with the plugin API."
+msgstr "Irgendetwas stimmt mit der Plugin API nicht."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:350
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "Dieses Theme benötigt folgendes Plugin: %1$s"
+msgstr[1] "Dieses Theme benötigt folgende Plugins: %1$s"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:355
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "Dieses Theme empfiehlt folgendes Plugin: %1$s"
+msgstr[1] "Dieses Theme empfiehlt folgende Plugins: %1$s"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:360
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugins."
+msgstr[0] ""
+"Entschuldigung, aber Du hast nicht die erforderlichen Rechte um das Plugin "
+"%1$s zu Installieren."
+msgstr[1] ""
+"Entschuldigung, aber Du hast nicht die erforderlichen Rechte um die Plugins "
+"%1$s zu Installieren."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:365
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+"Um die maximale Kompatibilität zu diesem Theme sicherzustellen muss das "
+"folgende Plugin auf die neuste Version aktualisiert werden: %1$s."
+msgstr[1] ""
+"Um die maximale Kompatibilität zu diesem Theme zu sicherzustellen müssen die "
+"folgenden Plugins auf ihre jeweils aktuellste Version aktualisiert werden: "
+"%1$s."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:370
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] "Es ist eine Aktualisierung verfügbar für: %1$s"
+msgstr[1] "Es sind Aktualisierungen verfügbar für: %1$s"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:375
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %1$s plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %1$s "
+"plugins."
+msgstr[0] ""
+"Entschuldigung, aber Du hast nicht die erforderlichen Rechte um das Plugin "
+"%1$s zu Aktualisieren."
+msgstr[1] ""
+"Entschuldigung, aber Du hast nicht die erforderlichen Rechte um die Plugins "
+"%1$s zu Aktualisieren."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:380
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "Das folgende benötigte Plugin ist derzeit Inaktiv: %1$s."
+msgstr[1] "Die folgenden benötigten Plugins sind derzeit Inaktiv: %1$s."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:385
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "Das folgende empfohlene Plugin ist derzeit Inaktiv: %1$s."
+msgstr[1] "Die folgenden empfohlenen Plugins sind derzeit Inaktiv: %1$s."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:390
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugins."
+msgstr[0] ""
+"Entschuldigung, aber Du hast nicht die erforderlichen Rechte um das Plugin "
+"%1$s zu Aktivieren."
+msgstr[1] ""
+"Entschuldigung, aber Du hast nicht die erforderlichen Rechte um die Plugins "
+"%1$s zu Aktivieren."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:395
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "Starte die Installation des Plugins"
+msgstr[1] "Starte Installation der Plugins"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:400
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] "Starte die Aktualisierung des Plugins"
+msgstr[1] "Starte Aktualisierung dee Plugins"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:405
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "Starte die Aktivierung des Plugins"
+msgstr[1] "Starte Aktivierung der Plugins"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:409
+msgid "Return to Required Plugins Installer"
+msgstr "Zurück zur Installation benötigter Plugins"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:410
+msgid "Return to the dashboard"
+msgstr "Zurück zum Dashboard"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:411
+#: inc/tgmpa/class-tgm-plugin-activation.php:3041
+msgid "Plugin activated successfully."
+msgstr "Aktivierung des Plugins erfolgreich."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:412
+#: inc/tgmpa/class-tgm-plugin-activation.php:2844
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "Das folgende Plugin wurde erfolgreich aktiviert:"
+msgstr[1] "Die folgenden Plugins wurden erfolgreich aktiviert:"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:413
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "Keine Aktion ausgeführt. Plugin %1$s war bereits aktiviert."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:414
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+"Plugin %s wurde nicht aktiviert, da eine höhere Versions des Plugins für "
+"dieses Theme erforderlich ist. Bitte aktualisiere das Plugin. "
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:415
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "Alle Plugins wurden erfolgreich installiert und aktiviert. %1$s"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:416
+msgid "Dismiss this notice"
+msgstr "Verwerfe diese Meldung"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:417
+msgid "Please contact the administrator of this site for help."
+msgstr "Bitte kontaktiere den Administrator damit er Dir weiterhelfen kann."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:532
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+"Dieses Plugin muss aktualisiert werden um kompatibel zu deinem Theme zu sein."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:533
+msgid "Update Required"
+msgstr "Aktualisierung benötigt"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:647
+msgid "Set the parent_slug config variable instead."
+msgstr "Setzte stattdessen die parent_slug Konfiguration."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:840
+#: inc/tgmpa/class-tgm-plugin-activation.php:3450
+msgid "Return to the Dashboard"
+msgstr "Zurück zum Dashboard"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:947
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+"Das Remote-Plugin Paket enthält keinen Ordner mit dem gewünschten Kurztitel "
+"(Slug) und das Umbenennen hat nicht funktioniert."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:947
+#: inc/tgmpa/class-tgm-plugin-activation.php:950
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+"Bitte kontaktiere den Herausgeber des Plugins und bitte diesen das Plugin "
+"gemäß der Wordpress Richtlinien zu Paketieren."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:950
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+"Das Remote-Plugin Paket enthält mehr als eine Datei. Diese wurden aber nicht "
+"in einem Ordner zusammengefasst."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:1128
+#: inc/tgmpa/class-tgm-plugin-activation.php:2840
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr "und"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:1893
+#, php-format
+msgctxt "%s = version number"
+msgid "TGMPA v%s"
+msgstr "TGMPA v%s"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2179
+msgid "Required"
+msgstr "Benötigt"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2182
+msgid "Recommended"
+msgstr "Empfohlen"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2198
+msgid "WordPress Repository"
+msgstr "WordPress Repository"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2201
+msgid "External Source"
+msgstr "Externe Quelle"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2204
+msgid "Pre-Packaged"
+msgstr "Vor-Paketiert"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2221
+msgid "Not Installed"
+msgstr "Nicht Installiert"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2225
+msgid "Installed But Not Activated"
+msgstr "Installiert aber nicht Aktiv"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2227
+msgid "Active"
+msgstr "Aktiv"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2233
+msgid "Required Update not Available"
+msgstr "Benötigte Aktualisierung nicht verfügbar"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2236
+msgid "Requires Update"
+msgstr "Aktualisierung benötigt"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2239
+msgid "Update recommended"
+msgstr "Aktualisierung empfohlen"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2247
+#, php-format
+msgctxt "%1$s = install status, %2$s = update status"
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2292
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "Alle <span class=\"count\">(%s)</span>"
+msgstr[1] "Alle <span class=\"count\">(%s)</span>"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2295
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] "Zu Installieren <span class=\"count\">(%s)</span>"
+msgstr[1] "Zu Installieren <span class=\"count\">(%s)</span>"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2298
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] "Aktualsisierung verfügbar <span class=\"count\">(%s)</span>"
+msgstr[1] "Aktualsisierungen verfügbar <span class=\"count\">(%s)</span>"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2301
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] "Zu Aktivieren <span class=\"count\">(%s)</span>"
+msgstr[1] "Zu Aktivieren <span class=\"count\">(%s)</span>"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2383
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr "unbekannt"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2391
+msgid "Installed version:"
+msgstr "Installierte Version:"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2399
+msgid "Minimum required version:"
+msgstr "Minimal vorausgesetzte Version:"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2411
+msgid "Available version:"
+msgstr "Verfügbare Version:"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2434
+#, php-format
+msgid ""
+"No plugins to install, update or activate. <a href=\"%1$s\">Return to the "
+"Dashboard</a>"
+msgstr ""
+"Keine Plugins zum Installieren, Aktualisieren oder Aktivieren verfügbar. <a "
+"href=\"%1$s\">Zurück zum Dashboard</a>"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2448
+msgid "Plugin"
+msgstr "Plugin"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2449
+msgid "Source"
+msgstr "Quelle"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2450
+msgid "Type"
+msgstr "Typ"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2454
+msgid "Version"
+msgstr "Version"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2455
+msgid "Status"
+msgstr "Status"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2503
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Install %2$s"
+msgstr "Installiere %2$s"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2507
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Update %2$s"
+msgstr "Aktualisiere %2$s"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2512
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Activate %2$s"
+msgstr "Aktiviere %2$s"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2582
+msgid "Upgrade message from the plugin author:"
+msgstr "Aktualisierungsmeldung vom Plugin-Autor:"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2615
+msgid "Install"
+msgstr "Installieren"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2621
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2624
+msgid "Activate"
+msgstr "Aktivieren"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2655
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+"Es wurden keine Plugins zum Installieren ausgewählt. Keine Aktion ausgeführt."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2657
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+"Es wurden keine Plugins zum Aktualisieren ausgewählt. Keine Aktion "
+"ausgeführt."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2693
+msgid "No plugins are available to be installed at this time."
+msgstr "Derzeit sind keine Plugins verfügbar um sie zu Installieren."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2695
+msgid "No plugins are available to be updated at this time."
+msgstr "Derzeit sind keine Plugins verfügbar um sie zu Aktualisieren."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2800
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+"Es wurden keine Plugins zum Aktivieren ausgewählt. Keine Aktion ausgeführt."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2826
+msgid "No plugins are available to be activated at this time."
+msgstr "Derzeit sind keine Plugins verfügbar um sie zu Aktivieren."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3040
+msgid "Plugin activation failed."
+msgstr "Aktivierung des Plugins fehlgeschlagen."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3374
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr "Aktualisiere Plugin %1$s (%2$d/%3$d)"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3376
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+"Während der Installation ist ein Fehler aufgetreten %1$s: <strong>%2$s</"
+"strong>."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3377
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr "Installation von %1$s fehlgeschlagen."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3381
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+"Der Installations- und Aktivierungsprozess startet. Dieser Prozess kann auf "
+"einigen Hosts etwas Zeit in Anspruch nehmen. Bitte gedulde Dich ein wenig."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3382
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s erfolgreich installiert und aktiviert."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3382
+#: inc/tgmpa/class-tgm-plugin-activation.php:3388
+msgid "Show Details"
+msgstr "Zeige Details"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3382
+#: inc/tgmpa/class-tgm-plugin-activation.php:3388
+msgid "Hide Details"
+msgstr "Verstecke Details"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3383
+msgid "All installations and activations have been completed."
+msgstr "Alle Installationen und Aktivierungen wurden abgeschlossen."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3384
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "Installiere und Aktiviere Plugin %1$s (%2$d/%3$d)"
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3387
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+"Der Installationsprozess startet. Dieser Prozess kann auf einigen Hosts "
+"etwas Zeit in Anspruch nehmen. Bitte gedulde Dich ein wenig."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3388
+#, php-format
+msgid "%1$s installed successfully."
+msgstr "%1$s erfolgreich installiert."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3389
+msgid "All installations have been completed."
+msgstr "Alle Installationen wurden abgeschlossen."
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3390
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "Installiere Plugin %1$s (%2$d/%3$d)"
+
+#: page-template/_front.php:43
+msgid "Portfolio"
+msgstr "Portfolio"
+
+#: page-template/_front.php:105 page-template/_front.php:107
+msgid "Blog"
+msgstr "Blog"
+
+#: search.php:20
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Suchergebnisse f&uuml;r: %s"
+
+#: searchform.php:15
+msgctxt "Search field label."
+msgid "Search"
+msgstr "Suche"
+
+#: searchform.php:16
+msgid "Search field: type and press enter"
+msgstr "Suche"
+
+#: sidebar.php:22
+msgid "Toggle sidebar"
+msgstr "Toggle Sidebar"
