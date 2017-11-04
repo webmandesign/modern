@@ -1,42 +1,45 @@
 <?php
 /**
- * Sidebar template
+ * The sidebar containing the main widget area
+ *
+ * @link  https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package    Modern
- * @copyright  2015 WebMan - Oliver Juhas
+ * @copyright  WebMan Design, Oliver Juhas
  *
- * @since    1.0
- * @version  1.2
+ * @since    1.0.0
+ * @version  2.0.0
  */
 
 
 
-if ( is_active_sidebar( 'sidebar' ) ) {
 
-	wmhook_sidebars_before();
 
-	?>
+// Requirements check
 
-	<div id="secondary" class="widget-area sidebar" role="complementary"<?php echo wm_schema_org( 'WPSideBar' ); ?>>
+	if ( ! is_active_sidebar( 'sidebar' ) ) {
+		return;
+	}
 
-		<a href="#" id="toggle-mobile-sidebar" class="toggle-mobile-sidebar button" aria-controls="secondary" aria-expanded="false"><?php _e( 'Toggle sidebar', 'wm_domain' ); ?></a>
 
-		<?php
+do_action( 'tha_sidebars_before' );
 
-		wmhook_sidebar_top();
+?>
 
-		dynamic_sidebar( 'sidebar' );
-
-		wmhook_sidebar_bottom();
-
-		?>
-
-	</div>
+<aside id="secondary" class="widget-area sidebar" aria-label="<?php echo esc_attr_x( 'Sidebar', 'Sidebar aria label', 'modern' ); ?>">
 
 	<?php
 
-	wmhook_sidebars_after();
+	do_action( 'tha_sidebar_top' );
 
-}
+	dynamic_sidebar( 'sidebar' );
 
-?>
+	do_action( 'tha_sidebar_bottom' );
+
+	?>
+
+</aside><!-- /#secondary -->
+
+<?php
+
+do_action( 'tha_sidebars_after' );

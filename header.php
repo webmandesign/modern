@@ -1,13 +1,18 @@
 <?php
 /**
- * Website header template
+ * The header for our theme
+ *
+ * @link  https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * @see  `includes/frontend/class-header.php`
  *
  * @package    Modern
- * @copyright  2015 WebMan - Oliver Juhas
+ * @copyright  WebMan Design, Oliver Juhas
  *
- * @since    1.0
- * @version  1.2
+ * @since    1.0.0
+ * @version  2.0.0
  */
+
+
 
 
 
@@ -15,23 +20,23 @@
  * HTML
  */
 
-	wmhook_html_before();
+	do_action( 'tha_html_before' );
 
 ?>
 
-<html class="no-js" <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="no-js">
 
 <head>
 
 <?php
 
-	/**
-	 * HTML head
-	 */
+/**
+ * HTML head
+ */
 
-	wmhook_head_top();
+	do_action( 'tha_head_top' );
 
-	wmhook_head_bottom();
+	do_action( 'tha_head_bottom' );
 
 	wp_head();
 
@@ -40,44 +45,40 @@
 </head>
 
 
-<body id="top" <?php body_class(); ?>>
+<body <?php body_class(); ?>>
 
 <?php
 
-	/**
-	 * Body
-	 */
+/**
+ * Body
+ */
 
-		wmhook_body_top();
-
-
-
-	if ( ! apply_filters( 'wmhook_disable_header', false ) ) {
-
-		/**
-		 * Header
-		 */
-
-			wmhook_header_before();
-
-			wmhook_header_top();
-
-			wmhook_header();
-
-			wmhook_header_bottom();
-
-			wmhook_header_after();
+	do_action( 'tha_body_top' );
 
 
 
-		/**
-		 * Content
-		 */
+/**
+ * Header
+ */
 
-			wmhook_content_before();
+	if ( ! apply_filters( 'wmhook_modern_disable_header', false ) ) {
 
-			wmhook_content_top();
+		do_action( 'tha_header_before' );
 
-	} // /wmhook_disable_header
+		do_action( 'tha_header_top' );
 
-?>
+		do_action( 'tha_header_bottom' );
+
+		do_action( 'tha_header_after' );
+
+	}
+
+
+
+/**
+ * Content
+ */
+
+	do_action( 'tha_content_before' );
+
+	do_action( 'tha_content_top' );

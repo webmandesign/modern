@@ -1,0 +1,23 @@
+/* FILE: editor-style.scss */
+
+//
+// Visual Editor core stylesheet
+//
+// @package    Modern
+// @copyright  WebMan Design, Oliver Juhas
+//
+// @since    2.0.0
+// @version  2.0.0
+//
+
+
+
+
+
+// These will be ignored when editor stylesheet is generated
+
+	/*[*/
+	@import url( 'main.css' );
+	/*]*/
+
+	// Don't forget to load `custom-styles-editor.css` file additionally into Visual editor!

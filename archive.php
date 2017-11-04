@@ -1,38 +1,53 @@
 <?php
 /**
- * Archives template
+ * The template for displaying archive pages
+ *
+ * @link  https://codex.wordpress.org/Template_Hierarchy
+ * @uses  `wmhook_modern_title_primary_disable` global hook to disable `#primary` section H1
  *
  * @package    Modern
- * @copyright  2015 WebMan - Oliver Juhas
+ * @copyright  WebMan Design, Oliver Juhas
  *
- * @since    1.0
- * @version  1.2
+ * @since    1.0.0
+ * @version  2.0.0
  */
+
+
 
 
 
 get_header();
 
-	?>
+	if ( have_posts() ) :
 
-	<section class="archives-listing">
-
-		<header class="page-header">
-			<?php
-
-				the_archive_title( '<h1 class="page-title">', wm_paginated_suffix( 'small' ) . '</h1>' );
-
-				the_archive_description( '<div class="taxonomy-description">', '</div>' );
+		if ( ! (bool) apply_filters( 'wmhook_modern_title_primary_disable', false ) ) :
 
 			?>
-		</header>
 
-		<?php get_template_part( 'loop', 'archive' ); ?>
+			<header class="page-header">
+				<?php
 
-	</section>
+				$paged_suffix = Modern_Library::get_the_paginated_suffix( 'small' );
 
-	<?php
+				the_archive_title( '<h1 class="page-title">', $paged_suffix . '</h1>' );
+
+				if ( empty( $paged_suffix ) ) {
+					the_archive_description( '<div class="archive-description">', '</div>' );
+				}
+
+				?>
+			</header>
+
+			<?php
+
+		endif;
+
+		get_template_part( 'templates/parts/loop/loop', 'archive' );
+
+	else :
+
+		get_template_part( 'templates/parts/content/content', 'none' );
+
+	endif;
 
 get_footer();
-
-?>

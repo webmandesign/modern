@@ -1,51 +1,56 @@
 <?php
 /**
- * Website footer template
+ * The template for displaying the footer
+ *
+ * @link  https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * @see  `includes/frontend/class-footer.php`
  *
  * @package    Modern
- * @copyright  2015 WebMan - Oliver Juhas
- * @version    1.0
+ * @copyright  WebMan Design, Oliver Juhas
+ *
+ * @since    1.0.0
+ * @version  2.0.0
  */
 
 
 
-	if ( ! apply_filters( 'wmhook_disable_footer', false ) ) {
-
-		/**
-		 * Content
-		 */
-
-			wmhook_content_bottom();
-
-			wmhook_content_after();
 
 
+/**
+ * Content
+ */
 
-		/**
-		 * Footer
-		 */
+	do_action( 'tha_content_bottom' );
 
-			wmhook_footer_before();
-
-			wmhook_footer_top();
-
-			wmhook_footer();
-
-			wmhook_footer_bottom();
-
-			wmhook_footer_after();
-
-	} // /wmhook_disable_footer
+	do_action( 'tha_content_after' );
 
 
 
-	/**
-	 * Body and WordPress footer
-	 */
+/**
+ * Footer
+ */
 
-		wmhook_body_bottom();
+	if ( ! apply_filters( 'wmhook_modern_disable_footer', false ) ) {
 
-		wp_footer();
+		do_action( 'tha_footer_before' );
+
+		do_action( 'tha_footer_top' );
+
+		do_action( 'tha_footer_bottom' );
+
+		do_action( 'tha_footer_after' );
+
+	}
+
+
+
+/**
+ * Body and WordPress footer
+ */
+
+	do_action( 'tha_body_bottom' );
+
+	wp_footer();
 
 ?>
 

@@ -1,24 +1,23 @@
 <?php
 /**
- * Modern WordPress Theme
+ * Loading theme functionality
  *
- * Modern WordPress Theme, Copyright 2015 WebMan [http://www.webmandesign.eu/]
- * Modern is distributed under the terms of the GNU GPL
+ * @link  https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package    Modern
- * @author     WebMan
- * @license    GPL-2.0+
- * @link       http://www.webmandesign.eu
- * @copyright  2015 WebMan - Oliver Juhas
+ * @copyright  WebMan Design, Oliver Juhas
  *
- * @since    1.0
- * @version  1.4.2
+ * @since    1.0.0
+ * @version  2.0.0
  *
- * @link  http://www.webmandesign.eu
+ * Contents:
  *
- * CONTENT:
- * - 0) Constants
- * - 1) Required files
+ *   0) Paths
+ *   1) Theme framework
+ *  10) Theme setup
+ *  20) Frontend
+ *  30) Features
+ * 999) Plugins integration
  */
 
 
@@ -26,41 +25,139 @@
 
 
 /**
- * 0) Constants
+ * 0) Paths
  */
 
-	//Basic constants
-		if ( ! defined( 'WM_THEME_SHORTNAME' ) ) define( 'WM_THEME_SHORTNAME',  str_replace( array( '-lite', '-plus' ), '', get_template() ) );
+	// Theme directory path
 
-		if ( ! defined( 'WM_WP_COMPATIBILITY' ) ) define( 'WM_WP_COMPATIBILITY', 4.1 );
+		define( 'MODERN_PATH', trailingslashit( get_template_directory() ) );
 
-	//Dir constants
-		if ( ! defined( 'WM_INC_DIR' ) ) define( 'WM_INC_DIR', trailingslashit( 'inc' ) );
+	// Includes path
+
+		define( 'MODERN_PATH_INCLUDES', trailingslashit( MODERN_PATH . 'includes' ) );
+
+		// Plugin compatibility files
+
+			define( 'MODERN_PATH_PLUGINS', trailingslashit( MODERN_PATH_INCLUDES . 'plugins' ) );
 
 
 
 
 
 /**
- * 1) Required files
+ * 1) Theme framework
  */
 
-	//Global functions
-		locate_template( WM_INC_DIR . 'lib/core.php', true );
+	require MODERN_PATH . 'library/init.php';
 
-	//Theme setup
-		locate_template( WM_INC_DIR . 'setup.php', true );
 
-	//Post formats support
-		locate_template( WM_INC_DIR . 'post-formats.php', true );
 
-	//Custom header
-		locate_template( WM_INC_DIR . 'custom-header/custom-header.php', true );
 
-	//Customizer
-		locate_template( WM_INC_DIR . 'customizer/customizer.php', true );
 
-	//Jetpack setup
-		locate_template( WM_INC_DIR . 'jetpack/jetpack.php', true );
+/**
+ * 10) Theme setup
+ */
 
-?>
+	require MODERN_PATH_INCLUDES . 'setup/class-setup.php';
+
+
+
+
+
+/**
+ * 20) Frontend
+ */
+
+	// Theme Hook Alliance
+
+		require MODERN_PATH_INCLUDES . 'frontend/theme-hook-alliance.php';
+
+	// SVG
+
+		require MODERN_PATH_INCLUDES . 'frontend/class-svg.php';
+
+	// Assets (styles and scripts)
+
+		require MODERN_PATH_INCLUDES . 'frontend/class-assets.php';
+
+	// Header
+
+		require MODERN_PATH_INCLUDES . 'frontend/class-header.php';
+
+	// Menu
+
+		require MODERN_PATH_INCLUDES . 'frontend/class-menu.php';
+
+	// Content
+
+		require MODERN_PATH_INCLUDES . 'frontend/class-content.php';
+
+	// Loop
+
+		require MODERN_PATH_INCLUDES . 'frontend/class-loop.php';
+
+	// Post
+
+		require MODERN_PATH_INCLUDES . 'frontend/class-post.php';
+		require MODERN_PATH_INCLUDES . 'frontend/class-post-summary.php';
+		require MODERN_PATH_INCLUDES . 'frontend/class-post-media.php';
+
+	// Footer
+
+		require MODERN_PATH_INCLUDES . 'frontend/class-footer.php';
+
+	// Sidebars (widget areas)
+
+		require MODERN_PATH_INCLUDES . 'frontend/class-sidebar.php';
+
+
+
+
+
+/**
+ * 30) Features
+ */
+
+	// Theme Customization
+
+		require MODERN_PATH_INCLUDES . 'customize/class-customize.php';
+
+	// Customized Styles
+
+		require MODERN_PATH_INCLUDES . 'customize/class-customize-styles.php';
+
+	// Custom Header / Intro
+
+		require MODERN_PATH_INCLUDES . 'custom-header/class-intro.php';
+
+
+
+
+
+/**
+ * 999) Plugins integration
+ */
+
+	// Advanced Custom Fields
+
+		if ( function_exists( 'register_field_group' ) && is_admin() ) {
+			require MODERN_PATH_PLUGINS . 'advanced-custom-fields/advanced-custom-fields.php';
+		}
+
+	// Jetpack
+
+		if ( class_exists( 'Jetpack' ) ) {
+			require MODERN_PATH_PLUGINS . 'jetpack/jetpack.php';
+		}
+
+	// One Click Demo Import
+
+		if ( class_exists( 'OCDI_Plugin' ) && is_admin() ) {
+			require MODERN_PATH_PLUGINS . 'one-click-demo-import/one-click-demo-import.php';
+		}
+
+	// Subtitles
+
+		if ( class_exists( 'Subtitles' ) ) {
+			require MODERN_PATH_PLUGINS . 'subtitles/subtitles.php';
+		}

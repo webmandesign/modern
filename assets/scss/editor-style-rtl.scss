@@ -1,0 +1,29 @@
+/* FILE: editor-style-rtl.scss */
+
+//
+// Visual Editor core stylesheet (RTL)
+//
+// @package    Modern
+// @copyright  WebMan Design, Oliver Juhas
+//
+
+
+
+
+
+// These will be ignored when editor stylesheet is generated
+
+	/*[*/
+	@import url( 'main-rtl.css' );
+	/*]*/
+
+	// Don't forget to load `custom-styles-editor.css` file additionally into Visual editor!
+
+
+
+// RTL style overrides
+
+	body {
+		direction: rtl;
+		unicode-bidi: embed;
+	}

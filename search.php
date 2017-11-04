@@ -1,32 +1,51 @@
 <?php
 /**
- * Search results template
+ * The template for displaying search results pages
+ *
+ * @link  https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
+ * @uses  `wmhook_modern_title_primary_disable` global hook to disable `#primary` section H1
  *
  * @package    Modern
- * @copyright  2015 WebMan - Oliver Juhas
- * @version    1.0
+ * @copyright  WebMan Design, Oliver Juhas
+ *
+ * @since    1.0.0
+ * @version  2.0.0
  */
+
+
 
 
 
 get_header();
 
-	?>
+	if ( have_posts() ) :
 
-	<section id="search-results" class="search-results">
+		if ( ! (bool) apply_filters( 'wmhook_modern_title_primary_disable', false ) ) :
 
-		<header class="page-header">
+			?>
 
-			<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'wm_domain' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			<header class="page-header">
+				<h1 class="page-title"><?php
 
-		</header>
+					printf(
+						/* translators: %s: search query. */
+						esc_html__( 'Search Results for: %s', 'modern' ),
+						'<span>' . get_search_query() . '</span>'
+					);
 
-		<?php get_template_part( 'loop', 'search' ); ?>
+				?></h1>
+			</header>
 
-	</section>
+			<?php
 
-	<?php
+		endif;
+
+		get_template_part( 'templates/parts/loop/loop', 'search' );
+
+	else :
+
+		get_template_part( 'templates/parts/content/content', 'none' );
+
+	endif;
 
 get_footer();
-
-?>

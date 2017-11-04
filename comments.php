@@ -1,19 +1,27 @@
 <?php
 /**
- * Comments list template
+ * The template for displaying comments
+ *
+ * This is the template that displays the area of the page that contains both the current comments
+ * and the comment form.
+ *
+ * @link  https://codex.wordpress.org/Template_Hierarchy
  *
  * @package    Modern
- * @copyright  2015 WebMan - Oliver Juhas
+ * @copyright  WebMan Design, Oliver Juhas
  *
- * @since    1.0
- * @version  1.2.2
+ * @since    1.0.0
+ * @version  2.0.0
  */
 
 
 
+
+
 /**
- * If the current post is protected by a password and the visitor has not yet
- * entered the password we will return early without loading the comments.
+ * If the current post is protected by a password and
+ * the visitor has not yet entered the password we will
+ * return early without loading the comments.
  */
 if ( post_password_required() ) {
 	return;
@@ -21,106 +29,82 @@ if ( post_password_required() ) {
 
 
 
-/**
- * Display comments container only if comments open
- * and there are some comments to display
- */
-if (
-		( is_single( get_the_ID() ) || is_page( get_the_ID() ) )
-		&& ( comments_open() || have_comments() )
-		&& ! is_attachment()
-	) :
 
-	wmhook_comments_before();
 
-	?>
+do_action( 'tha_comments_before' );
 
-	<div id="comments" class="comments-area">
+?>
 
-		<h2 id="comments-title" class="comments-title"><?php
+<div id="comments" class="comments-area">
+<div class="comments-area-inner">
 
-			printf(
-					_nx( '1 comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', get_comments_number(), 'Comments list title.', 'wm_domain' ),
-					number_format_i18n( get_comments_number() ),
+	<?php
+	// You can start editing here -- including this comment!
+	if ( have_comments() ) : ?>
+
+		<h2 class="comments-title">
+			<?php
+
+			$comment_count = get_comments_number();
+
+			if ( 1 === $comment_count ) {
+
+				printf(
+					/* translators: 1: title. */
+					esc_html_e( 'One thought on &ldquo;%1$s&rdquo;', 'modern' ),
 					'<span>' . get_the_title() . '</span>'
 				);
 
-			echo '<a href="#respond" class="add-comment-link">' . _x( 'Add yours &rarr;', 'Add new comment link text.', 'wm_domain' ) . '</a>';
+			} else {
 
-		?></h2>
+				printf( // WPCS: XSS OK.
+					/* translators: 1: comment count number, 2: title. */
+					esc_html( _nx( '%1$d thought on &ldquo;%2$s&rdquo;', '%1$d thoughts on &ldquo;%2$s&rdquo;', $comment_count, 'Comments list title.', 'modern' ) ),
+					number_format_i18n( $comment_count ),
+					'<span>' . get_the_title() . '</span>'
+				);
+
+			}
+
+			?>
+		</h2>
+
+		<?php the_comments_navigation(); ?>
+
+		<ol class="comment-list">
+			<?php
+
+			wp_list_comments( array(
+				'avatar_size' => 240,
+				'style'       => 'ol',
+				'short_ping'  => true,
+			) );
+
+			?>
+		</ol>
 
 		<?php
 
-		/**
-		 * Comments list
-		 */
-		if ( have_comments() ) :
+		the_comments_navigation();
 
-			if ( ! comments_open() ) {
+		// If comments are closed and there are comments, let's leave a little note, shall we?
+		if ( ! comments_open() ) :
+			?>
 
-				?>
+			<p class="comments-closed no-comments"><?php esc_html_e( 'Comments are closed.', 'modern' ); ?></p>
 
-				<h3 class="comments-closed"><?php _e( 'Comments are closed. You can not add new comments.', 'wm_domain' ); ?></h3>
+			<?php
+		endif;
 
-				<?php
+	endif; // Check for have_comments().
 
-			} // /! comments_open()
-
-			//Actual comments list
-				?>
-
-				<ol class="comment-list">
-
-					<?php wp_list_comments( array( 'avatar_size' => 240, 'style' => 'ol', 'short_ping' => true ) ); ?>
-
-				</ol>
-
-				<?php
-
-			//Paginated comments
-				if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) {
-
-					?>
-
-					<nav id="comment-nav-below" class="comment-navigation" role="navigation">
-
-						<h3 class="screen-reader-text"><?php _e( 'Comment navigation', 'wm_domain' ); ?></h3>
-
-						<div class="nav-previous">
-							<?php previous_comments_link( __( '&larr; Older comments', 'wm_domain' ) ); ?>
-						</div>
-
-						<div class="nav-next">
-							<?php next_comments_link( __( 'Newer comments &rarr;', 'wm_domain' ) ); ?>
-						</div>
-
-					</nav>
-
-					<?php
-
-				} // /get_comment_pages_count() > 1 && get_option( 'page_comments' )
-
-		endif; // /have_comments()
-
-
-
-		/**
-		 * Comments form only if comments open
-		 */
-		if ( comments_open() ) {
-
-			comment_form();
-
-		}
+	comment_form();
 
 	?>
 
-	</div><!-- #comments -->
+</div>
+</div><!-- #comments -->
 
-	<?php
+<?php
 
-	wmhook_comments_after();
-
-endif;
-
-?>
+do_action( 'tha_comments_after' );
