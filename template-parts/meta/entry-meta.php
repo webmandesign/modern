@@ -27,8 +27,12 @@
 
 <footer class="entry-meta"><?php
 
-	get_template_part( 'templates/parts/meta/entry-meta-element', 'date' );
-	get_template_part( 'templates/parts/meta/entry-meta-element', 'author' );
-	get_template_part( 'templates/parts/meta/entry-meta-element', 'comments' );
+	get_template_part( 'template-parts/meta/entry-meta-element', 'date' );
+	get_template_part( 'template-parts/meta/entry-meta-element', 'author' );
+	get_template_part( 'template-parts/meta/entry-meta-element', 'comments' );
+
+	if ( is_single( get_the_ID() ) ) {
+		get_template_part( 'template-parts/meta/entry-meta-element', 'category' );
+	}
 
 ?></footer>

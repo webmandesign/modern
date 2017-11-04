@@ -15,7 +15,6 @@
  * 20) Output
  * 30) Conditions
  * 40) Assets
- * 50) Special intro
  */
 class Modern_Intro {
 
@@ -53,24 +52,15 @@ class Modern_Intro {
 
 						add_action( 'tha_content_top', __CLASS__ . '::container', 15 );
 
-						add_action( 'wmhook_modern_intro_before', __CLASS__ . '::special_wrapper_open', -10 );
-
 						add_action( 'wmhook_modern_intro', __CLASS__ . '::content' );
 
 						add_action( 'wmhook_modern_intro_after', __CLASS__ . '::media', -10 );
-						add_action( 'wmhook_modern_intro_after', __CLASS__ . '::special_wrapper_close', 0 );
-
-						add_action( 'wp_enqueue_scripts', __CLASS__ . '::special_image', 120 ); // After Modern_Assets::theme_style_file() is hooked.
 
 					// Filters
 
 						add_filter( 'wmhook_modern_intro_disable', __CLASS__ . '::disable', 5 );
 
-						add_filter( 'wmhook_modern_title_primary_disable', __CLASS__ . '::is_enabled' );
-
 						add_filter( 'theme_mod_' . 'header_image', __CLASS__ . '::image', 15 ); // Has to be priority 15 for correct customizer previews.
-
-						add_filter( 'customize_partial_render_' . 'custom_header', __CLASS__ . '::special_image_partial_refresh' );
 
 		} // /__construct
 
@@ -179,7 +169,7 @@ class Modern_Intro {
 
 			// Processing
 
-				get_template_part( 'templates/parts/intro/intro', 'container' );
+				get_template_part( 'template-parts/intro/intro', 'container' );
 
 		} // /container
 
@@ -200,7 +190,7 @@ class Modern_Intro {
 
 			// Processing
 
-				get_template_part( 'templates/parts/intro/intro-content', $post_type );
+				get_template_part( 'template-parts/intro/intro-content', $post_type );
 
 		} // /content
 
@@ -221,7 +211,7 @@ class Modern_Intro {
 
 			// Processing
 
-				get_template_part( 'templates/parts/intro/intro-media', $post_type );
+				get_template_part( 'template-parts/intro/intro-media', $post_type );
 
 		} // /media
 
@@ -360,141 +350,6 @@ class Modern_Intro {
 				return $url;
 
 		} // /image
-
-
-
-
-
-	/**
-	 * 50) Special intro
-	 */
-
-		/**
-		 * Front page special intro wrapper: open
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function special_wrapper_open() {
-
-			// Requirements check
-
-				if ( ! is_front_page() || Modern_Post::is_paged() ) {
-					return;
-				}
-
-
-			// Output
-
-				echo '<div class="intro-special">';
-
-		} // /special_wrapper_open
-
-
-
-		/**
-		 * Front page special intro wrapper: close
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function special_wrapper_close() {
-
-			// Requirements check
-
-				if ( ! is_front_page() || Modern_Post::is_paged() ) {
-					return;
-				}
-
-
-			// Output
-
-				echo '</div>';
-
-		} // /special_wrapper_close
-
-
-
-		/**
-		 * Setting custom header image as an intro background for special intro
-		 *
-		 * @uses  `wmhook_modern_inline_styles_handle` global hook
-		 * @uses  `wmhook_modern_esc_css` global hook
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function special_image() {
-
-			// Requirements check
-
-				if ( self::is_disabled() ) {
-					return;
-				}
-
-
-			// Processing
-
-				if ( $css = self::get_special_image_css() ) {
-
-					wp_add_inline_style(
-						(string) apply_filters( 'wmhook_modern_inline_styles_handle', 'modern-stylesheet-global' ),
-						(string) apply_filters( 'wmhook_modern_esc_css', $css . "\r\n\r\n" )
-					);
-
-				}
-
-		} // /special_image
-
-
-
-		/**
-		 * Get custom header special intro CSS
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function get_special_image_css() {
-
-			// Requirements check
-
-				if (
-						! is_front_page()
-						|| Modern_Post::is_paged()
-						|| ! $image_url = get_header_image()
-					) {
-					return;
-				}
-
-
-			// Output
-
-				return ".intro-special { background-image: url('" . esc_url_raw( $image_url ) . "'); }";
-
-		} // /get_special_image_css
-
-
-
-		/**
-		 * Output custom image CSS in customizer partial refresh
-		 *
-		 * Simply replace the last "</div>" (6 characters) with custom HTML output.
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function special_image_partial_refresh( $rendered ) {
-
-			// Output
-
-				return substr( $rendered, 0, -6 )
-					. '<style>'
-					. '.intro-special { background-image: none; }'
-					. self::get_special_image_css()
-					. '</style>'
-					. '</div>';
-
-		} // /special_image_partial_refresh
 
 
 

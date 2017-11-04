@@ -49,14 +49,8 @@ class Modern_Menu {
 
 						add_action( 'tha_header_top', __CLASS__ . '::primary', 20 );
 
-						add_action( 'tha_header_top', __CLASS__ . '::secondary', 30 );
-
-						add_action( 'tha_header_top', __CLASS__ . '::social', 40 );
+						add_action( 'tha_header_top', __CLASS__ . '::social', 30 );
 						add_action( 'wmhook_modern_site_info_after', __CLASS__ . '::social' );
-
-						add_action( 'tha_footer_top', __CLASS__ . '::footer' );
-
-						add_action( 'wmhook_modern_menu_footer_after', __CLASS__ . '::footer_search' );
 
 						add_action( 'wp_update_nav_menu',   __CLASS__ . '::social_cache_flush' );
 						add_action( 'customize_save_after', __CLASS__ . '::social_cache_flush' );
@@ -67,9 +61,7 @@ class Modern_Menu {
 						add_filter( 'wmhook_modern_social_links_icons', __CLASS__ . '::social_links_icons' );
 
 						add_filter( 'walker_nav_menu_start_el', __CLASS__ . '::nav_menu_social_icons', 10, 4 );
-
 						add_filter( 'walker_nav_menu_start_el', __CLASS__ . '::nav_menu_item_description', 20, 4 );
-
 						add_filter( 'walker_nav_menu_start_el', __CLASS__ . '::nav_menu_item_expander', 30, 4 );
 
 						add_filter( 'nav_menu_css_class', __CLASS__ . '::nav_menu_item_classes', 10, 4 );
@@ -122,11 +114,9 @@ class Modern_Menu {
 			// Processing
 
 				register_nav_menus( array(
-						'primary' => esc_html_x( 'Primary', 'Navigational menu location', 'modern' ),
-						'secondary' => esc_html_x( 'Secondary', 'Navigational menu location', 'modern' ),
-						'footer'  => esc_html_x( 'Footer', 'Navigational menu location', 'modern' ),
-						'social'  => esc_html_x( 'Social Links', 'Navigational menu location', 'modern' ),
-					) );
+					'primary' => esc_html_x( 'Primary', 'Navigational menu location', 'modern' ),
+					'social'  => esc_html_x( 'Social Links', 'Navigational menu location', 'modern' ),
+				) );
 
 		} // /register
 
@@ -135,7 +125,7 @@ class Modern_Menu {
 
 
 	/**
-	 * 20) Primary & Secondary
+	 * 20) Primary
 	 */
 
 		/**
@@ -148,7 +138,7 @@ class Modern_Menu {
 
 			// Output
 
-				get_template_part( 'templates/parts/menu/menu', 'primary' );
+				get_template_part( 'template-parts/menu/menu', 'primary' );
 
 		} // /primary
 
@@ -253,22 +243,6 @@ class Modern_Menu {
 
 
 		/**
-		 * Secondary navigation
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function secondary() {
-
-			// Output
-
-				get_template_part( 'templates/parts/menu/menu', 'secondary' );
-
-		} // /secondary
-
-
-
-		/**
 		 * Menu item modification: item description
 		 *
 		 * Primary and Secondary menu only.
@@ -291,10 +265,10 @@ class Modern_Menu {
 					) {
 
 					$item_output = str_replace(
-							$args->link_after . '</a>',
-							'<span class="menu-item-description">' . trim( $item->description ) . '</span>' . $args->link_after . '</a>',
-							$item_output
-						);
+						$args->link_after . '</a>',
+						'<span class="menu-item-description">' . trim( $item->description ) . '</span>' . $args->link_after . '</a>',
+						$item_output
+					);
 
 				}
 
@@ -330,10 +304,10 @@ class Modern_Menu {
 					) {
 
 					$item_output = str_replace(
-							$args->link_after . '</a>',
-							$args->link_after . ' <span class="expander" aria-hidden="true"></span></a>', // Accessibility: on focus, no screen reader text required
-							$item_output
-						);
+						$args->link_after . '</a>',
+						$args->link_after . ' <span class="expander" aria-hidden="true"></span></a>', // Accessibility: on focus, no screen reader text required
+						$item_output
+					);
 
 				}
 
@@ -393,42 +367,6 @@ class Modern_Menu {
 	 */
 
 		/**
-		 * Footer
-		 */
-
-			/**
-			 * Footer menu
-			 *
-			 * @since    2.0.0
-			 * @version  2.0.0
-			 */
-			public static function footer() {
-
-				// Output
-
-					get_template_part( 'templates/parts/menu/menu', 'footer' );
-
-			} // /footer
-
-
-
-			/**
-			 * Footer menu search form
-			 *
-			 * @since    2.0.0
-			 * @version  2.0.0
-			 */
-			public static function footer_search() {
-
-				// Output
-
-					get_search_form( true );
-
-			} // /footer_search
-
-
-
-		/**
 		 * Social
 		 */
 
@@ -442,7 +380,7 @@ class Modern_Menu {
 
 				// Output
 
-					get_template_part( 'templates/parts/menu/menu', 'social' );
+					get_template_part( 'template-parts/menu/menu', 'social' );
 
 			} // /social
 
@@ -459,48 +397,48 @@ class Modern_Menu {
 				// Output
 
 					return array(
-							'behance.net'       => 'behance',
-							'bitbucket.org'     => 'bitbucket',
-							'codepen.io'        => 'codepen',
-							'deviantart.com'    => 'deviantart',
-							'digg.com'          => 'digg',
-							'dribbble.com'      => 'dribbble',
-							'dropbox.com'       => 'dropbox',
-							'facebook.com'      => 'facebook',
-							'flickr.com'        => 'flickr',
-							'foursquare.com'    => 'foursquare',
-							'plus.google.com'   => 'google-plus',
-							'github.com'        => 'github',
-							'instagram.com'     => 'instagram',
-							'linkedin.com'      => 'linkedin',
-							'mailto:'           => 'envelope',
-							'medium.com'        => 'medium',
-							'paypal.com'        => 'paypal',
-							'pinterest.com'     => 'pinterest',
-							'getpocket.com'     => 'get-pocket',
-							'reddit.com'        => 'reddit',
-							'skype.com'         => 'skype',
-							'skype:'            => 'skype',
-							'slack.com'         => 'slack',
-							'slideshare.net'    => 'slideshare',
-							'snapchat.com'      => 'snapchat',
-							'soundcloud.com'    => 'soundcloud',
-							'spotify.com'       => 'spotify',
-							'stackoverflow.com' => 'stack-overflow',
-							'stumbleupon.com'   => 'stumbleupon',
-							'trello.com'        => 'trello',
-							'tripadvisor.'      => 'tripadvisor',
-							'tumblr.com'        => 'tumblr',
-							'twitch.tv'         => 'twitch',
-							'twitter.com'       => 'twitter',
-							'vimeo.com'         => 'vimeo',
-							'vine.co'           => 'vine',
-							'vk.com'            => 'vk',
-							'wordpress.org'     => 'wordpress',
-							'wordpress.com'     => 'wordpress',
-							'yelp.com'          => 'yelp',
-							'youtube.com'       => 'youtube',
-						);
+						'behance.net'       => 'behance',
+						'bitbucket.org'     => 'bitbucket',
+						'codepen.io'        => 'codepen',
+						'deviantart.com'    => 'deviantart',
+						'digg.com'          => 'digg',
+						'dribbble.com'      => 'dribbble',
+						'dropbox.com'       => 'dropbox',
+						'facebook.com'      => 'facebook',
+						'flickr.com'        => 'flickr',
+						'foursquare.com'    => 'foursquare',
+						'plus.google.com'   => 'google-plus',
+						'github.com'        => 'github',
+						'instagram.com'     => 'instagram',
+						'linkedin.com'      => 'linkedin',
+						'mailto:'           => 'envelope',
+						'medium.com'        => 'medium',
+						'paypal.com'        => 'paypal',
+						'pinterest.com'     => 'pinterest',
+						'getpocket.com'     => 'get-pocket',
+						'reddit.com'        => 'reddit',
+						'skype.com'         => 'skype',
+						'skype:'            => 'skype',
+						'slack.com'         => 'slack',
+						'slideshare.net'    => 'slideshare',
+						'snapchat.com'      => 'snapchat',
+						'soundcloud.com'    => 'soundcloud',
+						'spotify.com'       => 'spotify',
+						'stackoverflow.com' => 'stack-overflow',
+						'stumbleupon.com'   => 'stumbleupon',
+						'trello.com'        => 'trello',
+						'tripadvisor.'      => 'tripadvisor',
+						'tumblr.com'        => 'tumblr',
+						'twitch.tv'         => 'twitch',
+						'twitter.com'       => 'twitter',
+						'vimeo.com'         => 'vimeo',
+						'vine.co'           => 'vine',
+						'vk.com'            => 'vk',
+						'wordpress.org'     => 'wordpress',
+						'wordpress.com'     => 'wordpress',
+						'yelp.com'          => 'yelp',
+						'youtube.com'       => 'youtube',
+					);
 
 			} // /social_links_icons
 
@@ -545,13 +483,13 @@ class Modern_Menu {
 						}
 
 						$item_output = str_replace(
-								$args->link_after,
-								'</span>' . Modern_SVG::get( array(
-									'icon' => esc_attr( $social_icon ),
-									'base' => 'social-icon',
-								) ),
-								$item_output
-							);
+							$args->link_after,
+							'</span>' . Modern_SVG::get( array(
+								'icon' => esc_attr( $social_icon ),
+								'base' => 'social-icon',
+							) ),
+							$item_output
+						);
 
 					}
 

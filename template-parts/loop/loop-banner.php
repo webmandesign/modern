@@ -1,13 +1,17 @@
 <?php
 /**
- * Banner / Featured content loop
+ * Intro (banner) loop content
  *
  * @package    Modern
- * @copyright  2015 WebMan - Oliver Juhas
+ * @copyright  WebMan Design, Oliver Juhas
  *
- * @since    1.0
- * @version  1.1
+ * @since    1.0.0
+ * @version  2.0.0
  */
+
+
+
+
 
 ?>
 

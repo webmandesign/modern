@@ -26,7 +26,7 @@ get_header();
 		 *
 		 * Or, you can use the filter hook below to modify which content file to load.
 		 */
-		get_template_part( 'templates/parts/content/content', apply_filters( 'wmhook_modern_single_content_type', get_post_format() ) );
+		get_template_part( 'template-parts/content/content', apply_filters( 'wmhook_modern_single_content_type', get_post_format() ) );
 
 		// If comments are open or we have at least one comment, load up the comment template.
 		if ( comments_open() || get_comments_number() ) {

@@ -16,10 +16,10 @@
 // Helper variables
 
 	$default_image_size_names = array(
-			'thumbnail' => esc_html_x( 'Thumbnail size', 'WordPress predefined image size name.', 'modern' ),
-			'medium'    => esc_html_x( 'Medium size', 'WordPress predefined image size name.', 'modern' ),
-			'large'     => esc_html_x( 'Large size', 'WordPress predefined image size name.', 'modern' ),
-		);
+		'thumbnail' => esc_html_x( 'Thumbnail size', 'WordPress predefined image size name.', 'modern' ),
+		'medium'    => esc_html_x( 'Medium size', 'WordPress predefined image size name.', 'modern' ),
+		'large'     => esc_html_x( 'Large size', 'WordPress predefined image size name.', 'modern' ),
+	);
 
 	$image_sizes = array_filter( apply_filters( 'wmhook_modern_setup_image_sizes', array() ) );
 

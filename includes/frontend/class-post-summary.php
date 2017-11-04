@@ -224,7 +224,7 @@ class Modern_Post_Summary {
 			// Processing
 
 				ob_start();
-				get_template_part( 'templates/parts/component/link-more', get_post_type() );
+				get_template_part( 'template-parts/component/link-more', get_post_type() );
 
 
 			// Output

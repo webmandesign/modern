@@ -48,17 +48,9 @@ class Modern_Sidebar {
 
 						add_action( 'tha_content_bottom', __CLASS__ . '::secondary', 85 );
 
-						add_action( 'tha_header_bottom', __CLASS__ . '::header' );
-
-						add_action( 'wmhook_modern_intro_after', __CLASS__ . '::intro' );
-
-						add_action( 'tha_footer_top', __CLASS__ . '::footer_secondary', 20 );
-
-						add_action( 'tha_footer_top', __CLASS__ . '::footer', 30 );
+						add_action( 'tha_footer_top', __CLASS__ . '::footer' );
 
 					// Filters
-
-						add_filter( 'is_active_sidebar', __CLASS__ . '::intro_conditions', 10, 2 );
 
 						add_filter( 'is_active_sidebar', __CLASS__ . '::secondary_conditions', 100, 2 );
 
@@ -116,24 +108,9 @@ class Modern_Sidebar {
 							'description' => esc_html__( 'Default sidebar area.', 'modern' ),
 						),
 
-						'header' => array(
-							'name'        => esc_html__( 'Header Widgets', 'modern' ),
-							'description' => esc_html__( 'Widgetized area displayed in website header.', 'modern' ),
-						),
-
-						'intro' => array(
-							'name'        => esc_html__( 'Intro Widgets', 'modern' ),
-							'description' => esc_html__( 'Widgetized area displayed at the bottom of the Intro title section.', 'modern' ),
-						),
-
 						'footer' => array(
 							'name'        => esc_html__( 'Footer Widgets', 'modern' ),
 							'description' => esc_html__( 'Widgetized area displaying the main website footer content.', 'modern' ),
-						),
-
-						'footer-secondary' => array(
-							'name'        => esc_html__( 'Footer Secondary Widgets', 'modern' ),
-							'description' => esc_html__( 'Additional widgetized area displayed in the website footer.', 'modern' ),
 						),
 
 					);
@@ -182,38 +159,6 @@ class Modern_Sidebar {
 
 
 		/**
-		 * Header sidebar
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function header() {
-
-			// Output
-
-				get_sidebar( 'header' );
-
-		} // /header
-
-
-
-		/**
-		 * Intro sidebar
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function intro() {
-
-			// Output
-
-				get_sidebar( 'intro' );
-
-		} // /intro
-
-
-
-		/**
 		 * Footer sidebar
 		 *
 		 * @since    2.0.0
@@ -226,22 +171,6 @@ class Modern_Sidebar {
 				get_sidebar( 'footer' );
 
 		} // /footer
-
-
-
-		/**
-		 * Footer secondary sidebar
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function footer_secondary() {
-
-			// Output
-
-				get_sidebar( 'footer-secondary' );
-
-		} // /footer_secondary
 
 
 
@@ -274,8 +203,7 @@ class Modern_Sidebar {
 				if (
 						is_404()
 						|| is_attachment()
-						|| ( is_page( get_the_ID() ) && ! is_page_template( 'templates/sidebar.php' ) )
-						|| Modern_Post::is_page_builder_ready()
+						|| ( is_page( get_the_ID() ) && ! is_page_template( 'page-template/_sidebar.php' ) )
 						|| apply_filters( 'wmhook_modern_sidebar_disable', false )
 					) {
 					$is_active_sidebar = false;
@@ -287,52 +215,6 @@ class Modern_Sidebar {
 				return $is_active_sidebar;
 
 		} // /secondary_conditions
-
-
-
-		/**
-		 * Intro sidebar: display conditions
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 *
-		 * @param  bool       $is_active_sidebar
-		 * @param  int|string $index
-		 */
-		public static function intro_conditions( $is_active_sidebar, $index ) {
-
-			// Requirements check
-
-				if ( 'intro' !== $index ) {
-					return $is_active_sidebar;
-				}
-
-
-			// Helper variables
-
-				$enabled = ( 'always' === get_theme_mod( 'layout_intro_widgets_display' ) ) ? ( ! is_search() ) : ( is_singular() );
-
-
-			// Processing
-
-				if (
-						Modern_Post::is_paged()
-						|| ! $enabled
-						|| (
-							Modern_Post::is_singular()
-							&& ! is_page_template( 'templates/intro-widgets.php' )
-							&& ! get_post_meta( get_the_ID(), 'show_intro_widgets', true )
-						)
-					) {
-					$is_active_sidebar = false;
-				}
-
-
-			// Output
-
-				return $is_active_sidebar;
-
-		} // /intro_conditions
 
 
 

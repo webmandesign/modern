@@ -135,7 +135,7 @@ class Modern_Footer {
 
 			// Output
 
-				get_template_part( 'templates/parts/footer/site', 'info' );
+				get_template_part( 'template-parts/footer/site', 'info' );
 
 		} // /site_info
 

@@ -1,18 +1,32 @@
+
 <?php
 /**
- * Custom page template
- *
  * Template Name: Front page
+ * Template Post Type: page
  *
- * Set the sidebar position via CSS styles.
+ * Displays portfolio and blog posts above normal page content.
  *
  * @package    Modern
- * @copyright  2015 WebMan - Oliver Juhas
- * @version    1.0
+ * @copyright  WebMan Design, Oliver Juhas
+ *
+ * @since    1.0.0
+ * @version  2.0.0
  */
 
+/* translators: Custom page template name. */
+__( 'Front page', 'modern' );
 
 
+
+
+
+get_template_part( 'page' );
+
+
+
+
+
+return; // @todo
 get_header();
 
 

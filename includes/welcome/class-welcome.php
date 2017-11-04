@@ -91,13 +91,13 @@ class Modern_Welcome {
 			// Helper variables
 
 				$sections = (array) apply_filters( 'wmhook_modern_welcome_render_sections', array(
-						0   => 'header',
-						10  => 'wordpress',
-						20  => 'quickstart',
-						30  => 'filesystem',
-						40  => 'demo',
-						100 => 'footer',
-					) );
+					0   => 'header',
+					10  => 'promo',
+					20  => 'quickstart',
+					30  => 'demo',
+					40  => 'wordpress',
+					100 => 'footer',
+				) );
 
 				ksort( $sections );
 
@@ -113,7 +113,7 @@ class Modern_Welcome {
 					do_action( 'wmhook_modern_welcome_render_top' );
 
 					foreach ( $sections as $section ) {
-						get_template_part( 'templates/parts/admin/welcome', $section );
+						get_template_part( 'template-parts/admin/welcome', $section );
 					}
 
 					do_action( 'wmhook_modern_welcome_render_bottom' );

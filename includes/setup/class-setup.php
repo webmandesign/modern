@@ -595,7 +595,7 @@ class Modern_Setup {
 
 			// Processing
 
-				get_template_part( 'templates/parts/admin/media', 'image-sizes' );
+				get_template_part( 'template-parts/admin/media', 'image-sizes' );
 
 		} // /image_sizes_notice_html
 

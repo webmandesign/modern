@@ -110,14 +110,14 @@ class Modern_One_Click_Demo_Import {
 
 				return array(
 
-						array(
-							'import_file_name'       => esc_html__( 'Theme demo content', 'modern' ),
-							'import_file_url'        => esc_url_raw( 'https://raw.githubusercontent.com/webmandesign/demo-content/master/modern/content/demo-content-modern.xml' ),
-							'import_widget_file_url' => esc_url_raw( 'https://raw.githubusercontent.com/webmandesign/demo-content/master/modern/widgets/demo-widgets-modern.wie' ),
-							'preview_url'            => 'https://themedemos.webmandesign.eu/modern/',
-						),
+					array(
+						'import_file_name'       => esc_html__( 'Theme demo content', 'modern' ),
+						'import_file_url'        => esc_url( get_theme_file_uri( 'includes/plugins/one-click-demo-import/demo-content-modern.xml' ) ),
+						'import_widget_file_url' => esc_url( get_theme_file_uri( 'includes/plugins/one-click-demo-import/demo-widgets-modern.wie' ) ),
+						'preview_url'            => 'https://themedemos.webmandesign.eu/modern/',
+					),
 
-					);
+				);
 
 		} // /files
 
@@ -211,10 +211,6 @@ class Modern_One_Click_Demo_Import {
 						}
 					}
 
-				// WooCommerce image sizes
-
-					self::woocommerce_image_sizes();
-
 		} // /before
 
 
@@ -231,10 +227,6 @@ class Modern_One_Click_Demo_Import {
 
 			// Processing
 
-				// Theme options
-
-					self::theme_options();
-
 				// Front and blog page
 
 					self::front_and_blog_page();
@@ -243,31 +235,7 @@ class Modern_One_Click_Demo_Import {
 
 					self::menu_locations();
 
-				// WooCommerce pages
-
-					self::woocommerce_pages();
-
-				// Beaver Builder setup
-
-					self::beaver_builder();
-
 		} // /after
-
-
-
-		/**
-		 * Setup theme options
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function theme_options() {
-
-			// Processing
-
-				set_theme_mod( 'external_header_video', 'https://youtu.be/vvxP5n2vsrw' );
-
-		} // /theme_options
 
 
 
@@ -309,21 +277,17 @@ class Modern_One_Click_Demo_Import {
 
 			// Helper variables
 
-				$menu              = array();
-				$menu['primary']   = get_term_by( 'slug', 'primary', 'nav_menu' );
-				$menu['secondary'] = get_term_by( 'slug', 'secondary', 'nav_menu' );
-				$menu['footer']    = get_term_by( 'slug', 'footer', 'nav_menu' );
-				$menu['social']    = get_term_by( 'slug', 'social-links', 'nav_menu' );
+				$menu            = array();
+				$menu['primary'] = get_term_by( 'slug', 'primary', 'nav_menu' );
+				$menu['social']  = get_term_by( 'slug', 'social-links', 'nav_menu' );
 
 
 			// Processing
 
 				set_theme_mod( 'nav_menu_locations', array(
-						'primary'   => ( isset( $menu['primary']->term_id ) ) ? ( $menu['primary']->term_id ) : ( null ),
-						'secondary' => ( isset( $menu['secondary']->term_id ) ) ? ( $menu['secondary']->term_id ) : ( null ),
-						'footer'    => ( isset( $menu['footer']->term_id ) ) ? ( $menu['footer']->term_id ) : ( null ),
-						'social'    => ( isset( $menu['social']->term_id ) ) ? ( $menu['social']->term_id ) : ( null ),
-					) );
+					'primary' => ( isset( $menu['primary']->term_id ) ) ? ( $menu['primary']->term_id ) : ( null ),
+					'social'  => ( isset( $menu['social']->term_id ) ) ? ( $menu['social']->term_id ) : ( null ),
+				) );
 
 		} // /menu_locations
 
@@ -342,130 +306,6 @@ class Modern_One_Click_Demo_Import {
 				delete_option( 'sidebars_widgets' );
 
 		} // /before_widgets_import
-
-
-
-		/**
-		 * Setup WooCommerce pages
-		 *
-		 * Have to use alternative page slugs in theme demo content
-		 * to prevent issues with WooCommerce setup wizard created pages.
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function woocommerce_pages() {
-
-			// Requirements check
-
-				if ( ! class_exists( 'WooCommerce' ) ) {
-					return;
-				}
-
-
-			// Processing
-
-				// Shop page
-
-					$page = get_page_by_path( 'our-shop' );
-
-					update_option( 'woocommerce_shop_page_id', $page->ID );
-
-				// Cart page
-
-					$page = get_page_by_path( 'our-shop/shopping-cart' );
-
-					update_option( 'woocommerce_cart_page_id', $page->ID );
-
-				// Checkout page
-
-					$page = get_page_by_path( 'our-shop/shop-checkout' );
-
-					update_option( 'woocommerce_checkout_page_id', $page->ID );
-
-				// Terms and Conditions page
-
-					$page = get_page_by_path( 'our-shop/terms-and-conditions' );
-
-					update_option( 'woocommerce_terms_page_id', $page->ID );
-
-				// My Account page
-
-					$page = get_page_by_path( 'our-shop/customer-account' );
-
-					update_option( 'woocommerce_myaccount_page_id', $page->ID );
-
-		} // /woocommerce_pages
-
-
-
-		/**
-		 * Setup WooCommerce image sizes
-		 *
-		 * Must be set before the images are imported to generate correct sizes.
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function woocommerce_image_sizes() {
-
-			// Requirements check
-
-				if ( ! class_exists( 'WooCommerce' ) ) {
-					return;
-				}
-
-
-			// Processing
-
-				// Shop images
-
-					update_option( 'shop_catalog_image_size', array(
-							'width'  => 480,
-							'height' => 480,
-							'crop'   => 1,
-						) );
-					add_image_size( 'shop_catalog_image_size', 480, 480, true );
-
-					update_option( 'shop_single_image_size', array(
-							'width'  => 1200,
-							'height' => 1200,
-							'crop'   => 1,
-						) );
-					add_image_size( 'shop_single_image_size', 1200, 1200, true );
-
-					update_option( 'shop_thumbnail_image_size', array(
-							'width'  => 120,
-							'height' => 120,
-							'crop'   => 1,
-						) );
-					add_image_size( 'shop_thumbnail_image_size', 120, 120, true );
-
-		} // /woocommerce_image_sizes
-
-
-
-		/**
-		 * Setup Beaver Builder
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function beaver_builder() {
-
-			// Processing
-
-				// Page builder enabled post types
-
-					update_option( '_fl_builder_post_types', array(
-						'post',
-						'page',
-						'wm_projects',
-						'wm_staff',
-						'product',
-					) );
-
-		} // /beaver_builder
 
 
 
@@ -557,9 +397,9 @@ class Modern_One_Click_Demo_Import {
 				// OCDI 2.0 styling fix
 
 					wp_add_inline_style(
-							'ocdi-main-css',
-							'.ocdi.about-wrap { max-width: 66em; }'
-						);
+						'ocdi-main-css',
+						'.ocdi.about-wrap { max-width: 66em; }'
+					);
 
 		} // /styles
 

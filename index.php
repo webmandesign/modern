@@ -37,11 +37,11 @@ get_header();
 
 		endif;
 
-		get_template_part( 'templates/parts/loop/loop', 'index' );
+		get_template_part( 'template-parts/loop/loop', 'index' );
 
 	else :
 
-		get_template_part( 'templates/parts/content/content', 'none' );
+		get_template_part( 'template-parts/content/content', 'none' );
 
 	endif;
 

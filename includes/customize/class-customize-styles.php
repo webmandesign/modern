@@ -341,8 +341,6 @@ class Modern_Customize_Styles {
 				$output = array();
 
 				$helper = apply_filters( 'wmhook_modern_customize_styles_get_custom_styles_array_helper', array(
-					'layout_width_site'    => get_theme_mod( 'layout_width_site', 1640 ),
-					'layout_width_content' => get_theme_mod( 'layout_width_content', 1200 ),
 					'typography_size_html' => get_theme_mod( 'typography_size_html', 18 ),
 				), $scope );
 
@@ -379,47 +377,6 @@ class Modern_Customize_Styles {
 
 							'typography-media-query-close' => array(
 								'custom' => "\t" . '}',
-							),
-
-						/**
-						 * Layout
-						 */
-
-							'layout' => array(
-								'custom' => '/* Layout */',
-							),
-
-							'layout-width-site' => array(
-								'selector' => implode( ', ', array(
-									'.site-layout-boxed .site',
-								) ),
-								'styles'   => array(
-									'max-width|1' => $helper['layout_width_site'] . 'px',
-									'max-width|2' => ( $helper['layout_width_site'] / $helper['typography_size_html'] ) . 'rem',
-								),
-							),
-
-							'layout-width-content' => array(
-								'selector' => implode( ', ', array(
-									// All the selectors with `@extend %content_width;` from SASS files // $content_width
-									'.site-header-inner',
-									'.intro-inner',
-									'.intro-special .intro',
-									'.site-content-inner',
-									'.nav-links',
-									'.page-template-child-pages:not(.fl-builder) .site-main .entry-content',
-									'.list-child-pages-container',
-									'.fl-builder .comments-area',
-									'.content-layout-no-paddings .comments-area',
-									'.content-layout-stretched .comments-area',
-									'.site-footer-area-inner',
-									'.site .fl-row-fixed-width',
-									'.breadcrumbs',
-								) ),
-								'styles'   => array(
-									'max-width|1' => $helper['layout_width_content'] . 'px',
-									'max-width|2' => ( $helper['layout_width_content'] / $helper['typography_size_html'] ) . 'rem',
-								),
 							),
 
 					);
@@ -461,21 +418,6 @@ class Modern_Customize_Styles {
 
 							'editor-' . 'typography-media-query-close' => array(
 								'custom' => "\t" . '}',
-							),
-
-						/**
-						 * Layout
-						 */
-
-							'editor-' . 'layout' => array(
-								'custom' => '/* Layout */',
-							),
-
-							'editor-' . 'layout-max-width' => array(
-								'selector' => 'html, html[lang]', // We need to try for higher specificity to override later default setup.
-								'styles'   => array(
-									'max-width' => ( $helper['layout_width_content'] + 40 ) . 'px',
-								),
 							),
 
 					);

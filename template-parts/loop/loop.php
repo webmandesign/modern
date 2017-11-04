@@ -32,7 +32,7 @@ do_action( 'wmhook_modern_postslist_before' );
 		 *
 		 * Or, you can use the filter hook below to modify which content file to load.
 		 */
-		get_template_part( 'templates/parts/content/content', apply_filters( 'wmhook_modern_loop_content_type', get_post_format() ) );
+		get_template_part( 'template-parts/content/content', apply_filters( 'wmhook_modern_loop_content_type', get_post_format() ) );
 
 	endwhile;
 

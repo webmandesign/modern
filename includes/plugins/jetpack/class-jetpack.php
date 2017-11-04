@@ -88,7 +88,7 @@ class Modern_Jetpack {
 					// Actions
 
 						add_action( 'wp_enqueue_scripts', __CLASS__ . '::assets', 100 );
-						add_action( 'wp_enqueue_scripts', 'jetpack_post_details_enqueue_scripts', 120 ); // Load this after `modern-stylesheet` is enqueued.
+						add_action( 'wp_enqueue_scripts', 'jetpack_post_details_enqueue_scripts', 120 ); // Load this after `modern-stylesheet` is enqueued. @todo What's this? No need for it when we have inline styles handle filter?
 
 						add_action( 'tha_entry_bottom', __CLASS__ . '::author_bio' );
 
@@ -257,7 +257,7 @@ class Modern_Jetpack {
 					 *
 					 * Or, you can use the filter hook below to modify which content file to load.
 					 */
-					get_template_part( 'templates/parts/content/content', apply_filters( 'wmhook_modern_loop_content_type', get_post_format() ) );
+					get_template_part( 'template-parts/content/content', apply_filters( 'wmhook_modern_loop_content_type', get_post_format() ) );
 
 				endwhile;
 

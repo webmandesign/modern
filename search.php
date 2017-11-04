@@ -40,11 +40,11 @@ get_header();
 
 		endif;
 
-		get_template_part( 'templates/parts/loop/loop', 'search' );
+		get_template_part( 'template-parts/loop/loop', 'search' );
 
 	else :
 
-		get_template_part( 'templates/parts/content/content', 'none' );
+		get_template_part( 'template-parts/content/content', 'none' );
 
 	endif;
 

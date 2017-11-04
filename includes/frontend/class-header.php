@@ -71,8 +71,6 @@ class Modern_Header {
 
 						add_filter( 'body_class', __CLASS__ . '::body_class', 98 );
 
-						add_filter( 'tiny_mce_before_init', __CLASS__ . '::editor_body_class' );
-
 		} // /__construct
 
 
@@ -132,7 +130,7 @@ class Modern_Header {
 
 			// Processing
 
-				get_template_part( 'templates/parts/header/head' );
+				get_template_part( 'template-parts/header/head' );
 
 		} // /head
 
@@ -199,7 +197,7 @@ class Modern_Header {
 
 			// Processing
 
-				get_template_part( 'templates/parts/component', 'oldie' );
+				get_template_part( 'template-parts/component', 'oldie' );
 
 		} // /oldie
 
@@ -333,7 +331,7 @@ class Modern_Header {
 
 			// Output
 
-				get_template_part( 'templates/parts/header/site', 'branding' );
+				get_template_part( 'template-parts/header/site', 'branding' );
 
 		} // /site_branding
 
@@ -366,30 +364,6 @@ class Modern_Header {
 
 					$classes[] = 'no-js';
 
-				// Website layout
-
-					if ( $layout_site = get_theme_mod( 'layout_site', 'fullwidth' ) ) {
-						$classes[] = esc_attr( 'site-layout-' . $layout_site );
-					}
-
-				// Header layout
-
-					if ( $layout_header = get_theme_mod( 'layout_header', 'fullwidth' ) ) {
-						$classes[] = esc_attr( 'header-layout-' . $layout_header );
-					}
-
-				// Footer layout
-
-					if ( $layout_footer = get_theme_mod( 'layout_footer', 'boxed' ) ) {
-						$classes[] = esc_attr( 'footer-layout-' . $layout_footer );
-					}
-
-				// Is mobile navigation enabled?
-
-					if ( get_theme_mod( 'navigation_mobile', true ) ) {
-						$classes[] = 'has-navigation-mobile';
-					}
-
 				// Is site branding text displayed?
 
 					if ( 'blank' === get_header_textcolor() ) {
@@ -409,21 +383,10 @@ class Modern_Header {
 								$classes[] = 'has-post-thumbnail';
 							}
 
-						// Has custom intro image?
+						// Has custom banner image?
 
-							if ( get_post_meta( $post_id, 'intro_image', true ) ) {
-								$classes[] = 'has-custom-intro-image';
-							}
-
-						// Any page builder layout
-
-							$content_layout = (string) get_post_meta( $post_id, 'content_layout', true );
-
-							if ( 'stretched' === $content_layout ) {
-								$classes[] = 'content-layout-no-paddings';
-								$classes[] = 'content-layout-stretched';
-							} elseif ( 'no-paddings' === $content_layout ) {
-								$classes[] = 'content-layout-no-paddings';
+							if ( get_post_meta( $post_id, 'banner_image', true ) ) {
+								$classes[] = 'has-custom-banner-image';
 							}
 
 					} else {
@@ -467,22 +430,6 @@ class Modern_Header {
 						}
 					}
 
-				// Posts layout
-
-					if (
-							is_home()
-							|| is_category()
-							|| is_tag()
-							|| is_date()
-							|| is_author()
-						) {
-						$classes[] = 'posts-layout-' . sanitize_html_class( get_theme_mod( 'blog_style', 'list' ) );
-					}
-
-					if ( (bool) apply_filters( 'wmhook_modern_is_masonry_layout', false ) ) {
-						$classes[] = 'posts-layout-masonry';
-					}
-
 
 			// Output
 
@@ -491,50 +438,6 @@ class Modern_Header {
 				return array_unique( $classes );
 
 		} // /body_class
-
-
-
-		/**
-		 * HTML Body classes in content editor (TinyMCE)
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 *
-		 * @param  array $init
-		 */
-		public static function editor_body_class( $init = array() ) {
-
-			// Requirements check
-
-				global $post;
-
-				if ( ! is_admin() || ! isset( $post ) ) {
-					return $init;
-				}
-
-
-			// Processing
-
-				// Page classes
-
-					if ( 'page' === get_post_type( $post ) ) {
-
-						// Any page builder ready
-
-							$content_layout = (string) get_post_meta( $post->ID, 'content_layout', true );
-
-							if ( in_array( $content_layout, array( 'stretched', 'no-paddings' ) ) ) {
-								$init['body_class'] .= ' content-layout-no-paddings';
-							}
-
-					}
-
-
-			// Output
-
-				return $init;
-
-		} // /editor_body_class
 
 
 
