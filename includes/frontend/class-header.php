@@ -49,7 +49,6 @@ class Modern_Header {
 
 						add_action( 'wp_head', __CLASS__ . '::head', 1 );
 						add_action( 'wp_head', __CLASS__ . '::head_pingback', 1 );
-						add_action( 'wp_head', __CLASS__ . '::head_chrome_color', 1 );
 
 						add_action( 'tha_body_top', __CLASS__ . '::oldie', 5 );
 						add_action( 'tha_body_top', __CLASS__ . '::site_open' );
@@ -107,7 +106,7 @@ class Modern_Header {
 		/**
 		 * HTML DOCTYPE
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function doctype() {
@@ -123,7 +122,7 @@ class Modern_Header {
 		/**
 		 * HTML HEAD
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function head() {
@@ -151,26 +150,6 @@ class Modern_Header {
 				}
 
 		} // /head_pingback
-
-
-
-		/**
-		 * Chrome theme color with support for Chrome Theme Color Changer plugin
-		 *
-		 * @see  https://wordpress.org/plugins/chrome-theme-color-changer
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function head_chrome_color() {
-
-			// Output
-
-				if ( ! class_exists( 'Chrome_Theme_Color_Changer' ) ) {
-					echo '<meta name="theme-color" content="' . esc_attr( get_theme_mod( 'color_header_background', '#232323' ) ) . '">';
-				}
-
-		} // /head_chrome_color
 
 
 
@@ -232,7 +211,7 @@ class Modern_Header {
 		/**
 		 * Site container: Open
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function site_open() {
@@ -250,9 +229,6 @@ class Modern_Header {
 	/**
 	 * 30) Site header
 	 *
-	 * Header widgets:
-	 * @see  includes/frontend/class-sidebar.php
-	 *
 	 * Header menu:
 	 * @see  includes/frontend/class-menu.php
 	 */
@@ -260,7 +236,7 @@ class Modern_Header {
 		/**
 		 * Header: Open
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function open() {
@@ -276,7 +252,7 @@ class Modern_Header {
 		/**
 		 * Header: Close
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function close() {
@@ -346,7 +322,7 @@ class Modern_Header {
 		/**
 		 * HTML Body classes
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 *
 		 * @param  array $classes
@@ -405,10 +381,7 @@ class Modern_Header {
 
 				// Sticky header enabled?
 
-					if (
-							get_theme_mod( 'layout_header_sticky', true )
-							&& ! apply_filters( 'wmhook_modern_disable_header', false )
-						) {
+					if ( ! apply_filters( 'wmhook_modern_disable_header', false ) ) {
 						$classes[] = 'has-sticky-header';
 					}
 
@@ -466,19 +439,11 @@ class Modern_Header {
 			 */
 			public static function ie_sticky_header_wrapper_open() {
 
-				// Requirements check
-
-					if (
-							( ! isset( $GLOBALS['is_IE'] ) || ! $GLOBALS['is_IE'] )
-							|| ! get_theme_mod( 'layout_header_sticky', true )
-						) {
-						return;
-					}
-
-
 				// Output
 
-					echo '<div class="scroll-watch-placeholder masthead-placeholder">';
+					if ( isset( $GLOBALS['is_IE'] ) && $GLOBALS['is_IE'] ) {
+						echo '<div class="scroll-watch-placeholder masthead-placeholder">';
+					}
 
 			} // /ie_sticky_header_wrapper_open
 
@@ -492,19 +457,11 @@ class Modern_Header {
 			 */
 			public static function ie_sticky_header_wrapper_close() {
 
-				// Requirements check
-
-					if (
-							( ! isset( $GLOBALS['is_IE'] ) || ! $GLOBALS['is_IE'] )
-							|| ! get_theme_mod( 'layout_header_sticky', true )
-						) {
-						return;
-					}
-
-
 				// Output
 
-					echo '</div>';
+					if ( isset( $GLOBALS['is_IE'] ) && $GLOBALS['is_IE'] ) {
+						echo '</div>';
+					}
 
 			} // /ie_sticky_header_wrapper_close
 

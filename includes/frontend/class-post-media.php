@@ -121,12 +121,10 @@ class Modern_Post_Media {
 
 			// Processing
 
-				if ( is_attachment() ) {
-					$image_size = 'thumbnail';
-				} else if ( is_single( get_the_ID() ) ) {
-					$image_size = 'medium';
+				if ( Modern_Post::is_singular() ) {
+					$image_size = 'large';
 				} else {
-					$image_size = 'modern-thumbnail';
+					$image_size = 'thumbnail';
 				}
 
 

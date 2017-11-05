@@ -48,6 +48,8 @@ class Modern_Loop {
 
 						add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::search_form' );
 
+						add_action( 'pre_get_posts', __CLASS__ . '::ignore_sticky_posts' );
+
 					// Filters
 
 						add_filter( 'get_the_archive_title', __CLASS__ . '::archive_title' );
@@ -94,7 +96,7 @@ class Modern_Loop {
 		/**
 		 * Pagination
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function pagination() {
@@ -385,7 +387,7 @@ class Modern_Loop {
 		/**
 		 * Ignore sticky posts in main loop
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 *
 		 * @param  obj $query
@@ -394,7 +396,10 @@ class Modern_Loop {
 
 			// Processing
 
-				if ( $query->is_main_query() ) {
+				if (
+						$query->is_home()
+						&& $query->is_main_query()
+					) {
 					$query->set( 'ignore_sticky_posts', 1 );
 				}
 

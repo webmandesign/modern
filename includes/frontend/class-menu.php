@@ -131,7 +131,7 @@ class Modern_Menu {
 		/**
 		 * Primary navigation
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function primary() {
@@ -247,7 +247,7 @@ class Modern_Menu {
 		 *
 		 * Primary and Secondary menu only.
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 *
 		 * @param  string $item_output Menu item output HTML (without closing `</li>`).
@@ -327,7 +327,7 @@ class Modern_Menu {
 		 *
 		 * @link  http://a11yproject.com/patterns/
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 *
 		 * @param  array  $classes The CSS classes that are applied to the menu item's `<li>` element.
@@ -373,7 +373,7 @@ class Modern_Menu {
 			/**
 			 * Social links
 			 *
-			 * @since    2.0.0
+			 * @since    1.0.0
 			 * @version  2.0.0
 			 */
 			public static function social() {

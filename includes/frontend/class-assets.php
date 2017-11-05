@@ -332,9 +332,7 @@ class Modern_Assets {
 
 				// Masonry
 
-					if ( (bool) apply_filters( 'wmhook_modern_is_masonry_layout', false ) ) {
-						$enqueue_assets[40] = 'modern-scripts-masonry';
-					}
+					$enqueue_assets[40] = 'modern-scripts-masonry';
 
 				// Global theme scripts
 
@@ -390,7 +388,7 @@ class Modern_Assets {
 		/**
 		 * Customizer preview assets enqueue
 		 *
-		 * @since    2.0.0
+		 * @since    1.3.0
 		 * @version  2.0.0
 		 */
 		public static function enqueue_customize_preview() {
@@ -434,7 +432,7 @@ class Modern_Assets {
 		 *
 		 * @link  http://wpengineer.com/2358/enqueue-comment-reply-js-the-right-way/
 		 *
-		 * @since    2.0.0
+		 * @since    1.4.2
 		 * @version  2.0.0
 		 */
 		public static function enqueue_comments_reply() {

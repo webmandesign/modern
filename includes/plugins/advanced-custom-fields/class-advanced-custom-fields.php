@@ -111,7 +111,7 @@ class Modern_Advanced_Custom_Fields {
 							100 => array(
 								'key'          => 'modern_banner_text',
 								'label'        => esc_html__( 'Custom banner text', 'modern' ),
-								'instructions' => esc_html__( 'Here you can override the default intro banner section text with a custom one.', 'modern' ),
+								'instructions' => esc_html__( 'Here you can override the default intro banner section text with a custom one (no HTML).', 'modern' ),
 								'name'         => 'banner_text',
 								'type'         => 'text',
 							),
@@ -219,7 +219,7 @@ class Modern_Advanced_Custom_Fields {
 							100 => array(
 								'key'          => 'modern_quote_source',
 								'label'        => esc_html__( 'Quote source', 'modern' ),
-								'instructions' => esc_html__( 'You can use inline HTML tags in this field.', 'modern' ),
+								'instructions' => esc_html__( 'No HTML tags are supported here.', 'modern' ),
 								'name'         => 'quote_source',
 								'type'         => 'text',
 							),

@@ -25,32 +25,6 @@ jQuery( function() {
 
 
 	/**
-	 * 10) Basics
-	 */
-
-		/**
-		 * Tell CSS that JS is enabled...
-		 */
-
-			jQuery( '.no-js' ).removeClass( 'no-js' );
-
-
-
-		/**
-		 * Back to top buttons
-		 */
-
-			if ( 960 < document.body.clientWidth ) {
-				jQuery( '.back-to-top' ).on( 'click', function( e ) {
-						e.preventDefault();
-
-						jQuery( 'html, body' ).animate( { scrollTop: 0 }, 400 );
-					} );
-			}
-
-
-
-	/**
 	 * 20) Site header
 	 */
 
@@ -259,104 +233,6 @@ jQuery( function() {
 				} );
 
 			}
-
-
-
-		/**
-		 * Sidebar mobile toggle
-		 *
-		 * @since    1.0
-		 * @version  1.2
-		 */
-
-			//Disable sidebar toggle on wider screens
-				jQuery( window ).on( 'resize orientationchange', function( e ) {
-					if ( 960 < document.body.clientWidth ) {
-						jQuery( '#toggle-mobile-sidebar' )
-							.attr( 'aria-expanded', 'true' )
-							.siblings( '.widget' )
-								.show();
-					}
-				} );
-
-			//Clicking the toggle sidebar widgets button
-				jQuery( '#toggle-mobile-sidebar' ).on( 'click', function( e ) {
-					e.preventDefault();
-
-					var $this                 = jQuery( this ),
-					    mobileSidebarExpanded = $this.attr( 'aria-expanded' );
-
-					if ( 'false' == mobileSidebarExpanded ) {
-						mobileSidebarExpanded = 'true';
-					} else {
-						mobileSidebarExpanded = 'false';
-					}
-
-					$this
-						.attr( 'aria-expanded', mobileSidebarExpanded )
-						.siblings( '.widget' )
-							.slideToggle();
-				} );
-
-
-
-		/**
-		 * Uniform column height
-		 */
-
-			var $columnHeightContainers = jQuery( '.posts' );
-
-
-
-			/**
-			 * Reusable columns height setup function
-			 *
-			 * @param  obj $columnsParent
-			 */
-			function wmSetColumnHeight ( $columnsParent ) {
-				var $columnMaxHeight = 0;
-
-				$columnsParent.children( 'article' ).each( function() {
-					var $columnCurrentHeight = jQuery( this ).outerHeight();
-
-					if ( $columnMaxHeight < $columnCurrentHeight ) {
-						$columnMaxHeight = $columnCurrentHeight;
-					}
-				} );
-
-				$columnsParent.children( 'article' ).css( { height : $columnMaxHeight } );
-			} // /wmSetColumnHeight
-
-
-
-			/**
-			 * Change columns height
-			 *
-			 * Only after images are loaded and when resizing the window (excerpt mobiles).
-			 */
-			$columnHeightContainers.imagesLoaded( function() {
-
-				/**
-				 * Reusable columns height responsive function
-				 */
-				function wmSetColumnHeightWrapper () {
-					if ( 640 < document.body.clientWidth ) {
-						$columnHeightContainers.each( function() {
-							wmSetColumnHeight( jQuery( this ) );
-						} );
-					}
-				} // /wmSetColumnHeightWrapper
-
-				wmSetColumnHeightWrapper();
-
-				jQuery( window ).on( 'resize orientationchange', function( e ) {
-					//Reset the column height first
-						jQuery( '.posts article' ).css( { height : 'auto' } );
-
-					wmSetColumnHeightWrapper();
-				} );
-
-			} );
 
 
 

@@ -50,13 +50,6 @@ class Modern_Setup {
 
 					self::content_width();
 
-					/**
-					 * Declare support for stylesheet file generator
-					 *
-					 * Has to be declared early for theme upgrades to regenerate styles correctly.
-					 */
-					add_theme_support( 'stylesheet-generator' );
-
 				// Hooks
 
 					// Actions
@@ -73,17 +66,11 @@ class Modern_Setup {
 
 					// Filters
 
-						add_filter( 'wmhook_modern_enable_rtl', '__return_true' );
-
 						add_filter( 'wmhook_modern_setup_image_sizes', __CLASS__ . '::image_sizes' );
 
 						add_filter( 'wmhook_modern_assets_google_fonts_url_fonts_setup', __CLASS__ . '::google_fonts' );
 
 						add_filter( 'wmhook_modern_library_editor_custom_mce_format', __CLASS__ . '::visual_editor_formats' );
-
-						add_filter( 'wmhook_modern_is_masonry_layout', __CLASS__ . '::is_masonry' );
-
-						add_filter( 'wmhook_modern_widget_css_classes', __CLASS__ . '::widget_css_classes' );
 
 		} // /__construct
 
@@ -131,10 +118,10 @@ class Modern_Setup {
 				global $pagenow;
 
 				if (
-					is_admin()
-					&& 'themes.php' == $pagenow
-					&& isset( $_GET['activated'] )
-				) {
+						is_admin()
+						&& 'themes.php' == $pagenow
+						&& isset( $_GET['activated'] )
+					) {
 
 					add_action( 'admin_notices', __CLASS__ . '::welcome_admin_notice', 99 );
 
@@ -165,10 +152,10 @@ class Modern_Setup {
 					<h2>
 						<?php
 
-							printf(
-								esc_html_x( 'Thank you for installing %s!', '%s: Theme name.', 'modern' ),
-								'<strong>' . $theme_name . '</strong>'
-							);
+						printf(
+							esc_html_x( 'Thank you for installing %s!', '%s: Theme name.', 'modern' ),
+							'<strong>' . $theme_name . '</strong>'
+						);
 
 						?>
 					</h2>
@@ -179,10 +166,10 @@ class Modern_Setup {
 						<a href="<?php echo esc_url( admin_url( 'themes.php?page=modern-welcome' ) ); ?>" class="button button-primary button-hero">
 							<?php
 
-								printf(
-									esc_html_x( 'Get started with %s', '%s: Theme name.', 'modern' ),
-									$theme_name
-								);
+							printf(
+								esc_html_x( 'Get started with %s', '%s: Theme name.', 'modern' ),
+								$theme_name
+							);
 
 							?>
 						</a>
@@ -240,7 +227,7 @@ class Modern_Setup {
 		 * runs before the init hook. The init hook is too late for some features, such
 		 * as indicating support for post thumbnails.
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function setup() {
@@ -312,12 +299,12 @@ class Modern_Setup {
 					 * @link  https://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
 					 */
 					add_theme_support( 'html5', array(
-							'caption',
-							'comment-form',
-							'comment-list',
-							'gallery',
-							'search-form',
-						) );
+						'caption',
+						'comment-form',
+						'comment-list',
+						'gallery',
+						'search-form',
+					) );
 
 				// Custom header
 
@@ -331,8 +318,8 @@ class Modern_Setup {
 					 * @link  https://codex.wordpress.org/Function_Reference/add_theme_support#Custom_Background
 					 */
 					add_theme_support( 'custom-background', apply_filters( 'wmhook_modern_setup_custom_background_args', array(
-							'default-color' => 'fafcfe',
-						) ) );
+						'default-color' => '1a1c1e',
+					) ) );
 
 				// Post formats
 
@@ -400,7 +387,7 @@ class Modern_Setup {
 		 *
 		 * Priority -100 to make it available to lower priority callbacks.
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 *
 		 * @global  int $content_width
@@ -409,18 +396,9 @@ class Modern_Setup {
 
 			// Processing
 
-				$content_width = absint( get_theme_mod( 'layout_width_content', 1180 ) );
-				$site_width    = absint( get_theme_mod( 'layout_width_site', 1640 ) );
-
-				// Make content width max 88% of site width
-
-					if ( $content_width > absint( $site_width * .88 ) ) {
-						$content_width = absint( $site_width * .88 );
-					}
-
 				// Allow filtering
 
-					$GLOBALS['content_width'] = absint( apply_filters( 'wmhook_modern_content_width', $content_width ) );
+					$GLOBALS['content_width'] = absint( apply_filters( 'wmhook_modern_content_width', 1200 * .62 ) );
 
 		} // /content_width
 
@@ -446,7 +424,7 @@ class Modern_Setup {
 		 *     )
 		 *   );
 		 *
-		 * @since    2.0.0
+		 * @since    1.2.2
 		 * @version  2.0.0
 		 *
 		 * @param  array $image_sizes
@@ -457,84 +435,38 @@ class Modern_Setup {
 
 				global $content_width;
 
-				// Intro image size
-
-					if ( 'boxed' === get_theme_mod( 'layout_site', 'fullwidth' ) ) {
-
-						$intro_width = absint( get_theme_mod( 'layout_width_site', 1640 ) );
-
-						if ( 1000 > $intro_width ) {
-							// Can't set site width less then 1000 px,
-							// so default to max boxed site width then.
-							$intro_width = 1640;
-						}
-
-					} else {
-
-						$intro_width = 1920;
-
-					}
-
 
 			// Processing
 
 				$image_sizes = array(
 
 						'thumbnail' => array(
-								480,
-								absint( 480 * 9 / 16 ),
-								true,
-								esc_html__( 'In shortcodes and page builder modules.', 'modern' ),
-							),
+							420,
+							0,
+							false,
+							esc_html__( 'In posts list.', 'modern' ),
+						),
 
 						'medium' => array(
-								absint( $content_width * .62 ),
-								0,
-								false,
-								esc_html__( 'As featured image preview on single post page.', 'modern' ) . '<br>' .
-								esc_html__( 'In Projects.', 'modern' ) . '<br>' .
-								esc_html__( 'In Staff posts.', 'modern' ) . '<br>' .
-								esc_html__( 'In list of child pages.', 'modern' ),
-							),
+							absint( $content_width ),
+							0,
+							false,
+							esc_html__( 'Not used in the theme.', 'modern' ),
+						),
 
 						'large' => array(
-								absint( $content_width ),
-								0,
-								false,
-								esc_html__( 'Not used in the theme.', 'modern' ),
-							),
+							1200,
+							0,
+							false,
+							esc_html__( 'In single post or page.', 'modern' ),
+						),
 
-						/**
-						 * @since  WordPress 4.4.0
-						 */
-						'medium_large' => array(
-								absint( $content_width ),
-								0,
-								false,
-								esc_html__( 'This is WordPress native image size.', 'modern' ) . '<br>' .
-								esc_html__( 'Not used in the theme.', 'modern' ),
-							),
-
-						'modern-thumbnail' => array(
-								absint( $content_width * .62 ),
-								absint( $content_width * .62 / 2 ),
-								true,
-								esc_html__( 'In posts list.', 'modern' ),
-							),
-
-						'modern-square' => array(
-								448,
-								448,
-								true,
-								esc_html__( 'In Testimonials.', 'modern' ),
-							),
-
-						'modern-intro' => array(
-								absint( $intro_width ),
-								absint( 9 * $intro_width / 16 ),
-								true,
-								esc_html__( 'In page intro section.', 'modern' ),
-							),
+						'modern_banner' => array(
+							1920,
+							1080,
+							true,
+							esc_html__( 'In banner and post/page background.', 'modern' ),
+						),
 
 					);
 
@@ -550,7 +482,7 @@ class Modern_Setup {
 		/**
 		 * Register recommended image sizes notice
 		 *
-		 * @since    2.0.0
+		 * @since    1.2.2
 		 * @version  2.0.0
 		 */
 		public static function image_sizes_notice() {
@@ -558,28 +490,28 @@ class Modern_Setup {
 			// Processing
 
 				add_settings_field(
-						// $id
-						'recommended-image-sizes',
-						// $title
-						'',
-						// $callback
-						__CLASS__ . '::image_sizes_notice_html',
-						// $page
-						'media',
-						// $section
-						'default',
-						// $args
-						array()
-					);
+					// $id
+					'recommended-image-sizes',
+					// $title
+					'',
+					// $callback
+					__CLASS__ . '::image_sizes_notice_html',
+					// $page
+					'media',
+					// $section
+					'default',
+					// $args
+					array()
+				);
 
 				register_setting(
-						// $option_group
-						'media',
-						// $option_name
-						'recommended-image-sizes',
-						// $sanitize_callback
-						'esc_attr'
-					);
+					// $option_group
+					'media',
+					// $option_name
+					'recommended-image-sizes',
+					// $sanitize_callback
+					'esc_attr'
+				);
 
 		} // /image_sizes_notice
 
@@ -588,7 +520,7 @@ class Modern_Setup {
 		/**
 		 * Display recommended image sizes notice
 		 *
-		 * @since    2.0.0
+		 * @since    1.2.2
 		 * @version  2.0.0
 		 */
 		public static function image_sizes_notice_html() {
@@ -612,35 +544,34 @@ class Modern_Setup {
 		 *
 		 * Custom fonts setup left for plugins.
 		 *
-		 * @since    2.0.0
+		 * @since    1.3.0
 		 * @version  2.0.0
 		 *
 		 * @param  array $fonts_setup
 		 */
 		public static function google_fonts( $fonts_setup ) {
 
-			// Requirements check
-
-				if ( get_theme_mod( 'typography_custom_fonts', false ) ) {
-					return array();
-				}
-
-
 			// Helper variables
 
-				$fonts_setup = array();
+				$fonts_setup = array_unique( array_filter( array(
+					get_theme_mod( 'font-family-body' ),
+					get_theme_mod( 'font-family-headings' ),
+					get_theme_mod( 'font-family-logo' ),
+				) ) );
 
 
 			// Processing
 
-				/**
-				 * translators: Do not translate into your own language!
-				 * If there are characters in your language that are not
-				 * supported by the font, translate this to 'off'.
-				 * The font will not load then.
-				 */
-				if ( 'off' !== esc_html_x( 'on', 'Oxygen font: on or off', 'modern' ) ) {
-					$fonts_setup[] = 'Oxygen:300,400,700';
+				if ( empty( $fonts_setup ) ) {
+					/**
+					 * translators: Do not translate into your own language!
+					 * If there are characters in your language that are not
+					 * supported by the font, translate this to 'off'.
+					 * The font will not load then.
+					 */
+					if ( 'off' !== esc_html_x( 'on', 'Oxygen font: on or off', 'modern' ) ) {
+						$fonts_setup[] = 'Fira Sans:400,300';
+					}
 				}
 
 
@@ -661,7 +592,7 @@ class Modern_Setup {
 		/**
 		 * Include Visual Editor (TinyMCE) setup
 		 *
-		 * @since    2.0.0
+		 * @since    1.2.0
 		 * @version  2.0.0
 		 */
 		public static function visual_editor() {
@@ -684,7 +615,7 @@ class Modern_Setup {
 		/**
 		 * TinyMCE "Formats" dropdown alteration
 		 *
-		 * @since    2.0.0
+		 * @since    1.2.0
 		 * @version  2.0.0
 		 *
 		 * @param  array $formats
@@ -697,118 +628,100 @@ class Modern_Setup {
 
 					$font_weights = array(
 
-							// Font weight names from https://developer.mozilla.org/en/docs/Web/CSS/font-weight
+						// Font weight names from https://developer.mozilla.org/en/docs/Web/CSS/font-weight
 
-							100 => esc_html__( 'Thin (hairline) text', 'modern' ),
-							200 => esc_html__( 'Extra light text', 'modern' ),
-							300 => esc_html__( 'Light text', 'modern' ),
-							400 => esc_html__( 'Normal weight text', 'modern' ),
-							500 => esc_html__( 'Medium text', 'modern' ),
-							600 => esc_html__( 'Semi bold text', 'modern' ),
-							700 => esc_html__( 'Bold text', 'modern' ),
-							800 => esc_html__( 'Extra bold text', 'modern' ),
-							900 => esc_html__( 'Heavy text', 'modern' ),
+						100 => esc_html__( 'Thin (hairline) text', 'modern' ),
+						200 => esc_html__( 'Extra light text', 'modern' ),
+						300 => esc_html__( 'Light text', 'modern' ),
+						400 => esc_html__( 'Normal weight text', 'modern' ),
+						500 => esc_html__( 'Medium text', 'modern' ),
+						600 => esc_html__( 'Semi bold text', 'modern' ),
+						700 => esc_html__( 'Bold text', 'modern' ),
+						800 => esc_html__( 'Extra bold text', 'modern' ),
+						900 => esc_html__( 'Heavy text', 'modern' ),
 
-						);
+					);
 
 					$formats[ 250 . 'text_weights' ] = array(
-							'title' => esc_html__( 'Text weights', 'modern' ),
-							'items' => array(),
-						);
+						'title' => esc_html__( 'Text weights', 'modern' ),
+						'items' => array(),
+					);
 
 					foreach ( $font_weights as $weight => $name ) {
 
 						$formats[ 250 . 'text_weights' ]['items'][ 250 . 'text_weights' . $weight ] = array(
-								'title'    => $name . ' (' . $weight . ')',
-								'selector' => 'p, h1, h2, h3, h4, h5, h6, address, blockquote',
-								'classes'  => 'weight-' . $weight,
-							);
+							'title'    => $name . ' (' . $weight . ')',
+							'selector' => 'p, h1, h2, h3, h4, h5, h6, address, blockquote',
+							'classes'  => 'weight-' . $weight,
+						);
 
 					} // /foreach
 
 				// Font classes
 
 					$formats[ 260 . 'font' ] = array(
-							'title' => esc_html__( 'Fonts', 'modern' ),
-							'items' => array(
+						'title' => esc_html__( 'Fonts', 'modern' ),
+						'items' => array(
 
-								100 . 'font' . 100 => array(
-									'title'    => esc_html__( 'General font', 'modern' ),
-									'selector' => 'p, h1, h2, h3, h4, h5, h6, address, blockquote',
-									'classes'  => 'font-body',
-								),
-
-								100 . 'font' . 110 => array(
-									'title'    => esc_html__( 'Headings font', 'modern' ),
-									'selector' => 'p, h1, h2, h3, h4, h5, h6, address, blockquote',
-									'classes'  => 'font-headings',
-								),
-
-								100 . 'font' . 120 => array(
-									'title'    => esc_html__( 'Logo font', 'modern' ),
-									'selector' => 'p, h1, h2, h3, h4, h5, h6, address, blockquote',
-									'classes'  => 'font-logo',
-								),
-
-								100 . 'font' . 130 => array(
-									'title'    => esc_html__( 'Inherit font', 'modern' ),
-									'selector' => 'p, h1, h2, h3, h4, h5, h6, address, blockquote',
-									'classes'  => 'font-inherit',
-								),
-
+							100 . 'font' . 100 => array(
+								'title'    => esc_html__( 'General font', 'modern' ),
+								'selector' => 'p, h1, h2, h3, h4, h5, h6, address, blockquote',
+								'classes'  => 'font-body',
 							),
-						);
+
+							100 . 'font' . 110 => array(
+								'title'    => esc_html__( 'Headings font', 'modern' ),
+								'selector' => 'p, h1, h2, h3, h4, h5, h6, address, blockquote',
+								'classes'  => 'font-headings',
+							),
+
+							100 . 'font' . 120 => array(
+								'title'    => esc_html__( 'Logo font', 'modern' ),
+								'selector' => 'p, h1, h2, h3, h4, h5, h6, address, blockquote',
+								'classes'  => 'font-logo',
+							),
+
+							100 . 'font' . 130 => array(
+								'title'    => esc_html__( 'Inherit font', 'modern' ),
+								'selector' => 'p, h1, h2, h3, h4, h5, h6, address, blockquote',
+								'classes'  => 'font-inherit',
+							),
+
+						),
+					);
 
 				// Columns styles
 
 					$formats[ 400 . 'columns' ] = array(
-							'title' => esc_html__( 'Columns', 'modern' ),
-							'items' => array(),
-						);
+						'title' => esc_html__( 'Columns', 'modern' ),
+						'items' => array(),
+					);
 
 					for ( $i = 2; $i <= 3; $i++ ) {
 
 						$formats[ 400 . 'columns' ]['items'][ 400 . 'columns' . ( 100 + 10 * $i ) ] = array(
-								'title'   => sprintf( esc_html( _nx( 'Text in %d column', 'Text in %d columns', $i, '%d: Number of columns.', 'modern' ) ), $i ),
-								'classes' => 'text-columns-' . $i,
-								'block'   => 'div',
-								'wrapper' => true,
-							);
+							'title'   => sprintf( esc_html( _nx( 'Text in %d column', 'Text in %d columns', $i, '%d: Number of columns.', 'modern' ) ), $i ),
+							'classes' => 'text-columns-' . $i,
+							'block'   => 'div',
+							'wrapper' => true,
+						);
 
 					}
 
 				// Buttons
 
 					$formats[ 500 . 'buttons' ] = array(
-							'title' => esc_html__( 'Buttons', 'modern' ),
-							'items' => array(
+						'title' => esc_html__( 'Buttons', 'modern' ),
+						'items' => array(
 
-								500 . 'buttons' . 100 => array(
-									'title'    => esc_html__( 'Button from link', 'modern' ),
-									'selector' => 'a',
-									'classes'  => 'button',
-								),
-
-								500 . 'buttons' . 110 => array(
-									'title'    => esc_html__( 'Button from link, small', 'modern' ),
-									'selector' => 'a',
-									'classes'  => 'button size-small',
-								),
-
-								500 . 'buttons' . 120 => array(
-									'title'    => esc_html__( 'Button from link, large', 'modern' ),
-									'selector' => 'a',
-									'classes'  => 'button size-large',
-								),
-
-								500 . 'buttons' . 130 => array(
-									'title'    => esc_html__( 'Button from link, extra large', 'modern' ),
-									'selector' => 'a',
-									'classes'  => 'button size-extra-large',
-								),
-
+							500 . 'buttons' . 100 => array(
+								'title'    => esc_html__( 'Button from link', 'modern' ),
+								'selector' => 'a',
+								'classes'  => 'button',
 							),
-						);
+
+						),
+					);
 
 
 			// Output
@@ -851,66 +764,11 @@ class Modern_Setup {
 
 			// Processing
 
-				register_meta( 'post', 'show_intro_widgets', 'absint' );
-				register_meta( 'post', 'no_intro',           'absint' );
-				register_meta( 'post', 'no_intro_media',     'absint' );
-				register_meta( 'post', 'no_thumbnail',       'absint' );
-				register_meta( 'post', 'content_layout',     'esc_attr' );
-				register_meta( 'post', 'intro_image',        'esc_attr' );
-				register_meta( 'post', 'quote_source',       'esc_html' );
+				register_meta( 'post', 'banner_image', 'esc_attr' );
+				register_meta( 'post', 'banner_text',  'esc_html' );
+				register_meta( 'post', 'quote_source', 'esc_html' );
 
 		} // /register_meta
-
-
-
-		/**
-		 * When to use masonry posts layout?
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function is_masonry() {
-
-			// Helper variables
-
-				$is_masonry_blog = ( 'masonry' === get_theme_mod( 'blog_style', 'list' ) );
-				$is_masonry_blog = $is_masonry_blog && ( is_home() || is_category() || is_tag() || is_date() || is_author() );
-
-
-			// Output
-
-				return $is_masonry_blog || is_search();
-
-		} // /is_masonry
-
-
-
-		/**
-		 * Widget CSS classes
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 *
-		 * @param  array $classes
-		 */
-		public static function widget_css_classes( $classes = array() ) {
-
-			// Processing
-
-				$classes = array_merge( (array) $classes, array(
-						'hide-widget-title-accessibly',
-						'hide-widget-title',
-						'set-flex-grow-2',
-						'set-flex-grow-3',
-						'set-flex-grow-4',
-					) );
-
-
-			// Output
-
-				return $classes;
-
-		} // /widget_css_classes
 
 
 

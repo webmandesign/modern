@@ -51,7 +51,7 @@ do_action( 'tha_comments_before' );
 
 				printf(
 					/* translators: 1: title. */
-					esc_html_e( 'One thought on &ldquo;%1$s&rdquo;', 'modern' ),
+					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'modern' ),
 					'<span>' . get_the_title() . '</span>'
 				);
 

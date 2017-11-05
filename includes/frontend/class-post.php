@@ -108,7 +108,7 @@ class Modern_Post {
 		 * Compatible with NS Featured Posts plugin.
 		 * @link  https://wordpress.org/plugins/ns-featured-posts/
 		 *
-		 * @since    2.0.0
+		 * @since    1.3.0
 		 * @version  2.0.0
 		 *
 		 * @param  array $classes

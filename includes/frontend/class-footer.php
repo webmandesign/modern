@@ -96,7 +96,7 @@ class Modern_Footer {
 		/**
 		 * Footer: Open
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function open() {
@@ -112,7 +112,7 @@ class Modern_Footer {
 		/**
 		 * Footer: Close
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function close() {
@@ -128,7 +128,7 @@ class Modern_Footer {
 		/**
 		 * Site info
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function site_info() {
@@ -182,7 +182,7 @@ class Modern_Footer {
 		/**
 		 * Site container: Close
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function site_close() {

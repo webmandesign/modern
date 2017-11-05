@@ -2,9 +2,6 @@
 /**
  * Core class
  *
- * @uses  `wmhook_modern_theme_options` global hook
- * @uses  `wmhook_modern_enable_rtl` global hook
- *
  * @package     WebMan WordPress Theme Framework
  * @subpackage  Core
  *

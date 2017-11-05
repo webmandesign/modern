@@ -93,7 +93,7 @@ class Modern_Post_Summary {
 		 * If the post is password protected, display a message.
 		 * If the post has more tag, display the content appropriately.
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 *
 		 * @param  string $excerpt
@@ -172,7 +172,7 @@ class Modern_Post_Summary {
 		 *
 		 * The number of words. Default 55.
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 *
 		 * @param  absint $length
@@ -181,7 +181,7 @@ class Modern_Post_Summary {
 
 			// Output
 
-				return 40;
+				return 20;
 
 		} // /excerpt_length
 
@@ -190,7 +190,7 @@ class Modern_Post_Summary {
 		/**
 		 * Excerpt more
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 *
 		 * @param  string $more
@@ -214,7 +214,7 @@ class Modern_Post_Summary {
 		/**
 		 * Excerpt "Continue reading" text
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 *
 		 * @param  string $continue

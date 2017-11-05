@@ -282,7 +282,7 @@ class Modern_Customize {
 										'type'    => 'color',
 										'id'      => 'color_accent',
 										'label'   => esc_html__( 'Accent color', 'modern' ),
-										'default' => '#9d693f',
+										'default' => '#0aac8e',
 									),
 									100 . 'colors' . 10 . 220 => array(
 										'type'        => 'color',
