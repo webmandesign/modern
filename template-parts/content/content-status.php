@@ -22,7 +22,7 @@
 
 
 $hover_title = sprintf(
-		_x( 'Status: %s on %s', 'Status post format text on mouse hover (Status: John Doe on 1st January 2015).', 'wm_domain' ),
+		_x( 'Status: %s on %s', 'Status post format text on mouse hover (Status: John Doe on 1st January 2015).', 'modern' ),
 		get_the_author(),
 		get_the_date() . ' | ' . get_the_time()
 	);

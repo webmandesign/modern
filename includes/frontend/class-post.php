@@ -13,6 +13,7 @@
  *   0) Init
  *  10) Setup
  *  20) Elements
+ *  30) Templates
  * 100) Helpers
  */
 class Modern_Post {
@@ -380,6 +381,115 @@ class Modern_Post {
 				);
 
 		} // /navigation
+
+
+
+			/**
+			 * Post navigation styles
+			 *
+			 * @uses  `wmhook_modern_inline_styles_handle` global hook
+			 * @uses  `wmhook_modern_esc_css` global hook
+			 *
+			 * @since    1.0.0
+			 * @version  2.0.0
+			 */
+			public static function navigation_styles() {
+
+				// Requirements check
+
+					if ( ! is_single( get_the_ID() ) ) {
+						return;
+					}
+
+
+				// Helper variables
+
+					$output = $excluded_terms = '';
+
+					$image_size = 'large';
+
+					$post_navigation_args = (array) apply_filters( 'wmhook_modern_post_navigation_args', $args );
+					if ( ! isset( $post_navigation_args['in_same_term'] ) ) {
+						$post_navigation_args['in_same_term'] = false;
+					}
+
+					$previous = ( is_attachment() ) ? ( get_post( get_post()->post_parent ) ) : ( get_adjacent_post( $post_navigation_args['in_same_term'], $excluded_terms, true ) );
+					$next     = get_adjacent_post( $post_navigation_args['in_same_term'], $excluded_terms, false );
+
+
+				// Processing
+
+					if ( $previous && has_post_thumbnail( $previous->ID ) ) {
+						$image = wp_get_attachment_image_src(
+							get_post_thumbnail_id( $previous->ID ),
+							$image_size
+						);
+						$output .= "\r\n\t.post-navigation .nav-previous { background-image: url('" . esc_url_raw( $image[0] ) . "'); }";
+					}
+
+					if ( $next && has_post_thumbnail( $next->ID ) ) {
+						$image = wp_get_attachment_image_src(
+							get_post_thumbnail_id( $next->ID ),
+							$image_size
+						);
+						$output .= "\r\n\t.post-navigation .nav-next { background-image: url('" . esc_url_raw( $image[0] ) . "'); }";
+					}
+
+
+				// Output
+
+					if ( ! empty( $output ) ) {
+
+						wp_add_inline_style(
+							(string) apply_filters( 'wmhook_modern_inline_styles_handle', 'modern-stylesheet-global' ),
+							(string) apply_filters( 'wmhook_modern_esc_css', $output, 'Modern_Post::navigation_styles' )
+						);
+
+					}
+
+			} // /navigation_styles
+
+
+
+
+
+	/**
+	 * 40) Templates
+	 */
+
+		/**
+		 * Page template: Front page
+		 */
+
+			/**
+			 * Display blog page link
+			 *
+			 * @since    1.0.0
+			 * @version  2.0.0
+			 */
+			public static function template_front_link_blog() {
+
+				// Output
+
+					get_template_part( 'template-parts/component/link-front', 'blog' );
+
+			} // /template_front_link_blog
+
+
+
+			/**
+			 * Display portfolio archive link
+			 *
+			 * @since    1.0.0
+			 * @version  2.0.0
+			 */
+			public static function template_front_link_portfolio() {
+
+				// Output
+
+					get_template_part( 'template-parts/component/link-front', 'portfolio' );
+
+			} // /template_front_link_portfolio
 
 
 

@@ -57,6 +57,8 @@ class Modern_Customize {
 
 						add_action( 'customize_register', __CLASS__ . '::setup' );
 
+						add_action( 'wmhook_modern_library_theme_upgrade', __CLASS__ . '::upgrade_options', 10, 2 );
+
 					// Filters
 
 						add_filter( 'wmhook_modern_theme_options', __CLASS__ . '::options', 5 );
@@ -1197,6 +1199,94 @@ class Modern_Customize {
 				return implode( ', ', $output );
 
 		} // /color_selectors
+
+
+
+		/**
+		 * Upgrade theme options
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 *
+		 * @param  string $version_old
+		 * @param  string $version_new
+		 */
+		public static function upgrade_options( $version_old, $version_new ) {
+
+			// Helper variables
+
+				$theme_mods = get_theme_mods();
+
+				$version_mod_name  = '__theme_version';
+				$version_mod_value = ( isset( $theme_mods[ $version_mod_name ] ) ) ? ( $theme_mods[ $version_mod_name ] ) : ( '0' );
+
+
+			// Processing
+
+				if ( version_compare( $version_mod_value, '2.0.0', '<' ) ) {
+
+					$theme_mods_font_family = array();
+
+					// Rename and remove options
+
+						$theme_mods_rename = array(
+							'color-text'           => 'color_intro_text',
+							'color-accent'         => 'color_accent',
+							'color-accent-text'    => 'color_accent_text',
+							'banner-text'          => 'texts_intro',
+							'font-size-body'       => 'typography_size_html',
+							'font-family-body'     => 'typography_fonts_text',
+							'font-family-headings' => 'typography_fonts_headings',
+							'font-family-logo'     => 'typography_fonts_logo',
+							'font-subset'          => false, // Just remove.
+						);
+
+						foreach ( $theme_mods_rename as $old => $new ) {
+							if ( isset( $theme_mods[ $old ] ) ) {
+
+								// Apply new option name
+
+									if ( ! empty( $new ) ) {
+										set_theme_mod( $new, $theme_mods[ $old ] );
+										$theme_mods[ $new ] = $theme_mods[ $old ];
+
+										if ( false !== strpos( $old, 'font-family' ) ) {
+											$theme_mods_font_family[] = $new;
+										}
+									}
+
+								// Remove old option
+
+									remove_theme_mod( $old );
+									unset( $theme_mods[ $old ] );
+
+							}
+						}
+
+					// Upgrade typography options
+
+						if ( ! empty( $theme_mods_font_family ) ) {
+							$typography_custom = false;
+
+							foreach ( $theme_mods_font_family as $mod ) {
+								if ( isset( $theme_mods[ $mod ] ) ) {
+									$css_font_family = explode( ':', (string) $theme_mods[ $mod ] );
+									$css_font_family = $css_font_family[0] . ', sans-serif';
+									set_theme_mod( $mod, $css_font_family );
+									$typography_custom = true;
+								}
+							}
+
+							set_theme_mod( 'typography_custom_fonts', $typography_custom );
+						}
+
+				}
+
+				// Save new version in theme mods
+
+					set_theme_mod( $version_mod_name, $version_new );
+
+		} // /upgrade_options
 
 
 

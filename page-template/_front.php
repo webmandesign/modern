@@ -54,7 +54,7 @@ get_header();
 
 				<header class="page-header">
 
-					<h1 class="page-title"><?php echo apply_filters( 'wmhook_template_front_title_portfolio', '<a href="' . esc_url( get_post_type_archive_link( 'jetpack-portfolio' ) ) . '">' . __( 'Portfolio', 'wm_domain' ) . '</a>' ); ?></h1>
+					<h1 class="page-title"><?php echo apply_filters( 'wmhook_template_front_title_portfolio', '<a href="' . esc_url( get_post_type_archive_link( 'jetpack-portfolio' ) ) . '">' . __( 'Portfolio', 'modern' ) . '</a>' ); ?></h1>
 
 				</header>
 
@@ -116,9 +116,9 @@ get_header();
 					<h1 class="page-title"><?php
 
 						if ( $page_for_posts_id = absint( get_option( 'page_for_posts' ) ) ) {
-							echo apply_filters( 'wmhook_template_front_title_blog', '<a href="' . esc_url( get_permalink( $page_for_posts_id ) ) . '">' . __( 'Blog', 'wm_domain' ) . '</a>' );
+							echo apply_filters( 'wmhook_template_front_title_blog', '<a href="' . esc_url( get_permalink( $page_for_posts_id ) ) . '">' . __( 'Blog', 'modern' ) . '</a>' );
 						} else {
-							echo apply_filters( 'wmhook_template_front_title_blog', __( 'Blog', 'wm_domain' ) );
+							echo apply_filters( 'wmhook_template_front_title_blog', __( 'Blog', 'modern' ) );
 						}
 
 					?></h1>

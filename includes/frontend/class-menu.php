@@ -106,7 +106,7 @@ class Modern_Menu {
 		/**
 		 * Register custom menus
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function register() {
@@ -172,7 +172,6 @@ class Modern_Menu {
 
 							$args['theme_location']  = 'primary';
 							$args['container_class'] = 'menu';
-							$args['depth']           = 4;
 							$args['fallback_cb']     = 'Modern_Menu::primary_fallback';
 							$args['items_wrap']      = '<ul id="menu-primary" class="menu-primary" role="menubar">%3$s<li class="menu-toggle-skip-link-container"><a href="#menu-toggle" class="menu-toggle-skip-link">' . esc_html__( 'Skip to menu toggle button', 'modern' ) . '</a></li></ul>';
 
@@ -260,7 +259,7 @@ class Modern_Menu {
 			// Processing
 
 				if (
-						in_array( $args->theme_location, array( 'primary', 'secondary' ) )
+						in_array( $args->theme_location, array( 'primary' ) )
 						&& trim( $item->description )
 					) {
 

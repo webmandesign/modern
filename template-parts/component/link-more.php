@@ -20,9 +20,9 @@
 		<?php
 
 		printf(
-				esc_html_x( 'Continue reading%s&hellip;', '%s: Name of current post.', 'modern' ),
-				the_title( '<span class="screen-reader-text"> &ldquo;', '&rdquo;</span>', false )
-			);
+			esc_html_x( 'Continue reading%s&hellip;', '%s: Name of current post.', 'modern' ),
+			the_title( '<span class="screen-reader-text"> &ldquo;', '&rdquo;</span>', false )
+		);
 
 		?>
 	</a>

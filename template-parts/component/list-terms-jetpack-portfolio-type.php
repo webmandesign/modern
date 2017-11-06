@@ -34,18 +34,18 @@ if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) :
 
 ?>
 
-<ul class="taxonomy-terms taxonomy-<?php esc_attr_e( $taxonomy ); ?>">
+<ul class="taxonomy-terms taxonomy-<?php echo esc_attr( $taxonomy ); ?>">
 	<?php if ( apply_filters( 'wmhook_modern_list_terms_all_enabled', true, $taxonomy ) ) : ?>
 
 	<li class="taxonomy-terms-item taxonomy-terms-item-all">
 		<a href="<?php echo esc_url( get_post_type_archive_link( $post_type ) ); ?>" class="term-link">
 			<?php
 
-			$label = get_post_type_labels( get_post_type_object( 'jetpack-portfolio' ) );
+			$post_type_labels = get_post_type_labels( get_post_type_object( 'jetpack-portfolio' ) );
 
 			printf(
-				/* translators: 1: title. */
-				esc_html__( 'All %s', 'wm_domain' ),
+				/* translators: 1: Portfolio post type plural label. */
+				esc_html__( 'All %s', 'modern' ),
 				esc_html( $post_type_labels->name )
 			);
 
@@ -69,7 +69,7 @@ if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) :
 
 		?>
 
-		<li class="<?php esc_attr_e( $item_class ); ?>">
+		<li class="<?php echo esc_attr( $item_class ); ?>">
 			<a href="<?php echo esc_url( $term_link ); ?>" class="term-link">
 				<?php esc_html_e( $term->name ); ?>
 			</a>

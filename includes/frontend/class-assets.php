@@ -48,7 +48,7 @@ class Modern_Assets {
 						add_action( 'wp_enqueue_scripts', __CLASS__ . '::register_scripts' );
 
 						add_action( 'wp_enqueue_scripts', __CLASS__ . '::enqueue_styles', 100 );
-						add_action( 'wp_enqueue_scripts', __CLASS__ . '::theme_style_file', 110 );
+						add_action( 'wp_enqueue_scripts', __CLASS__ . '::enqueue_theme_stylesheet', 110 );
 						add_action( 'wp_enqueue_scripts', __CLASS__ . '::enqueue_scripts', 100 );
 
 						add_action( 'customize_preview_init', __CLASS__ . '::enqueue_customize_preview' );
@@ -67,6 +67,8 @@ class Modern_Assets {
 							add_filter( 'embed_handler_html', __CLASS__ . '::enqueue_fitvids' );
 							add_filter( 'embed_oembed_html',  __CLASS__ . '::enqueue_fitvids' );
 						}
+
+						add_filter( 'post_gallery', __CLASS__ . '::gallery_scripts' );
 
 		} // /__construct
 
@@ -104,7 +106,7 @@ class Modern_Assets {
 		/**
 		 * Registering theme styles
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function register_styles() {
@@ -132,8 +134,6 @@ class Modern_Assets {
 
 				}
 
-				$stylesheets = (array) apply_filters( 'wmhook_modern_assets_register_styles_sheets', $stylesheets );
-
 				if ( empty( $stylesheet_global_version ) ) {
 					$stylesheet_global_version = MODERN_THEME_VERSION;
 				}
@@ -141,7 +141,6 @@ class Modern_Assets {
 				$register_assets = array(
 					'modern-google-fonts'      => array( self::google_fonts_url() ),
 					'modern-stylesheet-global' => array( 'src' => Modern_Library::fix_ssl_urls( $stylesheets['global'] ), 'ver' => $stylesheet_global_version ),
-					'modern-stylesheet-print'  => array( 'src' => get_theme_file_uri( 'assets/css/print.css' ), 'media' => 'print' ),
 				);
 
 				$register_assets = (array) apply_filters( 'wmhook_modern_assets_register_styles', $register_assets, $stylesheets );
@@ -167,7 +166,7 @@ class Modern_Assets {
 		/**
 		 * Registering theme scripts
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function register_scripts() {
@@ -177,11 +176,13 @@ class Modern_Assets {
 				$script_global_deps = ( ! ( current_theme_supports( 'jetpack-responsive-videos' ) && function_exists( 'jetpack_responsive_videos_init' ) ) ) ? ( array( 'jquery-fitvids' ) ) : ( array( 'jquery' ) );
 
 				$register_assets = array(
-					'jquery-fitvids'                        => array( get_theme_file_uri( 'assets/js/vendors/fitvids/jquery.fitvids.js' ) ),
-					'jquery-scroll-watch'                   => array( get_theme_file_uri( 'assets/js/vendors/scroll-watch/jquery.scroll-watch.js' ) ),
+					'jquery-fitvids'             => array( get_theme_file_uri( 'assets/js/vendors/fitvids/jquery.fitvids.js' ) ),
+					'jquery-scroll-watch'        => array( get_theme_file_uri( 'assets/js/vendors/scroll-watch/jquery.scroll-watch.js' ) ),
+					'slick'                      => array( get_theme_file_uri( 'assets/js/vendors/slick/slick.min.js' ) ),
 					'modern-skip-link-focus-fix' => array( 'src' => get_theme_file_uri( 'assets/js/skip-link-focus-fix.js' ), 'deps' => array() ),
 					'modern-scripts-global'      => array( 'src' => get_theme_file_uri( 'assets/js/scripts-global.js' ), 'deps' => $script_global_deps ),
 					'modern-scripts-masonry'     => array( 'src' => get_theme_file_uri( 'assets/js/scripts-masonry.js' ), 'deps' => array( 'jquery-masonry' ) ),
+					'modern-scripts-slick'       => array( 'src' => get_theme_file_uri( 'assets/js/scripts-slick.js' ), 'deps' => array( 'slick' ) ),
 					'modern-scripts-nav-a11y'    => array( get_theme_file_uri( 'assets/js/scripts-navigation-accessibility.js' ) ),
 					'modern-scripts-nav-mobile'  => array( get_theme_file_uri( 'assets/js/scripts-navigation-mobile.js' ) ),
 				);
@@ -215,7 +216,7 @@ class Modern_Assets {
 		/**
 		 * Frontend styles enqueue
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function enqueue_styles() {
@@ -258,10 +259,6 @@ class Modern_Assets {
 
 					$enqueue_assets[10] = 'modern-stylesheet-global';
 
-				// Print
-
-					$enqueue_assets[100] = 'modern-stylesheet-print';
-
 				// Filter enqueue array
 
 					$enqueue_assets = (array) apply_filters( 'wmhook_modern_assets_enqueue_styles', $enqueue_assets );
@@ -269,7 +266,6 @@ class Modern_Assets {
 				// RTL setup
 
 					wp_style_add_data( 'modern-stylesheet-global', 'rtl', 'replace' );
-					wp_style_add_data( 'modern-stylesheet-print', 'rtl', 'replace' );
 
 				// Enqueue
 
@@ -286,7 +282,7 @@ class Modern_Assets {
 		/**
 		 * Frontend scripts enqueue
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 */
 		public static function enqueue_scripts() {
@@ -332,7 +328,32 @@ class Modern_Assets {
 
 				// Masonry
 
-					$enqueue_assets[40] = 'modern-scripts-masonry';
+					if ( true ) {
+						// @todo  Enqueue only if footer contains more than 3 widgets.
+						$enqueue_assets[40] = 'modern-scripts-masonry';
+					}
+
+				// Slick
+
+					if (
+							// For banner slideshow
+							is_front_page()
+							// For gallery post format slideshow
+							|| is_home()
+							|| is_archive()
+							|| is_search()
+						) {
+						$enqueue_assets[50] = 'modern-scripts-slick';
+					}
+
+					wp_localize_script(
+						'modern-skip-link-focus-fix', // Loading this globally as Slick script can be enqueued by Gallery shortcode too.
+						'$modernSlickLocalize',
+						(array) apply_filters( 'wmhook_modern_assets_enqueue_scripts_slick_localize', array(
+							'prev_text' => esc_html_x( 'Previous', 'Slideshow slide.', 'modern' ),
+							'next_text' => esc_html_x( 'Next', 'Slideshow slide.', 'modern' ),
+						) )
+					);
 
 				// Global theme scripts
 
@@ -370,7 +391,7 @@ class Modern_Assets {
 		 * @since    2.0.0
 		 * @version  2.0.0
 		 */
-		public static function theme_style_file() {
+		public static function enqueue_theme_stylesheet() {
 
 			// Processing
 
@@ -381,7 +402,7 @@ class Modern_Assets {
 					);
 				}
 
-		} // /theme_style_file
+		} // /enqueue_theme_stylesheet
 
 
 
@@ -485,6 +506,38 @@ class Modern_Assets {
 
 
 
+		/**
+		 * Gallery shortcode scripts
+		 *
+		 * Loading additional scripts for `[gallery]` shortcode.
+		 * Not really happy about this solution as we are hooking onto a filter.
+		 * But there is no action hook we can use in the `gallery_shortcode()`.
+		 *
+		 * @see  https://developer.wordpress.org/reference/hooks/post_gallery/
+		 * @see  https://developer.wordpress.org/reference/functions/gallery_shortcode/
+		 *
+		 * @since    1.0.0
+		 * @version  2.0.0
+		 *
+		 * @param  string $output
+		 */
+		public static function gallery_scripts( $output ) {
+
+			// Processing
+
+				// Apply masonry layout on gallery
+
+					wp_enqueue_script( 'modern-scripts-masonry' );
+
+
+			// Output
+
+				return $output;
+
+		} // /gallery_scripts
+
+
+
 
 
 	/**
@@ -497,7 +550,7 @@ class Modern_Assets {
 		 * Returns a string such as:
 		 * https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400|Exo+2:400,700|Allan&subset=latin,latin-ext
 		 *
-		 * @since    2.0.0
+		 * @since    1.0.0
 		 * @version  2.0.0
 		 *
 		 * @param  array $fonts Fallback fonts.
@@ -643,12 +696,6 @@ class Modern_Assets {
 							get_theme_file_uri( 'assets/css/custom-styles-editor.css' )
 						) );
 
-					}
-
-				// Icons stylesheet
-
-					if ( class_exists( 'WM_Icons' ) && $icons_font_stylesheet = get_option( 'wmamp-icon-font' ) ) {
-						$visual_editor_stylesheets[100] = esc_url_raw( $icons_font_stylesheet );
 					}
 
 				// Filter and order

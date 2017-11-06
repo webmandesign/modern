@@ -25,9 +25,9 @@
 		<?php
 
 		printf(
-				esc_html_x( 'We are sorry, but this website works with Internet Explorer version %s or newer.', '%s: Version number', 'modern' ),
-				$version_supported
-			);
+			esc_html_x( 'We are sorry, but this website works with Internet Explorer version %s or newer.', '%s: Version number', 'modern' ),
+			$version_supported
+		);
 
 		?>
 		<br>

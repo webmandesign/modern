@@ -96,7 +96,7 @@
 				if ( $banner_text = trim( strip_tags( get_theme_mod( 'banner-text' ) ) ) ) {
 					echo $banner_text;
 				} else {
-					echo __( 'Set the default text in Customizer > Predefined Texts', 'wm_domain' );
+					echo __( 'Set the default text in Customizer > Predefined Texts', 'modern' );
 				}
 
 		} elseif ( $custom_title = trim( get_post_meta( get_the_ID(), 'banner_text', true ) ) ) {

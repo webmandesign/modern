@@ -12,7 +12,6 @@
  * 10) Basics
  * 20) Content
  * 30) Header
- * 40) Infinite scroll
  */
 
 
@@ -131,44 +130,6 @@
 
 
 
-		/**
-		 * Gallery post format slideshow
-		 */
-
-			if ( $().slick ) {
-
-				var
-					$slickArgsPostFormatGallery = {
-						'autoplay'  : true,
-						'slide'     : '.slide',
-						'prevArrow' : '<button type="button" class="slick-prev"><span class="genericon genericon-previous"></span></button>',
-						'nextArrow' : '<button type="button" class="slick-next"><span class="genericon genericon-next"></span></button>'
-					};
-
-				function setupSlickPostFormatGallery( element, slick ) {
-
-					// Processing
-
-						slick
-							.options
-								.autoplaySpeed = ( 2800 + Math.floor( Math.random() * 4 ) * 400 );
-
-						element
-							.find( '.slick-next' )
-								.before( element.find( '.slick-prev' ) );
-
-				} // /setupSlickPostFormatGallery
-
-				$( '.format-gallery .enable-slider' )
-					.on( 'init', function( e, slick ) {
-						setupSlickPostFormatGallery( $( this ), slick );
-					} )
-					.slick( $slickArgsPostFormatGallery );
-
-			} // /slick
-
-
-
 
 
 	/**
@@ -208,38 +169,6 @@
 									.focus();
 
 				} );
-
-
-
-
-
-	/**
-	 * 40) Infinite scroll
-	 */
-
-		$( document.body )
-			.on( 'post-load', function() {
-
-				// Processing
-
-					/**
-					 * Apply slider
-					 */
-
-						var
-							$infiniteScrollPageID = '#infinite-view-' + $( '.posts .infinite-wrap' ).length;
-
-						if ( $().slick ) {
-
-							$( $infiniteScrollPageID + ' .format-gallery  .enable-slider' )
-								.on( 'init', function( e, slick ) {
-									setupSlickPostFormatGallery( $( this ), slick );
-								} )
-								.slick( $slickArgsPostFormatGallery );
-
-						} // /slick
-
-			} );
 
 
 
