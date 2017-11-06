@@ -102,7 +102,7 @@ https://genericons.com
 
 **Bundled images in `images/header/` folder**
 Distributed under [CC0 license](https://creativecommons.org/publicdomain/zero/1.0/)
-@todo
+https://pixabay.com/en/canada-lake-black-and-white-calm-407701/
 
 **Bundled images in `images/svg/` folder**
 Based on Font Awesome icons, Copyright (c) Dave Gandy

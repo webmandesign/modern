@@ -93,9 +93,9 @@ class Modern_Welcome {
 				$sections = (array) apply_filters( 'wmhook_modern_welcome_render_sections', array(
 					0   => 'header',
 					10  => 'promo',
-					20  => 'quickstart',
-					30  => 'demo',
-					40  => 'wordpress',
+					20  => 'wordpress',
+					30  => 'quickstart',
+					40  => 'demo',
 					100 => 'footer',
 				) );
 

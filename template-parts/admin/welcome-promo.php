@@ -19,75 +19,26 @@
 
 <div class="welcome-upgrade">
 
-	<div class="two-col">
+	<h2><strong><?php esc_html_e( 'Do you like this theme?', 'modern' ); ?></strong></h2>
 
-		<div class="col">
+	<p>
+		<?php esc_html_e( 'If you like this free WordPress theme, please, consider supporting its development by purchasing one of my premium products.', 'modern' ); ?>
+		(<a href="https://www.webmandesign.eu"><?php esc_html_e( 'Go to WebMan Design website &raquo;', 'modern' ); ?></a>)
+		<?php esc_html_e( 'Or perhaps you are considering a small donation?', 'modern' ); ?>
+		&rarr;
+		<a href="@todo"><em><?php esc_html_e( '"Hey Oliver, have a cup of coffee on me :)"', 'modern' ); ?></em></a>
+	</p>
 
-			<h2><strong><?php esc_html_e( 'Do you like this theme?', 'modern' ); ?></strong></h2>
+	<p>
+		<?php esc_html_e( 'You can also rate the theme at WordPress repository page.', 'modern' ); ?>
+		<a href="https://wordpress.org/support/theme/modern/reviews/?filter=5">
+			<?php esc_html_e( "Let's go and rate the theme &#9733;&#9733;&#9733;&#9733;&#9733; :)", 'modern' ); ?>
+		</a>
+	</p>
 
-			<p>
-				<?php esc_html_e( 'If you like this free WordPress theme, please, consider supporting its development by purchasing one of WebMan Design products.', 'modern' ); ?>
-			</p>
-			<p>
-				<a href="https://www.webmandesign.eu">
-					<?php esc_html_e( 'Go to WebMan Design website &raquo;', 'modern' ); ?>
-				</a>
-			</p>
-
-			<p>
-				<?php esc_html_e( 'You can also rate it at its WordPress repository page.', 'modern' ); ?>
-				<a href="https://wordpress.org/support/theme/modern/reviews/?filter=5">
-					<?php esc_html_e( "Let's go and rate the theme with &#9733;&#9733;&#9733;&#9733;&#9733; :)", 'modern' ); ?>
-				</a>
-			</p>
-
-			<p class="welcome-upgrade-thanks">
-				<?php esc_html_e( 'Thank you!', 'modern' ); ?>
-			</p>
-
-		</div>
-
-		<div class="col">
-
-			<h2><strong><?php esc_html_e( 'Feel like stepping up?', 'modern' ); ?></strong></h2>
-
-			<p>
-				<?php
-
-				printf(
-					esc_html_x( 'If you need more for your growing website, consider upgrading to %s theme with this additional functionality:', '%s = linked theme name.', 'modern' ),
-					'<a href="https://www.webmandesign.eu/portfolio/icelander-wordpress-theme/"><strong>Icelander</strong></a>'
-				);
-
-				?>
-			</p>
-			<ul>
-				<li class="dashicons-before dashicons-star-filled"><?php echo esc_html_x( 'Portfolios, Staff, Testimonials management', 'Theme feature.', 'modern' ); ?>,</li>
-				<li class="dashicons-before dashicons-star-filled"><?php echo esc_html_x( 'Additional layouts and widget areas', 'Theme feature.', 'modern' ); ?>,</li>
-				<li class="dashicons-before dashicons-star-filled"><?php echo esc_html_x( 'Custom page builder elements', 'Theme feature.', 'modern' ); ?>,</li>
-				<li class="dashicons-before dashicons-star-filled"><?php echo esc_html_x( 'Sticky header functionality', 'Theme feature.', 'modern' ); ?>,</li>
-				<li class="dashicons-before dashicons-star-filled"><?php echo esc_html_x( 'Optimized stylesheet generator', 'Theme feature.', 'modern' ); ?>,</li>
-				<li class="dashicons-before dashicons-star-filled"><?php echo esc_html_x( 'Custom icons uploader', 'Theme feature.', 'modern' ); ?>,</li>
-				<li class="dashicons-before dashicons-star-filled"><?php echo esc_html_x( 'Additional blog styles', 'Theme feature.', 'modern' ); ?>,</li>
-				<li class="dashicons-before dashicons-star-filled"><?php echo esc_html_x( 'Child theme generator', 'Theme feature.', 'modern' ); ?>,</li>
-				<li><?php echo esc_html_x( 'And more&hellip;', 'Theme feature.', 'modern' ); ?></li>
-			</ul>
-			<p>
-				<a href="https://www.webmandesign.eu/portfolio/icelander-wordpress-theme/" class="welcome-upgrade-button">
-					<?php
-
-					printf(
-						esc_html_x( 'Upgrade to %s theme', '%s = theme name.', 'modern' ),
-						'<strong>Icelander</strong>'
-					);
-
-					?>
-				</a>
-			</p>
-
-		</div>
-
-	</div>
+	<p class="welcome-upgrade-thanks">
+		<?php esc_html_e( 'Thank you!', 'modern' ); ?>
+	</p>
 
 </div>
 
@@ -97,9 +48,10 @@
 		position: relative;
 		padding: 2.62em;
 		background-color: #1a1c1e;
-		background-image: url('<?php echo esc_url_raw( trailingslashit( get_template_directory_uri() ) ); ?>assets/images/footer/pixabay-colorado-1436681.png');
+		background-image: url('<?php echo esc_url_raw( trailingslashit( get_template_directory_uri() ) ); ?>assets/images/header/header.jpg');
 		background-size: cover;
-		color: #fefeff;
+		color: #fff;
+		z-index: 1;
 	}
 
 		.welcome-upgrade::before {
@@ -111,6 +63,7 @@
 			bottom: 0;
 			background-color: inherit;
 			opacity: .85;
+			z-index: -1;
 		}
 
 	.welcome-upgrade .two-col {
@@ -142,6 +95,10 @@
 	.welcome-upgrade a {
 		color: inherit;
 	}
+
+		.welcome-upgrade a:hover {
+			text-decoration: none;
+		}
 
 		.welcome-upgrade-button {
 			display: inline-block;
