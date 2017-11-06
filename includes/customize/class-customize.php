@@ -1266,6 +1266,7 @@ class Modern_Customize {
 					// Upgrade typography options
 
 						if ( ! empty( $theme_mods_font_family ) ) {
+
 							$typography_custom = false;
 
 							foreach ( $theme_mods_font_family as $mod ) {
@@ -1278,6 +1279,18 @@ class Modern_Customize {
 							}
 
 							set_theme_mod( 'typography_custom_fonts', $typography_custom );
+
+							// Make sure we display typography options upgrade notice
+
+								$transient        = 'display_upgrade_notice';
+								$upgrade_notice   = (array) get_transient( $transient );
+								$upgrade_notice[] = '2.0.0-typography'; // What admin notice to display?
+								set_transient(
+									$transient,
+									$upgrade_notice,
+									7 * 24 * 60 * 60
+								);
+
 						}
 
 				}

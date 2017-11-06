@@ -54,7 +54,7 @@ class Modern_Setup {
 
 					// Actions
 
-						add_action( 'load-themes.php', __CLASS__ . '::welcome_admin_notice_activation' );
+						add_action( 'load-themes.php', __CLASS__ . '::admin_notice_welcome_activation' );
 
 						add_action( 'after_setup_theme', __CLASS__ . '::setup' );
 
@@ -63,6 +63,10 @@ class Modern_Setup {
 						add_action( 'init', __CLASS__ . '::register_meta' );
 
 						add_action( 'admin_init', __CLASS__ . '::image_sizes_notice' );
+
+						add_action( 'admin_notices', __CLASS__ . '::admin_notice_upgrade', 100 );
+
+						add_action( 'wmhook_modern_library_theme_upgrade', __CLASS__ . '::upgrade_child_theme', 10, 2 );
 
 					// Filters
 
@@ -111,7 +115,7 @@ class Modern_Setup {
 		 * @since    2.0.0
 		 * @version  2.0.0
 		 */
-		public static function welcome_admin_notice_activation() {
+		public static function admin_notice_welcome_activation() {
 
 			// Processing
 
@@ -123,11 +127,11 @@ class Modern_Setup {
 						&& isset( $_GET['activated'] )
 					) {
 
-					add_action( 'admin_notices', __CLASS__ . '::welcome_admin_notice', 99 );
+					add_action( 'admin_notices', __CLASS__ . '::admin_notice_welcome', 99 );
 
 				}
 
-		} // /welcome_admin_notice_activation
+		} // /admin_notice_welcome_activation
 
 
 
@@ -137,78 +141,83 @@ class Modern_Setup {
 		 * @since    2.0.0
 		 * @version  2.0.0
 		 */
-		public static function welcome_admin_notice() {
+		public static function admin_notice_welcome() {
+
+			// Processing
+
+				get_template_part( 'template-parts/admin/notice', 'welcome' );
+
+		} // /admin_notice_welcome
+
+
+
+		/**
+		 * Display "Upgrade" admin notice(s)
+		 *
+		 * Note that these notices are displayed just once!
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function admin_notice_upgrade() {
 
 			// Helper variables
 
-				$theme_name = wp_get_theme( 'modern' )->get( 'Name' );
+				$transient = 'display_upgrade_notice';
+				$notices   = array_unique( array_filter( (array) get_transient( $transient ) ) );
 
 
-			// Output
+			// Processing
 
-				?>
+				if ( ! empty( $notices ) ) {
+					asort( $notices );
 
-				<div class="updated notice is-dismissible theme-welcome-notice">
-					<h2>
-						<?php
-
-						printf(
-							esc_html_x( 'Thank you for installing %s!', '%s: Theme name.', 'modern' ),
-							'<strong>' . $theme_name . '</strong>'
-						);
-
-						?>
-					</h2>
-					<p>
-						<?php esc_html_e( 'Please read "Welcome" page for information about the theme setup.', 'modern' ); ?>
-					</p>
-					<p class="call-to-action">
-						<a href="<?php echo esc_url( admin_url( 'themes.php?page=modern-welcome' ) ); ?>" class="button button-primary button-hero">
-							<?php
-
-							printf(
-								esc_html_x( 'Get started with %s', '%s: Theme name.', 'modern' ),
-								$theme_name
-							);
-
-							?>
-						</a>
-					</p>
-				</div>
-
-				<?php
-
-				// Related styles
-
-				?>
-
-				<style type="text/css" media="screen">
-
-					.notice.theme-welcome-notice {
-						padding: 2.62em;
-						text-align: center;
-						background: rgba(0,0,0,.01);
-						border: 1em solid rgba(255,255,255,.85);
+					foreach ( $notices as $notice ) {
+						get_template_part( 'template-parts/admin/notice-upgrade', $notice );
 					}
 
-					.theme-welcome-notice h2 {
-						margin: .5em 0;
-						font-weight: 400;
-					}
+					delete_transient( $transient );
+				}
 
-					.theme-welcome-notice strong {
-						font-weight: bolder;
-					}
+		} // /admin_notice_upgrade
 
-					.theme-welcome-notice .call-to-action {
-						margin-top: 1.62em;
-					}
 
-				</style>
 
-				<?php
+		/**
+		 * Make sure we display child theme upgrade notice
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 *
+		 * @param  string $version_old
+		 * @param  string $version_new
+		 */
+		public static function upgrade_child_theme( $version_old, $version_new ) {
 
-		} // /welcome_admin_notice
+			// Requirements check
+
+				if ( version_compare( $version_old, '2.0.0', '>=' ) ) {
+					return;
+				}
+
+
+			// Helper variables
+
+				$transient      = 'display_upgrade_notice';
+				$upgrade_notice = (array) get_transient( $transient );
+
+
+			// Processing
+
+				$upgrade_notice[] = 'child-theme'; // What admin notice to display?
+
+				set_transient(
+					$transient,
+					$upgrade_notice,
+					7 * 24 * 60 * 60
+				);
+
+		} // /upgrade_child_theme
 
 
 
