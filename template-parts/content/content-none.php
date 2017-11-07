@@ -1,38 +1,66 @@
 <?php
 /**
- * Empty content page
+ * Template part for displaying a message that posts cannot be found
+ *
+ * @link  https://codex.wordpress.org/Template_Hierarchy
+ * @uses  `wmhook_modern_title_primary_disable` global hook to disable `#primary` section H1
  *
  * @package    Modern
- * @copyright  2015 WebMan - Oliver Juhas
- * @version    1.0
+ * @copyright  WebMan Design, Oliver Juhas
+ *
+ * @since    1.0.0
+ * @version  2.0.0
  */
+
+
+
+
 
 ?>
 
 <section class="no-results not-found">
 
+	<?php if ( ! (bool) apply_filters( 'wmhook_modern_title_primary_disable', false ) ) : ?>
 	<header class="page-header">
-
-		<h1 class="page-title"><?php _e( 'Nothing Found', 'modern' ); ?></h1>
-
+		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'modern' ); ?></h1>
 	</header>
 
-	<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
-
-		<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'modern' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
-
-	<?php elseif ( is_search() ) : ?>
-
-		<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'modern' ); ?></p>
-
-		<?php get_search_form(); ?>
-
-	<?php else : ?>
-
-		<p><?php _e( 'It seems we can not find what you are looking for. Perhaps searching can help.', 'modern' ); ?></p>
-
-		<?php get_search_form(); ?>
-
 	<?php endif; ?>
+	<div class="page-content">
+
+		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
+
+			<p><?php
+
+				printf(
+					wp_kses(
+						/* translators: 1: link to WP admin new post page. */
+						__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'modern' ),
+						array(
+							'a' => array(
+								'href' => array(),
+							),
+						)
+					),
+					esc_url( admin_url( 'post-new.php' ) )
+				);
+
+			?></p>
+
+		<?php elseif ( is_search() ) : ?>
+
+			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'modern' ); ?></p>
+
+			<?php get_search_form(); ?>
+
+		<?php else : ?>
+
+			<p><?php esc_html_e( 'It seems we can not find what you are looking for. Perhaps searching can help.', 'modern' ); ?></p>
+
+			<?php get_search_form(); ?>
+
+		<?php endif; ?>
+
+	</div>
 
 </section>
