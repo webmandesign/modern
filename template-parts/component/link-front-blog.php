@@ -1,6 +1,6 @@
 <?php
 /**
- * Front page template link: Blog page
+ * Front page template link: Blog
  *
  * @package    Modern
  * @copyright  WebMan Design, Oliver Juhas

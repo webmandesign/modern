@@ -46,6 +46,7 @@
 		/**
 		 * Footer widgets
 		 */
+		if ( $( document.body ).hasClass( 'has-masonry-footer' ) ) {
 
 			var
 				$footerWidgetsContainer = $( '.footer-widgets' );
@@ -79,6 +80,8 @@
 							}, 100 );
 
 					} );
+
+		}
 
 
 

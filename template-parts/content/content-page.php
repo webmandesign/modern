@@ -1,83 +1,42 @@
 <?php
 /**
- * Page content
+ * Template part for displaying page content in page.php
+ *
+ * @link  https://codex.wordpress.org/Template_Hierarchy
  *
  * @package    Modern
- * @copyright  2015 WebMan - Oliver Juhas
+ * @copyright  WebMan Design, Oliver Juhas
  *
- * @since    1.0
- * @version  1.4.4
+ * @since    1.0.0
+ * @version  2.0.0
  */
 
 
 
-$pagination_suffix = wm_paginated_suffix( 'small', 'post' );
+
+
+do_action( 'tha_entry_before' );
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); echo apply_filters( 'wmhook_entry_container_atts', '' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php
+	<?php do_action( 'tha_entry_top' ); ?>
 
-	/**
-	 * Page featured image
-	 */
-	if (
-			has_post_thumbnail()
-			&& ! $pagination_suffix
-			&& apply_filters( 'wmhook_entry_featured_image_display', true )
-		) :
+	<div class="entry-content"><?php
 
-		$image_link = array_filter( (array) apply_filters( 'wmhook_entry_image_link', wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' ) ) );
+		do_action( 'tha_entry_content_before' );
 
-		?>
+		the_content();
 
-		<div class="entry-media">
+		do_action( 'tha_entry_content_after' );
 
-			<figure class="post-thumbnail"<?php echo wm_schema_org( 'image' ); ?>>
+	?></div>
 
-				<?php
-
-				if ( ! empty( $image_link ) ) {
-					echo '<a href="' . esc_url( $image_link[0] ) . '" title="' . the_title_attribute( 'echo=0' ) . '">';
-				}
-
-				the_post_thumbnail( apply_filters( 'wmhook_entry_featured_image_size', 'thumbnail' ) );
-
-				if ( ! empty( $image_link ) ) {
-					echo '</a>';
-				}
-
-				?>
-
-			</figure>
-
-		</div>
-
-		<?php
-
-	endif;
-
-
-
-	/**
-	 * Page content
-	 */
-
-		echo '<div class="entry-inner">';
-
-			wmhook_entry_top();
-
-			echo '<div class="entry-content"' . wm_schema_org( 'entry_body' ) . '>';
-
-				the_content();
-
-			echo '</div>';
-
-			wmhook_entry_bottom();
-
-		echo '</div>';
-
-	?>
+	<?php do_action( 'tha_entry_bottom' ); ?>
 
 </article>
+
+<?php
+
+do_action( 'tha_entry_after' );

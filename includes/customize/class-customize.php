@@ -326,7 +326,7 @@ class Modern_Customize {
 										'preview_js'  => array(
 											'css' => array(
 
-												'.site-header-content, .masthead-placeholder, ' . self::color_selectors( 'header' ) => array(
+												'.site-header-content, .masthead-placeholder' => array(
 													'background-color'
 												),
 												'.main-navigation-container li ul' => array(
@@ -351,7 +351,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.site-header-content, .masthead-placeholder, ' . self::color_selectors( 'header' ) => array(
+												'.site-header-content, .masthead-placeholder' => array(
 													'color',
 													array(
 														'property'         => 'border-color',
@@ -422,7 +422,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.intro-container, ' . self::color_selectors( 'intro' ) => array(
+												'.intro-container' => array(
 													'background-color'
 												),
 
@@ -437,7 +437,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.intro-container, ' . self::color_selectors( 'intro' ) => array(
+												'.intro-container' => array(
 													'color',
 													array(
 														'property'         => 'border-color',
@@ -498,7 +498,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.site, .site-content, ' . self::color_selectors( 'content' ) => array(
+												'.site, .site-content' => array(
 													'background-color'
 												),
 
@@ -513,7 +513,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.site, .site-content, ' . self::color_selectors( 'content' ) => array(
+												'.site, .site-content' => array(
 													'color',
 													array(
 														'property'         => 'border-color',
@@ -575,7 +575,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.site-footer, ' . self::color_selectors( 'footer' ) => array(
+												'.site-footer' => array(
 													'background-color'
 												),
 												'.site-footer mark, .site-footer .highlight, .site-footer .pagination .current, .site-footer .bypostauthor > .comment-body .comment-author::before, .site-footer .widget_calendar tbody a, .site-footer .widget .tagcloud a:hover, .site-footer .widget .tagcloud a:focus, .site-footer .widget .tagcloud a:active' => array(
@@ -596,7 +596,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.site-footer, ' . self::color_selectors( 'footer' ) => array(
+												'.site-footer' => array(
 													'color',
 													array(
 														'property'         => 'border-color',
@@ -749,6 +749,41 @@ class Modern_Customize {
 
 
 						/**
+						 * Layout
+						 */
+						300 . 'layout' => array(
+							'id'             => 'layout',
+							'type'           => 'section',
+							'create_section' => esc_html_x( 'Layout', 'Customizer section title.', 'modern' ),
+							'in_panel'       => esc_html_x( 'Theme Options', 'Customizer panel title.', 'modern' ),
+						),
+
+
+
+							/**
+							 * Front page template blog section
+							 */
+
+								300 . 'layout' . 100 => array(
+									'type'    => 'html',
+									'content' => '<h3>' . esc_html__( 'Blog section', 'modern' ) . '</h3><p class="description">' . esc_html__( 'Options for setting up blog posts section on "Front page" template.', 'modern' ) . '</p>',
+								),
+
+									300 . 'layout' . 110 => array(
+										'type'    => 'range',
+										'id'      => 'posts_per_page_front_blog',
+										'label'   => esc_html__( 'Posts count', 'modern' ),
+										'default' => 6,
+										'min'     => 2,
+										'max'     => 12,
+										'step'    => 1,
+									),
+
+
+
+
+
+						/**
 						 * Texts
 						 *
 						 * Don't use `preview_js` here as it outputs escaped HTML.
@@ -872,9 +907,9 @@ class Modern_Customize {
 										. '</p>'
 										. '<pre>'
 										. implode( ', ', array(
-												'html',
-												'.site .font-body',
-											) )
+											'html',
+											'.site .font-body',
+										) )
 										. '</pre>'
 
 										. '<p>'
@@ -882,16 +917,16 @@ class Modern_Customize {
 										. '</p>'
 										. '<pre>'
 										. implode( ', ', array(
-												'.site .font-headings',
-												'.site .font-headings-primary',
+											'.site .font-headings',
+											'.site .font-headings-primary',
 
-												'h1, .h1',
-												'h2, .h2',
-												'h3, .h3',
-												'h4, .h4',
-												'h5, .h5',
-												'h6, .h6',
-											) )
+											'h1, .h1',
+											'h2, .h2',
+											'h3, .h3',
+											'h4, .h4',
+											'h5, .h5',
+											'h6, .h6',
+										) )
 										. '</pre>'
 
 										. '<p>'
@@ -899,40 +934,40 @@ class Modern_Customize {
 										. '</p>'
 										. '<pre>'
 										. implode( ', ', array(
-												'.site-title',
-												'.site .font-logo',
-												'.site .font-headings-secondary',
+											'.site-title',
+											'.site .font-logo',
+											'.site .font-headings-secondary',
 
-												'h1.display-1',
-												'h1.display-2',
-												'h1.display-3',
-												'h1.display-4',
+											'h1.display-1',
+											'h1.display-2',
+											'h1.display-3',
+											'h1.display-4',
 
-												'h2.display-1',
-												'h2.display-2',
-												'h2.display-3',
-												'h2.display-4',
+											'h2.display-1',
+											'h2.display-2',
+											'h2.display-3',
+											'h2.display-4',
 
-												'h3.display-1',
-												'h3.display-2',
-												'h3.display-3',
-												'h3.display-4',
+											'h3.display-1',
+											'h3.display-2',
+											'h3.display-3',
+											'h3.display-4',
 
-												'.h1.display-1',
-												'.h1.display-2',
-												'.h1.display-3',
-												'.h1.display-4',
+											'.h1.display-1',
+											'.h1.display-2',
+											'.h1.display-3',
+											'.h1.display-4',
 
-												'.h2.display-1',
-												'.h2.display-2',
-												'.h2.display-3',
-												'.h2.display-4',
+											'.h2.display-1',
+											'.h2.display-2',
+											'.h2.display-3',
+											'.h2.display-4',
 
-												'.h3.display-1',
-												'.h3.display-2',
-												'.h3.display-3',
-												'.h3.display-4',
-											) )
+											'.h3.display-1',
+											'.h3.display-2',
+											'.h3.display-3',
+											'.h3.display-4',
+										) )
 										. '</pre>',
 									'active_callback' => __CLASS__ . '::is_typography_custom_fonts',
 								),
@@ -1152,53 +1187,6 @@ class Modern_Customize {
 				return array( 20 );
 
 		} // /rgba_alphas
-
-
-
-		/**
-		 * Get special color class selectors
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 *
-		 * @param  string $context
-		 */
-		public static function color_selectors( $context = '' ) {
-
-			// Pre
-
-				$pre = apply_filters( 'wmhook_modern_customize_color_selectors_pre', false );
-
-				if ( false !== $pre ) {
-					return $pre;
-				}
-
-
-			// Helper variables
-
-				$output  = array();
-				$context = sanitize_html_class( trim( (string) $context ) );
-
-
-			// Requirements check
-
-				if ( empty( $context ) ) {
-					return;
-				}
-
-
-			// Processing
-
-				$output[] = '.set-colors-' . $context;
-				$output[] = '.set-colors-' . $context . ' > .fl-row-content-wrap';
-				$output[] = '.set-colors-' . $context . ' > .fl-col-content';
-
-
-			// Output
-
-				return implode( ', ', $output );
-
-		} // /color_selectors
 
 
 

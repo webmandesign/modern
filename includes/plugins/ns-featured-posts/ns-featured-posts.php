@@ -2,9 +2,9 @@
 /**
  * Plugin compatibility file.
  *
- * Subtitles
+ * NS Featured Posts
  *
- * @link  https://wordpress.org/plugins/subtitles/
+ * @link  https://wordpress.org/plugins/ns-featured-posts/
  *
  * @package    Modern
  * @copyright  WebMan Design, Oliver Juhas
@@ -26,7 +26,7 @@
  * 1) Requirements check
  */
 
-	if ( ! class_exists( 'Subtitles' ) ) {
+	if ( ! class_exists( 'NS_Featured_Posts' ) ) {
 		return;
 	}
 
@@ -38,4 +38,4 @@
  * 20) Plugin integration
  */
 
-	require MODERN_PATH_PLUGINS . 'subtitles/class-subtitles.php';
+	require MODERN_PATH_PLUGINS . 'ns-featured-posts/class-ns-featured-posts.php';

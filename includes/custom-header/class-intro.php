@@ -15,6 +15,7 @@
  * 20) Output
  * 30) Conditions
  * 40) Assets
+ * 50) Slideshow
  */
 class Modern_Intro {
 
@@ -55,6 +56,8 @@ class Modern_Intro {
 						add_action( 'wmhook_modern_intro', __CLASS__ . '::content' );
 
 						add_action( 'wmhook_modern_intro_after', __CLASS__ . '::media', -10 );
+
+						add_action( 'wp', __CLASS__ . '::set_slideshow_display' );
 
 					// Filters
 
@@ -120,27 +123,41 @@ class Modern_Intro {
 					'flex-width'         => true,
 					'flex-height'        => true,
 					'video'              => true,
-					/**
-					 * WordPress issue:
-					 *
-					 * We can not use `random-default` as in that case there is no "Hide image" button displayed in customizer.
-					 * We simply have to set up a `default-image`, unfortunately...
-					 */
-					'default-image'  => '%s/assets/images/header/header.jpg',
-					'random-default' => false,
+					'random-default'     => true,
 				) ) );
 
 				// Default custom headers packed with the theme
 
-					register_default_headers( array(
+					$header_images = array(
+						'pixabay.canada-407701.jpg',
+						'pixabay.dark-692315.jpg',
+						'pixabay.landscape-2628163.jpg',
+						'pixabay.leaves-1345836.jpg',
+						'pixabay.trees-925682.jpg',
+						'pixabay.trees-2601040.jpg',
+						'pixabay.valley-828583.jpg',
+						'pixabay.winter-622126.jpg',
+						'StockSnap_F9A9BC32GG.jpg',
+						'StockSnap_SMZ95FJTOG.jpg',
+						'StockSnap_ZKBPKSFZ7I.jpg',
+						'unsplash.colin-carter-75587.jpg',
+					);
 
-						'header' => array(
-							'url'           => '%s/assets/images/header/header.jpg',
-							'thumbnail_url' => '%s/assets/images/header/thumbnail/header.jpg',
-							'description'   => esc_html_x( 'Header image', 'Header image description.', 'modern' ),
-						),
+					$i = 0;
+					foreach ( $header_images as $key => $image ) {
+						$header_images[ $image ] = array(
+							'url'           => '%s/assets/images/header/' . $image,
+							'thumbnail_url' => '%s/assets/images/header/thumbnail/' . $image,
+							'description'   => sprintf(
+								/* translators: Custom header image description, %d: image sequential number. */
+								esc_html__( 'Header image %d', 'modern' ),
+								++$i
+							),
+						);
+						unset( $header_images[ $key ] );
+					}
 
-					) );
+					register_default_headers( $header_images );
 
 		} // /setup
 
@@ -350,6 +367,95 @@ class Modern_Intro {
 				return $url;
 
 		} // /image
+
+
+
+
+
+	/**
+	 * 50) Slideshow
+	 */
+
+		/**
+		 * Set intro slideshow display
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function set_slideshow_display() {
+
+			// Requirements check
+
+				if (
+						! is_front_page()
+						|| ! self::get_slides_count()
+					) {
+					return;
+				}
+
+
+			// Processing
+
+				remove_action( 'wmhook_modern_intro', __CLASS__ . '::content' );
+				remove_action( 'wmhook_modern_intro_after', __CLASS__ . '::media', -10 );
+
+				add_action( 'wmhook_modern_intro', __CLASS__ . '::slideshow' );
+
+		} // /set_slideshow_display
+
+
+
+		/**
+		 * Display slideshow
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function slideshow() {
+
+			// Processing
+
+				get_template_part( 'template-parts/intro/intro', 'slideshow' );
+
+		} // /slideshow
+
+
+
+		/**
+		 * Get slides for slideshow
+		 *
+		 * Retrieves featured posts to populate slideshow.
+		 * Compatible with Jetpack `featured-content` where we pass the
+		 * "wmhook_modern_intro_get_slides" filter name into settings.
+		 *
+		 * @see  Modern_Jetpack::__construct()
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function get_slides() {
+
+			// Output
+
+				return (array) apply_filters( 'wmhook_modern_intro_get_slides', array() );
+
+		} // /get_slides
+
+
+
+		/**
+		 * Get slides count
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function get_slides_count() {
+
+			// Output
+
+				return count( (array) self::get_slides() );
+
+		} // /get_slides_count
 
 
 

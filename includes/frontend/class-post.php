@@ -64,6 +64,15 @@ class Modern_Post {
 
 						add_action( 'tha_content_bottom', __CLASS__ . '::navigation', 95 );
 
+						add_action( 'tha_content_top', __CLASS__ . '::template_front_loop_portfolio', 100 );
+						add_action( 'tha_content_top', __CLASS__ . '::template_front_loop_blog', 110 );
+
+						add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::template_front_title_portfolio' );
+						add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::template_front_title_blog' );
+
+						add_action( 'wmhook_modern_postslist_after', __CLASS__ . '::template_front_link_portfolio' );
+						add_action( 'wmhook_modern_postslist_after', __CLASS__ . '::template_front_link_blog' );
+
 					// Filters
 
 						add_filter( 'single_post_title', __CLASS__ . '::title_single', 10, 2 );
@@ -309,10 +318,7 @@ class Modern_Post {
 
 				if (
 						! self::is_singular()
-						|| (
-							is_page_template( 'templates/child-pages.php' )
-							&& ! get_the_content()
-						)
+						|| ! get_the_content()
 					) {
 					return;
 				}
@@ -462,34 +468,122 @@ class Modern_Post {
 		 */
 
 			/**
-			 * Display blog page link
-			 *
-			 * @since    1.0.0
-			 * @version  2.0.0
+			 * Front page section: Blog
 			 */
-			public static function template_front_link_blog() {
 
-				// Output
+				/**
+				 * Front page section: Blog: Loop
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 */
+				public static function template_front_loop_blog() {
 
-					get_template_part( 'template-parts/component/link-front', 'blog' );
+					// Output
 
-			} // /template_front_link_blog
+						get_template_part( 'template-parts/loop/loop-front', 'blog' );
+
+				} // /template_front_loop_blog
+
+
+
+				/**
+				 * Front page section: Blog: Title
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 *
+				 * @param  string $context
+				 */
+				public static function template_front_title_blog( $context = '' ) {
+
+					// Output
+
+						if ( 'loop-front-blog.php' === $context ) {
+							get_template_part( 'template-parts/component/title-front', 'blog' );
+						}
+
+				} // /template_front_title_blog
+
+
+
+				/**
+				 * Front page section: Blog: Archive link
+				 *
+				 * @since    1.0.0
+				 * @version  2.0.0
+				 *
+				 * @param  string $context
+				 */
+				public static function template_front_link_blog( $context = '' ) {
+
+					// Output
+
+						if ( 'loop-front-blog.php' === $context ) {
+							get_template_part( 'template-parts/component/link-front', 'blog' );
+						}
+
+				} // /template_front_link_blog
 
 
 
 			/**
-			 * Display portfolio archive link
-			 *
-			 * @since    1.0.0
-			 * @version  2.0.0
+			 * Front page section: Portfolio
 			 */
-			public static function template_front_link_portfolio() {
 
-				// Output
+				/**
+				 * Front page section: Portfolio: Loop
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 */
+				public static function template_front_loop_portfolio() {
 
-					get_template_part( 'template-parts/component/link-front', 'portfolio' );
+					// Output
 
-			} // /template_front_link_portfolio
+						get_template_part( 'template-parts/loop/loop-front', 'portfolio' );
+
+				} // /template_front_loop_portfolio
+
+
+
+				/**
+				 * Front page section: Portfolio: Title
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 *
+				 * @param  string $context
+				 */
+				public static function template_front_title_portfolio( $context = '' ) {
+
+					// Output
+
+						if ( 'loop-front-portfolio.php' === $context ) {
+							get_template_part( 'template-parts/component/title-front', 'portfolio' );
+						}
+
+				} // /template_front_title_portfolio
+
+
+
+				/**
+				 * Front page section: Portfolio: Archive link
+				 *
+				 * @since    1.0.0
+				 * @version  2.0.0
+				 *
+				 * @param  string $context
+				 */
+				public static function template_front_link_portfolio( $context = '' ) {
+
+					// Output
+
+						if ( 'loop-front-portfolio.php' === $context ) {
+							get_template_part( 'template-parts/component/link-front', 'portfolio' );
+						}
+
+				} // /template_front_link_portfolio
 
 
 

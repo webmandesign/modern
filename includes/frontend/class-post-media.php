@@ -47,16 +47,15 @@ class Modern_Post_Media {
 						 * @link  https://codex.wordpress.org/Function_Reference/add_theme_support#Post_Formats
 						 */
 
-						// add_theme_support( 'post-formats', array(
-						// 		'aside',
-						// 		'audio',
-						// 		'gallery',
-						// 		'image',
-						// 		'link',
-						// 		'quote',
-						// 		'status',
-						// 		'video',
-						// 	) );
+						add_theme_support( 'post-formats', array(
+							'audio',
+							'gallery',
+							'image',
+							'link',
+							'quote',
+							'status',
+							'video',
+						) );
 
 				// Hooks
 

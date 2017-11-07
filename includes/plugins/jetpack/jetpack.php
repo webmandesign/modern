@@ -39,3 +39,4 @@
  */
 
 	require MODERN_PATH_PLUGINS . 'jetpack/class-jetpack.php';
+	require MODERN_PATH_PLUGINS . 'jetpack/class-jetpack-customize.php';

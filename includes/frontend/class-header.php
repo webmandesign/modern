@@ -389,6 +389,17 @@ class Modern_Header {
 
 					if ( ! (bool) apply_filters( 'wmhook_modern_intro_disable', false ) ) {
 						$classes[] = 'has-intro';
+
+						// Enable footer masonry layout?
+
+							$footer_widgets = wp_get_sidebars_widgets();
+							if (
+									isset( $footer_widgets['footer'] )
+									&& 3 < count( (array) $footer_widgets['footer'] )
+								) {
+								$classes[] = 'has-masonry-footer';
+							}
+
 					} else {
 						$classes[] = 'no-intro';
 					}
@@ -401,6 +412,16 @@ class Modern_Header {
 						} else {
 							$classes[] = 'has-widgets-' . $sidebar;
 						}
+					}
+
+				// Enable intro slideshow?
+
+					if (
+							is_front_page()
+							&& is_callable( 'Modern_Intro::get_slides_count' )
+							&& 1 < Modern_Intro::get_slides_count()
+						) {
+						$classes[] = 'has-intro-slideshow';
 					}
 
 

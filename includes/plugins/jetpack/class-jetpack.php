@@ -59,7 +59,7 @@ class Modern_Jetpack {
 					// Featured content
 
 						add_theme_support( 'featured-content', apply_filters( 'wmhook_modern_jetpack_setup_featured_content', array(
-							'featured_content_filter' => 'wm_get_banner_posts', // @todo Change this.
+							'featured_content_filter' => 'wmhook_modern_intro_get_slides',
 							'max_posts'               => 6,
 							'post_types'              => array( 'post', 'jetpack-portfolio' ),
 						) ) );
@@ -270,7 +270,7 @@ class Modern_Jetpack {
 					 *
 					 * Or, you can use the filter hook below to modify which content file to load.
 					 */
-					get_template_part( 'template-parts/content/content', apply_filters( 'wmhook_modern_loop_content_type', get_post_format() ) );
+					get_template_part( 'template-parts/content/content', apply_filters( 'wmhook_modern_loop_content_type', get_post_format(), 'jetpack-infinite-scroll' ) );
 
 				endwhile;
 

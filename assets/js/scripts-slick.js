@@ -20,17 +20,27 @@
 
 
 
+		// Helper variables
+
+			var
+				$slickLocalize = ( 'undefined' !== typeof $modernSlickLocalize ) ? ( $modernSlickLocalize ) : ( { 'prev_text' : 'Previous', 'next_text' : 'Next' } ),
+				$htmlButton = {
+					'prev' : '<button type="button" class="slick-prev"><span class="genericon genericon-previous" aria-hidden="true"></span><span class="screen-reader-text">' + $slickLocalize['prev_text'] + '</span></button>',
+					'next' : '<button type="button" class="slick-next"><span class="genericon genericon-next" aria-hidden="true"></span><span class="screen-reader-text">' + $slickLocalize['next_text'] + '</span></button>'
+				};
+
+
+
 		/**
 		 * Gallery post format slideshow
 		 */
 
 			var
-				$slickLocalize = ( 'undefined' !== typeof $modernSlickLocalize ) ? ( $modernSlickLocalize ) : ( { 'prev_text' : 'Previous', 'next_text' : 'Next' } ),
 				$slickArgsPostFormatGallery = {
 					'autoplay'  : true,
 					'slide'     : '.slide',
-					'prevArrow' : '<button type="button" class="slick-prev"><span class="genericon genericon-previous" aria-hidden="true"></span><span class="screen-reader-text">' + $slickLocalize['prev_text'] + '</span></button>',
-					'nextArrow' : '<button type="button" class="slick-next"><span class="genericon genericon-next" aria-hidden="true"></span><span class="screen-reader-text">' + $slickLocalize['next_text'] + '</span></button>'
+					'prevArrow' : $htmlButton['prev'],
+					'nextArrow' : $htmlButton['next']
 				};
 
 			function setupSlickPostFormatGallery( element, slick ) {
@@ -80,63 +90,66 @@
 
 
 		/**
-		 * Banner slideshow
+		 * Intro slideshow
 		 *
 		 * For banner slideshow (enabled only when we have some featured posts) we need to create 2 slideshows:
 		 * - one for images,
 		 * - and one for titles.
 		 * We sync these slideshows then: titles slideshow controls the images one.
 		 */
+		if ( $( document.body ).hasClass( 'has-intro-slideshow' ) ) {
 
 			var
-				$slickArgsBannerImages = {
+				$slickArgsIntroImages = {
 					'accessibility' : false,
 					'arrows'        : false,
 					'draggable'     : false,
 					'fade'          : true,
 					'pauseOnHover'  : false,
 					'swipe'         : false,
-					'slide'         : 'div',
+					'slide'         : '.intro-slideshow-media',
 					'touchMove'     : false
 				},
-				$slickArgsBannerTitles = {
+				$slickArgsIntroTitles = {
 					'adaptiveHeight' : true,
-					'asNavFor'       : '.banner-images',
+					'asNavFor'       : '.intro-slideshow-images',
 					'autoplay'       : true,
-					'autoplaySpeed'  : ( ! $( '#site-banner' ).data( 'speed' ) ) ? ( 8000 ) : ( $( '#site-banner' ).data( 'speed' ) ),
+					'autoplaySpeed'  : 8000,
 					'dots'           : true,
 					'fade'           : true,
 					'pauseOnHover'   : false,
-					'slide'          : 'article',
+					'slide'          : '.intro-slideshow-item',
 					'swipeToSlide'   : true,
-					'prevArrow'      : '<button type="button" class="slick-prev"><span class="genericon genericon-previous"></span></button>',
-					'nextArrow'      : '<button type="button" class="slick-next"><span class="genericon genericon-next"></span></button>'
+					'prevArrow'      : $htmlButton['prev'],
+					'nextArrow'      : $htmlButton['next']
 				};
 
-			// Create a new cotnainer for our images slider
+			// Create a new container for our images slider
 
-				$( '<div class="site-banner-inner banner-images">' )
-					.prependTo( '#site-banner.enable-slider' );
+				$( '<div class="intro-slideshow-images">' )
+					.prependTo( '#intro-container' );
 
 			// Move all the posts images to our newly created container
 
-				$( '#site-banner .site-banner-media' )
-					.closest( '.site-banner-inner' )
-						.addClass( 'banner-titles' )
+				$( '#intro .intro-slideshow-media' )
+					.closest( '.intro-inner' )
+						.addClass( 'intro-slideshow-titles' )
 						.end()
 					.each( function() {
 
 						$( this )
-							.appendTo( '#site-banner .banner-images' );
+							.appendTo( '#intro-container .intro-slideshow-images' );
 
 					} );
 
 			// Initialize the actual sliders
 
-				$( '#site-banner.enable-slider .banner-images' )
-					.slick( $slickArgsBannerImages );
-				$( '#site-banner.enable-slider .banner-titles' )
-					.slick( $slickArgsBannerTitles );
+				$( '#intro-container .intro-slideshow-images' )
+					.slick( $slickArgsIntroImages );
+				$( '#intro-container .intro-slideshow-titles' )
+					.slick( $slickArgsIntroTitles );
+
+		}
 
 
 

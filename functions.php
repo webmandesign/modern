@@ -150,6 +150,12 @@
 			require MODERN_PATH_PLUGINS . 'jetpack/jetpack.php';
 		}
 
+	// NS Featured Posts
+
+		if ( class_exists( 'NS_Featured_Posts' ) ) {
+			require MODERN_PATH_PLUGINS . 'ns-featured-posts/ns-featured-posts.php';
+		}
+
 	// One Click Demo Import
 
 		if ( class_exists( 'OCDI_Plugin' ) && is_admin() ) {

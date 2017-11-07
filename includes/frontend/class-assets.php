@@ -303,6 +303,9 @@ class Modern_Assets {
 					'xxxxl' => 2560,
 				) );
 
+				$supported_post_formats = get_theme_support( 'post-formats' );
+				$supported_post_formats = (array) $supported_post_formats[0];
+
 
 			// Processing
 
@@ -328,8 +331,7 @@ class Modern_Assets {
 
 				// Masonry
 
-					if ( true ) {
-						// @todo  Enqueue only if footer contains more than 3 widgets.
+					if ( in_array( 'has-masonry-footer', $body_classes ) ) {
 						$enqueue_assets[40] = 'modern-scripts-masonry';
 					}
 
@@ -337,23 +339,28 @@ class Modern_Assets {
 
 					if (
 							// For banner slideshow
-							is_front_page()
+							in_array( 'has-intro-slideshow', $body_classes )
 							// For gallery post format slideshow
-							|| is_home()
-							|| is_archive()
-							|| is_search()
+							|| (
+								in_array( 'gallery', $supported_post_formats )
+								&& (
+									is_home()
+									|| is_archive()
+									|| is_search()
+								)
+							)
 						) {
 						$enqueue_assets[50] = 'modern-scripts-slick';
-					}
 
-					wp_localize_script(
-						'modern-skip-link-focus-fix', // Loading this globally as Slick script can be enqueued by Gallery shortcode too.
-						'$modernSlickLocalize',
-						(array) apply_filters( 'wmhook_modern_assets_enqueue_scripts_slick_localize', array(
-							'prev_text' => esc_html_x( 'Previous', 'Slideshow slide.', 'modern' ),
-							'next_text' => esc_html_x( 'Next', 'Slideshow slide.', 'modern' ),
-						) )
-					);
+						wp_localize_script(
+							'modern-scripts-slick',
+							'$modernSlickLocalize',
+							(array) apply_filters( 'wmhook_modern_assets_enqueue_scripts_slick_localize', array(
+								'prev_text' => esc_html_x( 'Previous', 'Slideshow slide.', 'modern' ),
+								'next_text' => esc_html_x( 'Next', 'Slideshow slide.', 'modern' ),
+							) )
+						);
+					}
 
 				// Global theme scripts
 

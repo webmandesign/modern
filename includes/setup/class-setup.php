@@ -449,35 +449,35 @@ class Modern_Setup {
 
 				$image_sizes = array(
 
-						'thumbnail' => array(
-							420,
-							0,
-							false,
-							esc_html__( 'In posts list.', 'modern' ),
-						),
+					'thumbnail' => array(
+						420,
+						0,
+						false,
+						esc_html__( 'In posts list.', 'modern' ),
+					),
 
-						'medium' => array(
-							absint( $content_width ),
-							0,
-							false,
-							esc_html__( 'Not used in the theme.', 'modern' ),
-						),
+					'medium' => array(
+						absint( $content_width ),
+						0,
+						false,
+						esc_html__( 'Not used in the theme.', 'modern' ),
+					),
 
-						'large' => array(
-							1200,
-							0,
-							false,
-							esc_html__( 'In single post or page.', 'modern' ),
-						),
+					'large' => array(
+						1200,
+						0,
+						false,
+						esc_html__( 'In single post or page.', 'modern' ),
+					),
 
-						'modern_banner' => array(
-							1920,
-							1080,
-							true,
-							esc_html__( 'In banner and post/page background.', 'modern' ),
-						),
+					'modern-intro' => array(
+						1920,
+						1080,
+						true,
+						esc_html__( 'In intro banner.', 'modern' ),
+					),
 
-					);
+				);
 
 
 			// Output
