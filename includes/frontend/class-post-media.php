@@ -68,9 +68,6 @@ class Modern_Post_Media {
 						add_filter( 'wmhook_modern_post_media_pre', __CLASS__ . '::media_disable' );
 
 						add_filter( 'wmhook_modern_post_media_image_size', __CLASS__ . '::size' );
-						add_filter( 'wmhook_modern_post_media_image_size', __CLASS__ . '::size_masonry' );
-
-						add_filter( 'wmhook_modern_post_media_gallery_image_size', __CLASS__ . '::size', 10, 4 );
 
 		} // /__construct
 
@@ -135,34 +132,6 @@ class Modern_Post_Media {
 
 
 
-		/**
-		 * Post thumbnail display size on masonry blog
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 *
-		 * @param  string  $image_size
-		 */
-		public static function size_masonry( $image_size ) {
-
-			// Processing
-
-				if (
-						( is_home() || is_category() || is_tag() || is_date() || is_author() )
-						&& 'masonry' === get_theme_mod( 'blog_style', 'masonry' )
-					) {
-					$image_size = get_theme_mod( 'blog_style_masonry_image_size', 'thumbnail' );
-				}
-
-
-			// Output
-
-				return $image_size;
-
-		} // /size_masonry
-
-
-
 
 
 	/**
@@ -189,14 +158,6 @@ class Modern_Post_Media {
 				}
 
 
-			// Requirements check
-
-				if ( Modern_Post::is_singular() && Modern_Post::is_paged() ) {
-					// Do not display on parted (paginated) post
-					return;
-				}
-
-
 			// Helper variables
 
 				$output     = apply_filters( 'wmhook_modern_post_media_output_pre', '', $args );
@@ -212,7 +173,13 @@ class Modern_Post_Media {
 
 			// Processing
 
-				if ( current_theme_supports( 'post-formats' ) && apply_filters( 'wmhook_modern_post_media_condition', ( ! is_single( get_the_ID() ) || ! class_exists( 'Modern_Post_Formats' ) ), $args ) ) {
+				if (
+					current_theme_supports( 'post-formats' )
+					&& apply_filters( 'wmhook_modern_post_media_condition', (
+						! is_single( get_the_ID() )
+						|| ! class_exists( 'Modern_Post_Formats' )
+					), $args )
+				) {
 
 					switch ( $post_format = apply_filters( 'wmhook_modern_post_media_post_format', get_post_format(), $args ) ) {
 
@@ -280,7 +247,13 @@ class Modern_Post_Media {
 
 			// Processing
 
-				if ( Modern_Post::is_singular() && ! is_attachment() ) {
+				if (
+					Modern_Post::is_singular()
+					&& (
+						! is_attachment()
+						|| Modern_Post::is_paged()
+					)
+				) {
 					$pre = '';
 				}
 
@@ -328,9 +301,12 @@ class Modern_Post_Media {
 			// Processing
 
 				if (
-						has_post_thumbnail( $post_id )
-						|| ( is_attachment() && $attachment_image = wp_get_attachment_image( $image_id, (string) $image_size ) )
-					) {
+					has_post_thumbnail( $post_id )
+					|| (
+						is_attachment()
+						&& $attachment_image = wp_get_attachment_image( $image_id, (string) $image_size )
+					)
+				) {
 
 					$image_link = ( is_single( $post_id ) || is_attachment() ) ? ( wp_get_attachment_image_src( $image_id, 'full' ) ) : ( array( esc_url( get_permalink() ) ) );
 					$image_link = array_filter( (array) apply_filters( 'wmhook_modern_post_media_image_featured_link', $image_link ) );
@@ -342,16 +318,12 @@ class Modern_Post_Media {
 						}
 
 						if ( is_attachment() ) {
-
 							$output .= $attachment_image;
-
 						} else {
-
 							$output .= get_the_post_thumbnail(
-									null,
-									(string) $image_size
-								);
-
+								null,
+								(string) $image_size
+							);
 						}
 
 						if ( ! empty( $image_link ) ) {
@@ -399,8 +371,7 @@ class Modern_Post_Media {
 
 			// Helper variables
 
-				$output = '';
-
+				$output  = '';
 				$post_id = get_the_ID();
 
 
@@ -414,36 +385,34 @@ class Modern_Post_Media {
 
 					$image_link = ( is_single( $post_id ) || is_attachment() ) ? ( wp_get_attachment_image_src( $image_id, 'full' ) ) : ( array( esc_url( get_permalink() ) ) );
 					$image_link = array_filter( (array) apply_filters( 'wmhook_modern_post_media_image_content_link', $image_link ) );
-
 					$post_media = (string) Modern_Post_Formats::get();
-					$image_alt  = the_title_attribute( 'echo=0' );
 
-					// Get the image size URL if we got image ID
+					// Get the image HTML tag
 
 						if ( is_numeric( $post_media ) ) {
-							$image_alt  = get_post_meta( absint( $post_media ), '_wp_attachment_image_alt', true );
-							$post_media = wp_get_attachment_image_src( absint( $post_media ), $image_size );
-							$post_media = $post_media[0];
+							$post_media = wp_get_attachment_image( absint( $post_media ), $image_size );
+						} elseif ( is_string( $post_media ) ) {
+							$post_media = '<img src="' . esc_url( $post_media ) . '" alt="' . esc_attr( the_title_attribute( 'echo=0' ) ) . '" title="' . esc_attr( the_title_attribute( 'echo=0' ) ) . '" />';
+						} else {
+							$post_media = false;
 						}
 
 					// Set the output
 
 						if ( $post_media ) {
-
 							$output .= '<figure class="post-thumbnail">';
 
 								if ( ! empty( $image_link ) ) {
 									$output .= '<a href="' . esc_url( $image_link[0] ) . '">';
 								}
 
-								$output .= '<img src="' . esc_url( $post_media ) . '" alt="' . esc_attr( $image_alt ) . '" title="' . the_title_attribute( 'echo=0' ) . '" />';
+								$output .= $post_media;
 
 								if ( ! empty( $image_link ) ) {
 									$output .= '</a>';
 								}
 
 							$output .= '</figure>';
-
 						}
 
 				}
@@ -499,7 +468,7 @@ class Modern_Post_Media {
 
 							global $_wp_additional_image_sizes;
 
-							$image_width = 420;
+							$image_width = 448;
 
 							if ( isset( $_wp_additional_image_sizes[ $image_size ] ) ) {
 								$image_width = $_wp_additional_image_sizes[ $image_size ]['width'];
@@ -557,30 +526,26 @@ class Modern_Post_Media {
 
 			// Helper variables
 
-				$output = '';
-
+				$output       = '';
+				$link_url     = get_permalink();
 				$images_count = apply_filters( 'wmhook_modern_post_media_gallery_images_count', 3 );
-
-				$post_media = array_filter( array_slice( explode( ',', (string) Modern_Post_Formats::get() ), 0, absint( $images_count ) ) ); // Get only $images_count images from gallery
+				$post_media   = array_filter( array_slice( explode( ',', (string) Modern_Post_Formats::get() ), 0, absint( $images_count ) ) ); // Get only $images_count images from gallery
 
 
 			// Processing
 
-				if (
-						is_array( $post_media )
-						&& ! empty( $post_media )
-					) {
+				if ( ! empty( $post_media ) ) {
 
 					$output .= '<div class="image-count-' . absint( count( $post_media ) ) . '">';
-					$output .= '<a href="' . esc_url( get_permalink() ) . '">';
 
 					$i = 0;
 
 					foreach( $post_media as $image_id ) {
+						$output .= '<a href="' . esc_url( $link_url ) . '">';
 						$output .= wp_get_attachment_image( absint( $image_id ), apply_filters( 'wmhook_modern_post_media_gallery_image_size', $image_size, ++$i, count( $post_media ), $image_id ) );
+						$output .= '</a>';
 					}
 
-					$output .= '</a>';
 					$output .= '</div>';
 
 				} else {
@@ -630,40 +595,34 @@ class Modern_Post_Media {
 
 			// Helper variables
 
-				$output = '';
-
-				$post_media = (string) Modern_Post_Formats::get();
-
+				$output       = '';
+				$post_media   = (string) Modern_Post_Formats::get();
 				$is_shortcode = ( 0 === strpos( $post_media, '[' ) );
 
 
 			// Processing
 
-				if (
-						(
-							false === strpos( $post_media, '[playlist' )
-							|| ! $is_shortcode
-						)
-						&& false === strpos( $post_media, 'soundcloud.com' )
-					) {
-
-					$output .= self::image_featured( $image_size );
-
-				}
-
 				if ( $post_media ) {
 
 					if ( $is_shortcode ) {
+					// Display also featured image if the shortcode is not a playlist.
 
-						$post_media = do_shortcode( $post_media );
+						if ( false === strpos( $post_media, '[playlist' ) ) {
+							$output .= self::image_featured( $image_size );
+						}
+						$output .= do_shortcode( $post_media );
 
 					} else {
+					// No featured image for oembed media (iframe output).
 
-						$post_media = wp_oembed_get( $post_media );
+						$output .= wp_oembed_get( $post_media );
 
 					}
 
-					$output .= $post_media;
+				} else {
+
+					// Fall back to featured image.
+					$output .= self::image_featured( $image_size );
 
 				}
 
@@ -704,8 +663,7 @@ class Modern_Post_Media {
 
 			// Helper variables
 
-				$output = '';
-
+				$output     = '';
 				$post_media = (string) Modern_Post_Formats::get();
 
 

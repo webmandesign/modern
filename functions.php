@@ -130,6 +130,10 @@
 
 		require MODERN_PATH_INCLUDES . 'custom-header/class-intro.php';
 
+	// Post Formats
+
+		require MODERN_PATH_INCLUDES . 'post-formats/class-post-formats.php';
+
 
 
 

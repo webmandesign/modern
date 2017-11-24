@@ -36,9 +36,10 @@
 		 */
 
 			var
+				$slickContainerPostFormatGallery = '.format-gallery [class^="image-count-"]',
 				$slickArgsPostFormatGallery = {
 					'autoplay'  : true,
-					'slide'     : '.slide',
+					'slide'     : 'a',
 					'prevArrow' : $htmlButton['prev'],
 					'nextArrow' : $htmlButton['next']
 				};
@@ -57,7 +58,7 @@
 
 			} // /setupSlickPostFormatGallery
 
-			$( '.format-gallery .enable-slider' )
+			$( $slickContainerPostFormatGallery )
 				.on( 'init', function( e, slick ) {
 					setupSlickPostFormatGallery( $( this ), slick );
 				} )
@@ -77,7 +78,7 @@
 
 							if ( $().slick ) {
 
-								$( $infiniteScrollPageID + ' .format-gallery  .enable-slider' )
+								$( $infiniteScrollPageID + ' ' + $slickContainerPostFormatGallery )
 									.on( 'init', function( e, slick ) {
 										setupSlickPostFormatGallery( $( this ), slick );
 									} )
