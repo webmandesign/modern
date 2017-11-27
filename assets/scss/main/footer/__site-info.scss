@@ -9,11 +9,11 @@
 
 
 .footer-area-site-info {
-	@extend %background_overlay_from_text_color;
-	padding: ( $golden +rem ) 0;
+	padding: 4% 0;
 
-	@include responsive( map_get( $breakpoint, 'm' ) ) {
-		padding: ( power( $golden, 2 ) +rem ) 0;
+	.footer-area-footer-widgets + & {
+		padding-top: 0;
+		padding-bottom: 8%;
 	}
 
 }
@@ -21,7 +21,6 @@
 
 
 .site-info {
-	padding: ( $golden +em ) 0;
 
 	&-inner {
 		display: flex;

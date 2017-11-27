@@ -10,23 +10,15 @@
 
 // Extender
 
-	$button_font_size: 1 - $golden_minor / 2; // In em
-	$button_font_size_compensation: 1 / $button_font_size;
-
 	%button_base {
-		@extend %line_height_1;
 		@extend %font_weight_700;
 		display: inline-block;
-		padding: ( ( $golden_major * 1em ) * $button_font_size_compensation ) 2em;
+		padding: 1em;
 		margin-top: 2px; // Allow some breathing when stacked
 		margin-bottom: 2px; // Allow some breathing when stacked
-		line-height: $golden;
 		text-align: center;
-		text-transform: uppercase;
 		text-decoration: none;
-		font-size: $button_font_size +em;
-		letter-spacing: $golden_minor / 6 +em;
-		border: 2px solid currentColor;
+		border-width: 0;
 		cursor: pointer;
 		transition: background ( $small_animation_speed +s ),
 		            color ( $small_animation_speed +s ),
@@ -49,6 +41,7 @@
 
 		&:hover {
 			outline: 0;
+			opacity: .75;
 		}
 
 		&:focus {
@@ -62,8 +55,6 @@
 
 		&:disabled {
 			@extend %font_weight_400;
-			background: none;
-			color: inherit;
 			box-shadow: none;
 			opacity: .5;
 			cursor: not-allowed;

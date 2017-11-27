@@ -1,0 +1,379 @@
+
+	.site-content,
+	.home.paged .site-content { padding: 6% 0 10%; }
+		.home .site-content { padding-top: 4%; }
+
+		.content-area {
+			position: relative;
+			z-index: 1;
+		}
+
+			.is-singular .content-area {
+				-webkit-box-shadow: 0 0 4em rgba(0,0,0, .4);
+				        box-shadow: 0 0 4em rgba(0,0,0, .4);
+			}
+
+
+
+	/**
+	 * Main content area
+	 */
+
+		.single-post .entry-header { margin-bottom: 1.62em; }
+		.single-post .main-heading.entry-header { margin-bottom: 0; }
+
+		.is-singular .entry-inner {
+			max-width: 62%;
+			padding: 8% 0;
+			margin: 0 auto;
+		}
+
+
+
+		/**
+		 * Images
+		 */
+
+			a img {
+				-webkit-transition: all .4s ease-in-out;
+				        transition: all .4s ease-in-out;
+			}
+				a img:hover { opacity: .8; }
+
+
+
+
+		/**
+		 * Post formats
+		 */
+
+			/**
+			 * Gallery
+			 */
+
+				.no-js .format-gallery a,
+				.format-gallery .enable-slider:not(.slick-slider) a { display: none; }
+				.no-js .format-gallery a:first-child,
+				.format-gallery .enable-slider:not(.slick-slider) a:first-child { display: block; }
+
+
+
+			/**
+			 * Image, Link, Quote, Status
+			 */
+
+				.posts .format-image .entry-media:before,
+				.format-link .entry-content a:before,
+				.format-quote:before,
+				.format-status .entry-content p:first-child:before { content: '\f102'; }
+
+				.format-link .entry-content a:before,
+				.format-status .entry-content p:first-child:before {
+					margin-right: .19em;
+					vertical-align: middle;
+				}
+
+				.posts .format-image .entry-media { position: relative; }
+					.posts .format-image .entry-media:before {
+						position: absolute;
+						left: .38em;
+						top: .38em;
+						font-size: 1.62em;
+						line-height: 1;
+						color: #fff;
+						vertical-align: top;
+						z-index: 1;
+					}
+					.posts .format-image:hover .entry-media:before { display: none; }
+
+
+
+			/**
+			 * Link
+			 */
+
+				.format-link .entry-content a:before { content: '\f107'; }
+
+
+
+			/**
+			 * Quote, Status
+			 */
+
+				.posts .format-quote { padding-bottom: 6em; }
+
+					.format-quote:before {
+						content: '\f106';
+						position: absolute;
+						left: .62em;
+						top: .62em;
+						font-size: 5.86em;
+						opacity: .33;
+					}
+						.posts .format-quote:before {
+							left: 19%;
+							top: auto;
+							bottom: 0;
+						}
+
+					.format-quote a,
+					.format-status a { color: inherit; }
+
+
+
+			/**
+			 * Status
+			 */
+
+					.format-status .entry-content p:first-child:before { content: '\f300'; }
+
+
+
+		/**
+		 * Posts parts (post table of contents)
+		 */
+
+			.post-table-of-contents a:before {
+				content: '\f404';
+				margin-right: .38em;
+				vertical-align: middle;
+			}
+			.post-table-of-contents .passed a:before { content: '\f418'; }
+			.post-table-of-contents .current a:before { content: '\f403'; }
+
+
+
+		/**
+		 * Posts list
+		 */
+
+			.posts { margin: 0 -2%; }
+
+				.posts .hentry {
+					float: left;
+					position: relative;
+					width: 29.333%;
+					margin: 0 2% 4%;
+					-webkit-box-shadow: 0 0 4em rgba(0,0,0, .4);
+					        box-shadow: 0 0 4em rgba(0,0,0, .4);
+				}
+
+					.posts .entry-title {
+						margin-bottom: 12%;
+						text-transform: none;
+					}
+
+					.posts .entry-inner { padding: 12% 19%; }
+					.posts .entry-media + .entry-inner { padding-top: 8%; }
+
+			/* Page icon (in search posts list) */
+
+				.posts .type-page .entry-title:before {
+					content: '\f443';
+					margin-right: .19em;
+					opacity: .15;
+					vertical-align: baseline;
+				}
+
+			/* Taxonomy links (portfolio types links, for example) */
+
+				.taxonomy-links {
+					margin: 0 2% 4%;
+					list-style: none;
+					white-space: nowrap;
+					overflow: hidden;
+				}
+				.archive .taxonomy-links a,
+				.taxonomy-links:hover a { opacity: .4; }
+
+					.taxonomy-links li {
+						float: left;
+						margin: .38em .62em .38em 0;
+					}
+
+						.taxonomy-links a {
+							display: block;
+							padding: .62em 1em;
+							-webkit-transition: all .4s;
+							        transition: all .4s;
+						}
+						.post-type-archive-jetpack-portfolio .taxonomy-links .link-all a,
+						.archive .taxonomy-links .current a,
+						.taxonomy-links a:hover {
+							text-decoration: none;
+							opacity: 1;
+						}
+
+
+
+			/**
+			 * Archives tax description
+			 */
+
+				.taxonomy-description {
+					margin-bottom: 4%;
+					opacity: .66;
+				}
+
+
+
+		/**
+		 * Entry meta
+		 *
+		 * JetPack plugin support (@link http://jetpack.me/)
+		 * ZillaLikes plugin support (@link http://www.themezilla.com/plugins/zillalikes/)
+		 */
+
+			.entry-meta .author:before          { content: '\f304'; }
+			.entry-meta .cat-links:before       { content: '\f301'; }
+			.entry-meta .comments-link a:before { content: '\f300'; }
+			.entry-meta .entry-date:before      { content: '\f303'; }
+			.entry-meta .tags-links:before      { content: '\f302'; }
+			.entry-meta .entry-likes a:before   { content: '\f461'; }
+			.entry-meta .entry-edit:before      { content: '\f411'; }
+
+			/* JetPack plugin support */
+
+				.entry-content div.sharedaddy .sd-content ul li a.sd-button:not(.no-text):hover { opacity: .75; }
+
+
+
+	/**
+	 * Previous/next post link
+	 */
+
+		.post-navigation { margin: 0; }
+
+			.post-navigation .nav-previous,
+			.post-navigation .nav-next {
+				position: relative;
+				background-position: 50% 50%;
+				background-size: cover;
+			}
+			.post-navigation .nav-next { text-align: right; }
+
+				.post-navigation .has-post-thumbnail:before {
+					content: '';
+					display: block;
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					opacity: .85;
+					z-index: 0;
+					-webkit-transition: all .4s;
+					        transition: all .4s;
+				}
+					.post-navigation .has-post-thumbnail:hover:before { opacity: 1; }
+
+				.post-navigation a {
+					display: block;
+					position: relative;
+					padding: 10% 38% 4% 8%;
+					margin-top: 2px;
+					color: inherit;
+					z-index: 1;
+				}
+					.post-navigation .nav-next a {
+						padding-left: 38%;
+						padding-right: 8%;
+					}
+					.post-navigation a:hover { text-decoration: none; }
+
+					.post-navigation .meta-nav {
+						display: block;
+						margin-bottom: .62em;
+						text-transform: uppercase;
+						font-size: .5em;
+					}
+						.post-navigation .nav-next .meta-nav:after {
+							content: '\f429';
+							margin-left: .62em;
+						}
+						.post-navigation .nav-previous .meta-nav:before {
+							content: '\f430';
+							margin-right: .62em;
+						}
+
+
+
+	/**
+	 * Special pages
+	 */
+
+		/**
+		 * Error 404 page
+		 */
+
+			.error-404,
+			.not-found {
+				text-align: center;
+				font-size: 1.62em;
+			}
+
+				.error-404 h1,
+				.not-found h1 { padding-bottom: .62em; }
+
+				.error-404 p,
+				.not-found p,
+				.error-404 a,
+				.not-found a { color: inherit; }
+
+				.error-404 form,
+				.not-found form {
+					display: inline-block;
+					width: 62%;
+					text-align: center;
+				}
+
+
+
+		/**
+		 * Page templates
+		 */
+
+			/**
+			 * Front page
+			 */
+
+				.page-template-page-template_front-php .site-content { padding-top: 0; }
+
+					.page-template-page-template_front-php .page {
+						-webkit-box-shadow: 0 0 4em rgba(0,0,0, .4);
+						        box-shadow: 0 0 4em rgba(0,0,0, .4);
+					}
+
+					.page-template-page-template_front-php .site-content .content-area {
+						background: transparent;
+						-webkit-box-shadow: none;
+						        box-shadow: none;
+					}
+
+						.is-singular .posts .entry-inner {
+							max-width: 100%;
+							margin: 0;
+						}
+
+						.front-page-section { margin-bottom: 8%; }
+
+
+
+			/**
+			 * Page with sidebar
+			 */
+
+				.page-template-page-template_sidebar-php .content-area { padding: 8% 19%; }
+				.page-template-page-template_sidebar-php .entry-inner {
+					padding: 0;
+					max-width: 100%;
+					margin: 0;
+				}
+
+					.page-template-page-template_sidebar-php .site-main > article {
+						float: left;
+						width: 60%;
+					}
+
+						.page-template-page-template_sidebar-php .site-main > .entry-media { margin: -12.9% -30.65% 12%; }
+

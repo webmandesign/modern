@@ -10,7 +10,15 @@
 	// @see  includes/frontend/class-post-media.php
 	//
 
-		$supported_post_formats: ();
+		$supported_post_formats: (
+			'audio',
+			'gallery',
+			'image',
+			'link',
+			'quote',
+			'status',
+			'video',
+		);
 
 
 
@@ -52,11 +60,6 @@
 
 		$boxed_width: 1640;   // In px // Default max boxed site width
 		$content_width: 1200; // In px // Default content width
-
-		$page_content_width: 62; // In %
-		$page_content_gutter: 8; // In %
-
-			$page_content_width: $page_content_width - ( $page_content_gutter * .382 );
 
 
 
@@ -185,16 +188,6 @@
 			$small_animation_speed: .3; // Seconds
 			$large_animation_speed: .5; // Seconds
 
-		// Drop shadows
-
-			$column_box_shadows: (
-				'small':  1rem,
-				'medium': 2rem,
-				'large':  3rem,
-			) !default;
-
-			$column_box_shadows_opacity: .2;
-
 
 
 
@@ -216,7 +209,7 @@
 	// Font size
 	//
 
-		$font_size: 18; // Don't forget to set this also in Modern_Customize_Styles::get_custom_styles_array() class!
+		$font_size: 16; // Don't forget to set this also in Modern_Customize_Styles::get_custom_styles_array() class!
 
 
 
@@ -225,9 +218,9 @@
 	//
 
 		$font_family: (
-			'body':     "'Open Sans', 'Helvetica Neue', Arial, sans-serif",
-			'headings': "'Montserrat', 'Helvetica Neue', Arial, sans-serif",
-			'logo':     "'Montserrat', 'Helvetica Neue', Arial, sans-serif",
+			'body':     "'Fira Sans', 'Helvetica Neue', Arial, sans-serif",
+			'headings': "'Fira Sans', 'Helvetica Neue', Arial, sans-serif",
+			'logo':     "'Fira Sans', 'Helvetica Neue', Arial, sans-serif",
 		) !default;
 
 
@@ -256,41 +249,46 @@
 			// @see "Golden Ditonic Scale" at http://spencermortensen.com/articles/typographic-scale/ or http://www.modularscale.com/?1,0.4858&em&1.618
 
 			'h1, .h1' : (
-					2.618,
-					1.19,
-					( 4 * $typography_line_height - 2.618 * 1.19 - $typography_margin_bottom ) / 2.618,
-					$typography_margin_bottom / 2.618 / 1.19
-				),
+				2.618,
+				1.19,
+				( 4 * $typography_line_height - 2.618 * 1.19 - $typography_margin_bottom ) / 2.618,
+				$typography_margin_bottom / 2.618 / 1.19
+			),
+
 			'h2, .h2' : (
-					2.058,
-					1.19,
-					( 4 * $typography_line_height - 2.058 * 1.19 - $typography_margin_bottom ) / 2.058,
-					$typography_margin_bottom / 2.058 / 1.19
-				),
+				2.058,
+				1.19,
+				( 4 * $typography_line_height - 2.058 * 1.19 - $typography_margin_bottom ) / 2.058,
+				$typography_margin_bottom / 2.058 / 1.19
+			),
+
 			'h3, .h3' : (
-					1.618,
-					1.38,
-					( 3 * $typography_line_height - 1.618 * 1.38 - $typography_margin_bottom ) / 1.618,
-					$typography_margin_bottom / 1.618 / 1.38
-				),
+				1.618,
+				1.38,
+				( 3 * $typography_line_height - 1.618 * 1.38 - $typography_margin_bottom ) / 1.618,
+				$typography_margin_bottom / 1.618 / 1.38
+			),
+
 			'h4, .h4' : (
-					1.272,
-					1.38,
-					( 3 * $typography_line_height - 1.272 * 1.38 - $typography_margin_bottom ) / 1.272,
-					$typography_margin_bottom / 1.272 / 1.38
-				),
+				1.272,
+				1.38,
+				( 3 * $typography_line_height - 1.272 * 1.38 - $typography_margin_bottom ) / 1.272,
+				$typography_margin_bottom / 1.272 / 1.38
+			),
+
 			'h5, .h5' : (
-					1.000,
-					1.62,
-					( 3 * $typography_line_height - 1.000 * 1.62 - $typography_margin_bottom ) / 1.000,
-					$typography_margin_bottom / 1.000 / 1.62
-				),
+				1.000,
+				1.62,
+				( 3 * $typography_line_height - 1.000 * 1.62 - $typography_margin_bottom ) / 1.000,
+				$typography_margin_bottom / 1.000 / 1.62
+			),
+
 			'h6, .h6' : (
-					1.000,
-					1.62,
-					( 3 * $typography_line_height - 1.000 * 1.62 - $typography_margin_bottom ) / 1.000,
-					$typography_margin_bottom / 1.000 / 1.62
-				)
+				1.000,
+				1.62,
+				( 3 * $typography_line_height - 1.000 * 1.62 - $typography_margin_bottom ) / 1.000,
+				$typography_margin_bottom / 1.000 / 1.62
+			)
 
 		) !default;
 
@@ -378,11 +376,3 @@
 			'input[type="submit"]',
 			'.child-page .more-link'
 		);
-
-		$button_elements_beaver_builder: ();
-
-		$beaver_builder_button_prepend: '.site .fl-builder-content .fl-module';
-
-		@each $button_element in $button_elements {
-			$button_elements_beaver_builder: append( $button_elements_beaver_builder, '#{$beaver_builder_button_prepend} #{$button_element}', comma );
-		}

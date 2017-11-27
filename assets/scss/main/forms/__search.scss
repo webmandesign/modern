@@ -42,14 +42,6 @@ form[role="search"],
 
 	}
 
-	.site .fl-builder-content .fl-module & input[type="submit"] {
-
-		@include haf( ( '&', 'h', 'f', 'a' ) ) {
-			@extend %form_search_submit_button;
-		}
-
-	}
-
 	label {
 		// Label wraps the search input field and contains .screen-reader-text span
 		display: block;
@@ -60,17 +52,6 @@ form[role="search"],
 	.search-field {
 		padding-#{$right}: power( $golden, 2 ) +rem; // {{RTL}}
 	}
-
-
-
-	// Form on search results page
-
-		.search-results.no-widgets-sidebar .site-main & {
-			max-width: 38em;
-			max-width: 70ch;
-			margin-left: auto;
-			margin-right: auto;
-		}
 
 }
 

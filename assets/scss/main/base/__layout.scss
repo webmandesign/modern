@@ -18,29 +18,10 @@
 
 
 
-// Boxed / Fullwidth
-
-	.site-layout-boxed {
-
-		@include responsive( map_get( $breakpoint, 'l' ) ) {
-			padding: $golden +em;
-		}
-
-		.site {
-			max-width: $boxed_width +px;
-			max-width: $boxed_width * $px;
-		}
-
-	}
-
-	.site-layout-fullwidth {}
-
-
-
 // Extenders
 
 	%basic_width {
-		width: 88%;
+		width: 92%;
 		margin: 0 auto;
 	}
 

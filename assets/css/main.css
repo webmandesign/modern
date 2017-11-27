@@ -625,7 +625,9 @@ form[role="search"] input[type="search"], form[role="search"] .search-field, .fo
 
 .widget_recent_entries .post-date { display: block; }
 
-.widget .tagcloud a { float: left; position: relative; display: inline-block; width: auto; padding: 0.19rem 0.62rem; margin: 2px 2px 0; margin-left: 0; white-space: nowrap; background-color: transparent; color: inherit; border-width: 1px; border-style: solid; z-index: 0; transition: background .3s, color .3s, border .3s; }
+.widget .tagcloud a { float: left; position: relative; display: inline-block; width: auto; padding: 0.19rem 0.62rem; margin: 2px 2px 0; margin-left: 0; white-space: nowrap; background-color: transparent; color: inherit; border-width: 1px; border-style: solid; z-index: 0; transition: background .3s,
+ color .3s,
+ border .3s; }
 
 .widget .tagcloud a:hover, .widget .tagcloud a:active, .widget .tagcloud a:focus { text-decoration: none; }
 
@@ -732,7 +734,24 @@ div.sharedaddy .sd-social .sd-button .share-count { background: inherit; color: 
 /* FILE: main/icons/_icons.scss */
 @font-face { font-family: 'Genericons-Neue'; /*[*/ src: url("../fonts/genericons-neue/Genericons-Neue.woff") format("woff"), url("../fonts/genericons-neue/Genericons-Neue.ttf") format("truetype"); /*]*/ /*// src: url('[[get_template_directory_uri]]/assets/fonts/genericons-neue/Genericons-Neue.woff') format('woff'), url('[[get_template_directory_uri]]/assets/fonts/genericons-neue/Genericons-Neue.ttf') format('truetype'); //*/ font-weight: normal; font-style: normal; }
 
-.wp-custom-header .wp-custom-header-video-button::before, .genericons-neue::before, blockquote::before, .site form[role="search"]::before, .site .search-form::before, .post-password-form::before, .menu-toggle::before, .social-links a.back-to-top::before, .bypostauthor > .comment-body .comment-author::before, .comment-edit-link::before, .comment-reply-link::before, .pingback .comment-body::before, .trackback .comment-body::before, .widget_archive li::before, .widget_categories li::before, .widget_pages li::before, .widget_recent_comments li::before, .widget_recent_entries li::before { font-family: 'Genericons-Neue'; font-style: normal; font-weight: normal; font-variant: normal; text-decoration: inherit; text-transform: none; speak: none; }
+.wp-custom-header .wp-custom-header-video-button::before,
+.genericons-neue::before,
+blockquote::before,
+.site form[role="search"]::before,
+.site .search-form::before,
+.post-password-form::before,
+.menu-toggle::before,
+.social-links a.back-to-top::before,
+.bypostauthor > .comment-body .comment-author::before,
+.comment-edit-link::before,
+.comment-reply-link::before,
+.pingback .comment-body::before,
+.trackback .comment-body::before,
+.widget_archive li::before,
+.widget_categories li::before,
+.widget_pages li::before,
+.widget_recent_comments li::before,
+.widget_recent_entries li::before { font-family: 'Genericons-Neue'; font-style: normal; font-weight: normal; font-variant: normal; text-decoration: inherit; text-transform: none; speak: none; }
 
 .svgicon { display: inline-block; position: relative; width: 1em; height: 1em; top: -0.0625em; fill: currentColor; vertical-align: middle; }
 

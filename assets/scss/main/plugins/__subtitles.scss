@@ -19,16 +19,6 @@
 
 
 
-	// In intro section
-
-		.intro & {
-			@extend %font_style_normal;
-			@extend %font_weight_300;
-			line-height: inherit;
-		}
-
-
-
 	// In posts loop
 
 		.posts & {

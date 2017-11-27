@@ -1,0 +1,303 @@
+/**
+ * `starter.css` file
+ */
+
+	blockquote {
+		text-align: center;
+	}
+		blockquote:before,
+		blockquote:after {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 38%;
+			height: 100%;
+			left: 31%;
+			top: 0;
+			pointer-events: none;
+			border-top: 1px solid;
+			border-bottom: 1px solid;
+		}
+		blockquote:after {
+			width: 2%;
+			left: 49%;
+			border-top: .19em solid;
+			border-bottom: .19em solid;
+		}
+
+		blockquote.alignleft,
+		blockquote.alignright {
+			width: 38%;
+			padding: 0 6%;
+		}
+		blockquote.alignleft {
+			padding-left: 0;
+			margin-left: -19%;
+		}
+		blockquote.alignright {
+			padding-right: 0;
+			margin-right: -19%;
+		}
+
+			blockquote.alignleft:before,
+			blockquote.alignleft:after,
+			blockquote.alignright:before,
+			blockquote.alignright:after {
+				width: 1px;
+				height: 62%;
+				left: 0;
+				top: 19%;
+				border: 0;
+				border-left: 1px solid;
+			}
+				blockquote.alignleft:after,
+				blockquote.alignright:after {
+					width: 1px;
+					height: 6%;
+					left: 0;
+					top: 47%;
+					border: 0;
+					border-left: .19em solid;
+				}
+
+				blockquote.alignleft:before,
+				blockquote.alignleft:after {
+					left: auto;
+					right: 0;
+					border: 0;
+					border-right: 1px solid;
+				}
+					blockquote.alignleft:after {
+						left: auto;
+						right: 0;
+						border: 0;
+						border-right: .19em solid;
+					}
+
+				@media only screen and (max-width: 960px) {
+
+					/**
+					 * Site content
+					 */
+
+						/* Content elements */
+
+							blockquote.alignleft,
+							blockquote.alignright { padding: 0; }
+							blockquote.alignleft { margin-left: 0; }
+							blockquote.alignright { margin-right: 0; }
+
+								blockquote.alignleft:before,
+								blockquote.alignleft:after,
+								blockquote.alignright:before,
+								blockquote.alignright:after { display: none; }
+
+				} /* /(max-width: 960px) */
+
+
+	/**
+	 * Font sizes
+	 */
+
+		/**
+		 * Basic font size setup
+		 */
+
+			html { font-size: 16px; }
+
+		/**
+		 * Relative font sizes:
+		 */
+
+			/* Relative to root */
+
+				.breadcrumbs { font-size: .81rem; }
+
+				/* basic: */
+				input,
+				select,
+				textarea,
+				blockquote blockquote,
+				/* custom: */
+				.site-description { font-size: 1rem; }
+
+			/* Relative to container */
+
+				/* basic: */
+				small,
+				/* custom: */
+				pre,
+				code,
+				blockquote cite,
+				.small,
+				.menu-item-description,
+				.comment-metadata,
+				.pingback .edit-link,
+				.comment .reply,
+				.comments-title .add-comment-link,
+				#cancel-comment-reply-link,
+				.comment-form label,
+				.gallery-caption,
+				.wp-caption .wp-caption-text { font-size: .81em; }
+
+				h4, h5, h6,
+				.h4, .h5, .h6 { font-size: 1.15em; }
+
+				h3,
+				.h3,
+				.comments-title { font-size: 1.24em; }
+
+				h2,
+				.h2,
+				blockquote,
+				.format-link .entry-content,
+				.format-status .entry-content,
+				.posts .format-image .post-excerpt { font-size: 1.38em; }
+
+				h1,
+				.h1 { font-size: 1.62em; }
+
+		/**
+		 * Font weights
+		 */
+
+			blockquote,
+			.site-description { font-weight: 300; }
+
+			blockquote cite,
+			.comments-title .add-comment-link,
+			#cancel-comment-reply-link { font-weight: 400; }
+
+			/* custom: */
+			h1, h2, h3, h4, h5, h6,
+			.h1, .h2, .h3, .h4, .h5, .h6,
+			dt,
+			th, tfoot td,
+			.pagination .current,
+			.link-more,
+			.is-singular .post-excerpt,
+			.post-excerpt.has-more-tag,
+			.comment-form label,
+			.format-link .entry-content a,
+			.format-quote .entry-content a,
+			.format-status .entry-content a,
+			.widget .current-menu-item > a,
+			.widget .current_page_item > a,
+			.site-info a { font-weight: 700; }
+
+		/**
+		 * Font styles
+		 */
+
+			/* basic: */
+			cite,
+			dfn,
+			em,
+			i,
+			/* custom: */
+			blockquote,
+			.taxonomy-description,
+			.gallery-caption,
+			.recentcomments a { font-style: italic; }
+
+			cite { font-style: normal; }
+
+		/**
+		 * Line heights
+		 */
+
+			body,
+			.site-description,
+			.sidebar,
+			.tagcloud,
+			.format-status .entry-content,
+			.form-allowed-tags { line-height: 1.62; }
+
+			pre { line-height: 1.5; }
+
+			h1, h2, h3, h4, h5, h6,
+			.h1, .h2, .h3, .h4, .h5, .h6,
+			blockquote,
+			table,
+			.format-link .entry-content,
+			.posts .format-image .post-excerpt,
+			.gallery-caption,
+			.wp-caption .wp-caption-text { line-height: 1.38; }
+
+			.site-title,
+			.social-links { line-height: 1; }
+
+	.alignleft,
+	.wp-caption.alignleft,
+	img.alignleft {
+		margin-right: 1.62em;
+		margin-bottom: 1.62em;
+	}
+	.alignright,
+	.wp-caption.alignright,
+	img.alignright {
+		margin-left: 1.62em;
+		margin-bottom: 1.62em;
+	}
+
+	/**
+	 * 6. Headings
+	 */
+
+		h1, h2, h3, h4, h5, h6,
+		.h1, .h2, .h3, .h4, .h5, .h6 {
+			clear: both;
+			padding: 0;
+			margin: 6% 0 4%;
+			-ms-word-wrap: break-word;
+			    word-wrap: break-word;
+			text-rendering: optimizeLegibility; /* https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
+		}
+
+		h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child,
+		.h1:first-child, .h2:first-child, .h3:first-child, .h4:first-child, .h5:first-child, .h6:first-child { margin-top: 0; }
+
+			h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+			.h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a {
+				text-decoration: none;
+				color: inherit;
+			}
+
+		/**
+		 * Entry title
+		 */
+
+			.entry-title .entry-edit {
+				display: block;
+				margin-top: .62em;
+			}
+				.entry-title .entry-edit:before { content: '\2014\2002'; }
+
+		/**
+		 * Widget title
+		 */
+
+			.widget-title { margin: 0 0 1.62em; }
+
+	.entry-summary,
+	.more-tag-excerpt { margin: 1.62em 0; }
+
+	.widget ul li {
+		-webkit-transition: all .2s ease-in-out;
+		        transition: all .2s ease-in-out;
+	}
+
+		.widget ul li:hover {
+			-webkit-transform: translateX( .62em );
+			    -ms-transform: translateX( .62em );
+			        transform: translateX( .62em );
+		}
+
+		.breadcrumbs-container {
+			padding: 1rem 0;
+			border-top: 2px solid;
+		}
+
+
+
+

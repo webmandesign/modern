@@ -13,33 +13,15 @@
 // Footer
 
 	.site-footer {
-		@extend %font_size_smaller;
 		position: relative;
 
 		&-area {
 
 			&-inner {
 				@extend %content_width;
-				position: relative; // Above footer image;
-
-				.footer-layout-fullwidth & {
-					@extend %full_width;
-				}
-
 			}
 
 		}
-
-
-
-		// Footer background image
-
-			&::before {
-				content: '';
-				position: absolute;
-				width: 100%;
-				height: 100%;
-			}
 
 	}
 

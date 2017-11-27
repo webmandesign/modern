@@ -12,18 +12,8 @@
 
 	.comments-area {
 		clear: both;
-		padding: ( $golden +rem ) 0 0;
-		margin: ( power( $golden, 2 ) +rem ) 0 0;
-		border-top-width: 2px;
-		border-top-style: solid;
-
-		@include responsive( map_get( $breakpoint, 'l' ) ) {
-			margin-top: $padding_vertical;
-		}
-
-		@include responsive( map_get( $breakpoint, 'xl' ) ) {
-			margin-top: $golden * $padding_vertical;
-		}
+		padding: 8% 19%;
+		margin: -1.62em 0 0;
 
 		&:focus {
 			outline: 0;
@@ -32,48 +22,6 @@
 		.reply {
 			margin-top: 1em;
 		}
-
-
-
-		// On pages
-
-			.page.no-widgets-sidebar &-inner {
-
-				@include responsive( map_get( $breakpoint, 'xl' ) ) {
-					width: percentage( $golden_major );
-					margin-left: auto;
-					margin-right: auto;
-				}
-
-			}
-
-
-
-		// On page builder pages/posts
-
-			.content-layout-no-paddings & {
-				width: 100%;
-			}
-
-			.fl-builder &,
-			.content-layout-no-paddings &,
-			.content-layout-stretched & {
-				// No sidebar here
-				@extend %content_width;
-				padding: ( power( 1 + $golden_minor, 5 ) +rem ) 0;
-				border-width: 0;
-
-				&-inner {
-
-					@include responsive( map_get( $breakpoint, 'xl' ) ) {
-						width: percentage( $golden_major );
-						margin-left: auto;
-						margin-right: auto;
-					}
-
-				}
-
-			}
 
 	}
 
@@ -250,6 +198,7 @@
 // Navigation
 
 	.comment-navigation {
+		padding: 8% 0;
 
 		.comments-title + & {
 			display: none;

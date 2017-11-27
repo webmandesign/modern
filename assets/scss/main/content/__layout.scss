@@ -46,7 +46,7 @@
 	.content-area {
 
 		@include responsive( map_get( $breakpoint, 'l' ) ) {
-			width: percentage( $page_content_width / 100 );
+			width: 62%;
 
 			.has-widgets-sidebar & {
 				float: $left; // {{RTL}}

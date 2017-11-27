@@ -101,7 +101,7 @@
 
 				@include responsive( map_get( $breakpoint, 'xl' ) ) {
 					float: $left; // {{RTL}}
-					width: percentage( $page_content_width / 100 );
+					width: 62%;
 				}
 
 			}
@@ -132,7 +132,7 @@
 
 			@include responsive( map_get( $breakpoint, 'xl' ) ) {
 				float: $right; // {{RTL}}
-				width: percentage( ( 100 - $page_content_width - $page_content_gutter ) / 100 );
+				width: 36%;
 				margin: 0;
 			}
 

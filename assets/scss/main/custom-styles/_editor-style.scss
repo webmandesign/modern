@@ -27,14 +27,14 @@
 	// Core
 
 		html {
-			max-width: 1200px + 40; // Default, will get overridden
+			max-width: 784px + 40; // Default, will get overridden
 			padding: 20px;
 		}
 
 		body {
 			width: 100%;
-			max-width: 38em;
-			max-width: 70ch;
+			// max-width: 38em;
+			// max-width: 70ch;
 			font-size: 16px; // Default, will get overridden
 
 			&.post-type-page {
@@ -126,11 +126,3 @@
 		video {
 			width: 100% !important;
 		}
-
-
-
-
-
-// Additional imports
-
-	@import '_editor-layout-outdented';

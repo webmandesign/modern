@@ -22,8 +22,6 @@
 	input,
 	select,
 	textarea {
-		border-color: transparent;
-		border-bottom-color: currentColor;
 		transition: border-color ( $small_animation_speed +s );
 
 		&:focus {
