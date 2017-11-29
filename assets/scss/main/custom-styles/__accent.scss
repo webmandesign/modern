@@ -37,10 +37,7 @@
 	}
 
 	#{$accent_color_elements},
-	.#{$special_color_class_prefix}accent,
-	.#{$special_color_class_prefix}accent > .fl-row-content-wrap,
-	.#{$special_color_class_prefix}accent > .fl-col-content,
-	.hover-color-accent.fl-col:hover .fl-col-content {
+	.#{$special_color_class_prefix}accent {
 		@extend %accent_colors;
 	}
 

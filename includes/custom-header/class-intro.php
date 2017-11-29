@@ -51,7 +51,7 @@ class Modern_Intro {
 
 					// Actions
 
-						add_action( 'tha_content_top', __CLASS__ . '::container', 15 );
+						add_action( 'tha_header_after', __CLASS__ . '::container' );
 
 						add_action( 'wmhook_modern_intro', __CLASS__ . '::content' );
 
@@ -291,7 +291,7 @@ class Modern_Intro {
 
 			// Output
 
-				return is_404() || is_attachment() || ! empty( $meta_no_intro );
+				return ! empty( $meta_no_intro );
 
 		} // /disable
 
@@ -348,17 +348,6 @@ class Modern_Intro {
 					$url = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $image_size );
 					$url = $url[0];
 
-				} elseif ( ! is_front_page() ) {
-
-					/**
-					 * Remove custom header on single post/page if:
-					 * - there is no featured image
-					 * - there is no intro image
-					 *
-					 * @link  https://developer.wordpress.org/reference/functions/get_header_image/
-					 */
-					$url = 'remove-header';
-
 				}
 
 
@@ -387,9 +376,9 @@ class Modern_Intro {
 			// Requirements check
 
 				if (
-						! is_front_page()
-						|| ! self::get_slides_count()
-					) {
+					! is_front_page()
+					|| ! self::get_slides_count()
+				) {
 					return;
 				}
 

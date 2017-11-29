@@ -11,8 +11,7 @@
 .wm-subnav,
 .widget_nav_menu {
 
-	.sidebar &,
-	.fl-widget & {
+	.sidebar & {
 
 		ul {
 			border-width: 1px;
@@ -84,8 +83,7 @@
 	.current_page_item > a,
 	.current-menu-item > a {
 
-		.sidebar &,
-		.fl-widget & {
+		.sidebar & {
 			@extend %font_weight_700;
 		}
 

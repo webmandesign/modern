@@ -124,42 +124,34 @@
 
 			// Accent color
 
-				'accent':      #273a7d,
-				'accent_text': #fefeff,
+				'accent':      #0aac8e,
+				'accent_text': #ffffff,
 
 			// Body
 
-				'body_background': #e3e3e4,
+				'body_background': #1a1c1e,
 
 			// Site header
 
-				'header_background': #fefeff,
-				'header_text':       #535354,
-				'header_headings':   #232324,
+				'header_background': #0a0c0e,
+				'header_text':       #ffffff,
 
 			// Intro
 
-				'intro_background': #fafafb,
-				'intro_text':       #535354,
-				'intro_headings':   #232324,
-
-				// Intro widgets
-
-					'intro_widgets_background': #0f1732,
-					'intro_widgets_text':       #d3d3d4,
-					'intro_widgets_headings':   #fefeff,
+				'intro_background': #1a1c1e,
+				'intro_text':       #ffffff,
 
 			// Site content
 
-				'content_background': #fefeff,
-				'content_text':       #535354,
-				'content_headings':   #232324,
+				'content_background': #ffffff,
+				'content_text':       #6a6c6e,
+				'content_headings':   #1a1c1e,
 
 			// Site footer
 
-				'footer_background': #0f1732,
-				'footer_text':       #d3d3d4,
-				'footer_headings':   #fefeff,
+				'footer_background': #eaecee,
+				'footer_text':       #6a6c6e,
+				'footer_headings':   #1a1c1e,
 
 			// Predefined colors
 
@@ -246,48 +238,48 @@
 			// "Second, different browsers handle subpixel rounding issues differently. This means we’ll never be able to get pixel-perfect rhythms no matter how hard we try."
 			// "So, here’s what I realized. It’s impossible to apply perfect responsive vertical rhythms across different browsers. At least not with the current technology."
 
-			// @see "Golden Ditonic Scale" at http://spencermortensen.com/articles/typographic-scale/ or http://www.modularscale.com/?1,0.4858&em&1.618
+			// @see "Golden Ditonic Scale" at http://spencermortensen.com/articles/typographic-scale/ or http://www.modularscale.com/?1&em&1.125
 
 			'h1, .h1' : (
-				2.618,
+				2.281,
 				1.19,
-				( 4 * $typography_line_height - 2.618 * 1.19 - $typography_margin_bottom ) / 2.618,
-				$typography_margin_bottom / 2.618 / 1.19
+				( 4 * $typography_line_height - 2.281 * 1.19 - $typography_margin_bottom ) / 2.281,
+				$typography_margin_bottom / 2.281 / 1.19
 			),
 
 			'h2, .h2' : (
-				2.058,
+				1.802,
 				1.19,
-				( 4 * $typography_line_height - 2.058 * 1.19 - $typography_margin_bottom ) / 2.058,
-				$typography_margin_bottom / 2.058 / 1.19
+				( 4 * $typography_line_height - 1.802 * 1.19 - $typography_margin_bottom ) / 1.802,
+				$typography_margin_bottom / 1.802 / 1.19
 			),
 
 			'h3, .h3' : (
-				1.618,
+				1.424,
 				1.38,
-				( 3 * $typography_line_height - 1.618 * 1.38 - $typography_margin_bottom ) / 1.618,
-				$typography_margin_bottom / 1.618 / 1.38
+				( 3 * $typography_line_height - 1.424 * 1.38 - $typography_margin_bottom ) / 1.424,
+				$typography_margin_bottom / 1.424 / 1.38
 			),
 
 			'h4, .h4' : (
-				1.272,
-				1.38,
-				( 3 * $typography_line_height - 1.272 * 1.38 - $typography_margin_bottom ) / 1.272,
-				$typography_margin_bottom / 1.272 / 1.38
+				1.125,
+				( 1.62 / 1.125 ),
+				( 3 * $typography_line_height - 1.125 * ( 1.62 / 1.125 ) - $typography_margin_bottom ) / 1.125,
+				$typography_margin_bottom / 1.125 / ( 1.62 / 1.125 )
 			),
 
 			'h5, .h5' : (
-				1.000,
-				1.62,
-				( 3 * $typography_line_height - 1.000 * 1.62 - $typography_margin_bottom ) / 1.000,
-				$typography_margin_bottom / 1.000 / 1.62
+				1.125,
+				( 1.62 / 1.125 ),
+				( 3 * $typography_line_height - 1.125 * ( 1.62 / 1.125 ) - $typography_margin_bottom ) / 1.125,
+				$typography_margin_bottom / 1.125 / ( 1.62 / 1.125 )
 			),
 
 			'h6, .h6' : (
-				1.000,
-				1.62,
-				( 3 * $typography_line_height - 1.000 * 1.62 - $typography_margin_bottom ) / 1.000,
-				$typography_margin_bottom / 1.000 / 1.62
+				1.125,
+				( 1.62 / 1.125 ),
+				( 3 * $typography_line_height - 1.125 * ( 1.62 / 1.125 ) - $typography_margin_bottom ) / 1.125,
+				$typography_margin_bottom / 1.125 / ( 1.62 / 1.125 )
 			)
 
 		) !default;
@@ -298,13 +290,13 @@
 	// Special typography
 	//
 
-		// @see "Golden Ditonic Scale" at http://spencermortensen.com/articles/typographic-scale/ or http://www.modularscale.com/?1,0.4858&em&1.618
+		// @see "Golden Ditonic Scale" at http://spencermortensen.com/articles/typographic-scale/ or http://www.modularscale.com/?1&em&1.125
 
 		$display_text_size: (
-			1 : 2.618em,
-			2 : 3.329em,
-			3 : 4.236em,
-			4 : 5.387em,
+			1 : 2.281em,
+			2 : 2.887em,
+			3 : 3.653em,
+			4 : 4.624em,
 		) !default;
 
 

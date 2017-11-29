@@ -57,11 +57,16 @@
 	.site-title {
 		@extend %site_title;
 		@extend %font_logo;
-		@extend %font_size_golden;
 		@extend %font_weight_700;
 		@extend %font_style_normal;
 		margin: 0;
 		line-height: inherit;
+		font-size: nth( map_get( $h_tags_setup, 'h1, .h1' ), 1 ) +rem;
+
+		@include responsive( map_get( $breakpoint, 'l' ) ) {
+			display: inline-block;
+			vertical-align: middle;
+		}
 
 
 
@@ -78,9 +83,16 @@
 // Site description (tagline)
 
 	.site-description {
-		@extend %font_size_small;
-		text-transform: uppercase;
-		opacity: .8;
+		@extend %font_size_1rem;
+
+		@include responsive( map_get( $breakpoint, 'l' ) ) {
+			display: inline-block;
+			padding-#{$left}: $golden +em; // {{RTL}}
+			margin-#{$left}: $golden +em; // {{RTL}}
+			border-#{$left}: 1px solid; // {{RTL}}
+			vertical-align: middle;
+		}
+
 	}
 
 

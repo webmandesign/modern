@@ -177,7 +177,6 @@ class Modern_Assets {
 
 				$register_assets = array(
 					'jquery-fitvids'             => array( get_theme_file_uri( 'assets/js/vendors/fitvids/jquery.fitvids.js' ) ),
-					'jquery-scroll-watch'        => array( get_theme_file_uri( 'assets/js/vendors/scroll-watch/jquery.scroll-watch.js' ) ),
 					'slick'                      => array( get_theme_file_uri( 'assets/js/vendors/slick/slick.min.js' ) ),
 					'modern-skip-link-focus-fix' => array( 'src' => get_theme_file_uri( 'assets/js/skip-link-focus-fix.js' ), 'deps' => array() ),
 					'modern-scripts-global'      => array( 'src' => get_theme_file_uri( 'assets/js/scripts-global.js' ), 'deps' => $script_global_deps ),
@@ -321,12 +320,6 @@ class Modern_Assets {
 						if ( get_theme_mod( 'navigation_mobile', true ) ) {
 							$enqueue_assets[25] = 'modern-scripts-nav-mobile';
 						}
-					}
-
-				// Sticky header
-
-					if ( in_array( 'has-sticky-header', $body_classes ) ) {
-						$enqueue_assets[30] = 'jquery-scroll-watch';
 					}
 
 				// Masonry

@@ -42,6 +42,16 @@ form[role="search"],
 
 	}
 
+	.site-header & {
+
+		&::before {
+			top: 0;
+			margin: 0;
+			font-size: $golden +em;
+		}
+
+	}
+
 	label {
 		// Label wraps the search input field and contains .screen-reader-text span
 		display: block;

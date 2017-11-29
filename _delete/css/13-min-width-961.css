@@ -1,0 +1,12 @@
+
+	/**
+	 * 961px min
+	 */
+
+		@media only screen and (min-width: 961px) {
+
+			.scrolling-down .main-navigation { top: -100px; }
+
+			.taxonomy-description { max-width: 62%; }
+
+		} /* /(min-width: 961px) */

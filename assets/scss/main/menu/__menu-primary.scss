@@ -9,26 +9,31 @@
 
 
 .main-navigation {
+	@extend %font_size_smaller;
 	position: relative;
-	margin-top: 1em;
-	margin-bottom: 1em;
-
-	@include responsive_minmax( map_get( $breakpoint, 'm' ), map_get( $breakpoint, 'l' ) ) {
-		float: $right; // {{RTL}}
-	}
-
-	@include responsive( map_get( $breakpoint, 'l' ) ) {
-		float: $left; // {{RTL}}
-		margin-#{$right}: $golden +em;
-	}
-
-	@include responsive( map_get( $breakpoint, 's' ), 'max-height' ) {
-		float: $right; // {{RTL}}
-	}
+	width: 100%;
 
 
 
 	&-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+
+		> div {
+			flex: 0 1 auto;
+		}
+
+
+
+		// Menu search form
+
+			.menu-search {
+				order: 10;
+			}
+
+
 
 		// Menu wrapper
 

@@ -1,0 +1,11 @@
+
+	/**
+	 * WordPress admin bar fix
+	 */
+
+		@media screen and ( max-width: 782px ) {
+
+			html[class] { margin-top: 0 !important; }
+			body.admin-bar { padding-top: 46px !important; }
+
+		} /* /(max-width: 782px) */

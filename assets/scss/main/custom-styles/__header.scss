@@ -11,8 +11,13 @@
 // Default site header elements
 
 	.site-header-content,
-	.#{$special_color_class_prefix}header,
-	.#{$special_color_class_prefix}header > .fl-row-content-wrap,
-	.#{$special_color_class_prefix}header > .fl-col-content {
+	.site-header-navigation,
+	.site-header-navigation::before,
+	.#{$special_color_class_prefix}header {
 		@extend %site_header_colors;
+	}
+
+	.site-header-content,
+	.site-header-navigation {
+		background: none; //*
 	}

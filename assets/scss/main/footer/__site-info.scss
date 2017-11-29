@@ -9,11 +9,10 @@
 
 
 .footer-area-site-info {
-	padding: 4% 0;
+	@extend %font_size_smaller;
 
-	.footer-area-footer-widgets + & {
+	.footer-area-footer-widgets + & .site-info-inner {
 		padding-top: 0;
-		padding-bottom: 8%;
 	}
 
 }
@@ -27,6 +26,7 @@
 		justify-content: space-between;
 		align-items: center;
 		flex-wrap: wrap;
+		padding: 6rem 0;
 	}
 
 }

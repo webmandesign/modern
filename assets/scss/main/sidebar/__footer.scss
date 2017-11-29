@@ -10,7 +10,7 @@
 
 .footer-widgets {
 	@extend %horizontal_widget_area;
-	padding: 10% 0 4%;
+	padding: 6rem 0;
 
 	&-inner {
 
@@ -23,9 +23,29 @@
 	}
 
 	.widget {
+		width: calc( 100% - #{ 2 * $golden +rem } );
 
 		@include responsive( map_get( $breakpoint, 'l' ) ) {
-			padding: ( power( $golden, 2 ) + 1em ) 0;
+			width: calc( 50% - #{ 2 * $golden +rem } );
+
+			&:nth-child(1):nth-last-child(1) {
+				width: calc( 100% - #{ 2 * $golden +rem } );
+			}
+
+		}
+
+		@include responsive( map_get( $breakpoint, 'xl' ) ) {
+			width: calc( 33.33% - #{ 2 * $golden +rem } );
+
+			&:nth-child(1):nth-last-child(2),
+			&:nth-child(2):nth-last-child(1) {
+				width: calc( 50% - #{ 2 * $golden +rem } );
+			}
+
+			&:nth-child(1):nth-last-child(1) {
+				width: calc( 100% - #{ 2 * $golden +rem } );
+			}
+
 		}
 
 	}

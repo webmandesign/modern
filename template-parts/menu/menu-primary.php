@@ -24,6 +24,8 @@
 
 ?>
 
+<div class="site-header-navigation"><div class="site-header-inner">
+
 <nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'modern' ); ?>">
 
 	<?php if ( $is_mobile_nav_enabled ) : ?>
@@ -35,3 +37,5 @@
 	</div>
 
 </nav>
+
+</div></div>

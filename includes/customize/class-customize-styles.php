@@ -341,7 +341,7 @@ class Modern_Customize_Styles {
 				$output = array();
 
 				$helper = apply_filters( 'wmhook_modern_customize_styles_get_custom_styles_array_helper', array(
-					'typography_size_html' => get_theme_mod( 'typography_size_html', 18 ),
+					'typography_size_html' => get_theme_mod( 'typography_size_html', 16 ),
 				), $scope );
 
 

@@ -9,6 +9,7 @@
 
 
 .entry-meta {
+	@extend %font_size_smaller;
 	padding: 0;
 	margin-top: 0;
 	margin-bottom: $golden_major +rem;
@@ -66,7 +67,6 @@
 
 	// When page builder used
 
-		.single.fl-builder &,
 		.single.content-layout-no-paddings & {
 			padding: 1em 0;
 			margin: 0;
@@ -75,7 +75,6 @@
 			border-bottom-style: solid;
 		}
 
-		.no-intro.fl-builder &,
 		.no-intro.content-layout-no-paddings & {
 			margin-top: -1px;
 		}
@@ -84,7 +83,6 @@
 
 	// In loop
 
-		.single.fl-builder .posts &,
 		.single.content-layout-no-paddings .posts & {
 			@extend %font_size_small;
 			padding: 1em 0;

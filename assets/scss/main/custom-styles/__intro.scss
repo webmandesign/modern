@@ -9,46 +9,17 @@
 
 
 .intro-container,
-.#{$special_color_class_prefix}intro,
-.#{$special_color_class_prefix}intro > .fl-row-content-wrap,
-.#{$special_color_class_prefix}intro > .fl-col-content {
+.#{$special_color_class_prefix}intro {
 	@extend %intro_colors;
 }
 
 
 
-// Front page special intro
-
-	.intro-special {
-
-		// Overlay
-
-			.wp-custom-header::before {
-				background-color: rgba( #000, .6 ); //*
-			}
-
-
-
-		// Video fallback background
-
-			.has-header-video {
-				background-color: #222223; //*
-			}
-
-
-
-		// Front page title and excerpt (the intro text)
-
-			&-has-media .intro {
-				color: #fff; //*
-
-				h2, h3, h4,
-				.h1, .h2, .h3, .h4,
-				a,
-				.accent-color {
-					color: inherit; //*
-				}
-
-			}
-
-	}
+.intro-media::after {
+	/*[*/
+	background-image: linear-gradient( transparent, map_get( $colors, 'body_background' ) );
+	/*]*/
+	/*//
+	background-image: linear-gradient( transparent, [[background_color]] );
+	//*/
+}

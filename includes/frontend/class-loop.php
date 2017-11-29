@@ -48,7 +48,7 @@ class Modern_Loop {
 
 						add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::search_form' );
 
-						add_action( 'pre_get_posts', __CLASS__ . '::ignore_sticky_posts' );
+						// add_action( 'pre_get_posts', __CLASS__ . '::ignore_sticky_posts' );
 
 					// Filters
 
@@ -397,9 +397,9 @@ class Modern_Loop {
 			// Processing
 
 				if (
-						$query->is_home()
-						&& $query->is_main_query()
-					) {
+					$query->is_home()
+					&& $query->is_main_query()
+				) {
 					$query->set( 'ignore_sticky_posts', 1 );
 				}
 

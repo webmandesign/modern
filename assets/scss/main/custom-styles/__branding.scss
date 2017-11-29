@@ -11,7 +11,7 @@
 .site-title,
 .custom-logo {
 	/*[*/
-	color: map_get( $colors, 'header_headings' );
+	color: map_get( $colors, 'header_text' );
 	/*]*/
 	/*//
 	color: [[color_header_headings]];

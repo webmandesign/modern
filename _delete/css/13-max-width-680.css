@@ -1,0 +1,87 @@
+
+	/**
+	 * 680px max
+	 */
+
+		@media only screen and (max-width: 680px) {
+
+			/**
+			 * Site header
+			 */
+
+				/* Site branding */
+
+					.site-branding {
+						float: none;
+						display: block;
+						text-align: center;
+					}
+
+					.site-description {
+						display: block;
+						padding: 0;
+						margin: 1em 0;
+						border: 0;
+					}
+
+				/* Social links */
+
+					.social-links,
+					.site-header .social-links {
+						float: none;
+						clear: both;
+						margin-top: 1em;
+					}
+
+					.site-header .social-links { text-align: center; }
+						.site-header .social-links li {
+							float: none;
+							display: inline;
+						}
+						.site-header .social-links a { padding: 0 .19em; }
+
+				/* Site banner */
+
+					.site-banner {
+						position: relative;
+						margin-top: 8%;
+						padding: 4% 8%;
+					}
+
+					.site-banner h1 { font-size: 2.62em; }
+					.site-banner.enable-slider h1 { padding-bottom: 2.62em; }
+
+			/**
+			 * Site content
+			 */
+
+				/* Posts list */
+
+					.posts .hentry {
+						float: none;
+						width: 96%;
+						height: auto !important;
+						margin-bottom: 8%;
+					}
+
+				/* Comments */
+
+					.bypostauthor > .comment-body .comment-author:before {
+						left: 15px;
+						top: 45px;
+					}
+
+			/**
+			 * Site footer
+			 */
+
+				/* Footer widgets */
+
+					.footer-widgets .widget { width: 96% !important; }
+						.columns-1 .widget { width: 96% !important; }
+
+				/* Site info (credits area) */
+
+					.site-info { float: none; }
+
+		} /* /(max-width: 680px) */

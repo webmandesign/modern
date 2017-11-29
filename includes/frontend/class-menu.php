@@ -47,9 +47,9 @@ class Modern_Menu {
 
 					// Actions
 
-						add_action( 'tha_header_top', __CLASS__ . '::primary', 20 );
+						add_action( 'tha_header_top', __CLASS__ . '::primary', 3 );
 
-						add_action( 'tha_header_top', __CLASS__ . '::social', 30 );
+						add_action( 'tha_header_top', __CLASS__ . '::social', 20 );
 						add_action( 'wmhook_modern_site_info_after', __CLASS__ . '::social' );
 
 						add_action( 'wp_update_nav_menu',   __CLASS__ . '::social_cache_flush' );
@@ -68,7 +68,7 @@ class Modern_Menu {
 
 						add_filter( 'widget_nav_menu_args', __CLASS__ . '::social_widget', 10, 3 );
 
-						add_filter( 'wp_nav_menu', __CLASS__ . '::mobile_menu_search', 20, 2 ); // See below for priority info
+						add_filter( 'wp_nav_menu', __CLASS__ . '::primary_search', 20, 2 ); // See below for priority info
 
 		} // /__construct
 
@@ -569,9 +569,7 @@ class Modern_Menu {
 		 */
 
 			/**
-			 * Mobile menu search form
-			 *
-			 * Adding mobile menu search form on top of the primary menu.
+			 * Primary menu search form
 			 *
 			 * Note:
 			 * Not sure why, but has to use higher priority than 10 when hooking
@@ -584,23 +582,20 @@ class Modern_Menu {
 			 * @param  string $nav_menu
 			 * @param  object $args
 			 */
-			public static function mobile_menu_search( $nav_menu, $args ) {
+			public static function primary_search( $nav_menu, $args ) {
 
 				// Requirements check
 
-					if (
-							'primary' !== $args->theme_location
-							|| ! get_theme_mod( 'navigation_mobile', true )
-						) {
+					if ( 'primary' !== $args->theme_location ) {
 						return $nav_menu;
 					}
 
 
 				// Output
 
-					return '<div class="mobile-search-form">' . get_search_form( false ) . '</div>' . $nav_menu;
+					return '<div class="menu-search">' . get_search_form( false ) . '</div>' . $nav_menu;
 
-			} // /mobile_menu_search
+			} // /primary_search
 
 
 

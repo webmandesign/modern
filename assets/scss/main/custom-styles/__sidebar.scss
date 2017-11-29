@@ -8,18 +8,17 @@
 
 
 
-// Sidebar: Intro widgets
+// Widgets
 
-	.intro-widgets-container,
-	.#{$special_color_class_prefix}intro-widgets,
-	.#{$special_color_class_prefix}intro-widgets > .fl-row-content-wrap,
-	.#{$special_color_class_prefix}intro-widgets > .fl-col-content {
-		@extend %sidebar_intro_widgets_colors;
+	.widget {
+
+		.sidebar & {
+			@extend %site_content_colors;
+		}
+
 	}
 
 
-
-// Widgets
 
 	// Custom Menu and Pages
 
@@ -28,8 +27,7 @@
 			.current_page_item > a,
 			.current-menu-item > a {
 
-				.sidebar &,
-				.fl-widget & {
+				.sidebar & {
 					@extend %accent_colors;
 				}
 

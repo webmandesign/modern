@@ -10,12 +10,11 @@
  *
  * Contents:
  *
- *   0) Init
- *  10) HTML head
- *  20) Body start
- *  30) Site header
- *  40) Setup
- * 100) Others
+ *  0) Init
+ * 10) HTML head
+ * 20) Body start
+ * 30) Site header
+ * 40) Setup
  */
 class Modern_Header {
 
@@ -55,16 +54,11 @@ class Modern_Header {
 						add_action( 'tha_body_top', __CLASS__ . '::skip_links' );
 
 						add_action( 'tha_header_top', __CLASS__ . '::open', 1 );
-						add_action( 'tha_header_top', __CLASS__ . '::open_inner', 2 );
+						add_action( 'tha_header_top', __CLASS__ . '::open_inner', 5 );
 						add_action( 'tha_header_top', __CLASS__ . '::site_branding' );
 
 						add_action( 'tha_header_bottom', __CLASS__ . '::close_inner', 1 );
 						add_action( 'tha_header_bottom', __CLASS__ . '::close', 101 );
-
-						// jQuery.scrollWatch IE11 helpers:
-
-							add_action( 'tha_header_top', __CLASS__ . '::ie_sticky_header_wrapper_open', 0 );
-							add_action( 'tha_header_bottom', __CLASS__ . '::ie_sticky_header_wrapper_close', 102 );
 
 					// Filters
 
@@ -379,12 +373,6 @@ class Modern_Header {
 						$classes[] = 'group-blog';
 					}
 
-				// Sticky header enabled?
-
-					if ( ! apply_filters( 'wmhook_modern_disable_header', false ) ) {
-						$classes[] = 'has-sticky-header';
-					}
-
 				// Intro displayed?
 
 					if ( ! (bool) apply_filters( 'wmhook_modern_intro_disable', false ) ) {
@@ -432,59 +420,6 @@ class Modern_Header {
 				return array_unique( $classes );
 
 		} // /body_class
-
-
-
-
-
-	/**
-	 * 100) Others
-	 */
-
-		/**
-		 * Sticky header wrapper for Internet Explorer 11
-		 *
-		 * As we are displaying SVG icons in header, and we still
-		 * support Internet Explorer 11, we need to add the sticky
-		 * header wrapper with PHP to prevent IE11 SVG icons not
-		 * displaying when the header is wrapped with JS.
-		 *
-		 * This is a jQuery.scrollWatch script helper.
-		 */
-
-			/**
-			 * Sticky header wrapper: Open
-			 *
-			 * @since    2.0.0
-			 * @version  2.0.0
-			 */
-			public static function ie_sticky_header_wrapper_open() {
-
-				// Output
-
-					if ( isset( $GLOBALS['is_IE'] ) && $GLOBALS['is_IE'] ) {
-						echo '<div class="scroll-watch-placeholder masthead-placeholder">';
-					}
-
-			} // /ie_sticky_header_wrapper_open
-
-
-
-			/**
-			 * Sticky header wrapper: Close
-			 *
-			 * @since    2.0.0
-			 * @version  2.0.0
-			 */
-			public static function ie_sticky_header_wrapper_close() {
-
-				// Output
-
-					if ( isset( $GLOBALS['is_IE'] ) && $GLOBALS['is_IE'] ) {
-						echo '</div>';
-					}
-
-			} // /ie_sticky_header_wrapper_close
 
 
 

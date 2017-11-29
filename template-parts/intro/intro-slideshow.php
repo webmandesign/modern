@@ -68,7 +68,7 @@ foreach ( Modern_Intro::get_slides() as $post ) :
 
 		?>
 
-		<p class="h2 intro-slideshow-title">
+		<p class="h1 intro-title intro-slideshow-title">
 			<?php
 
 			if ( $link_url ) {

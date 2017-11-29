@@ -1,0 +1,80 @@
+
+	/**
+	 * Special pages
+	 */
+
+		/**
+		 * Error 404 page
+		 */
+
+			.error-404,
+			.not-found {
+				text-align: center;
+				font-size: 1.62em;
+			}
+
+				.error-404 h1,
+				.not-found h1 { padding-bottom: .62em; }
+
+				.error-404 p,
+				.not-found p,
+				.error-404 a,
+				.not-found a { color: inherit; }
+
+				.error-404 form,
+				.not-found form {
+					display: inline-block;
+					width: 62%;
+					text-align: center;
+				}
+
+
+
+		/**
+		 * Page templates
+		 */
+
+			/**
+			 * Front page
+			 */
+
+				.page-template-page-template_front-php .site-content { padding-top: 0; }
+
+					.page-template-page-template_front-php .page {
+						-webkit-box-shadow: 0 0 4em rgba(0,0,0, .4);
+						        box-shadow: 0 0 4em rgba(0,0,0, .4);
+					}
+
+					.page-template-page-template_front-php .site-content .content-area {
+						background: transparent;
+						-webkit-box-shadow: none;
+						        box-shadow: none;
+					}
+
+						.is-singular .posts .entry-inner {
+							max-width: 100%;
+							margin: 0;
+						}
+
+						.front-page-section { margin-bottom: 8%; }
+
+
+
+			/**
+			 * Page with sidebar
+			 */
+
+				.page-template-page-template_sidebar-php .content-area { padding: 8% 19%; }
+				.page-template-page-template_sidebar-php .entry-inner {
+					padding: 0;
+					max-width: 100%;
+					margin: 0;
+				}
+
+					.page-template-page-template_sidebar-php .site-main > article {
+						float: left;
+						width: 60%;
+					}
+
+						.page-template-page-template_sidebar-php .site-main > .entry-media { margin: -12.9% -30.65% 12%; }
+

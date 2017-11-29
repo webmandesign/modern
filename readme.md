@@ -74,11 +74,6 @@ Copyright (c) 2017 Ken Wheeler
 Distributed under [MIT license](https://opensource.org/licenses/MIT)
 https://github.com/kenwheeler/slick
 
-**jQuery.scrollWatch**
-Copyright (c) 2017, WebMan Design, https://www.webmandesign.eu
-Distributed under [MIT license](https://opensource.org/licenses/MIT)
-https://github.com/webmandesign/scroll-watch/
-
 ### PHP scripts copyright
 
 **TGM-Plugin-Activation**

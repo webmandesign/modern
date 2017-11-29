@@ -93,12 +93,7 @@
 
 		h2, h3, h4,
 		.h1, .h2, .h3, .h4 {
-			/*[*/
-			color: map_get( $colors, 'header_headings' );
-			/*]*/
-			/*//
-			color: [[color_header_headings]];
-			//*/
+			color: inherit; //*
 		}
 
 	}
@@ -120,15 +115,8 @@
 		//*/
 
 		h1, h2, h3, h4,
-		.h1, .h2, .h3, .h4,
-		a:not(.button),
-		.accent-color {
-			/*[*/
-			color: map_get( $colors, 'intro_headings' );
-			/*]*/
-			/*//
-			color: [[color_intro_headings]];
-			//*/
+		.h1, .h2, .h3, .h4 {
+			color: inherit; //*
 		}
 
 	}
@@ -188,35 +176,3 @@
 		}
 
 	}
-
-
-
-// Widgets and sidebars
-
-	// Sidebar: Intro widgets
-
-		%sidebar_intro_widgets_colors {
-			/*[*/
-			background-color: map_get( $colors, 'intro_widgets_background' );
-			color: map_get( $colors, 'intro_widgets_text' );
-			border-color: rgba( map_get( $colors, 'intro_widgets_text' ), map_get( $border_opacity_from_text, 'general' ) );
-			/*]*/
-			/*//
-			background-color: [[color_intro_widgets_background]];
-			color: [[color_intro_widgets_text]];
-			border-color: [[color_intro_widgets_text(#{ map_get( $border_opacity_from_text, 'general' ) * 100 })]];
-			//*/
-
-			h2, h3, h4,
-			.h1, .h2, .h3, .h4,
-			a,
-			.accent-color {
-				/*[*/
-				color: map_get( $colors, 'intro_widgets_headings' );
-				/*]*/
-				/*//
-				color: [[color_intro_widgets_headings]];
-				//*/
-			}
-
-		}

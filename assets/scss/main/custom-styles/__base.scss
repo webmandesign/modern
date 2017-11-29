@@ -66,22 +66,9 @@
 		.color-#{$color} {
 			background-color: map_get( $colors, '#{$color}_background' ); //*
 			color: map_get( $colors, '#{$color}_text' ); //*
-
-			.fl-builder-content &,
-			.site .fl-builder-content &.button,
-			.site .fl-builder-content &.button:hover {
-				@extend .color-#{$color};
-			}
-
 		}
 
-		.hover-color-#{$color}.fl-col:hover .fl-col-content {
-			@extend .color-#{$color};
-		}
-
-		.#{$special_color_class_prefix}#{$color},
-		.#{$special_color_class_prefix}#{$color} > .fl-row-content-wrap,
-		.#{$special_color_class_prefix}#{$color} > .fl-col-content {
+		.#{$special_color_class_prefix}#{$color} {
 			background-color: map_get( $colors, '#{$color}_background' ); //*
 			color: map_get( $colors, '#{$color}_text' ); //*
 		}
@@ -91,11 +78,6 @@
 
 
 // Special color classes
-
-	.site .fl-row[class*="#{$special_color_class_prefix}"],
-	.site .fl-col[class*="#{$special_color_class_prefix}"] {
-		background: none; //*
-	}
 
 	div[class*="#{$special_color_class_prefix}"] {
 

@@ -11,7 +11,6 @@
  *
  * 10) Basics
  * 20) Content
- * 30) Header
  */
 
 
@@ -127,48 +126,6 @@
 									.addClass( 'screen-reader-text' );
 
 					} );
-
-
-
-
-
-	/**
-	 * 30) Header
-	 */
-
-		/**
-		 * Sticky header
-		 */
-
-			if ( $().scrollWatch && $( 'body' ).hasClass( 'has-sticky-header' ) ) {
-
-				$( document.getElementById( 'masthead' ) )
-					.scrollWatch( {
-						offset : 50,
-					} );
-
-			} // /scrollWatch
-
-
-
-		/**
-		 * Header search form
-		 */
-
-			$( '#search-toggle' )
-				.on( 'click', function( e ) {
-
-					// Processing
-
-						e.preventDefault();
-
-						$( this )
-							.parent()
-								.toggleClass( 'active' )
-								.find( '.search-field' )
-									.focus();
-
-				} );
 
 
 

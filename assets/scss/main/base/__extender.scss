@@ -27,7 +27,6 @@
 
 			@include responsive( map_get( $breakpoint, 'l' ) ) {
 				flex-basis: 0%;
-				padding: ( power( $golden, 2 ) +em ) 0;
 			}
 
 		}

@@ -322,7 +322,7 @@ class Modern_Customize {
 										'id'          => 'color_header_background',
 										'label'       => esc_html__( 'Background color', 'modern' ),
 										'description' => esc_html__( 'This color is also used to style a mobile device browser address bar.', 'modern' ) . ' <a href="https://wordpress.org/plugins/chrome-theme-color-changer/">' . esc_html__( 'You can further customize it with a dedicated plugin.', 'modern' ) . '</a>',
-										'default'     => '#232323',
+										'default'     => '#0a0c0e',
 										'preview_js'  => array(
 											'css' => array(
 
@@ -347,7 +347,7 @@ class Modern_Customize {
 										'type'       => 'color',
 										'id'         => 'color_header_text',
 										'label'      => esc_html__( 'Text color', 'modern' ),
-										'default'    => '#e3e3e3',
+										'default'    => '#ffffff',
 										'preview_js' => array(
 											'css' => array(
 
@@ -368,21 +368,6 @@ class Modern_Customize {
 												'.main-navigation-container' => array(
 													'selector_before' => '@media only screen and (max-width: 54.9375em) { ',
 													'selector_after'  => ' }',
-													'color',
-												),
-
-											),
-										),
-									),
-									100 . 'colors' . 20 . 130 => array(
-										'type'       => 'color',
-										'id'         => 'color_header_headings',
-										'label'      => esc_html__( 'Site title (logo) color', 'modern' ),
-										'default'    => '#242323',
-										'preview_js' => array(
-											'css' => array(
-
-												'.site-title, .custom-logo' => array(
 													'color',
 												),
 
@@ -418,7 +403,7 @@ class Modern_Customize {
 										'type'       => 'color',
 										'id'         => 'color_intro_background',
 										'label'      => esc_html__( 'Background color', 'modern' ),
-										'default'    => '#9d693f',
+										'default'    => '#1a1c1e',
 										'preview_js' => array(
 											'css' => array(
 
@@ -445,22 +430,6 @@ class Modern_Customize {
 														'suffix'           => ',.' . $alpha[0] . ')',
 														'process_callback' => 'modern.Customize.hexToRgbJoin',
 													),
-												),
-
-											),
-										),
-									),
-									100 . 'colors' . 25 . 130 => array(
-										'type'       => 'color',
-										'id'         => 'color_intro_headings',
-										'label'      => esc_html__( 'Headings color', 'modern' ),
-										'default'    => '#e4e3e3',
-										'preview_js' => array(
-											'css' => array(
-
-												$h_tags . ', @a, @.accent-color' => array(
-													'selector_replace' => '.intro-container ',
-													'color'
 												),
 
 											),
@@ -494,7 +463,7 @@ class Modern_Customize {
 										'type'       => 'color',
 										'id'         => 'color_content_background',
 										'label'      => esc_html__( 'Background color', 'modern' ),
-										'default'    => '#fcfcfc',
+										'default'    => '#ffffff',
 										'preview_js' => array(
 											'css' => array(
 
@@ -509,7 +478,7 @@ class Modern_Customize {
 										'type'       => 'color',
 										'id'         => 'color_content_text',
 										'label'      => esc_html__( 'Text color', 'modern' ),
-										'default'    => '#737373',
+										'default'    => '#6a6c6e',
 										'preview_js' => array(
 											'css' => array(
 
@@ -530,7 +499,7 @@ class Modern_Customize {
 										'type'       => 'color',
 										'id'         => 'color_content_headings',
 										'label'      => esc_html__( 'Headings color', 'modern' ),
-										'default'    => '#131313',
+										'default'    => '#1a1c1e',
 										'preview_js' => array(
 											'css' => array(
 
@@ -571,7 +540,7 @@ class Modern_Customize {
 										'type'       => 'color',
 										'id'         => 'color_footer_background',
 										'label'      => esc_html__( 'Background color', 'modern' ),
-										'default'    => '#232323',
+										'default'    => '#eaecee',
 										'preview_js' => array(
 											'css' => array(
 
@@ -592,7 +561,7 @@ class Modern_Customize {
 										'type'       => 'color',
 										'id'         => 'color_footer_text',
 										'label'      => esc_html__( 'Text color', 'modern' ),
-										'default'    => '#a3a3a3',
+										'default'    => '#6a6c6e',
 										'preview_js' => array(
 											'css' => array(
 
@@ -613,7 +582,7 @@ class Modern_Customize {
 										'type'       => 'color',
 										'id'         => 'color_footer_headings',
 										'label'      => esc_html__( 'Headings color', 'modern' ),
-										'default'    => '#e3e3e3',
+										'default'    => '#1a1c1e',
 										'preview_js' => array(
 											'css' => array(
 
@@ -631,120 +600,6 @@ class Modern_Customize {
 											),
 										),
 									),
-
-									100 . 'colors' . 40 . 140 => array(
-										'type'                => 'image',
-										'id'                  => 'footer_image',
-										'label'               => esc_html__( 'Background image', 'modern' ),
-										'default'             => trailingslashit( get_template_directory_uri() ) . 'assets/images/footer/footer.jpg',
-										'is_background_image' => true,
-										'is_css_condition'    => true,
-										'preview_js'          => array(
-											'custom' => "jQuery( '.site-footer' ).addClass( 'is-customize-preview' );",
-											'css'    => array(
-
-												'.site-footer::before' => array(
-													array(
-														'property' => 'background-image',
-														'prefix'   => 'url("',
-														'suffix'   => '")',
-													),
-												),
-
-											),
-										),
-									),
-										100 . 'colors' . 40 . 141 => array(
-											'type'    => 'select',
-											'id'      => 'footer_image_position',
-											'label'   => esc_html__( 'Image position', 'modern' ),
-											'default' => '50% 50%',
-											'choices' => array(
-
-												'0 0'    => esc_html_x( 'Top left', 'Image position.', 'modern' ),
-												'50% 0'  => esc_html_x( 'Top center', 'Image position.', 'modern' ),
-												'100% 0' => esc_html_x( 'Top right', 'Image position.', 'modern' ),
-
-												'0 50%'    => esc_html_x( 'Center left', 'Image position.', 'modern' ),
-												'50% 50%'  => esc_html_x( 'Center', 'Image position.', 'modern' ),
-												'100% 50%' => esc_html_x( 'Center right', 'Image position.', 'modern' ),
-
-												'0 100%'    => esc_html_x( 'Bottom left', 'Image position.', 'modern' ),
-												'50% 100%'  => esc_html_x( 'Bottom center', 'Image position.', 'modern' ),
-												'100% 100%' => esc_html_x( 'Bottom right', 'Image position.', 'modern' ),
-
-											),
-											'preview_js' => array(
-												'css' => array(
-
-													'.site-footer::before' => array(
-														'background-position'
-													),
-
-												),
-											),
-										),
-										100 . 'colors' . 40 . 142 => array(
-											'type'    => 'select',
-											'id'      => 'footer_image_size',
-											'label'   => esc_html__( 'Image size', 'modern' ),
-											'default' => 'cover',
-											'choices' => array(
-												'auto'    => esc_html_x( 'Original', 'Image size.', 'modern' ),
-												'contain' => esc_html_x( 'Fit', 'Image size.', 'modern' ),
-												'cover'   => esc_html_x( 'Fill', 'Image size.', 'modern' ),
-											),
-											'preview_js' => array(
-												'css' => array(
-
-													'.site-footer::before' => array(
-														'background-size'
-													),
-
-												),
-											),
-										),
-										100 . 'colors' . 40 . 143 => array(
-											'type'             => 'checkbox',
-											'id'               => 'footer_image_repeat',
-											'label'            => esc_html__( 'Tile the image', 'modern' ),
-											'default'          => true,
-											'is_css_condition' => true,
-											'preview_js'       => array(
-												'custom' => "jQuery( '.site-footer' ).addClass( 'is-customize-preview' ).css( 'background-repeat', ( to ) ? ( 'no-repeat' ) : ( 'repeat' ) );",
-											),
-										),
-										100 . 'colors' . 40 . 144 => array(
-											'type'             => 'checkbox',
-											'id'               => 'footer_image_attachment',
-											'label'            => esc_html__( 'Fix image position', 'modern' ),
-											'default'          => false,
-											'is_css_condition' => true,
-											'preview_js'       => array(
-												'custom' => "jQuery( '.site-footer' ).addClass( 'is-customize-preview' ).css( 'background-attachment', ( to ) ? ( 'fixed' ) : ( 'scroll' ) );",
-											),
-										),
-										100 . 'colors' . 40 . 145 => array(
-											'type'       => 'range',
-											'id'         => 'footer_image_opacity',
-											'label'      => esc_html__( 'Background image opacity', 'modern' ),
-											'default'    => .05,
-											'min'        => .05,
-											'max'        => 1,
-											'step'       => .05,
-											'multiplier' => 100,
-											'suffix'     => '%',
-											'validate'   => 'Modern_Library_Sanitize::float',
-											'preview_js' => array(
-												'css' => array(
-
-													'.site-footer::before' => array(
-														'opacity'
-													),
-
-												),
-											),
-										),
 
 
 

@@ -15,8 +15,7 @@
 		margin: 0;
 		list-style: none;
 
-		.sidebar &,
-		.fl-widget & {
+		.sidebar & {
 			border-width: 0;
 		}
 
@@ -29,8 +28,7 @@
 	li {
 		display: inline-block;
 
-		.sidebar &,
-		.fl-widget & {
+		.sidebar & {
 			margin-#{$right}: $golden_minor / 2 +em; // {{RTL}}
 		}
 

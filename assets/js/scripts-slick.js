@@ -102,14 +102,15 @@
 
 			var
 				$slickArgsIntroImages = {
-					'accessibility' : false,
-					'arrows'        : false,
-					'draggable'     : false,
-					'fade'          : true,
-					'pauseOnHover'  : false,
-					'swipe'         : false,
-					'slide'         : '.intro-slideshow-media',
-					'touchMove'     : false
+					'adaptiveHeight' : true,
+					'accessibility'  : false,
+					'arrows'         : false,
+					'draggable'      : false,
+					'fade'           : true,
+					'pauseOnHover'   : false,
+					'swipe'          : false,
+					'slide'          : '.intro-slideshow-media',
+					'touchMove'      : false
 				},
 				$slickArgsIntroTitles = {
 					'adaptiveHeight' : true,
@@ -127,7 +128,7 @@
 
 			// Create a new container for our images slider
 
-				$( '<div class="intro-slideshow-images">' )
+				$( '<div class="intro-slideshow-images intro-media">' )
 					.prependTo( '#intro-container' );
 
 			// Move all the posts images to our newly created container

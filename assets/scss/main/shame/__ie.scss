@@ -44,10 +44,7 @@
 		// Applying this strange fix to take care of correct height calculation.
 		//
 
-			.site-header > *,
-			.child-page > *,
-			.fl-module,
-			.fl-col .fl-col-group {
+			.site-header > * {
 				min-height: 1px;
 			}
 
@@ -61,7 +58,6 @@
 			.search-results.no-widgets-sidebar .site-main form[role="search"],
 			.search-results.no-widgets-sidebar .site-main .search-form,
 			.page-summary,
-			.intro-special .intro,
 			.no-widgets-sidebar .pagination {
 				max-width: 94ch;
 			}

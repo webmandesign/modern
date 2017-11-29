@@ -15,8 +15,7 @@
 		.widget_nav_menu & {
 			text-align: center;
 
-			.sidebar &,
-			.fl-widget & {
+			.sidebar & {
 				@extend %font_size_higher;
 				padding: 0 ( $golden_minor / 2 +em );
 			}

@@ -62,7 +62,7 @@ class Modern_Post {
 
 						add_action( 'tha_entry_bottom', __CLASS__ . '::skip_links', 999 );
 
-						add_action( 'tha_content_bottom', __CLASS__ . '::navigation', 95 );
+						add_action( 'tha_content_bottom', __CLASS__ . '::navigation' );
 
 						add_action( 'tha_content_top', __CLASS__ . '::template_front_loop_portfolio', 100 );
 						add_action( 'tha_content_top', __CLASS__ . '::template_front_loop_blog', 110 );

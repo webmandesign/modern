@@ -1,0 +1,72 @@
+
+		/**
+		 * Posts list
+		 */
+
+			.posts { margin: 0 -2%; }
+
+				.posts .hentry {
+					float: left;
+					position: relative;
+					width: 29.333%;
+					margin: 0 2% 4%;
+					-webkit-box-shadow: 0 0 4em rgba(0,0,0, .4);
+					        box-shadow: 0 0 4em rgba(0,0,0, .4);
+				}
+
+					.posts .entry-title {
+						margin-bottom: 12%;
+						text-transform: none;
+					}
+
+					.posts .entry-inner { padding: 12% 19%; }
+					.posts .entry-media + .entry-inner { padding-top: 8%; }
+
+			/* Page icon (in search posts list) */
+
+				.posts .type-page .entry-title:before {
+					content: '\f443';
+					margin-right: .19em;
+					opacity: .15;
+					vertical-align: baseline;
+				}
+
+			/* Taxonomy links (portfolio types links, for example) */
+
+				.taxonomy-links {
+					margin: 0 2% 4%;
+					list-style: none;
+					white-space: nowrap;
+					overflow: hidden;
+				}
+				.archive .taxonomy-links a,
+				.taxonomy-links:hover a { opacity: .4; }
+
+					.taxonomy-links li {
+						float: left;
+						margin: .38em .62em .38em 0;
+					}
+
+						.taxonomy-links a {
+							display: block;
+							padding: .62em 1em;
+							-webkit-transition: all .4s;
+							        transition: all .4s;
+						}
+						.post-type-archive-jetpack-portfolio .taxonomy-links .link-all a,
+						.archive .taxonomy-links .current a,
+						.taxonomy-links a:hover {
+							text-decoration: none;
+							opacity: 1;
+						}
+
+
+
+			/**
+			 * Archives tax description
+			 */
+
+				.taxonomy-description {
+					margin-bottom: 4%;
+					opacity: .66;
+				}

@@ -11,22 +11,15 @@
 // Site content width holder
 
 	.site-content {
+		position: relative;
+		padding-bottom: $golden + 6em;
+		z-index: 5;
+
+
 
 		&-inner {
 			@extend %content_width;
 			@extend .clearfix;
-			padding: ( $golden_major * $padding_vertical ) 0;
-
-			@include responsive( map_get( $breakpoint, 'l' ) ) {
-				padding-top: $padding_vertical;
-				padding-bottom: $padding_vertical;
-			}
-
-			@include responsive( map_get( $breakpoint, 'xl' ) ) {
-				padding-top: $golden * $padding_vertical;
-				padding-bottom: $golden * $padding_vertical;
-			}
-
 		}
 
 
@@ -46,7 +39,7 @@
 	.content-area {
 
 		@include responsive( map_get( $breakpoint, 'l' ) ) {
-			width: 62%;
+			width: 68%;
 
 			.has-widgets-sidebar & {
 				float: $left; // {{RTL}}
@@ -58,45 +51,11 @@
 				margin-right: auto;
 			}
 
-			.posts-layout-list.no-widgets-sidebar &,
-			.single.no-widgets-sidebar &,
-			.attachment.no-widgets-sidebar & {
-				max-width: 38em;
-				max-width: 70ch;
-			}
-
 		}
 
 		.error404 &,
 		.no-widgets-sidebar & {
 			width: 100%;
-		}
-
-	}
-
-
-
-// Extenders
-
-	%fullwidth_sections_layout {
-
-		.site-content-inner {
-			width: 100%;
-			max-width: none;
-			padding: 0;
-		}
-
-		.content-area {
-			float: none;
-			width: 100%;
-			padding: 0;
-			margin: 0;
-
-			html & {
-				// Unfortunately, we need to rise specificity for `max-width` due to possible IE shame styles overrides later.
-				max-width: none;
-			}
-
 		}
 
 	}

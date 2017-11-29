@@ -1,0 +1,81 @@
+/* FILE: main/base/__jquery-slick-custom.scss */
+
+//
+// Slick slider: Theme specific styles
+//
+
+
+
+
+
+.slick-list {
+
+	img {
+		width: 100%;
+	}
+
+}
+
+
+
+.slick-track {
+	cursor: e-resize;
+}
+
+
+
+.slick-arrow {
+	@extend %indent_text_for_icon_only;
+	position: absolute;
+	width: 2.62rem;
+	height: 2.62rem;
+	top: 50%;
+	padding: 0;
+	line-height: 2.62rem;
+	font-size: 1rem + $golden_minor;
+	overflow: hidden;
+	z-index: 19;
+
+	&::before {
+		height: 100%;
+	}
+
+	.slick-slider:hover & {
+		opacity: 1;
+	}
+
+	@include responsive( map_get( $breakpoint, 'xl' ) ) {
+		width: 3.62rem;
+		height: 3.62rem;
+		line-height: 3.62rem;
+	}
+
+}
+
+	@if rtl == $language_direction {
+		$direction_multiplier: -1;
+	} @else {
+		$direction_multiplier: 1;
+	}
+
+	.slick-prev {
+		#{$left}: 0; // {{RTL}}
+		transform: translateX( $direction_multiplier * -150% )
+		           translateY( -50% );
+
+		&::before {
+			@include rtl_property( content, '\f430', '\f429' ); // {{RTL}}
+		}
+
+	}
+
+	.slick-next {
+		#{$right}: 0; // {{RTL}}
+		transform: translateX( $direction_multiplier * 150% )
+		           translateY( -50% );
+
+		&::before {
+			@include rtl_property( content, '\f429', '\f430' ); // {{RTL}}
+		}
+
+	}
