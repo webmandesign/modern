@@ -407,7 +407,7 @@ class Modern_Setup {
 
 				// Allow filtering
 
-					$GLOBALS['content_width'] = absint( apply_filters( 'wmhook_modern_content_width', 1200 * .62 ) );
+					$GLOBALS['content_width'] = absint( apply_filters( 'wmhook_modern_content_width', 1200 ) );
 
 		} // /content_width
 
@@ -457,14 +457,18 @@ class Modern_Setup {
 					),
 
 					'medium' => array(
-						absint( $content_width ),
+						/**
+						 * Ideally this should be 39em/70ch - the same as max entry content width.
+						 * But this actually depends on the font family used.
+						 */
+						absint( $content_width * .62 ),
 						0,
 						false,
 						esc_html__( 'Not used in the theme.', 'modern' ),
 					),
 
 					'large' => array(
-						1200,
+						absint( $content_width ),
 						0,
 						false,
 						esc_html__( 'In single post or page.', 'modern' ),

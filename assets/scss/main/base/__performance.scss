@@ -18,6 +18,10 @@
 
 	// Navigation
 
+		.site-header-navigation {
+			will-change: transform;
+		}
+
 		.main-navigation-container {
 
 			@include responsive( map_get( $breakpoint, 'l' ), 'max-width' ) {

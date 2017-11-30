@@ -8,23 +8,29 @@
 
 
 
-// Entry content
+.entry {
 
-	.is-singular .entry {
-		// max-width: 38em;
-		// max-width: 70ch;
-		// margin-left: auto;
-		// margin-right: auto;
+	&-content {
+
+		&-container {
+			@extend %padding_top;
+			@extend %padding_bottom;
+			max-width: calc( 39em + #{ $golden * 2em } );
+			max-width: calc( 70ch + #{ $golden * 2em } );
+			padding-left: $golden +em;
+			padding-right: $golden +em;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
 	}
 
-
-
-// Excerpt
-
-	.entry-summary {
+	&-summary {
 
 		&.has-more-tag {
 			text-transform: uppercase;
 		}
 
 	}
+
+}

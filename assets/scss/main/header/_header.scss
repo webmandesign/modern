@@ -21,7 +21,21 @@
 		}
 
 		&-navigation {
+			@extend %box_shadow;
 			position: relative;
+			z-index: 99;
+
+			@include responsive( map_get( $breakpoint, 'l' ) ) {
+				position: fixed;
+				width: 100%;
+				#{$left}: 0; // {{RTL}}
+				top: 0;
+
+				.admin-bar & {
+					top: 32px;
+				}
+
+			}
 
 			&::before {
 				content: '';
@@ -43,6 +57,11 @@
 		&-content {
 			padding-top: power( $golden, 3 ) +em;
 			padding-bottom: power( $golden, 3 ) +em;
+
+			@include responsive( map_get( $breakpoint, 'l' ) ) {
+				margin-top: 3.5em;
+			}
+
 		}
 
 		&-inner {

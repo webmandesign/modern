@@ -9,14 +9,10 @@
 
 
 .pagination {
+	@extend %margin_top;
 	@extend .overflow-hidden;
 	padding: 1px; // To display accessibility outline.
-	margin-top: power( $golden, 2 ) +rem;
 	text-align: center;
-
-	@include responsive( map_get( $breakpoint, 'l' ) ) {
-		margin-top: $padding_vertical;
-	}
 
 	a,
 	span {

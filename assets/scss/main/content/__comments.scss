@@ -11,6 +11,18 @@
 // Container
 
 	.comments-area {
+		@extend %background_overlay_from_text_color;
+		padding-left: $golden +em;
+		padding-right: $golden +em;
+
+		&-inner {
+			@extend %padding_top;
+			@extend %padding_bottom;
+			max-width: 39em;
+			max-width: 70ch;
+			margin-left: auto;
+			margin-right: auto;
+		}
 
 		&:focus {
 			outline: 0;
@@ -47,14 +59,6 @@
 		@extend %font_weight_700;
 		margin-bottom: $golden +rem;
 
-		@include responsive( map_get( $breakpoint, 'm' ) ) {
-			margin-bottom: power( $golden, 2 ) +rem;
-		}
-
-		@include responsive( map_get( $breakpoint, 'l' ) ) {
-			margin-bottom: power( $golden, 3 ) +rem;
-		}
-
 		.add-comment-link {
 			@extend .screen-reader-text;
 			@extend .focus-position-static;
@@ -71,7 +75,6 @@
 // Avatar and meta info
 
 	.comment-meta {
-		border-bottom-width: 1px;
 
 		a {
 			text-decoration: none;
@@ -83,7 +86,6 @@
 		}
 
 		.avatar {
-			border-radius: 0;
 
 			@include responsive( map_get( $breakpoint, 'm' ) ) {
 				width: 80px;
@@ -199,11 +201,6 @@
 
 		.comments-title + & {
 			display: none;
-
-			// @include responsive( map_get( $breakpoint, 'm' ) ) {
-			// 	margin: ( -$golden +em ) 0 ( $golden +em );
-			// }
-
 		}
 
 		a,
@@ -243,7 +240,15 @@
 
 		&,
 		.comment-list & {
-			margin-top: $padding_vertical;
+			margin-top: power( $golden, 2 ) +em;
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		form {
+			margin-bottom: -$golden +em;
 		}
 
 		.comment-list & {

@@ -13,8 +13,6 @@
 	@extend %intro_colors;
 }
 
-
-
 .intro-media::after {
 	/*[*/
 	background-image: linear-gradient( transparent, map_get( $colors, 'body_background' ) );

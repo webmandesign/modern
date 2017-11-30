@@ -136,6 +136,13 @@
 		color: [[color_content_text]];
 		border-color: [[color_content_text(#{ map_get( $border_opacity_from_text, 'content' ) * 100 })]];
 		//*/
+
+		#{$h_tags},
+		.post-navigation,
+		.dropcap-text::first-letter {
+			@extend %site_content_headings_color;
+		}
+
 	}
 
 	%site_content_headings_color {

@@ -8,66 +8,6 @@
 
 
 
-// Page content
-
-	.page-header + .page-content {
-		margin-top: $golden +em;
-	}
-
-
-
-// Special pages
-
-	// Error 404 and "Not found" page
-
-		.error-404,
-		.not-found {
-
-			form {
-				display: inline-block;
-				width: percentage( $golden_major );
-
-				&::before {
-					padding: ( $golden_minor +em ) 0;
-					line-height: 1em + $golden_minor / 2;
-				}
-
-			}
-
-		}
-
-		.not-found {
-
-			// There is a sidebar on this page
-
-			form {
-				width: 100%;
-			}
-
-		}
-
-		.error404 {
-
-			.page-content {
-				margin-top: 1em;
-			}
-
-			form {
-
-				@include responsive( map_get( $breakpoint, 'l' ) ) {
-					max-width: percentage( $golden_major );
-				}
-
-				@include responsive( map_get( $breakpoint, 'xl' ) ) {
-					max-width: percentage( $golden_minor );
-				}
-
-			}
-
-		}
-
-
-
 // Page templates
 
 	// Front page
@@ -76,6 +16,76 @@
 
 			&.is-singular .content-area {
 				background: transparent;
+			}
+
+		}
+
+		.front-page-section {
+			@extend %margin_top;
+			@extend %margin_bottom;
+			position: relative;
+			z-index: 5;
+
+			&-inner {
+				@extend %content_width;
+				@extend .clearfix;
+			}
+
+			&-title {
+				@extend %font_weight_300;
+				padding: ( $golden +em ) 0;
+				margin: 0;
+				text-transform: uppercase;
+				border-top: 2px solid;
+			}
+
+			.archive-link {
+				margin-top: power( $golden, 2 ) +em;
+			}
+
+		}
+
+		.taxonomy-terms {
+			margin: 0 0 ( power( $golden, 2 ) +em );
+			list-style: none;
+
+			&-item {
+				display: inline-block;
+				margin: ( $golden_minor +em ) 0;
+				margin-#{$right}: $golden_major +em; // {{RTL}}
+				transition: opacity ( $small_animation_speed +s );
+			}
+
+			.button {
+				border: 2px solid transparent;
+
+				@include haf() {
+					opacity: 1;
+				}
+
+			}
+
+			.archive &,
+			&:hover {
+
+				.taxonomy-terms-item {
+
+					&:not(.is-active) {
+
+						.button {
+
+							&:not(:hover):not(:focus) {
+								background: transparent;
+								color: inherit;
+								border-color: currentColor;
+							}
+
+						}
+
+					}
+
+				}
+
 			}
 
 		}

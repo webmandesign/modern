@@ -9,11 +9,25 @@
 
 
 .entry-meta {
-	@extend %font_size_smaller;
-	padding: 0;
-	margin-top: 0;
-	margin-bottom: $golden_major +rem;
-	border-width: 0;
+	padding: 1em 0;
+	margin: ( $golden +rem ) 0;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	&-bottom {
+		padding-bottom: 0;
+		border-bottom-width: 0;
+	}
 
 	&:empty,
 	.updated,
@@ -22,15 +36,28 @@
 	}
 
 	&-element {
-		@extend %font_weight_700;
-		margin-#{$right}: $golden_major +em; // {{RTL}}
+		margin-#{$right}: $golden_minor +em; // {{RTL}}
 		opacity: 1;
 	}
 
 	&-description {
-		@extend %font_weight_400;
-		margin-#{$right}: $golden_minor +em; // {{RTL}}
+		@extend %indent_text_for_icon_only;
 		text-transform: uppercase;
+
+		&::before {
+			content: '';
+		}
+
+		// Meta element icons
+
+			@each $icon, $char in $entry_meta_icons {
+
+				.#{$icon} &::before {
+					content: $char;
+				}
+
+			}
+
 	}
 
 	a {
@@ -49,50 +76,6 @@
 		}
 
 	}
-
-
-
-	// Single post meta
-
-		.single & {
-			margin-bottom: power( $golden, 2 ) +em;
-
-			&-element {
-				margin-#{$right}: $golden +em; // {{RTL}}
-			}
-
-		}
-
-
-
-	// When page builder used
-
-		.single.content-layout-no-paddings & {
-			padding: 1em 0;
-			margin: 0;
-			text-align: center;
-			border-bottom-width: 1px;
-			border-bottom-style: solid;
-		}
-
-		.no-intro.content-layout-no-paddings & {
-			margin-top: -1px;
-		}
-
-
-
-	// In loop
-
-		.single.content-layout-no-paddings .posts & {
-			@extend %font_size_small;
-			padding: 1em 0;
-			margin: 0 0 ( $golden +rem );
-		}
-
-		.posts & {
-			@extend %font_size_small;
-			line-height: 2;
-		}
 
 }
 

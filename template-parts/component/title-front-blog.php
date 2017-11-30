@@ -29,6 +29,6 @@
 
 ?>
 
-<h2>
+<h2 class="front-page-section-title">
 	<?php echo apply_filters( 'wmhook_modern_title', $title, basename( __FILE__ ) ); ?>
 </h2>

@@ -249,10 +249,7 @@ class Modern_Post_Media {
 
 				if (
 					Modern_Post::is_singular()
-					&& (
-						! is_attachment()
-						|| Modern_Post::is_paged()
-					)
+					&& Modern_Post::is_paged()
 				) {
 					$pre = '';
 				}

@@ -10,6 +10,10 @@
 
 // Entry & Page title
 
+	.entry-header {
+		margin-bottom: power( $golden, 2 ) +em;
+	}
+
 	.entry-title,
 	.page-title {
 		@extend %break_words;

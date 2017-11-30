@@ -10,6 +10,14 @@
 
 .intro {
 
+	// Intro container, wrapper
+
+		&-container {
+			margin: 0;
+		}
+
+
+
 	// Intro media (image or slideshow)
 
 		&-media {

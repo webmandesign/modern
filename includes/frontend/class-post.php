@@ -57,20 +57,21 @@ class Modern_Post {
 
 					// Actions
 
-						add_action( 'tha_entry_top', __CLASS__ . '::title', 20 );
-						add_action( 'tha_entry_top', __CLASS__ . '::meta', 30 );
+						add_action( 'tha_entry_top', __CLASS__ . '::entry_content_container', 15 );
 
-						add_action( 'tha_entry_bottom', __CLASS__ . '::skip_links', 999 );
+						add_action( 'tha_entry_top', __CLASS__ . '::title', 20 );
+						add_action( 'tha_entry_top', __CLASS__ . '::meta_top', 30 );
+
+						add_action( 'tha_entry_bottom', __CLASS__ . '::meta_bottom' );
+						add_action( 'tha_entry_bottom', __CLASS__ . '::skip_links', 900 );
+						add_action( 'tha_entry_bottom', __CLASS__ . '::entry_content_container', 910 );
 
 						add_action( 'tha_content_bottom', __CLASS__ . '::navigation' );
 
-						add_action( 'tha_content_top', __CLASS__ . '::template_front_loop_portfolio', 100 );
-						add_action( 'tha_content_top', __CLASS__ . '::template_front_loop_blog', 110 );
+						add_action( 'tha_content_before', __CLASS__ . '::template_front_loop_blog', 200 );
 
-						add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::template_front_title_portfolio' );
 						add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::template_front_title_blog' );
 
-						add_action( 'wmhook_modern_postslist_after', __CLASS__ . '::template_front_link_portfolio' );
 						add_action( 'wmhook_modern_postslist_after', __CLASS__ . '::template_front_link_blog' );
 
 					// Filters
@@ -296,13 +297,29 @@ class Modern_Post {
 		 * @since    2.0.0
 		 * @version  2.0.0
 		 */
-		public static function meta() {
+		public static function meta_top() {
 
 			// Output
 
 				get_template_part( 'template-parts/meta/entry-meta', 'top' );
 
-		} // /meta
+		} // /meta_top
+
+
+
+		/**
+		 * Post meta bottom
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function meta_bottom() {
+
+			// Output
+
+				get_template_part( 'template-parts/meta/entry-meta', 'bottom' );
+
+		} // /meta_bottom
 
 
 
@@ -457,6 +474,26 @@ class Modern_Post {
 
 
 
+		/**
+		 * Entry content container
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function entry_content_container() {
+
+			// Output
+
+				if ( doing_action( 'tha_entry_top' ) ) {
+					echo '<div class="entry-content-container">';
+				} else {
+					echo '</div>';
+				}
+
+		} // /entry_content_container
+
+
+
 
 
 	/**
@@ -529,61 +566,9 @@ class Modern_Post {
 
 			/**
 			 * Front page section: Portfolio
+			 *
+			 * @see  `includes/plugins/jetpack/class-jetpack.php`
 			 */
-
-				/**
-				 * Front page section: Portfolio: Loop
-				 *
-				 * @since    2.0.0
-				 * @version  2.0.0
-				 */
-				public static function template_front_loop_portfolio() {
-
-					// Output
-
-						get_template_part( 'template-parts/loop/loop-front', 'portfolio' );
-
-				} // /template_front_loop_portfolio
-
-
-
-				/**
-				 * Front page section: Portfolio: Title
-				 *
-				 * @since    2.0.0
-				 * @version  2.0.0
-				 *
-				 * @param  string $context
-				 */
-				public static function template_front_title_portfolio( $context = '' ) {
-
-					// Output
-
-						if ( 'loop-front-portfolio.php' === $context ) {
-							get_template_part( 'template-parts/component/title-front', 'portfolio' );
-						}
-
-				} // /template_front_title_portfolio
-
-
-
-				/**
-				 * Front page section: Portfolio: Archive link
-				 *
-				 * @since    1.0.0
-				 * @version  2.0.0
-				 *
-				 * @param  string $context
-				 */
-				public static function template_front_link_portfolio( $context = '' ) {
-
-					// Output
-
-						if ( 'loop-front-portfolio.php' === $context ) {
-							get_template_part( 'template-parts/component/link-front', 'portfolio' );
-						}
-
-				} // /template_front_link_portfolio
 
 
 

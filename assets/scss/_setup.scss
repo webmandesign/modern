@@ -64,14 +64,6 @@
 
 
 	//
-	// Paddings
-	//
-
-		$padding_vertical: 5rem;
-
-
-
-	//
 	// Mobile menu
 	//
 
@@ -124,7 +116,7 @@
 
 			// Accent color
 
-				'accent':      #0aac8e,
+				'accent':      #009068, // Changed in theme version 2.0.0 from #0aac8e to make it more accessible.
 				'accent_text': #ffffff,
 
 			// Body
@@ -150,7 +142,7 @@
 			// Site footer
 
 				'footer_background': #eaecee,
-				'footer_text':       #6a6c6e,
+				'footer_text':       #5a5c5e, // Changed in theme version 2.0.0 from #6a6c6e to make it more accessible.
 				'footer_headings':   #1a1c1e,
 
 			// Predefined colors
@@ -317,11 +309,11 @@
 
 			// class: char
 
-			'author':          '\f304',
-			'cat-links':       '\f301',
-			'comments-link a': '\f300',
-			'entry-date':      '\f303',
-			'tags-links':      '\f302',
+			'author'        : '\f304',
+			'cat-links'     : '\f301',
+			'comments-link' : '\f300',
+			'entry-date'    : '\f303',
+			'tags-links'    : '\f302',
 
 		);
 

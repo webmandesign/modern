@@ -56,8 +56,6 @@ class Modern_Loop {
 
 						add_filter( 'get_the_archive_description', __CLASS__ . '::archive_author_description' );
 
-						add_filter( 'theme_mod_' . 'header_image', __CLASS__ . '::intro_image', 20 );
-
 						add_filter( 'navigation_markup_template', __CLASS__ . '::pagination_comments', 10, 2 );
 
 		} // /__construct
@@ -261,35 +259,6 @@ class Modern_Loop {
 				get_search_form( true );
 
 		} // /search_form
-
-
-
-		/**
-		 * Intro image
-		 *
-		 * Do not display intro image on search results page.
-		 *
-		 * @link  https://developer.wordpress.org/reference/functions/get_header_image/
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 *
-		 * @param  string $url  Image URL or other custom header value.
-		 */
-		public static function intro_image( $url ) {
-
-			// Requirements check
-
-				if ( ! is_search() ) {
-					return $url;
-				}
-
-
-			// Output
-
-				return 'remove-header';
-
-		} // /intro_image
 
 
 

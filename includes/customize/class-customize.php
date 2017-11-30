@@ -150,6 +150,10 @@ class Modern_Customize {
 							'selector' => '.archive .intro-title',
 						) );
 
+						$wp_customize->selective_refresh->add_partial( 'posts_per_page_front_blog', array(
+							'selector' => '.front-page-section-type-post .front-page-section-inner',
+						) );
+
 		} // /setup
 
 
@@ -165,8 +169,6 @@ class Modern_Customize {
 		public static function options( $options = array() ) {
 
 			// Helper variables
-
-				global $content_width;
 
 				$alpha = (array) self::rgba_alphas();
 
@@ -284,7 +286,7 @@ class Modern_Customize {
 										'type'    => 'color',
 										'id'      => 'color_accent',
 										'label'   => esc_html__( 'Accent color', 'modern' ),
-										'default' => '#0aac8e',
+										'default' => '#009068', // Changed in theme version 2.0.0 from #0aac8e to make it more accessible.
 									),
 									100 . 'colors' . 10 . 220 => array(
 										'type'        => 'color',
@@ -561,7 +563,7 @@ class Modern_Customize {
 										'type'       => 'color',
 										'id'         => 'color_footer_text',
 										'label'      => esc_html__( 'Text color', 'modern' ),
-										'default'    => '#6a6c6e',
+										'default'    => '#5a5c5e', // Changed in theme version 2.0.0 from #6a6c6e to make it more accessible.
 										'preview_js' => array(
 											'css' => array(
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Post meta, top
+ * Post meta, bottom
  *
  * We are using generic, global hook names in this file, but passing
  * a file name as a hook context/scope parameter you can check for.
@@ -19,8 +19,7 @@
 // Requirements check
 
 	if (
-		! is_single( get_the_ID() )
-		|| post_password_required()
+		post_password_required()
 		|| ! in_array(
 			get_post_type( get_the_ID() ),
 			(array) apply_filters( 'wmhook_modern_entry_meta_post_type', array( 'post' ), basename( __FILE__ ) )
@@ -32,11 +31,14 @@
 
 ?>
 
-<footer class="entry-meta entry-meta-top"><?php
+<footer class="entry-meta entry-meta-bottom"><?php
 
-	get_template_part( 'template-parts/meta/entry-meta-element', 'date' );
-	get_template_part( 'template-parts/meta/entry-meta-element', 'comments' );
-	get_template_part( 'template-parts/meta/entry-meta-element', 'category' );
-	get_template_part( 'template-parts/meta/entry-meta-element', 'author' );
+	if ( is_single( get_the_ID() ) ) {
+		get_template_part( 'template-parts/meta/entry-meta-element', 'tags' );
+	} else {
+		get_template_part( 'template-parts/meta/entry-meta-element', 'date' );
+		get_template_part( 'template-parts/meta/entry-meta-element', 'comments' );
+		get_template_part( 'template-parts/meta/entry-meta-element', 'author' );
+	}
 
 ?></footer>

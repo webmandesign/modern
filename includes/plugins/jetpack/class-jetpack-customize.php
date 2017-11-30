@@ -41,6 +41,10 @@ class Modern_Jetpack_Customize {
 
 				// Hooks
 
+					// Actions
+
+						add_action( 'customize_register', __CLASS__ . '::setup' );
+
 					// Filters
 
 						add_filter( 'wmhook_modern_theme_options', __CLASS__ . '::options' );
@@ -79,6 +83,34 @@ class Modern_Jetpack_Customize {
 	 */
 
 		/**
+		 * Modify native WordPress options and setup partial refresh
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 *
+		 * @param  object $wp_customize  WP customizer object.
+		 */
+		public static function setup( $wp_customize ) {
+
+			// Processing
+
+				// Partial refresh
+
+					// Option pointers only
+
+						$wp_customize->selective_refresh->add_partial( 'posts_per_page_front_portfolio', array(
+							'selector' => '.front-page-section-type-jetpack-portfolio .front-page-section-inner',
+						) );
+
+						$wp_customize->selective_refresh->add_partial( 'posts_per_page_front_testimonials', array(
+							'selector' => '.front-page-section-type-jetpack-testimonial .front-page-section-inner',
+						) );
+
+		} // /setup
+
+
+
+		/**
 		 * Theme options addons and modifications
 		 *
 		 * @since    2.0.0
@@ -106,6 +138,30 @@ class Modern_Jetpack_Customize {
 								'id'      => 'posts_per_page_front_portfolio',
 								'label'   => esc_html__( 'Posts count', 'modern' ),
 								'default' => 6,
+								'min'     => 2,
+								'max'     => 12,
+								'step'    => 1,
+							),
+
+					) );
+				}
+
+				if ( post_type_exists( 'jetpack-testimonial' ) ) {
+					$options = array_merge( $options, array(
+
+						/**
+						 * Layout / Front page template testimonials section
+						 */
+						300 . 'layout' . 200 => array(
+							'type'    => 'html',
+							'content' => '<h3>' . esc_html__( 'Testimonials section', 'modern' ) . '</h3><p class="description">' . esc_html__( 'Options for setting up testimonials section on "Front page" template.', 'modern' ) . '</p>',
+						),
+
+							300 . 'layout' . 210 => array(
+								'type'    => 'range',
+								'id'      => 'posts_per_page_front_testimonials',
+								'label'   => esc_html__( 'Posts count', 'modern' ),
+								'default' => 3,
 								'min'     => 2,
 								'max'     => 12,
 								'step'    => 1,

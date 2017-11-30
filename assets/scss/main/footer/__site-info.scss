@@ -22,11 +22,12 @@
 .site-info {
 
 	&-inner {
+		@extend %padding_top;
+		@extend %padding_bottom;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		flex-wrap: wrap;
-		padding: 6rem 0;
 	}
 
 }

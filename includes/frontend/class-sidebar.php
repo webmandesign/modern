@@ -198,14 +198,17 @@ class Modern_Sidebar {
 				}
 
 
+			// Helper variables
+
+				$disabled = Modern_Post::is_singular() && ! is_attachment() && ! is_page_template( 'page-template/_sidebar.php' );
+
+
 			// Processing
 
-				if (
-						is_404()
-						|| is_attachment()
-						|| ( is_page( get_the_ID() ) && ! is_page_template( 'page-template/_sidebar.php' ) )
-						|| apply_filters( 'wmhook_modern_sidebar_disable', false )
-					) {
+				if ( (bool) apply_filters( 'wmhook_modern_sidebar_disable',
+					is_404()
+					|| $disabled
+				) ) {
 					$is_active_sidebar = false;
 				}
 

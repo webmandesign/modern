@@ -10,7 +10,8 @@
 
 .footer-widgets {
 	@extend %horizontal_widget_area;
-	padding: 6rem 0;
+	@extend %padding_top;
+	@extend %padding_bottom;
 
 	&-inner {
 

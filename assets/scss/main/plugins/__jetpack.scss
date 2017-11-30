@@ -87,28 +87,41 @@
 
 	// Author bio
 
+		$padding : power( $golden, 2 ) +em;
+
 		.entry-author {
 			@extend %background_overlay_from_text_color;
 			margin-top: power( 1 + $golden_minor, 4 ) +em;
-			padding: 8%;
+			padding: $padding / 2; // Half the padding for mobiles.
 			border-width: 1px;
 			border-style: solid;
+
+			@include responsive( map_get( $breakpoint, 'm' ) ) {
+				padding: $padding;
+			}
 
 			&::before {
 				opacity: .03;
 			}
 
+			p {
+				margin-bottom: 1em;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+			}
+
 			.author {
 
 				&-avatar {
-					width: 60 *$px;
+					width: 3em;
 					margin-bottom: 1em;
 
 					@include responsive( map_get( $breakpoint, 'm' ) ) {
 						float: $left; // {{RTL}}
-						width: 80px;
 						margin-#{$right}: $golden +em;
-						margin-bottom: $golden +em;
 					}
 
 				}
@@ -226,21 +239,23 @@
 
 		}
 
-		.posts .type-jetpack-portfolio .entry {
-
-			&-header {
-				margin-bottom: 0;
-			}
-
-			&-content {
-				display: none;
-			}
-
-		}
-
 
 
 	// Testimonials
+
+		.type-jetpack-testimonial {
+
+			.entry-media,
+			.entry-header {
+				@extend %screen_reader_hiding;
+			}
+
+			.quote-source {
+				font-size: $golden_minor / 2 + 1em;
+				font-weight: 700;
+			}
+
+		}
 
 		.testimonial-entry {
 

@@ -80,17 +80,22 @@ class Modern_Jetpack {
 						/**
 						 * @link  https://jetpack.com/support/content-options/
 						 */
-						add_theme_support( 'jetpack-content-options', apply_filters( 'wmhook_modern_jetpack_setup_content_options', array(
+						$content_options = array(
 							'author-bio'   => true,
 							'post-details' => array(
 								'stylesheet' => (string) apply_filters( 'wmhook_modern_inline_styles_handle', 'modern-stylesheet-global' ),
 								'date'       => '.posted-on',
 								'categories' => '.cat-links',
 								'tags'       => '.tags-links',
-								'author'     => '.byline',
 								'comment'    => '.comments-link',
 							),
-						) ) );
+						);
+
+						if ( is_multi_author() ) {
+							$content_options['post-details']['author'] = '.byline';
+						}
+
+						add_theme_support( 'jetpack-content-options', (array) apply_filters( 'wmhook_modern_jetpack_setup_content_options', $content_options ) );
 
 				// Hooks
 
@@ -101,7 +106,16 @@ class Modern_Jetpack {
 
 						add_action( 'tha_entry_bottom', __CLASS__ . '::author_bio' );
 
-						// @todo Display `portfolio_taxonomy()` on top of front page portfolio and on top of portfolio archive.
+						add_action( 'tha_content_before', __CLASS__ . '::template_front_loop_portfolio', 100 );
+						add_action( 'tha_content_after', __CLASS__ . '::template_front_loop_testimonials' );
+
+						add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::template_front_title_portfolio' );
+						add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::template_front_title_testimonials' );
+
+						add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::portfolio_taxonomy', 20 );
+
+						add_action( 'wmhook_modern_postslist_after', __CLASS__ . '::template_front_link_portfolio' );
+						add_action( 'wmhook_modern_postslist_after', __CLASS__ . '::template_front_link_testimonials' );
 
 					// Filters
 
@@ -116,6 +130,9 @@ class Modern_Jetpack {
 						add_filter( 'jetpack_author_bio_avatar_size', __CLASS__ . '::author_bio_avatar_size' );
 
 						add_filter( 'wmhook_modern_post_navigation_post_type', __CLASS__ . '::add_post_types' );
+						add_filter( 'wmhook_modern_summary_continue_reading_post_type', __CLASS__ . '::add_post_types' );
+
+						add_filter( 'wmhook_modern_loop_content_type', __CLASS__ . '::template_front_content_testimonials' );
 
 		} // /__construct
 
@@ -187,22 +204,11 @@ class Modern_Jetpack {
 		 */
 		public static function sharing_show( $show = false, $post = null ) {
 
-			// Helper variables
-
-				// Make sure we display sharing on these post types even if page builder used there:
-				$forced_post_types = apply_filters( 'wmhook_modern_jetpack_sharing_show_forced_post_types', array( 'product' ) );
-
-
 			// Processing
 
 				if (
 						in_array( 'the_excerpt', (array) $GLOBALS['wp_current_filter'] )
 						|| ! Modern_Post::is_singular()
-						|| (
-							in_array( 'the_content', (array) $GLOBALS['wp_current_filter'] )
-							&& ! in_array( get_post_type(), (array) $forced_post_types )
-							&& Modern_Post::is_page_builder_ready()
-						)
 					) {
 
 					$show = false;
@@ -305,9 +311,52 @@ class Modern_Jetpack {
 
 			// Output
 
-				jetpack_author_bio();
+				echo self::get_author_bio();
 
 		} // /author_bio
+
+
+
+		/**
+		 * Get author bio HTML
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 *
+		 * @param  boolean $remove_default_paragraph
+		 */
+		public static function get_author_bio( $remove_default_paragraph = true ) {
+
+			// Requirements check
+
+				if ( ! function_exists( 'jetpack_author_bio' ) ) {
+					return;
+				}
+
+
+			// Processing
+
+				ob_start();
+				jetpack_author_bio();
+				$output = ob_get_clean();
+
+				if ( $remove_default_paragraph ) {
+					$output = str_replace(
+						array(
+							'<p class="author-bio">',
+							'</p><!-- .author-bio -->',
+						),
+						'',
+						$output
+					);
+				}
+
+
+			// Output
+
+				return $output;
+
+		} // /get_author_bio
 
 
 
@@ -358,25 +407,187 @@ class Modern_Jetpack {
 
 
 		/**
-		 * Display custom taxonomy archives links
-		 *
-		 * @since    1.0.0
-		 * @version  2.0.0
+		 * Page template: Front page
 		 */
-		public static function portfolio_taxonomy() {
 
-			// Helper variables
+			/**
+			 * Front page section: Portfolio
+			 */
 
-				$taxonomy = (string) apply_filters( 'wmhook_modern_jetpack_portfolio_taxonomy', 'jetpack-portfolio-type' );
+				/**
+				 * Front page section: Portfolio: Loop
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 */
+				public static function template_front_loop_portfolio() {
+
+					// Output
+
+						get_template_part( 'template-parts/loop/loop-front', 'portfolio' );
+
+				} // /template_front_loop_portfolio
 
 
-			// Output
 
-				if ( taxonomy_exists( $taxonomy ) ) {
-					get_template_part( 'template-parts/components/list-terms', $taxonomy );
-				}
+				/**
+				 * Front page section: Portfolio: Title
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 *
+				 * @param  string $context
+				 */
+				public static function template_front_title_portfolio( $context = '' ) {
 
-		} // /portfolio_taxonomy
+					// Output
+
+						if ( 'loop-front-portfolio.php' === $context ) {
+							get_template_part( 'template-parts/component/title-front', 'portfolio' );
+						}
+
+				} // /template_front_title_portfolio
+
+
+
+				/**
+				 * Display custom taxonomy archives links
+				 *
+				 * @since    1.0.0
+				 * @version  2.0.0
+				 *
+				 * @param  string $context
+				 */
+				public static function portfolio_taxonomy( $context = '' ) {
+
+					// Requirements check
+
+						if (
+							! empty( $context )
+							&& 'loop-front-portfolio.php' !== $context
+						) {
+							return;
+						}
+
+
+					// Helper variables
+
+						$taxonomy = (string) apply_filters( 'wmhook_modern_jetpack_portfolio_taxonomy', 'jetpack-portfolio-type' );
+
+
+					// Output
+
+						if ( taxonomy_exists( $taxonomy ) ) {
+							get_template_part( 'template-parts/component/list-terms', $taxonomy );
+						}
+
+				} // /portfolio_taxonomy
+
+
+
+				/**
+				 * Front page section: Portfolio: Archive link
+				 *
+				 * @since    1.0.0
+				 * @version  2.0.0
+				 *
+				 * @param  string $context
+				 */
+				public static function template_front_link_portfolio( $context = '' ) {
+
+					// Output
+
+						if ( 'loop-front-portfolio.php' === $context ) {
+							get_template_part( 'template-parts/component/link-front', 'portfolio' );
+						}
+
+				} // /template_front_link_portfolio
+
+
+
+			/**
+			 * Front page section: Testimonials
+			 */
+
+				/**
+				 * Front page section: Testimonials: Loop
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 */
+				public static function template_front_loop_testimonials() {
+
+					// Output
+
+						get_template_part( 'template-parts/loop/loop-front', 'testimonials' );
+
+				} // /template_front_loop_testimonials
+
+
+
+				/**
+				 * Front page section: Testimonials: Title
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 *
+				 * @param  string $context
+				 */
+				public static function template_front_title_testimonials( $context = '' ) {
+
+					// Output
+
+						if ( 'loop-front-testimonials.php' === $context ) {
+							get_template_part( 'template-parts/component/title-front', 'testimonials' );
+						}
+
+				} // /template_front_title_testimonials
+
+
+
+				/**
+				 * Front page section: Testimonials: Archive link
+				 *
+				 * @since    1.0.0
+				 * @version  2.0.0
+				 *
+				 * @param  string $context
+				 */
+				public static function template_front_link_testimonials( $context = '' ) {
+
+					// Output
+
+						if ( 'loop-front-testimonials.php' === $context ) {
+							get_template_part( 'template-parts/component/link-front', 'testimonials' );
+						}
+
+				} // /template_front_link_testimonials
+
+
+
+				/**
+				 * Front page section: Testimonials: Content type to display
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 *
+				 * @param  string $content_type
+				 * @param  string $context
+				 */
+				public static function template_front_content_testimonials( $content_type = '' ) {
+
+					// Processing
+
+						if ( 'jetpack-testimonial' === get_post_type() ) {
+							$content_type = 'quote';
+						}
+
+
+					// Output
+
+						return $content_type;
+
+				} // /template_front_content_testimonials
 
 
 

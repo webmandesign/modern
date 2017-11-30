@@ -16,20 +16,22 @@
 		background-color: map_get( $colors, 'body_background' ); //*
 	}
 
+	//
+	// Make site text (the text outside entry container) the intro text color
+	//
+	.site {
+		/*[*/
+		color: map_get( $colors, 'intro_text' );
+		/*]*/
+		/*//
+		color: [[color_intro_text]];
+		//*/
+	}
+
 	*,
 	*::after,
 	*::before {
 		border-color: inherit; //*
-	}
-
-
-
-// Headings
-
-	#{$h_tags},
-	.post-navigation,
-	.dropcap-text::first-letter {
-		@extend %site_content_headings_color;
 	}
 
 

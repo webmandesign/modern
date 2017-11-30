@@ -1,6 +1,6 @@
 <?php
 /**
- * Front page template section title: Portfolio
+ * Front page template section title: Testimonials
  *
  * We are using generic, global hook names in this file, but passing
  * a file name as a hook context/scope parameter you can check for.
@@ -18,7 +18,7 @@
 
 // Helper variables
 
-	$post_type = 'jetpack-portfolio';
+	$post_type = 'jetpack-testimonial';
 	$labels    = get_post_type_labels( get_post_type_object( $post_type ) );
 
 

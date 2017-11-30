@@ -22,6 +22,7 @@
 		}
 
 		.widget {
+			@extend %box_shadow;
 			padding: power( $golden, 2 ) +rem;
 			margin-bottom: 2rem;
 		}

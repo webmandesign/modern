@@ -8,32 +8,51 @@
 
 
 
+$gutter : 2em;
+$padding : power( $golden, 2 ) +em;
+
 .posts {
 	display: flex;
 	flex-wrap: wrap;
-	margin: -1em;
+	margin: -$gutter / 2;
 
 	.entry {
+		@extend %box_shadow;
+		display: flex;
+		flex-direction: column;
 		position: relative;
-		width: calc( 100% - 2em );
-		padding: $golden +em;
-		margin: 1em;
-		border-width: 1px;
-		border-style: solid;
-		border-bottom-width: 2px;
-		border-bottom-color: inherit;
+		width: calc( 100% - #{ $gutter } );
+		padding: $padding / 2; // Half the padding for mobiles.
+		margin: $gutter / 2;
 
 		@include responsive( map_get( $breakpoint, 'm' ) ) {
-			padding: 2em;
-			width: calc( 50% - 2em );
+			padding: $padding;
+			width: calc( 50% - #{ $gutter } );
 		}
 
 		@include responsive( map_get( $breakpoint, 'l' ) ) {
 
 			.no-widgets-sidebar & {
-				width: calc( 33.33% - 2em );
+				width: calc( 33.33% - #{ $gutter } );
 			}
 
+		}
+
+		&-media {
+			flex: 0 1 auto;
+			width: auto;
+			margin: -$padding / 2;
+			margin-bottom: $padding / 2;
+
+			@include responsive( map_get( $breakpoint, 'm' ) ) {
+				margin: -$padding;
+				margin-bottom: $padding;
+			}
+
+		}
+
+		&-header {
+			margin-bottom: $golden +em;
 		}
 
 		&-content {
@@ -47,6 +66,27 @@
 
 			}
 
+			&-container {
+				flex: 1 1 auto;
+				display: flex;
+				flex-direction: column;
+				padding: 0;
+			}
+
+		}
+
+		&-content,
+		&-summary {
+
+			&:not(:last-child) {
+				margin-bottom: $golden +em;
+			}
+
+		}
+
+		&-meta {
+			@extend %font_size_smaller;
+			margin-top: auto;
 		}
 
 	}
@@ -60,16 +100,8 @@
 	.posts {
 
 		.search-results form + & {
-			margin-top: $golden * 3em;
+			margin-top: power( $golden, 2 ) +em;
 		}
-
-
-
-		// Page post type in search results list
-
-			.type-page .entry-summary {
-				margin-bottom: 0;
-			}
 
 	}
 
@@ -80,7 +112,17 @@
 	.link-more {
 
 		.entry-summary + & {
-			margin-top: 1rem;
+			margin-top: 1em;
 		}
 
+	}
+
+
+
+// Archive description
+
+	.archive-description {
+		max-width: 39em;
+		max-width: 70ch;
+		margin-bottom: power( $golden, 2 ) +em;
 	}

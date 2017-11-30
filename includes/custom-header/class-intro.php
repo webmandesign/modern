@@ -329,7 +329,7 @@ class Modern_Intro {
 					$post_id = get_the_ID();
 				}
 
-				$intro_image = trim( get_post_meta( $post_id, 'intro_image', true ) );
+				$intro_image = trim( get_post_meta( $post_id, 'banner_image', true ) );
 
 
 			// Processing
