@@ -744,7 +744,7 @@ div.sharedaddy .sd-social .sd-button .share-count { background: inherit; color: 
 /* FILE: main/icons/_icons.scss */
 @font-face { font-family: 'Genericons-Neue'; /*[*/ src: url("../fonts/genericons-neue/Genericons-Neue.woff") format("woff"), url("../fonts/genericons-neue/Genericons-Neue.ttf") format("truetype"); /*]*/ /*// src: url('[[get_template_directory_uri]]/assets/fonts/genericons-neue/Genericons-Neue.woff') format('woff'), url('[[get_template_directory_uri]]/assets/fonts/genericons-neue/Genericons-Neue.ttf') format('truetype'); //*/ font-weight: normal; font-style: normal; }
 
-.slick-arrow::before, .entry-meta-description::before, .genericons-neue::before, blockquote::before, .site form[role="search"]::before, .site .search-form::before, .post-password-form::before, .menu-toggle::before, .social-links a.back-to-top::before, .bypostauthor > .comment-body .comment-author::before, .comment-edit-link::before, .comment-reply-link::before, .pingback .comment-body::before, .trackback .comment-body::before, .widget_archive li::before, .widget_categories li::before, .widget_pages li::before, .widget_recent_comments li::before, .widget_recent_entries li::before { font-family: 'Genericons-Neue'; font-style: normal; font-weight: normal; font-variant: normal; text-decoration: inherit; text-transform: none; speak: none; }
+.slick-arrow::before, .entry-meta-description::before, .genericons-neue::before, blockquote::before, .site form[role="search"]::before, .site .search-form::before, .post-password-form::before, .menu-toggle::before, .social-links a.back-to-top::before, .posts .type-page .entry-title::before, .bypostauthor > .comment-body .comment-author::before, .comment-edit-link::before, .comment-reply-link::before, .pingback .comment-body::before, .trackback .comment-body::before, .widget_archive li::before, .widget_categories li::before, .widget_pages li::before, .widget_recent_comments li::before, .widget_recent_entries li::before { font-family: 'Genericons-Neue'; font-style: normal; font-weight: normal; font-variant: normal; text-decoration: inherit; text-transform: none; speak: none; }
 
 .svgicon { display: inline-block; position: relative; width: 1em; height: 1em; top: -0.0625em; fill: currentColor; vertical-align: middle; }
 
@@ -1701,6 +1701,8 @@ blockquote.alignright { margin-right: 0; }
 @media only screen and (min-width: 42em) { .posts .entry-media { margin: -2.6244em; margin-bottom: 2.6244em; } }
 
 .posts .entry-header { margin-bottom: 1.62em; }
+
+.posts .type-page .entry-title::before { content: '\f443'; margin-left: 0.31em; vertical-align: middle; }
 
 .posts .entry-content p { margin-bottom: 1em; }
 

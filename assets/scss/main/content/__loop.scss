@@ -55,6 +55,21 @@ $padding : power( $golden, 2 ) +em;
 			margin-bottom: $golden +em;
 		}
 
+		&-title {
+
+			&::before {
+
+				@include in( '^.type-page' ) {
+					@extend %genericon;
+					content: '\f443';
+					margin-#{$right}: $golden_major / 2 +em; // {{RTL}}
+					vertical-align: middle;
+				}
+
+			}
+
+		}
+
 		&-content {
 
 			p {
