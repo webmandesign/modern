@@ -197,11 +197,9 @@
 // Navigation
 
 	.comment-navigation {
-		padding: 8% 0;
-
-		.comments-title + & {
-			display: none;
-		}
+		padding: ( $golden +em ) 0;
+		margin: 0;
+		text-align: inherit;
 
 		a,
 		span {
@@ -212,6 +210,7 @@
 			display: block;
 			padding: 0;
 			margin: 0;
+			text-align: inherit;
 
 			a,
 			span {

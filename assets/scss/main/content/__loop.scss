@@ -51,6 +51,10 @@ $padding : power( $golden, 2 ) +em;
 
 		}
 
+			.post-thumbnail {
+				text-align: center;
+			}
+
 		&-header {
 			margin-bottom: $golden +em;
 		}

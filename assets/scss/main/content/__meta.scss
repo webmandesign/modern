@@ -58,6 +58,10 @@
 
 			}
 
+			.tags-links & {
+				@extend %screen_reader_hiding;
+			}
+
 	}
 
 	a {
@@ -65,6 +69,16 @@
 
 		@include haf() {
 			text-decoration: underline;
+		}
+
+		@include in( '^.tags-links' ) {
+			text-transform: none;
+
+			&::before {
+				@extend %genericon;
+				content: '\f302';
+				margin-#{$right}: $golden_minor / 2 +em; // {{RTL}}
+			}
 		}
 
 	}
