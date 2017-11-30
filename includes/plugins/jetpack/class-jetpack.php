@@ -207,12 +207,11 @@ class Modern_Jetpack {
 			// Processing
 
 				if (
-						in_array( 'the_excerpt', (array) $GLOBALS['wp_current_filter'] )
-						|| ! Modern_Post::is_singular()
-					) {
-
+					in_array( 'the_excerpt', (array) $GLOBALS['wp_current_filter'] )
+					|| ! Modern_Post::is_singular()
+					|| post_password_required()
+				) {
 					$show = false;
-
 				}
 
 
@@ -303,6 +302,7 @@ class Modern_Jetpack {
 				if (
 						! function_exists( 'jetpack_author_bio' )
 						|| ! Modern_Post::is_singular()
+						|| post_password_required()
 						|| ! in_array( get_post_type(), (array) apply_filters( 'wmhook_modern_jetpack_author_bio_post_type', array( 'post' ) ) )
 					) {
 					return;
