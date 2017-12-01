@@ -1,7 +1,7 @@
 /* FILE: custom-styles.scss */
 /* FILE: main/custom-styles/_main.scss */
 /* FILE: main/custom-styles/__extenders.scss */
-.button, button, input[type="button"], input[type="reset"], input[type="submit"], .child-page .more-link, .main-navigation-container .button > a, .menu-toggle, mark, #page mark, .highlight, #page .highlight, .pagination .current, .bypostauthor > .comment-body .comment-author::before, .widget_calendar tbody a, .widget .tagcloud a:hover, .widget .tagcloud a:focus, .widget .tagcloud a:active, .set-colors-accent, .slick-slider .slick-arrow, .slick-slider .slick-dots button:hover, .slick-slider .slick-dots button:focus, .slick-slider .slick-active button, .posts .sticky::before, .format-image .entry-media::before, .format-quote.entry, .format-status.entry, .type-jetpack-testimonial.entry, .sidebar .widget .current_page_item > a, .sidebar .widget .current-menu-item > a, .site #infinite-handle span { /*[*/ background-color: #009068; color: #ffffff; /*]*/ /*// background-color: [[color_accent]]; color: [[color_accent_text]]; //*/ }
+.button, button, input[type="button"], input[type="reset"], input[type="submit"], .child-page .more-link, .main-navigation-container .button > a, .menu-toggle, mark, #page mark, .highlight, #page .highlight, .pagination .current, .bypostauthor > .comment-body .comment-author::before, .widget_calendar tbody a, .widget .tagcloud a:hover, .widget .tagcloud a:focus, .widget .tagcloud a:active, .set-colors-accent, .slick-slider .slick-arrow, .slick-slider .slick-dots button:hover, .slick-slider .slick-dots button:focus, .slick-slider .slick-active button, .posts .sticky::before, .format-image .entry-media::before, .format-quote.entry, .format-status.entry, .type-jetpack-testimonial.entry, .post-navigation .nav-links a, .sidebar .widget .current_page_item > a, .sidebar .widget .current-menu-item > a, .site #infinite-handle span { /*[*/ background-color: #009068; color: #ffffff; /*]*/ /*// background-color: [[color_accent]]; color: [[color_accent_text]]; //*/ }
 
 .site-content div.sharedaddy .sd-content ul li a.sd-button:not(.no-text) { /*[*/ background-color: #009068; /*]*/ /*// background-color: [[color_accent]]; //*/ }
 
@@ -118,6 +118,10 @@ mark, .highlight { /*[*/ box-shadow: 0.38em 0 0 #009068, -0.38em 0 0 #009068; /*
 .intro-media::after { /*[*/ background-image: linear-gradient(transparent, #1a1c1e); /*]*/ /*// background-image: linear-gradient( transparent, [[background_color]] ); //*/ }
 
 /* FILE: main/custom-styles/__content.scss */
+.post-navigation .nav-previous a::before { /*[*/ background-image: linear-gradient(to right, #009068 38%, transparent); /*]*/ /*// background-image: linear-gradient( to right, [[color_accent]] 38%, transparent ); //*/ }
+
+.post-navigation .nav-next a::before { /*[*/ background-image: linear-gradient(to left, #009068 38%, transparent); /*]*/ /*// background-image: linear-gradient( to left, [[color_accent]] 38%, transparent ); //*/ }
+
 /* FILE: main/custom-styles/__footer.scss */
 .site-footer mark, .site-footer #page mark, .site-footer .highlight, .site-footer #page .highlight, .site-footer .pagination .current, .site-footer .bypostauthor > .comment-body .comment-author::before, .site-footer .widget_calendar tbody a, .site-footer .widget .tagcloud a:hover, .site-footer .widget .tagcloud a:focus, .site-footer .widget .tagcloud a:active { text-shadow: none; /*[*/ background-color: #1a1c1e; color: #eaecee; /*]*/ /*// background-color: [[color_footer_headings]]; color: [[color_footer_background]]; //*/ }
 

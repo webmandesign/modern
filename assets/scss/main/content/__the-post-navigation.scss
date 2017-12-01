@@ -9,80 +9,67 @@
 
 
 .post-navigation {
-	border-top-width: 1px;
-	border-top-style: solid;
 
-	.nav-links {
-		@extend %content_width;
+	.nav {
 
-		@include responsive( map_get( $breakpoint, 'm' ) ) {
-			display: flex;
-			flex-wrap: wrap;
-		}
+		&-links {
 
-		> div {
-			position: relative;
+			a {
+				display: block;
+				position: relative;
+				padding: 8% 8% 4%;
+				text-decoration: none;
+				background-position: 50% 50%;
+				background-size: cover;
+				z-index: 1;
 
-			@include responsive( map_get( $breakpoint, 'm' ) ) {
-				flex: 1 1 0%;
-			}
+				&::before {
+					content: '';
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					left: 0;
+					top: 0;
+					z-index: -1;
+					opacity: .95;
+					transition: opacity ( $small_animation_speed +s );
+				}
 
-			@include responsive( map_get( $breakpoint, 'l' ) ) {
-				transition: opacity ( $large_animation_speed +s );
-			}
-
-			&:nth-child(2) {
-
-				@include responsive( map_get( $breakpoint, 'm' ) ) {
-					// Two links
-					text-align: $right; // {{RTL}}
+				&:hover::before {
+					opacity: 1;
 				}
 
 			}
 
+
+
+			// Link label ("Previous" or "Next")
+
+				.label {
+					@extend %font_size_small;
+					display: block;
+					text-transform: uppercase;
+				}
+
+
+
+			// Entry title
+
+				.title {
+					@extend %font_size_golden_minor;
+					display: block;
+				}
+
 		}
 
-		a {
-			@extend %padding_top;
-			@extend %padding_bottom;
-			display: block;
-			margin: 1px; // For focus outline
-			text-decoration: none;
-			color: inherit;
+		&-previous,
+		&-next {
+			margin-top: 2px;
 		}
 
-
-
-		// Link label ("Previous" or "Next")
-
-			.label {
-				@extend %font_size_small;
-				display: block;
-				text-transform: uppercase;
-				white-space: nowrap;
-				opacity: .8;
-			}
-
-
-
-		// Entry title
-
-			.title {
-				@extend %font_weight_700;
-				display: block;
-			}
-
-
-
-		// Hover action
-
-			&:hover > div {
-				opacity: .5;
-			}
-
-			> div:not(:empty):hover {
-				opacity: 1;
-			}
+		&-next {
+			text-align: $right; // {{RTL}}
+		}
 
 	}
 

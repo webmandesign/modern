@@ -37,3 +37,45 @@
 		.type-jetpack-testimonial.entry {
 			@extend %accent_colors;
 		}
+
+
+
+	// Post navigation
+
+		.post-navigation {
+
+			.nav {
+
+				&-links a {
+					@extend %accent_colors;
+				}
+
+				&-previous a {
+
+					&::before {
+						/*[*/
+						background-image: linear-gradient( to #{$right}, map_get( $colors, 'accent' ) 38%, transparent );
+						/*]*/
+						/*//
+						background-image: linear-gradient( to #{$right}, [[color_accent]] 38%, transparent );
+						//*/
+					}
+
+				}
+
+				&-next a {
+
+					&::before {
+						/*[*/
+						background-image: linear-gradient( to #{$left}, map_get( $colors, 'accent' ) 38%, transparent );
+						/*]*/
+						/*//
+						background-image: linear-gradient( to #{$left}, [[color_accent]] 38%, transparent );
+						//*/
+					}
+
+				}
+
+			}
+
+		}

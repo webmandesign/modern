@@ -372,16 +372,19 @@ class Modern_Post {
 				 * translator decides not to use the `%s` in translated string.
 				 */
 				$args = array(
+
 					'prev_text' => '<span class="label">' . str_replace(
-							'$s',
-							$post_type_labels->singular_name,
-							esc_html_x( 'Previous $s', '$s: Custom post type singular label', 'modern' )
-						) . '</span> <span class="title">%title</span>',
+						'$s',
+						$post_type_labels->singular_name,
+						esc_html_x( 'Previous $s', '$s: Custom post type singular label', 'modern' )
+					) . '</span> <span class="title">%title</span>',
+
 					'next_text' => '<span class="label">' . str_replace(
-							'$s',
-							$post_type_labels->singular_name,
-							esc_html_x( 'Next $s', '$s: Custom post type singular label', 'modern' )
-						) . '</span> <span class="title">%title</span>',
+						'$s',
+						$post_type_labels->singular_name,
+						esc_html_x( 'Next $s', '$s: Custom post type singular label', 'modern' )
+					) . '</span> <span class="title">%title</span>',
+
 				);
 
 				if ( is_attachment() ) {
@@ -390,14 +393,60 @@ class Modern_Post {
 					);
 				}
 
+				$args = (array) apply_filters( 'wmhook_modern_post_navigation_args', $args );
+				$args = wp_parse_args( $args, array(
+					'prev_text'          => '%title',
+					'next_text'          => '%title',
+					'in_same_term'       => false,
+					'excluded_terms'     => '',
+					'taxonomy'           => 'category',
+					'screen_reader_text' => esc_html__( 'Post navigation', 'modern' ),
+				) );
+
+				$styles = '';
+
+				$posts = array(
+
+					'previous' => get_adjacent_post(
+						$args['in_same_term'],
+						$args['excluded_terms'],
+						true, // Previous?
+						$args['taxonomy']
+					),
+
+					'next' => get_adjacent_post(
+						$args['in_same_term'],
+						$args['excluded_terms'],
+						false, // Previous?
+						$args['taxonomy']
+					),
+
+				);
+
+
+			// Processing
+
+				foreach ( $posts as $key => $post ) {
+					if ( isset( $post->ID ) ) {
+						$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+						if ( isset( $image[0] ) && $image[0] ) {
+							$styles .= '.post-navigation .nav-' . sanitize_html_class( $key ) . ' a { background-image: url("' . esc_url( $image[0] ) . '"); }';
+						}
+					}
+				}
+
+				if ( $styles ) {
+					$styles = (string) apply_filters( 'wmhook_modern_post_navigation_styles', '<style id="post-navigation-css" type="text/css">' . apply_filters( 'wmhook_modern_esc_css', $styles ) . '</style>' );
+				}
+
 
 			// Output
 
 				echo str_replace(
 					' role="navigation"',
 					'',
-					get_the_post_navigation( (array) apply_filters( 'wmhook_modern_post_navigation_args', $args ) )
-				);
+					get_the_post_navigation( $args )
+				) . $styles;
 
 		} // /navigation
 
