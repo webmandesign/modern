@@ -1317,7 +1317,7 @@ h1.screen-reader-text, .comments-title h1.add-comment-link, h2.screen-reader-tex
 /* FILE: main/headings/__entry-header.scss */
 .entry-header { margin-bottom: 2.6244em; }
 
-.entry-title, .page-title { padding: 0; margin: 0 0 6%; }
+.entry-title, .page-title { padding: 0; margin: 0; }
 
 .entry-title small, .page-title small { display: block; margin-top: 0.38rem; }
 
