@@ -10,11 +10,14 @@
 
 // Default site header elements
 
-	.site-header-content,
 	.site-header-navigation,
 	.site-header-navigation::before,
 	.#{$special_color_class_prefix}header {
 		@extend %site_header_colors;
+	}
+
+	.site-header-content {
+		@extend %intro_colors;
 	}
 
 	.site-header-content,

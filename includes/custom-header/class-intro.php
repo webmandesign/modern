@@ -329,6 +329,7 @@ class Modern_Intro {
 					$post_id = get_the_ID();
 				}
 
+				// Using old name "banner_image" for backwards compatibility.
 				$intro_image = trim( get_post_meta( $post_id, 'banner_image', true ) );
 
 

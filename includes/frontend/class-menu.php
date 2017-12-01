@@ -259,9 +259,9 @@ class Modern_Menu {
 			// Processing
 
 				if (
-						in_array( $args->theme_location, array( 'primary' ) )
-						&& trim( $item->description )
-					) {
+					in_array( $args->theme_location, array( 'primary' ) )
+					&& trim( $item->description )
+				) {
 
 					$item_output = str_replace(
 						$args->link_after . '</a>',
@@ -298,9 +298,9 @@ class Modern_Menu {
 			// Processing
 
 				if (
-						'primary' === $args->theme_location
-						&& in_array( 'menu-item-has-children', (array) $item->classes )
-					) {
+					'primary' === $args->theme_location
+					&& in_array( 'menu-item-has-children', (array) $item->classes )
+				) {
 
 					$item_output = str_replace(
 						$args->link_after . '</a>',
@@ -466,10 +466,10 @@ class Modern_Menu {
 				// Processing
 
 					if (
-							isset( $locations['social'] )
-							&& isset( $args->menu->term_id )
-							&& absint( $locations['social'] ) === absint( $args->menu->term_id )
-						) {
+						isset( $locations['social'] )
+						&& isset( $args->menu->term_id )
+						&& absint( $locations['social'] ) === absint( $args->menu->term_id )
+					) {
 
 						$social_icons = (array) apply_filters( 'wmhook_modern_social_links_icons', array() );
 						$social_icon  = 'chain';
@@ -522,10 +522,10 @@ class Modern_Menu {
 				// Requirements check
 
 					if (
-							! isset( $locations['social'] )
-							|| ! $locations['social']
-							|| absint( $locations['social'] ) !== absint( $nav_menu_obj->term_id )
-						) {
+						! isset( $locations['social'] )
+						|| ! $locations['social']
+						|| absint( $locations['social'] ) !== absint( $nav_menu_obj->term_id )
+					) {
 						return $nav_menu_args;
 					}
 

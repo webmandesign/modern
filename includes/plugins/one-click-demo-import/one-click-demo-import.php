@@ -27,9 +27,9 @@
  */
 
 	if (
-			! class_exists( 'OCDI_Plugin' )
-			|| ! is_admin()
-		) {
+		! class_exists( 'OCDI_Plugin' )
+		|| ! is_admin()
+	) {
 		return;
 	}
 

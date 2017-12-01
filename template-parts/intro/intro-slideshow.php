@@ -20,8 +20,10 @@ foreach ( Modern_Intro::get_slides() as $post ) :
 
 // Helper variables
 
-	$image_size   = 'modern-intro';
-	$link_url     = apply_filters( 'wmhook_modern_intro_slideshow_link_url', get_permalink( $post ), $post );
+	$image_size = 'modern-intro';
+	$link_url   = apply_filters( 'wmhook_modern_intro_slideshow_link_url', get_permalink( $post ), $post );
+
+	// Using old name "banner_image" and "banner_text" for backwards compatibility.
 	$custom_image = trim( get_post_meta( $post->ID, 'banner_image', true ) );
 	$custom_title = trim( get_post_meta( $post->ID, 'banner_text', true ) );
 

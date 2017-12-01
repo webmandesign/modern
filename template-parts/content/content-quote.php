@@ -46,9 +46,9 @@ do_action( 'tha_entry_before' );
 				// Finally, display the quote source only if it wasn't included in the post content
 
 					if (
-							false === stristr( $content, '<cite' )
-							&& $quote_source
-						) {
+						false === stristr( $content, '<cite' )
+						&& $quote_source
+					) {
 						$content .= '<cite class="quote-source">' . $quote_source . '</cite>';
 					}
 

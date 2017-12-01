@@ -26,10 +26,6 @@
 					@extend %no_margin;
 				}
 
-				.link-more {
-					display: none;
-				}
-
 			}
 
 		}
@@ -75,12 +71,6 @@
 			blockquote {
 				padding: 0;
 				margin-top: 0;
-
-				&::after,
-				&::before {
-					display: none;
-				}
-
 			}
 
 			.entry-content {

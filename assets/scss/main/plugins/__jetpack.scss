@@ -8,6 +8,17 @@
 
 
 
+// Infinite scroll
+
+	#infinite-handle,
+	.infinite-loader {
+		// Making it cleared in flexbox layout.
+		width: 100%;
+		margin-top: 2em;
+	}
+
+
+
 // Related posts
 
 	div#jp-relatedposts {
@@ -87,17 +98,18 @@
 
 	// Author bio
 
-		$padding : power( $golden, 2 ) +em;
+		// Posts entry padding.
+		$padding : power( $golden, 2 ); // In em.
 
 		.entry-author {
 			@extend %background_overlay_from_text_color;
 			margin-top: power( 1 + $golden_minor, 4 ) +em;
-			padding: $padding / 2; // Half the padding for mobiles.
+			padding: $padding / 2 +em; // Half the padding for mobiles.
 			border-width: 1px;
 			border-style: solid;
 
 			@include responsive( map_get( $breakpoint, 'm' ) ) {
-				padding: $padding;
+				padding: $padding +em;
 			}
 
 			&::before {

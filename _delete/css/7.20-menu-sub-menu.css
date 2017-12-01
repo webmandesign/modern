@@ -1,0 +1,50 @@
+
+			/**
+			 * Submenu
+			 */
+
+				.main-navigation li ul {
+					position: absolute;
+					visibility: hidden;
+					min-width: 100%;
+					left: -1.62em;
+					top: 138%;
+					padding: 0 0 .38em;
+					margin: 0;
+					text-transform: none;
+					opacity: 0;
+					z-index: 99;
+					border-radius: 0 0 .38em .38em;
+					-webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0, .4);
+					        box-shadow: 0 5px 20px 0 rgba(0,0,0, .4);
+					-webkit-transition: all .4s ease-in-out;
+					        transition: all .4s ease-in-out;
+				}
+				.main-navigation li:hover > ul,
+				.main-navigation li[aria-expanded="true"] > ul {
+					visibility: visible;
+					top: 100%;
+					opacity: 1;
+				}
+
+					.main-navigation li li,
+					.main-navigation li li a {
+						-webkit-transition: all .2s ease-in-out;
+						        transition: all .2s ease-in-out;
+					}
+
+					.main-navigation li li {
+						float: none;
+						display: block;
+						margin: 0;
+						line-height: 1.62;
+						border-top: 1px solid;
+					}
+						.main-navigation li li:first-child { border: 0; }
+
+						.main-navigation li li > a {
+							display: block;
+							min-width: 10em;
+							padding: .62em 1.62em;
+							color: inherit;
+						}

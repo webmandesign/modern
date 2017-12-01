@@ -9,7 +9,7 @@
 
 ## Description
 
-**Modern** is responsive, retina-ready blog and portfolio WordPress theme. It is perfect for personal and small business portfolios. Supports Jetpack plugin, Theme Hook Alliance action hooks, translation-ready code, banner slideshow and other cool features.
+**Modern** is responsive, accessible blog and portfolio WordPress theme by WebMan Design. It is perfect for personal portfolios. Supports Jetpack plugin, Theme Hook Alliance action hooks, translation-ready code, featured posts slideshow and other cool features.
 
 Follow [WebMan Design on Twitter](https://twitter.com/webmandesigneu) and become a fan on [Facebook](https://www.facebook.com/webmandesigneu) for staying informed about theme updates and news.
 

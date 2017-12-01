@@ -1,0 +1,32 @@
+
+			/* Submenu expander button */
+
+				.main-navigation .expander {
+					display: inline-block;
+					position: absolute;
+					width: 16px;
+					height: 16px;
+					right: 0;
+					top: 50%;
+					padding: 0;
+					margin-left: 2px;
+					line-height: 14px;
+					text-align: center;
+					font-size: 14px;
+					font-weight: 400;
+					border: 1px solid;
+					border-radius: 50%;
+					-webkit-transform: translateY(-50%);
+					    -ms-transform: translateY(-50%);
+					        transform: translateY(-50%);
+				}
+
+				.main-navigation li li .expander { right: 1em; }
+
+					.main-navigation .expander::before { content: '+'; }
+
+					.main-navigation li:hover > a .expander::before,
+					.main-navigation li[aria-expanded="true"] > a .expander::before { content: '-'; }
+
+				.main-navigation li.menu-item-has-children > a { padding-right: 1.62em; }
+				.main-navigation li li.menu-item-has-children > a { padding-right: 2.62em; }

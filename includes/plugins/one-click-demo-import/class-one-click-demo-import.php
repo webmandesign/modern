@@ -326,9 +326,9 @@ class Modern_One_Click_Demo_Import {
 			// Requirements check
 
 				if (
-						is_callable( 'Jetpack::is_module_active' )
-						&& Jetpack::is_module_active( 'custom-content-types' )
-					) {
+					is_callable( 'Jetpack::is_module_active' )
+					&& Jetpack::is_module_active( 'custom-content-types' )
+				) {
 					return $text;
 				}
 

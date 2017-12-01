@@ -1,0 +1,47 @@
+
+	/**
+	 * Site branding (logo)
+	 */
+
+		.site-branding {
+			float: left;
+			display: inline-block;
+			margin: 0;
+			color: inherit;
+		}
+
+		.site-branding,
+		.site-banner,
+		.site-header .social-links,
+		.error-404,
+		.not-found,
+		.page-header,
+		.post-navigation,
+		.posts .format-image .entry-media:before { text-shadow: 0 2px 0 rgba(0,0,0, .4); }
+
+			.site-title { text-transform: uppercase; }
+
+			.site-title,
+			.site-description {
+				display: inline-block;
+				margin: 0;
+				vertical-align: top;
+			}
+				.site-description {
+					padding-left: 1.62em;
+					margin: .31em 1.62em; /* top + bottom margin = site title font size (2.24) - site description line height (1.62) */
+					border-left: 1px solid;
+				}
+
+			.site-title,
+			.site-description,
+			.site-branding a,
+			.site-branding a:hover,
+			.site-branding a:active {
+				text-decoration: none;
+				color: inherit;
+			}
+			.site-branding img {
+				display: inline-block;
+				vertical-align: top;
+			}

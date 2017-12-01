@@ -17,14 +17,8 @@
 			width: 100%;
 		}
 
-		.wp-playlist {
-			// Keep the text in playlist left/right even if container text is centered.
-			text-align: $left; // {{RTL}}
-		}
-
-		.search-results & img {
-			width: auto;
-			max-width: 100%;
+		.post-thumbnail {
+			text-align: center;
 		}
 
 

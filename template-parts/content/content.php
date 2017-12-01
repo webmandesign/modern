@@ -28,7 +28,13 @@ do_action( 'tha_entry_before' );
 		do_action( 'tha_entry_content_before' );
 
 		if ( is_single( get_the_ID() ) ) {
+
+			if ( has_excerpt() && ! Modern_Post::is_paged() ) {
+				the_excerpt();
+			}
+
 			the_content( apply_filters( 'wmhook_modern_summary_continue_reading', '' ) );
+
 		} else {
 			the_excerpt();
 		}

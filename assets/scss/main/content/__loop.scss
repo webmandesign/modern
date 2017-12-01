@@ -8,32 +8,32 @@
 
 
 
-$gutter : 2em;
-$padding : power( $golden, 2 ) +em;
+$gutter : 2; // In em.
+$padding : power( $golden, 2 ); // In em.
 
 .posts {
 	display: flex;
 	flex-wrap: wrap;
-	margin: -$gutter / 2;
+	margin: -$gutter / 2 +em;
 
 	.entry {
 		@extend %box_shadow;
 		display: flex;
 		flex-direction: column;
 		position: relative;
-		width: calc( 100% - #{ $gutter } );
-		padding: $padding / 2; // Half the padding for mobiles.
-		margin: $gutter / 2;
+		width: calc( 100% - #{ $gutter +em } );
+		padding: $padding / 2 +em; // Half the padding for mobiles.
+		margin: $gutter / 2 +em; // Half the padding for mobiles.
 
 		@include responsive( map_get( $breakpoint, 'm' ) ) {
-			padding: $padding;
-			width: calc( 50% - #{ $gutter } );
+			padding: $padding +em;
+			width: calc( 50% - #{ $gutter +em } );
 		}
 
 		@include responsive( map_get( $breakpoint, 'l' ) ) {
 
 			.no-widgets-sidebar & {
-				width: calc( 33.33% - #{ $gutter } );
+				width: calc( 33.33% - #{ $gutter +em } );
 			}
 
 		}
@@ -41,19 +41,15 @@ $padding : power( $golden, 2 ) +em;
 		&-media {
 			flex: 0 1 auto;
 			width: auto;
-			margin: -$padding / 2;
-			margin-bottom: $padding / 2;
+			margin: -$padding / 2 +em; // Half the padding for mobiles.
+			margin-bottom: $padding / 2 +em; // Half the padding for mobiles.
 
 			@include responsive( map_get( $breakpoint, 'm' ) ) {
-				margin: -$padding;
-				margin-bottom: $padding;
+				margin: -$padding +em;
+				margin-bottom: $padding +em;
 			}
 
 		}
-
-			.post-thumbnail {
-				text-align: center;
-			}
 
 		&-header {
 			margin-bottom: $golden +em;
@@ -89,6 +85,7 @@ $padding : power( $golden, 2 ) +em;
 				flex: 1 1 auto;
 				display: flex;
 				flex-direction: column;
+				width: 100%;
 				padding: 0;
 			}
 
@@ -130,7 +127,7 @@ $padding : power( $golden, 2 ) +em;
 
 	.link-more {
 
-		.entry-summary + & {
+		.entry-summary:not(:empty) + & {
 			margin-top: 1em;
 		}
 

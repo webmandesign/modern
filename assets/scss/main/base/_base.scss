@@ -57,18 +57,24 @@
 	blockquote {
 		@extend %line_height_golden;
 		padding: 0;
+		margin: 2em 0 ( $golden +em );
 
 		&:first-child {
-			margin-top: 0;
+			margin-top: $golden_major +em;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
 		}
 
 		&::before {
 			@extend %genericon;
 			content: '\f106';
 			float: $left; // {{RTL}}
-			margin-#{$right}: .25em; // {{RTL}}
+			margin-#{$right}: .09em; // {{RTL}}
+			margin-top: -.4em;
 			line-height: 1;
-			font-size: 1.62em;
+			font-size: 2.62em;
 			opacity: .5;
 		}
 
@@ -174,8 +180,6 @@
 	@import '_layout';
 
 	@import '_classes';
-
-	@import '_player';
 
 	@import '_jquery-slick';
 	@import '_jquery-slick-custom';

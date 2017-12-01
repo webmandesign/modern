@@ -26,6 +26,10 @@
 			position: relative;
 			z-index: 5;
 
+			.intro-container + & {
+				margin-top: 0;
+			}
+
 			&-inner {
 				@extend %content_width;
 				@extend .clearfix;

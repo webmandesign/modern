@@ -27,10 +27,31 @@
 
 	&-summary {
 
+		&:empty {
+			display: none;
+		}
+
+		.entry-content &,
 		&.has-more-tag {
-			text-transform: uppercase;
+			@extend %font_size_higher;
+		}
+
+		.posts .entry-content & {
+			font-size: 1em;
 		}
 
 	}
 
 }
+
+
+
+// Post formats
+
+	@import '_post-format-image';
+
+	@import '_post-format-link';
+
+	@import '_post-format-quote';
+
+	@import '_post-format-status';

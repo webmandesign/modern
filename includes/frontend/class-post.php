@@ -68,11 +68,7 @@ class Modern_Post {
 
 						add_action( 'tha_content_bottom', __CLASS__ . '::navigation' );
 
-						add_action( 'tha_content_before', __CLASS__ . '::template_front_loop_blog', 200 );
-
-						add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::template_front_title_blog' );
-
-						add_action( 'wmhook_modern_postslist_after', __CLASS__ . '::template_front_link_blog' );
+						add_action( 'wp', __CLASS__ . '::template_front_display_blog' );
 
 					// Filters
 
@@ -145,9 +141,9 @@ class Modern_Post {
 				// Featured post
 
 					if (
-							class_exists( 'NS_Featured_Posts' )
-							&& get_post_meta( get_the_ID(), '_is_ns_featured_post', true )
-						) {
+						class_exists( 'NS_Featured_Posts' )
+						&& get_post_meta( get_the_ID(), '_is_ns_featured_post', true )
+					) {
 						$classes[] = 'is-featured';
 					}
 
@@ -237,9 +233,9 @@ class Modern_Post {
 				// Is this a primary title and should we display it?
 
 					if (
-							'h1' === $args['tag']
-							&& apply_filters( 'wmhook_modern_title_primary_disable', false )
-						) {
+						'h1' === $args['tag']
+						&& apply_filters( 'wmhook_modern_title_primary_disable', false )
+					) {
 						return;
 					}
 
@@ -276,9 +272,9 @@ class Modern_Post {
 			// Requirements check
 
 				if (
-						doing_action( 'wp_head' )
-						|| doing_action( 'tha_header_top' )
-					) {
+					doing_action( 'wp_head' )
+					|| doing_action( 'tha_header_top' )
+				) {
 					return $title;
 				}
 
@@ -334,9 +330,9 @@ class Modern_Post {
 			// Requirements check
 
 				if (
-						! self::is_singular()
-						|| ! get_the_content()
-					) {
+					! self::is_singular()
+					|| ! get_the_content()
+				) {
 					return;
 				}
 
@@ -360,9 +356,9 @@ class Modern_Post {
 			// Requirements check
 
 				if (
-						! ( is_single( get_the_ID() ) || is_attachment() )
-						|| ! in_array( get_post_type(), (array) apply_filters( 'wmhook_modern_post_navigation_post_type', array( 'post', 'attachment' ) ) )
-					) {
+					! ( is_single( get_the_ID() ) || is_attachment() )
+					|| ! in_array( get_post_type(), (array) apply_filters( 'wmhook_modern_post_navigation_post_type', array( 'post', 'attachment' ) ) )
+				) {
 					return;
 				}
 
@@ -507,6 +503,41 @@ class Modern_Post {
 			/**
 			 * Front page section: Blog
 			 */
+
+				/**
+				 * Front page section: Blog: Display setup
+				 *
+				 * This has to be hooked as late as onto `wp` action so it works
+				 * fine with customizer options.
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 */
+				public static function template_front_display_blog() {
+
+					// Helper variables
+
+						$location = explode( '|', (string) get_theme_mod( 'location_front_blog', 'tha_content_before|20' ) );
+						if ( ! isset( $location[1] ) ) {
+							$location[1] = 10;
+						}
+
+
+					// Processing
+
+						if ( $location[0] ) {
+							add_action(
+								$location[0],
+								__CLASS__ . '::template_front_loop_blog',
+								$location[1]
+							);
+							add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::template_front_title_blog' );
+							add_action( 'wmhook_modern_postslist_after', __CLASS__ . '::template_front_link_blog' );
+						}
+
+				} // /template_front_display_blog
+
+
 
 				/**
 				 * Front page section: Blog: Loop

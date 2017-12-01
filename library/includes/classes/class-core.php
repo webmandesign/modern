@@ -118,9 +118,9 @@ final class Modern_Library {
 			// Processing
 
 				if (
-						empty( $current_theme_version )
-						|| $new_theme_version != $current_theme_version
-					) {
+					empty( $current_theme_version )
+					|| $new_theme_version != $current_theme_version
+				) {
 
 					do_action( 'wmhook_modern_library_theme_upgrade', $current_theme_version, $new_theme_version );
 
@@ -168,9 +168,9 @@ final class Modern_Library {
 				// Requirements check
 
 					if (
-							! $multipage
-							|| ! is_singular()
-						) {
+						! $multipage
+						|| ! is_singular()
+					) {
 						return $content;
 					}
 
@@ -279,9 +279,9 @@ final class Modern_Library {
 			// Requirements check
 
 				if (
-						$singular_only
-						&& ! is_singular( $singular_only )
-					) {
+					$singular_only
+					&& ! is_singular( $singular_only )
+				) {
 					return;
 				}
 
@@ -373,9 +373,9 @@ final class Modern_Library {
 			// Requirements check
 
 				if (
-						! is_object( $post )
-						|| ! isset( $post->post_content )
-					) {
+					! is_object( $post )
+					|| ! isset( $post->post_content )
+				) {
 					return;
 				}
 
@@ -591,9 +591,9 @@ final class Modern_Library {
 			// Processing
 
 				if (
-						isset( $texts_array[ $screen_id ] )
-						&& is_array( $texts_array[ $screen_id ] )
-					) {
+					isset( $texts_array[ $screen_id ] )
+					&& is_array( $texts_array[ $screen_id ] )
+				) {
 
 					$help_tabs = $texts_array[ $screen_id ];
 

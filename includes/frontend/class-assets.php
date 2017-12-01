@@ -230,10 +230,10 @@ class Modern_Assets {
 				// SASS debugging - enqueue default (fallback) stylesheet
 
 					if (
-							defined( 'MODERN_DEBUG_SASS' )
-							&& MODERN_DEBUG_SASS
-							&& current_theme_supports( 'stylesheet-generator' )
-						) {
+						defined( 'MODERN_DEBUG_SASS' )
+						&& MODERN_DEBUG_SASS
+						&& current_theme_supports( 'stylesheet-generator' )
+					) {
 
 						// We must deregister first to register again with the new URL.
 						wp_deregister_style( 'modern-stylesheet-global' );
@@ -331,18 +331,18 @@ class Modern_Assets {
 				// Slick
 
 					if (
-							// For banner slideshow
-							in_array( 'has-intro-slideshow', $body_classes )
-							// For gallery post format slideshow
-							|| (
-								in_array( 'gallery', $supported_post_formats )
-								&& (
-									is_home()
-									|| is_archive()
-									|| is_search()
-								)
+						// For intro featured posts slideshow
+						in_array( 'has-intro-slideshow', $body_classes )
+						// For gallery post format slideshow
+						|| (
+							in_array( 'gallery', $supported_post_formats )
+							&& (
+								is_home()
+								|| is_archive()
+								|| is_search()
 							)
-						) {
+						)
+					) {
 						$enqueue_assets[50] = 'modern-scripts-slick';
 
 						wp_localize_script(
@@ -461,10 +461,10 @@ class Modern_Assets {
 			// Processing
 
 				if (
-						is_singular()
-						&& comments_open()
-						&& get_option( 'thread_comments' )
-					) {
+					is_singular()
+					&& comments_open()
+					&& get_option( 'thread_comments' )
+				) {
 					wp_enqueue_script( 'comment-reply' );
 				}
 
@@ -485,10 +485,10 @@ class Modern_Assets {
 			// Requirements check
 
 				if (
-						is_admin()
-						|| empty( $html )
-						|| ! is_string( $html )
-					) {
+					is_admin()
+					|| empty( $html )
+					|| ! is_string( $html )
+				) {
 					return $html;
 				}
 
@@ -753,9 +753,9 @@ class Modern_Assets {
 			// Processing
 
 				if (
-						wp_style_is( 'modern-google-fonts', 'queue' )
-						&& 'preconnect' === $relation_type
-					) {
+					wp_style_is( 'modern-google-fonts', 'queue' )
+					&& 'preconnect' === $relation_type
+				) {
 
 					if ( version_compare( $GLOBALS['wp_version'], '4.7', '>=' ) ) {
 

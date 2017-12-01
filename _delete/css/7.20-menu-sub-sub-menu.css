@@ -1,0 +1,21 @@
+
+				/**
+				 * Sub-submenu
+				 */
+
+					.main-navigation li li ul {
+						visibility: hidden;
+						min-width: 0;
+						padding-top: .38em;
+						left: 119%;
+						right: auto;
+						border-radius: .38em;
+						-webkit-transition: opacity .4s, left .4s ease-in-out;
+						        transition: opacity .4s, left .4s ease-in-out;
+					}
+						.main-navigation li li:hover > ul,
+						.main-navigation li li[aria-expanded="true"] > ul {
+							left: 100%;
+							right: auto;
+							top: -.38em;
+						}

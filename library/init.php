@@ -106,9 +106,9 @@
 			// Plugins suggestions
 
 				if (
-						apply_filters( 'wmhook_modern_plugins_suggestion_enabled', true )
-						&& locate_template( 'includes/tgmpa/plugins.php' )
-					) {
+					apply_filters( 'wmhook_modern_plugins_suggestion_enabled', true )
+					&& locate_template( 'includes/tgmpa/plugins.php' )
+				) {
 					require MODERN_LIBRARY . 'includes/vendor/tgmpa/class-tgm-plugin-activation.php';
 					locate_template( 'includes/tgmpa/plugins.php', true );
 				}

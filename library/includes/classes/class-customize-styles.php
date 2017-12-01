@@ -164,10 +164,10 @@ final class Modern_Library_Customize_Styles {
 			// Requirements check
 
 				if (
-						! $filesystem
-						|| ! is_callable( array( $filesystem, 'put_contents' ) )
-						|| ! function_exists( 'wp_mkdir_p' )
-					) {
+					! $filesystem
+					|| ! is_callable( array( $filesystem, 'put_contents' ) )
+					|| ! function_exists( 'wp_mkdir_p' )
+				) {
 					return;
 				}
 
@@ -198,9 +198,9 @@ final class Modern_Library_Customize_Styles {
 					$theme_css_dir = trailingslashit( $wp_upload_dir['basedir'] ) . 'wmtheme-modern';
 
 					if (
-							! ( file_exists( $theme_css_dir ) && is_dir( $theme_css_dir ) )
-							&& ! wp_mkdir_p( $theme_css_dir )
-						) {
+						! ( file_exists( $theme_css_dir ) && is_dir( $theme_css_dir ) )
+						&& ! wp_mkdir_p( $theme_css_dir )
+					) {
 
 						/**
 						 * Display admin notice if we can not write the file,
@@ -235,9 +235,9 @@ final class Modern_Library_Customize_Styles {
 					$global_css_url = apply_filters( 'wmhook_modern_library_generate_main_css_global_css_url', trailingslashit( $theme_css_url ) . $file_name . '.css', $args, $file_name, $theme_css_url );
 
 					if (
-							$output
-							&& $filesystem->put_contents( $global_css_path, $output_min )
-						) {
+						$output
+						&& $filesystem->put_contents( $global_css_path, $output_min )
+					) {
 
 						/**
 						 * Alright, we've got a CSS string to write,
@@ -402,9 +402,9 @@ final class Modern_Library_Customize_Styles {
 				$is_customize_preview = is_customize_preview();
 
 				if (
-						! self::$supports_generator
-						&& ! $is_customize_preview
-					) {
+					! self::$supports_generator
+					&& ! $is_customize_preview
+				) {
 
 					$output_cached = '';
 					$cache = (array) get_transient( self::$cache_key );
@@ -474,10 +474,10 @@ final class Modern_Library_Customize_Styles {
 								 * the `none` is set as value.
 								 */
 								if (
-										$mod
-										|| is_numeric( $mod )
-										|| in_array( $option['type'], array( 'checkbox', 'image' ) )
-									) {
+									$mod
+									|| is_numeric( $mod )
+									|| in_array( $option['type'], array( 'checkbox', 'image' ) )
+								) {
 									$value = $mod;
 								}
 
@@ -647,9 +647,9 @@ final class Modern_Library_Customize_Styles {
 					 * or when we are not in Customizer and we have no cache.
 					 */
 					if (
-							! self::$supports_generator
-							&& ! $is_customize_preview
-						) {
+						! self::$supports_generator
+						&& ! $is_customize_preview
+					) {
 
 						$cache = (array) get_transient( self::$cache_key );
 
@@ -731,18 +731,18 @@ final class Modern_Library_Customize_Styles {
 				// Require the WordPress filesystem functionality if not found
 
 					if (
-							! function_exists( 'get_filesystem_method' )
-							&& ABSPATH
-						) {
+						! function_exists( 'get_filesystem_method' )
+						&& ABSPATH
+					) {
 						require_once( ABSPATH . 'wp-admin/includes/file.php' );
 					}
 
 				// Check the filesystem method
 
 					if (
-							'direct' !== get_filesystem_method()
-							&& ! defined( 'FTP_USER' )
-						) {
+						'direct' !== get_filesystem_method()
+						&& ! defined( 'FTP_USER' )
+					) {
 
 						// If we don't have filesystem access, display an admin notice
 
@@ -912,9 +912,9 @@ final class Modern_Library_Customize_Styles {
 			// Requirements check
 
 				if (
-						function_exists( 'maybe_hash_hex_color' )
-						&& function_exists( 'sanitize_hex_color_no_hash' )
-					) {
+					function_exists( 'maybe_hash_hex_color' )
+					&& function_exists( 'sanitize_hex_color_no_hash' )
+				) {
 					return maybe_hash_hex_color( $color );
 				}
 

@@ -154,7 +154,57 @@ class Modern_Customize {
 							'selector' => '.front-page-section-type-post .front-page-section-inner',
 						) );
 
+						/**
+						 * IMPORTANT
+						 *
+						 * For options with `preview_js` (ones that do not require page or partial refresh),
+						 * we need to add a custom helper HTML so the option pointer can be hooked there.
+						 * Here is an example of such setup.
+						 */
+						$wp_customize->selective_refresh->add_partial( 'texts_intro', array(
+							'selector'            => '.home.blog .intro-title .option-pointer',
+							'render_callback'     => '__return_empty_string',
+							'fallback_refresh'    => false,
+							'container_inclusive' => false,
+						) );
+						/**
+						 * We need to add a helper HTML not to trigger content or page refresh with this option pointer.
+						 * Only required for options with `preview_js` set.
+						 */
+						add_filter( 'wmhook_modern_intro_title', __CLASS__ . '::option_pointer_' . 'texts_intro', 0 );
+
 		} // /setup
+
+
+
+			/**
+			 * Option pointer: texts_intro
+			 *
+			 * This is only required for options with `preview_js` set.
+			 * Outputs a helper HTML for our option pointer so we don't trigger
+			 * any content or page refresh.
+			 *
+			 * @since    2.0.0
+			 * @version  2.0.0
+			 */
+			public static function option_pointer_texts_intro( $title ) {
+
+				// Processing
+
+					if (
+						is_customize_preview()
+						&& is_front_page()
+						&& is_home()
+					) {
+						$title = '<small class="option-pointer"></small>' . $title;
+					}
+
+
+				// Output
+
+					return $title;
+
+			} // /option_pointer_texts_intro
 
 
 
@@ -636,6 +686,14 @@ class Modern_Customize {
 										'step'    => 1,
 									),
 
+									300 . 'layout' . 120 => array(
+										'type'    => 'select',
+										'id'      => 'location_front_blog',
+										'label'   => esc_html__( 'Display location', 'modern' ),
+										'choices' => self::front_page_section_locations(),
+										'default' => 'tha_content_before|20',
+									),
+
 
 
 
@@ -651,6 +709,19 @@ class Modern_Customize {
 							'create_section' => esc_html_x( 'Texts', 'Customizer section title.', 'modern' ),
 							'in_panel'       => esc_html_x( 'Theme Options', 'Customizer panel title.', 'modern' ),
 						),
+
+							800 . 'texts' . 100 => array(
+								'type'        => 'textarea',
+								'id'          => 'texts_intro',
+								'label'       => esc_html__( 'Default blog intro text', 'modern' ),
+								'description' => esc_html__( 'This text will be displayed in intro section of your website front page only if latest posts are displayed there.', 'modern' ),
+								'default'     => esc_html__( 'Welcome to our site!', 'modern' ),
+								'validate'    => 'wp_kses_post',
+								'preview_js'  => array(
+									'custom' => "jQuery( '.home.blog .intro-title' ).html( '<small class=\"option-pointer\"></small>' + to ); if ( '' === to ) { jQuery( '.home.blog .intro-title' ).hide(); } else { jQuery( '.home.blog .intro-title:hidden' ).show(); }",
+								),
+								'active_callback' => __CLASS__ . '::is_blog_front_page',
+							),
 
 							800 . 'texts' . 500 => array(
 								'type'        => 'textarea',
@@ -958,6 +1029,22 @@ class Modern_Customize {
 
 
 
+		/**
+		 * Do we display latest posts on front page?
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function is_blog_front_page() {
+
+			// Output
+
+				return (bool) is_front_page() && is_home();
+
+		} // /is_blog_front_page
+
+
+
 
 
 	/**
@@ -1044,6 +1131,34 @@ class Modern_Customize {
 				return array( 20 );
 
 		} // /rgba_alphas
+
+
+
+		/**
+		 * Front page template sections locations
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function front_page_section_locations() {
+
+			// Output
+
+				return array(
+
+					'' => esc_html__( 'Do not display', 'modern' ),
+
+					'tha_content_before|10' => sprintf( esc_html_x( 'Above page content, position %d', '%d: Position priority number.', 'modern' ), 1 ),
+					'tha_content_before|20' => sprintf( esc_html_x( 'Above page content, position %d', '%d: Position priority number.', 'modern' ), 2 ),
+					'tha_content_before|30' => sprintf( esc_html_x( 'Above page content, position %d', '%d: Position priority number.', 'modern' ), 3 ),
+
+					'tha_content_after|10' => sprintf( esc_html_x( 'Below page content, position %d', '%d: Position priority number.', 'modern' ), 1 ),
+					'tha_content_after|20' => sprintf( esc_html_x( 'Below page content, position %d', '%d: Position priority number.', 'modern' ), 2 ),
+					'tha_content_after|30' => sprintf( esc_html_x( 'Below page content, position %d', '%d: Position priority number.', 'modern' ), 3 ),
+
+				);
+
+		} // /front_page_section_locations
 
 
 

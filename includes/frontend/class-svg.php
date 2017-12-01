@@ -225,9 +225,9 @@ class Modern_SVG {
 			// Requirements check
 
 				if (
-						empty( $args )
-						|| false === array_key_exists( 'icon', $args )
-					) {
+					empty( $args )
+					|| false === array_key_exists( 'icon', $args )
+				) {
 					return;
 				}
 

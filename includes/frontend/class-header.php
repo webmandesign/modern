@@ -353,8 +353,9 @@ class Modern_Header {
 								$classes[] = 'has-post-thumbnail';
 							}
 
-						// Has custom banner image?
+						// Has custom intro image?
 
+							// Using old name "banner_image" for backwards compatibility.
 							if ( get_post_meta( $post_id, 'banner_image', true ) ) {
 								$classes[] = 'has-custom-banner-image';
 							}
@@ -382,9 +383,9 @@ class Modern_Header {
 
 							$footer_widgets = wp_get_sidebars_widgets();
 							if (
-									isset( $footer_widgets['footer'] )
-									&& 3 < count( (array) $footer_widgets['footer'] )
-								) {
+								isset( $footer_widgets['footer'] )
+								&& 3 < count( (array) $footer_widgets['footer'] )
+							) {
 								$classes[] = 'has-masonry-footer';
 							}
 
@@ -405,10 +406,10 @@ class Modern_Header {
 				// Enable intro slideshow?
 
 					if (
-							is_front_page()
-							&& is_callable( 'Modern_Intro::get_slides_count' )
-							&& 1 < Modern_Intro::get_slides_count()
-						) {
+						is_front_page()
+						&& is_callable( 'Modern_Intro::get_slides_count' )
+						&& 1 < Modern_Intro::get_slides_count()
+					) {
 						$classes[] = 'has-intro-slideshow';
 					}
 

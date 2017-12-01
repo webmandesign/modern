@@ -122,10 +122,10 @@ class Modern_Setup {
 				global $pagenow;
 
 				if (
-						is_admin()
-						&& 'themes.php' == $pagenow
-						&& isset( $_GET['activated'] )
-					) {
+					is_admin()
+					&& 'themes.php' == $pagenow
+					&& isset( $_GET['activated'] )
+				) {
 
 					add_action( 'admin_notices', __CLASS__ . '::admin_notice_welcome', 99 );
 
@@ -478,7 +478,7 @@ class Modern_Setup {
 						1920,
 						1080,
 						true,
-						esc_html__( 'In intro banner.', 'modern' ),
+						esc_html__( 'In intro section.', 'modern' ),
 					),
 
 				);
@@ -613,9 +613,9 @@ class Modern_Setup {
 			// Processing
 
 				if (
-						is_admin()
-						|| isset( $_GET['fl_builder'] )
-					) {
+					is_admin()
+					|| isset( $_GET['fl_builder'] )
+				) {
 
 					require_once MODERN_LIBRARY . 'includes/classes/class-visual-editor.php';
 
@@ -710,7 +710,7 @@ class Modern_Setup {
 						'items' => array(),
 					);
 
-					for ( $i = 2; $i <= 3; $i++ ) {
+					for ( $i = 2; $i <= 2; $i++ ) {
 
 						$formats[ 400 . 'columns' ]['items'][ 400 . 'columns' . ( 100 + 10 * $i ) ] = array(
 							'title'   => sprintf( esc_html( _nx( 'Text in %d column', 'Text in %d columns', $i, '%d: Number of columns.', 'modern' ) ), $i ),
@@ -777,9 +777,10 @@ class Modern_Setup {
 
 			// Processing
 
+				register_meta( 'post', 'quote_source', 'esc_html' );
+				// Using old name "banner_image" and "banner_text" for backwards compatibility.
 				register_meta( 'post', 'banner_image', 'esc_attr' );
 				register_meta( 'post', 'banner_text',  'esc_html' );
-				register_meta( 'post', 'quote_source', 'esc_html' );
 
 		} // /register_meta
 

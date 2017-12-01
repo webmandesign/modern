@@ -19,10 +19,18 @@
 	.customize-partial-edit-shortcut {
 
 		[data-customize-partial-type="nav_menu_instance"] &,
-		.site-branding &,
-		.intro-media & {
+		.site-branding & {
 			top: 50%;
 			transform: translateY( -15px );
+		}
+
+		.intro-media & {
+			//
+			// Unfortunately, as the intro media is positioned below other
+			// HTML elements, it is not possible to click on it.
+			// So, we do not need to display it either
+			//
+			display: none;
 		}
 
 		.widget [data-customize-partial-type="nav_menu_instance"] & {

@@ -2,6 +2,9 @@
 /**
  * Default WordPress loop content
  *
+ * The posts container ID attribute is used for Jetpack plugin's
+ * infinite scroll functionality.
+ *
  * @package    Modern
  * @copyright  WebMan Design, Oliver Juhas
  *
@@ -17,7 +20,7 @@ do_action( 'wmhook_modern_postslist_before' );
 
 ?>
 
-<div class="posts posts-list">
+<div class="posts posts-list" id="posts">
 
 	<?php
 

@@ -16,9 +16,9 @@
 // Requirements check
 
 	if (
-			! Modern_Library::is_categorized_blog()
-			|| ! $categories = get_the_category_list( ', ', '', get_the_ID() )
-		) {
+		! Modern_Library::is_categorized_blog()
+		|| ! $categories = get_the_category_list( ', ', '', get_the_ID() )
+	) {
 		return;
 	}
 

@@ -40,23 +40,21 @@
 
 	}
 
-
-
-// Search results title
-
 	.page-title {
 		padding: ( $golden +em ) 0;
-		margin: 0;
-		border-top-width: 2px;
-		border-top-style: solid;
+		border-top: 2px solid;
 
-		.search-results & {
-			@extend %font_weight_300;
 
-			span {
-				@extend %font_weight_700;
+
+		// Search results title
+
+			.search-results & {
+				@extend %font_weight_300;
+
+				span {
+					@extend %font_weight_700;
+				}
+
 			}
-
-		}
 
 	}

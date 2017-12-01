@@ -39,9 +39,9 @@ class Modern_Customize_Control_Multiselect extends WP_Customize_Control {
 		// Requirements check
 
 			if (
-					empty( $this->choices )
-					|| ! is_array( $this->choices )
-				) {
+				empty( $this->choices )
+				|| ! is_array( $this->choices )
+			) {
 				return;
 			}
 

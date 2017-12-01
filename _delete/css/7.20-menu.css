@@ -1,0 +1,64 @@
+
+	/**
+	 * Navigation
+	 */
+
+		.main-navigation {
+			position: fixed;
+			width: 100%;
+			left: 0;
+			top: 0;
+			opacity: .8;
+			z-index: 999;
+			-webkit-backface-visibility: hidden; /* Fixes Webkit element jumping when JS slider used on page */
+			-webkit-transition: opacity .4s, top .2s ease-in-out;
+			        transition: opacity .4s, top .2s ease-in-out;
+		}
+		.main-navigation:hover { opacity: 1; }
+		.admin-bar .main-navigation { top: 32px; }
+
+			.main-navigation a:hover,
+			.main-navigation a:active { color: inherit; }
+
+			.main-navigation .menu { float: left; }
+
+			.main-navigation ul {
+				padding: 0;
+				margin: 0;
+				text-transform: uppercase;
+				list-style: none;
+			}
+
+				.main-navigation li {
+					float: left;
+					position: relative;
+					padding: 0;
+					margin: 0 2em 0 0;
+					line-height: 3.62;
+					white-space: nowrap;
+				}
+
+					.main-navigation ul a {
+						display: inline-block;
+						max-width: 100%; /* fix for FF and IE */
+						padding: 0;
+						text-decoration: none;
+						color: inherit;
+						opacity: .6;
+					}
+
+					.menu-item-description {
+						display: block;
+						text-transform: uppercase;
+						opacity: .6;
+					}
+						.main-navigation .menu > ul > li > a .menu-item-description { display: none; }
+
+		/**
+		 * Active menu item
+		 */
+
+			.main-navigation .menu a:hover,
+			.main-navigation .menu li:hover > a,
+			.main-navigation .menu li.active-menu-item > a { opacity: 1; }
+

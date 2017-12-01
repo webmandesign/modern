@@ -241,12 +241,12 @@ class Modern_TGMPA_Plugins {
 			// Requirements check
 
 				if (
-						! is_admin()
-						|| ! isset( $current_screen->id )
-						|| 'appearance_page_tgmpa-install-plugins' !== $current_screen->id
-						|| isset( $_GET['plugin'] )
-						|| ( isset( $_GET['plugin_status'] ) && 'all' !== $_GET['plugin_status'] )
-					) {
+					! is_admin()
+					|| ! isset( $current_screen->id )
+					|| 'appearance_page_tgmpa-install-plugins' !== $current_screen->id
+					|| isset( $_GET['plugin'] )
+					|| ( isset( $_GET['plugin_status'] ) && 'all' !== $_GET['plugin_status'] )
+				) {
 					return;
 				}
 

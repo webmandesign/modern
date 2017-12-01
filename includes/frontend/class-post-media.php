@@ -539,7 +539,7 @@ class Modern_Post_Media {
 
 					foreach( $post_media as $image_id ) {
 						$output .= '<a href="' . esc_url( $link_url ) . '">';
-						$output .= wp_get_attachment_image( absint( $image_id ), apply_filters( 'wmhook_modern_post_media_gallery_image_size', $image_size, ++$i, count( $post_media ), $image_id ) );
+						$output .= wp_get_attachment_image( absint( $image_id ), (string) apply_filters( 'wmhook_modern_post_media_gallery_image_size', $image_size, ++$i, count( $post_media ), $image_id ) );
 						$output .= '</a>';
 					}
 
@@ -599,14 +599,18 @@ class Modern_Post_Media {
 
 			// Processing
 
+				if ( (bool) apply_filters( 'wmhook_modern_post_media_audio_thumbnail_enable',
+					empty( $post_media )
+					|| $is_shortcode
+				) ) {
+					$output .= self::image_featured( $image_size );
+				}
+
 				if ( $post_media ) {
 
 					if ( $is_shortcode ) {
-					// Display also featured image if the shortcode is not a playlist.
+					// Display also featured image with shortcode media.
 
-						if ( false === strpos( $post_media, '[playlist' ) ) {
-							$output .= self::image_featured( $image_size );
-						}
 						$output .= do_shortcode( $post_media );
 
 					} else {
@@ -615,11 +619,6 @@ class Modern_Post_Media {
 						$output .= wp_oembed_get( $post_media );
 
 					}
-
-				} else {
-
-					// Fall back to featured image.
-					$output .= self::image_featured( $image_size );
 
 				}
 

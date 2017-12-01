@@ -11,7 +11,7 @@
  * Contents:
  *
  *  0) Init
- * 10) Banner section
+ * 10) Intro section
  * 20) Post formats section
  */
 class Modern_Advanced_Custom_Fields {
@@ -49,7 +49,7 @@ class Modern_Advanced_Custom_Fields {
 
 					// Actions
 
-						add_action( 'init', __CLASS__ . '::banner' );
+						add_action( 'init', __CLASS__ . '::intro' );
 
 						add_action( 'init', __CLASS__ . '::post_format' );
 
@@ -83,16 +83,16 @@ class Modern_Advanced_Custom_Fields {
 
 
 	/**
-	 * 10) Banner section
+	 * 10) Intro section
 	 */
 
 		/**
-		 * Banner metabox
+		 * Intro metabox
 		 *
 		 * @since    2.0.0
 		 * @version  2.0.0
 		 */
-		public static function banner() {
+		public static function intro() {
 
 			// Helper variables
 
@@ -102,27 +102,27 @@ class Modern_Advanced_Custom_Fields {
 			// Processing
 
 				register_field_group( (array) apply_filters( 'wmhook_modern_acf_register_field_group', array(
-					'id'     => 'modern_banner_options',
-					'title'  => esc_html__( 'Banner options', 'modern' ),
+					'id'     => 'modern_intro_options',
+					'title'  => esc_html__( 'Intro options', 'modern' ),
 					'fields' => array(
 
-						// Custom banner text
+						// Custom intro text
 
 							100 => array(
-								'key'          => 'modern_banner_text',
-								'label'        => esc_html__( 'Custom banner text', 'modern' ),
-								'instructions' => esc_html__( 'Here you can override the default intro banner section text with a custom one (no HTML).', 'modern' ),
-								'name'         => 'banner_text',
+								'key'          => 'modern_intro_text',
+								'label'        => esc_html__( 'Custom intro text', 'modern' ),
+								'instructions' => esc_html__( 'Here you can override the default intro intro section text with a custom one (no HTML).', 'modern' ),
+								'name'         => 'banner_text', // Using old name "banner_text" for backwards compatibility.
 								'type'         => 'text',
 							),
 
-						// Custom banner image
+						// Custom intro image
 
 							200 => array(
-								'key'          => 'modern_banner_image',
-								'label'        => esc_html__( 'Custom banner image', 'modern' ),
-								'instructions' => esc_html__( 'Here you can override the default intro banner section image with a custom one.', 'modern' ),
-								'name'         => 'banner_image',
+								'key'          => 'modern_intro_image',
+								'label'        => esc_html__( 'Custom intro image', 'modern' ),
+								'instructions' => esc_html__( 'Here you can override the default intro intro section image with a custom one.', 'modern' ),
+								'name'         => 'banner_image', // Using old name "banner_image" for backwards compatibility.
 								'type'         => 'image',
 								'save_format'  => 'id',
 								'preview_size' => 'thumbnail',
@@ -133,8 +133,9 @@ class Modern_Advanced_Custom_Fields {
 					'location' => array(
 
 						// Display everywhere except:
+						// - Attachments CPT,
 						// - Beaver Builder/Themer CPTs,
-						// - WooCommerce orders,
+						// - WooCommerce orders CPT,
 						// - WooSidebars related CPTs,
 
 							100 => array(
@@ -144,12 +145,20 @@ class Modern_Advanced_Custom_Fields {
 									100 => array(
 										'param'    => 'post_type',
 										'operator' => '!=',
+										'value'    => 'attachment',
+										'order_no' => 0,
+										'group_no' => $group_no++,
+									),
+
+									200 => array(
+										'param'    => 'post_type',
+										'operator' => '!=',
 										'value'    => 'fl-builder-template',
 										'order_no' => 0,
 										'group_no' => $group_no++,
 									),
 
-										110 => array(
+										210 => array(
 											'param'    => 'post_type',
 											'operator' => '!=',
 											'value'    => 'fl-theme-layout',
@@ -157,7 +166,7 @@ class Modern_Advanced_Custom_Fields {
 											'group_no' => $group_no++,
 										),
 
-									200 => array(
+									300 => array(
 										'param'    => 'post_type',
 										'operator' => '!=',
 										'value'    => 'shop_order',
@@ -165,7 +174,7 @@ class Modern_Advanced_Custom_Fields {
 										'group_no' => $group_no++,
 									),
 
-									300 => array(
+									400 => array(
 										'param'    => 'post_type',
 										'operator' => '!=',
 										'value'    => 'sidebar',
@@ -182,9 +191,9 @@ class Modern_Advanced_Custom_Fields {
 						'hide_on_screen' => array(),
 					),
 					'menu_order' => 20,
-				), 'banner', $group_no ) );
+				), 'intro', $group_no ) );
 
-		} // /banner
+		} // /intro
 
 
 

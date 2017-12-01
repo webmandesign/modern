@@ -10,116 +10,59 @@
  */
 
 
-// @todo
-return;
+
+
+
+// Requirements check
+
+	if (
+		! is_front_page()
+		|| Modern_Post::is_paged()
+	) {
+		return;
+	}
 
 
 // Helper variables
 
-	$post_id      = get_the_ID();
-	$posts_page   = get_option( 'page_for_posts' );
-	$page_summary = '';
+	$post_id = get_the_ID();
 
 	$class_title  = ( is_single() ) ? ( 'entry-title' ) : ( 'page-title' );
 	$class_title .= ' h1 intro-title';
 
-	$intro_title_tag   = ( is_front_page() ) ? ( 'h2' ) : ( 'h1' );
-	$pagination_suffix = Modern_Library::get_the_paginated_suffix( 'small' );
-
-	if ( is_home() && $posts_page && ! is_front_page() ) {
-		$post_id = $posts_page;
-	}
-
-	$title               = get_the_title( $post_id );
-	$title_paginated_url = get_permalink( $post_id );
-
-	$intro_title_tag = apply_filters( 'wmhook_modern_intro_title_tag', $intro_title_tag, $post_id );
-	$title           = apply_filters( 'wmhook_modern_intro_title', $title, $post_id );
-
 
 // Processing
 
-	if ( ! $pagination_suffix ) {
+	if ( is_home() ) {
 
-		// Page summary setup
+		// Customizer option text...
+		$title = trim(
+			// This is already sanitized in database.
+			get_theme_mod( 'texts_intro', esc_html__( 'Welcome to our site!', 'modern' ) )
+		);
 
-			if ( is_singular() && has_excerpt() ) {
-				$page_summary = get_the_excerpt();
-			} elseif ( is_home() && $posts_page && ! is_front_page() ) {
-				$page_for_posts = get_post( absint( $posts_page ) );
-				$page_summary   = apply_filters( 'get_the_excerpt', $page_for_posts->post_excerpt );
-			} elseif ( is_archive() ) {
-				$page_summary = get_the_archive_description();
-			}
+		// ...or site tagline
+		if ( empty( $title ) ) {
+			$title = get_bloginfo( 'description', 'display' );
+		}
 
-			if ( $page_summary ) {
-				$class_title .= ' has-page-summary';
-			}
+	} elseif ( $custom_field_title = get_post_meta( $post_id, 'banner_text', true ) ) {
+	// Using old name "banner_text" for backwards compatibility.
+
+		$title = trim( wp_strip_all_tags( $custom_field_title ) );
 
 	} else {
 
-		// Title setup
-
-			$title = '<a href="' . esc_url( $title_paginated_url ) . '">' . $title . '</a>' . $pagination_suffix;
+		$title = get_the_title( $post_id );
 
 	}
 
-	$title = '<' . tag_escape( $intro_title_tag ) . ' class="' . esc_attr( $class_title ) . '">' . $title . '</' . tag_escape( $intro_title_tag ) . '>';
+	$title_tag = (string) apply_filters( 'wmhook_modern_title_tag', 'h2', $post_id );
+	$title     = (string) apply_filters( 'wmhook_modern_intro_title', $title, $post_id );
 
 
 // Output
 
-	/**
-	 * Page title
-	 */
-
-		if ( is_archive() ) { // For archive pages.
-
-			$title  = '<' . tag_escape( $intro_title_tag ) . ' class="' . esc_attr( $class_title ) . '">';
-			$title .= get_the_archive_title();
-			$title .= $pagination_suffix;
-			$title .= '</' . tag_escape( $intro_title_tag ) . '>';
-
-		} elseif ( is_search() ) { // For search results.
-
-			$title  = '<' . tag_escape( $intro_title_tag ) . ' class="' . esc_attr( $class_title ) . '">';
-			$title .= sprintf(
-					esc_html__( 'Search Results for: %s', 'modern' ),
-					'<span>' . get_search_query() . '</span>'
-				);
-			$title .= $pagination_suffix;
-			$title .= '</' . tag_escape( $intro_title_tag ) . '>';
-
-		} elseif ( is_front_page() && is_home() ) { // For blog front page.
-
-			$title  = '<' . tag_escape( $intro_title_tag ) . ' class="' . esc_attr( $class_title ) . '">';
-			$title .= get_bloginfo( 'name' );
-			$title .= $pagination_suffix;
-
-			if ( $site_description = get_bloginfo( 'description', 'display' ) ) {
-				$title .= '<span class="intro-title-separator"> &mdash; </span>';
-				$title .= '<small class="intro-title-tagline">' . $site_description . '</small>';
-			}
-
-			$title .= '</' . tag_escape( $intro_title_tag ) . '>';
-
-		}
-
-		echo $title;
-
-
-
-	/**
-	 * Page summary
-	 */
-	if ( $page_summary ) :
-
-		?>
-
-		<div class="page-summary">
-			<?php echo $page_summary; ?>
-		</div>
-
-		<?php
-
-	endif;
+	if ( $title ) {
+		echo '<' . tag_escape( $title_tag ) . ' class="' . esc_attr( $class_title ) . '">' . $title . '</' . tag_escape( $title_tag ) . '>';
+	}

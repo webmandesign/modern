@@ -21,3 +21,14 @@
 	background-image: linear-gradient( transparent, [[background_color]] );
 	//*/
 }
+
+.slick-slider {
+
+	.slick-arrow,
+	.slick-dots button:hover,
+	.slick-dots button:focus,
+	.slick-active button {
+		@extend %accent_colors;
+	}
+
+}

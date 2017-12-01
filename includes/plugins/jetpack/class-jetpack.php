@@ -61,7 +61,10 @@ class Modern_Jetpack {
 						add_theme_support( 'featured-content', apply_filters( 'wmhook_modern_jetpack_setup_featured_content', array(
 							'featured_content_filter' => 'wmhook_modern_intro_get_slides',
 							'max_posts'               => 6,
-							'post_types'              => array( 'post', 'jetpack-portfolio' ),
+							'post_types'              => array(
+								'post',
+								'jetpack-portfolio',
+							),
 						) ) );
 
 					// Add theme support for Infinite Scroll
@@ -72,7 +75,7 @@ class Modern_Jetpack {
 							'posts_per_page' => 6,
 							'render'         => __CLASS__ . '::infinite_scroll_render',
 							'type'           => 'scroll',
-							'wrapper'        => true, // @todo Test this.
+							'wrapper'        => false,
 						) ) );
 
 					// Add theme support for Content Options
@@ -106,16 +109,10 @@ class Modern_Jetpack {
 
 						add_action( 'tha_entry_bottom', __CLASS__ . '::author_bio' );
 
-						add_action( 'tha_content_before', __CLASS__ . '::template_front_loop_portfolio', 100 );
-						add_action( 'tha_content_after', __CLASS__ . '::template_front_loop_testimonials' );
-
-						add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::template_front_title_portfolio' );
-						add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::template_front_title_testimonials' );
-
 						add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::portfolio_taxonomy', 20 );
 
-						add_action( 'wmhook_modern_postslist_after', __CLASS__ . '::template_front_link_portfolio' );
-						add_action( 'wmhook_modern_postslist_after', __CLASS__ . '::template_front_link_testimonials' );
+						add_action( 'wp', __CLASS__ . '::template_front_display_portfolio' );
+						add_action( 'wp', __CLASS__ . '::template_front_display_testimonials' );
 
 					// Filters
 
@@ -300,11 +297,11 @@ class Modern_Jetpack {
 			// Requirements check
 
 				if (
-						! function_exists( 'jetpack_author_bio' )
-						|| ! Modern_Post::is_singular()
-						|| post_password_required()
-						|| ! in_array( get_post_type(), (array) apply_filters( 'wmhook_modern_jetpack_author_bio_post_type', array( 'post' ) ) )
-					) {
+					! function_exists( 'jetpack_author_bio' )
+					|| ! Modern_Post::is_singular()
+					|| post_password_required()
+					|| ! in_array( get_post_type(), (array) apply_filters( 'wmhook_modern_jetpack_author_bio_post_type', array( 'post' ) ) )
+				) {
 					return;
 				}
 
@@ -415,6 +412,41 @@ class Modern_Jetpack {
 			 */
 
 				/**
+				 * Front page section: Portfolio: Display setup
+				 *
+				 * This has to be hooked as late as onto `wp` action so it works
+				 * fine with customizer options.
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 */
+				public static function template_front_display_portfolio() {
+
+					// Helper variables
+
+						$location = explode( '|', (string) get_theme_mod( 'location_front_portfolio', 'tha_content_before|10' ) );
+						if ( ! isset( $location[1] ) ) {
+							$location[1] = 10;
+						}
+
+
+					// Processing
+
+						if ( $location[0] ) {
+							add_action(
+								$location[0],
+								__CLASS__ . '::template_front_loop_portfolio',
+								$location[1]
+							);
+							add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::template_front_title_portfolio' );
+							add_action( 'wmhook_modern_postslist_after', __CLASS__ . '::template_front_link_portfolio' );
+						}
+
+				} // /template_front_display_portfolio
+
+
+
+				/**
 				 * Front page section: Portfolio: Loop
 				 *
 				 * @since    2.0.0
@@ -508,6 +540,41 @@ class Modern_Jetpack {
 			/**
 			 * Front page section: Testimonials
 			 */
+
+				/**
+				 * Front page section: Testimonials: Display setup
+				 *
+				 * This has to be hooked as late as onto `wp` action so it works
+				 * fine with customizer options.
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 */
+				public static function template_front_display_testimonials() {
+
+					// Helper variables
+
+						$location = explode( '|', (string) get_theme_mod( 'location_front_testimonials', 'tha_content_after|10' ) );
+						if ( ! isset( $location[1] ) ) {
+							$location[1] = 10;
+						}
+
+
+					// Processing
+
+						if ( $location[0] ) {
+							add_action(
+								$location[0],
+								__CLASS__ . '::template_front_loop_testimonials',
+								$location[1]
+							);
+							add_action( 'wmhook_modern_postslist_before', __CLASS__ . '::template_front_title_testimonials' );
+							add_action( 'wmhook_modern_postslist_after', __CLASS__ . '::template_front_link_testimonials' );
+						}
+
+				} // /template_front_display_testimonials
+
+
 
 				/**
 				 * Front page section: Testimonials: Loop

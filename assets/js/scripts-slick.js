@@ -38,10 +38,14 @@
 			var
 				$slickContainerPostFormatGallery = '.format-gallery [class^="image-count-"]',
 				$slickArgsPostFormatGallery = {
-					'autoplay'  : true,
-					'slide'     : 'a',
-					'prevArrow' : $htmlButton['prev'],
-					'nextArrow' : $htmlButton['next']
+					'adaptiveHeight' : true,
+					'autoplay'       : true,
+					'fade'           : true,
+					'pauseOnHover'   : true,
+					'slide'          : 'a',
+					'swipeToSlide'   : true,
+					'prevArrow'      : $htmlButton['prev'],
+					'nextArrow'      : $htmlButton['next']
 				};
 
 			function setupSlickPostFormatGallery( element, slick ) {
@@ -50,7 +54,7 @@
 
 					slick
 						.options
-							.autoplaySpeed = ( 2800 + Math.floor( Math.random() * 4 ) * 400 );
+							.autoplaySpeed = ( 3500 + Math.floor( Math.random() * 4 ) * 400 );
 
 					element
 						.find( '.slick-next' )
@@ -69,22 +73,11 @@
 
 					// Processing
 
-						/**
-						 * Apply slider
-						 */
-
-							var
-								$infiniteScrollPageID = '#infinite-view-' + $( '.posts .infinite-wrap' ).length;
-
-							if ( $().slick ) {
-
-								$( $infiniteScrollPageID + ' ' + $slickContainerPostFormatGallery )
-									.on( 'init', function( e, slick ) {
-										setupSlickPostFormatGallery( $( this ), slick );
-									} )
-									.slick( $slickArgsPostFormatGallery );
-
-							} // /slick
+						$( $slickContainerPostFormatGallery + ':not(.slick-initialized)' )
+							.on( 'init', function( e, slick ) {
+								setupSlickPostFormatGallery( $( this ), slick );
+							} )
+							.slick( $slickArgsPostFormatGallery );
 
 				} );
 
@@ -93,10 +86,10 @@
 		/**
 		 * Intro slideshow
 		 *
-		 * For banner slideshow (enabled only when we have some featured posts) we need to create 2 slideshows:
+		 * For featured posts slideshow we need to create 2 slideshows:
 		 * - one for images,
 		 * - and one for titles.
-		 * We sync these slideshows then: titles slideshow controls the images one.
+		 * We sync these slideshows then: titles slideshow controls the media one.
 		 */
 		if ( $( document.body ).hasClass( 'has-intro-slideshow' ) ) {
 
@@ -119,7 +112,7 @@
 					'autoplaySpeed'  : 8000,
 					'dots'           : true,
 					'fade'           : true,
-					'pauseOnHover'   : false,
+					'pauseOnHover'   : true,
 					'slide'          : '.intro-slideshow-item',
 					'swipeToSlide'   : true,
 					'prevArrow'      : $htmlButton['prev'],

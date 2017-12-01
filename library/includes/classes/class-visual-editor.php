@@ -466,9 +466,9 @@ final class Modern_Library_Visual_Editor {
 			// Requirements check
 
 				if (
-						version_compare( $wp_version, '4.7', '>=' )
-						|| ( isset( $current_screen->base ) && 'post' != $current_screen->base )
-					) {
+					version_compare( $wp_version, '4.7', '>=' )
+					|| ( isset( $current_screen->base ) && 'post' != $current_screen->base )
+				) {
 					return;
 				}
 

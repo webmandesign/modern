@@ -228,9 +228,9 @@ class Modern_Customize_Styles {
 				 * we only enqueue styles in Customizer preview screen.
 				 */
 				if (
-						current_theme_supports( 'stylesheet-generator' )
-						&& ! is_customize_preview()
-					) {
+					current_theme_supports( 'stylesheet-generator' )
+					&& ! is_customize_preview()
+				) {
 					return;
 				}
 
@@ -529,9 +529,9 @@ class Modern_Customize_Styles {
 			// Requirements check
 
 				if (
-						empty( $styles_array )
-						|| ! is_array( $styles_array )
-					) {
+					empty( $styles_array )
+					|| ! is_array( $styles_array )
+				) {
 					return '';
 				}
 
@@ -548,21 +548,21 @@ class Modern_Customize_Styles {
 					// Check condition first, if set
 
 						if (
-								isset( $selector['condition'] )
-								&& ! trim( $selector['condition'] )
-							) {
+							isset( $selector['condition'] )
+							&& ! trim( $selector['condition'] )
+						) {
 							continue;
 						}
 
 					// Process the array
 
 						if (
-								isset( $selector['selector'] )
-								&& $selector['selector']
-								&& isset( $selector['styles'] )
-								&& is_array( $selector['styles'] )
-								&& ! empty( $selector['styles'] )
-							) {
+							isset( $selector['selector'] )
+							&& $selector['selector']
+							&& isset( $selector['styles'] )
+							&& is_array( $selector['styles'] )
+							&& ! empty( $selector['styles'] )
+						) {
 
 							// When CSS selector and styles set up
 
@@ -603,9 +603,9 @@ class Modern_Customize_Styles {
 								}
 
 						} elseif (
-								isset( $selector['custom'] )
-								&& $selector['custom']
-							) {
+							isset( $selector['custom'] )
+							&& $selector['custom']
+						) {
 
 							// Custom texts
 

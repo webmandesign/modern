@@ -10,8 +10,30 @@
 
 // Default site content elements
 
-	.entry,
 	.is-singular .content-area,
 	.#{$special_color_class_prefix}content {
 		@extend %site_content_colors;
 	}
+
+
+
+// Posts
+
+	.entry {
+		@extend %site_content_colors;
+	}
+
+	.posts .sticky::before {
+		@extend %accent_colors;
+	}
+
+
+
+	// Post formats
+
+		.format-image .entry-media::before,
+		.format-quote.entry,
+		.format-status.entry,
+		.type-jetpack-testimonial.entry {
+			@extend %accent_colors;
+		}

@@ -23,9 +23,9 @@
  */
 
 	if (
-			! is_admin()
-			|| ! get_theme_mod( 'admin_welcome_page', true )
-		) {
+		! is_admin()
+		|| ! get_theme_mod( 'admin_welcome_page', true )
+	) {
 		return;
 	}
 

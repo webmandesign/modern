@@ -21,11 +21,9 @@
 // Requirements check
 
 	if (
-			Modern_Post::is_paged()
-			|| ! function_exists( 'the_custom_header_markup' )
-			|| ! get_custom_header_markup()
-			|| ( Modern_Post::is_singular() && get_post_meta( get_the_ID(), 'no_intro_media', true ) )
-		) {
+		! function_exists( 'the_custom_header_markup' )
+		|| ! get_custom_header_markup()
+	) {
 		return;
 	}
 
