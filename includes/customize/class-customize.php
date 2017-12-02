@@ -797,8 +797,8 @@ class Modern_Customize {
 									'label'           => esc_html__( 'General text font', 'modern' ),
 									'default'         => "sans-serif",
 									'input_attrs'     => array(
-											'placeholder' => "sans-serif",
-										),
+										'placeholder' => "sans-serif",
+									),
 									'active_callback' => __CLASS__ . '::is_typography_custom_fonts',
 									'validate'        => 'Modern_Library_Sanitize::fonts',
 								),
@@ -809,8 +809,8 @@ class Modern_Customize {
 									'label'           => esc_html__( 'Headings font', 'modern' ),
 									'default'         => "sans-serif",
 									'input_attrs'     => array(
-											'placeholder' => "sans-serif",
-										),
+										'placeholder' => "sans-serif",
+									),
 									'active_callback' => __CLASS__ . '::is_typography_custom_fonts',
 									'validate'        => 'Modern_Library_Sanitize::fonts',
 								),
@@ -821,8 +821,8 @@ class Modern_Customize {
 									'label'           => esc_html__( 'Logo font', 'modern' ),
 									'default'         => "serif",
 									'input_attrs'     => array(
-											'placeholder' => "serif",
-										),
+										'placeholder' => "serif",
+									),
 									'active_callback' => __CLASS__ . '::is_typography_custom_fonts',
 									'validate'        => 'Modern_Library_Sanitize::fonts',
 								),

@@ -23,7 +23,7 @@ $padding : power( $golden, 2 ); // In em.
 		position: relative;
 		width: calc( 100% - #{ $gutter +em } );
 		padding: $padding / 2 +em; // Half the padding for mobiles.
-		margin: $gutter / 2 +em; // Half the padding for mobiles.
+		margin: $gutter / 2 +em;
 
 		@include responsive( map_get( $breakpoint, 'm' ) ) {
 			padding: $padding +em;
