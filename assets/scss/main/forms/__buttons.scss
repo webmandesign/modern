@@ -13,12 +13,13 @@
 	%button_base {
 		@extend %font_weight_700;
 		display: inline-block;
-		padding: ( $golden_major +em ) 1em;
+		padding: 1em;
 		margin-top: 2px; // Allow some breathing when stacked
 		margin-bottom: 2px; // Allow some breathing when stacked
 		text-align: center;
 		text-decoration: none;
-		border-width: 0;
+		border: 2px solid;
+		border-color: transparent;
 		cursor: pointer;
 		transition: background ( $small_animation_speed +s ),
 		            color ( $small_animation_speed +s ),
@@ -36,21 +37,7 @@
 
 		@include haf() {
 			text-decoration: none;
-			border-color: transparent;
-		}
-
-		&:hover {
-			outline: 0;
-			opacity: .75;
-		}
-
-		&:focus {
-			outline: thin dashed;
-		}
-
-		&:active {
-			outline: 0;
-			opacity: .9;
+			border-color: currentColor;
 		}
 
 		&:disabled {

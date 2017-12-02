@@ -562,6 +562,10 @@ class Modern_Post {
 							$location[1] = 10;
 						}
 
+						if ( 1 > intval( get_theme_mod( 'posts_per_page_front_blog', 6 ) ) ) {
+							$location[0] = false;
+						}
+
 
 					// Processing
 

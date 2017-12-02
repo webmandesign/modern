@@ -188,6 +188,10 @@ class Modern_Jetpack_Custom_Post_Types {
 							$location[1] = 10;
 						}
 
+						if ( 1 > intval( get_theme_mod( 'posts_per_page_front_portfolio', 6 ) ) ) {
+							$location[0] = false;
+						}
+
 
 					// Processing
 
@@ -316,6 +320,10 @@ class Modern_Jetpack_Custom_Post_Types {
 						$location = explode( '|', (string) get_theme_mod( 'location_front_testimonials', 'tha_content_after|10' ) );
 						if ( ! isset( $location[1] ) ) {
 							$location[1] = 10;
+						}
+
+						if ( 1 > intval( get_theme_mod( 'posts_per_page_front_testimonials', 3 ) ) ) {
+							$location[0] = false;
 						}
 
 

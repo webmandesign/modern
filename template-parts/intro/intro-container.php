@@ -13,14 +13,9 @@
 
 
 
-// Helper variables
-
-	$class = ( is_singular() ) ? ( 'entry-header' ) : ( 'page-header' );
-
-
 ?>
 
-<section id="intro-container" class="<?php echo esc_attr( $class ); ?> intro-container">
+<section id="intro-container" class="intro-container">
 
 	<?php do_action( 'wmhook_modern_intro_before' ); ?>
 

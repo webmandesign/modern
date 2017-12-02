@@ -14,6 +14,33 @@
 		margin-bottom: power( $golden, 2 ) +em;
 	}
 
+	.page-header {
+		padding: ( power( $golden, 3 ) +em ) 0;
+		border-top: 2px solid;
+		overflow: hidden;
+
+		.page-title {
+
+			@include responsive( map_get( $breakpoint, 'l' ) ) {
+				float: $left; // {{RTL}}
+				max-width: 48%;
+			}
+
+		}
+
+		.archive-description {
+			margin-top: $golden +em;
+
+			@include responsive( map_get( $breakpoint, 'l' ) ) {
+				float: $right; // {{RTL}}
+				margin-top: 0;
+				max-width: 48%;
+			}
+
+		}
+
+	}
+
 	.entry-title,
 	.page-title {
 		@extend %break_words;
@@ -41,10 +68,6 @@
 	}
 
 	.page-title {
-		padding: ( $golden +em ) 0;
-		border-top: 2px solid;
-
-
 
 		// Search results title
 

@@ -132,13 +132,3 @@ $padding : power( $golden, 2 ); // In em.
 		}
 
 	}
-
-
-
-// Archive description
-
-	.archive-description {
-		max-width: 39em;
-		max-width: 70ch;
-		margin-bottom: power( $golden, 2 ) +em;
-	}

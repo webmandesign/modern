@@ -264,7 +264,7 @@ class Modern_Customize {
 									'type'        => 'text',
 									'id'          => 'custom_logo_height',
 									'label'       => esc_html__( 'Max logo image height (px)', 'modern' ),
-									'default'     => 32,
+									'default'     => 100,
 									'validate'    => 'absint',
 									'input_attrs' => array(
 										'size'     => 5,
@@ -675,25 +675,25 @@ class Modern_Customize {
 
 								300 . 'layout' . 100 => array(
 									'type'    => 'html',
-									'content' => '<h3>' . esc_html__( 'Blog section', 'modern' ) . '</h3><p class="description">' . esc_html__( 'Options for setting up blog posts section on "Front page" template.', 'modern' ) . '</p>',
+									'content' => '<h3><small>' . esc_html__( 'Front page:', 'modern' ) . '</small> ' . esc_html__( 'Blog section', 'modern' ) . '</h3><p class="description">' . esc_html__( 'Options for setting up blog posts section on "Front page" template.', 'modern' ) . '</p>',
 								),
 
 									300 . 'layout' . 110 => array(
-										'type'    => 'range',
-										'id'      => 'posts_per_page_front_blog',
-										'label'   => esc_html__( 'Posts count', 'modern' ),
-										'default' => 6,
-										'min'     => 2,
-										'max'     => 12,
-										'step'    => 1,
-									),
-
-									300 . 'layout' . 120 => array(
 										'type'    => 'select',
 										'id'      => 'location_front_blog',
 										'label'   => esc_html__( 'Display location', 'modern' ),
 										'choices' => self::front_page_section_locations(),
 										'default' => 'tha_content_before|20',
+									),
+
+									300 . 'layout' . 120 => array(
+										'type'    => 'range',
+										'id'      => 'posts_per_page_front_blog',
+										'label'   => esc_html__( 'Posts count', 'modern' ),
+										'default' => 6,
+										'min'     => 0,
+										'max'     => 12,
+										'step'    => 3,
 									),
 
 

@@ -27,7 +27,7 @@
 
 		printf(
 			/* translators: 1: Portfolio post type plural label. */
-			esc_html__( 'All %s', 'modern' ),
+			esc_html__( 'All %s &raquo;', 'modern' ),
 			esc_html( $labels->name )
 		);
 

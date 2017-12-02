@@ -35,7 +35,7 @@
 
 		printf(
 			/* translators: 1: Posts post type plural label. */
-			esc_html__( 'All %s', 'modern' ),
+			esc_html__( 'All %s &raquo;', 'modern' ),
 			esc_html( $post_type_labels->name )
 		);
 

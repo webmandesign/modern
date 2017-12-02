@@ -11,11 +11,7 @@
 .slick-slider {
 
 	button {
-
-		@include haf() {
-			opacity: 1;
-		}
-
+		border-width: 0;
 	}
 
 }
@@ -100,7 +96,7 @@
 			bottom: 2.62rem;
 			line-height: 2.62rem;
 			border-radius: 5em;
-			box-shadow: inset 0 0 1px;
+			box-shadow: inset 0 0 0 1px;
 			transform: none;
 
 			@include responsive( map_get( $breakpoint, 'xl' ) ) {
@@ -156,7 +152,7 @@
 					line-height: 2;
 					font-weight: 400;
 					border-radius: 2em;
-					box-shadow: inset 0 0 1px;
+					box-shadow: inset 0 0 0 1px;
 				}
 
 				button:hover,

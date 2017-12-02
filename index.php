@@ -30,7 +30,18 @@ get_header();
 			?>
 
 			<header class="page-header">
-				<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+				<h1 class="page-title"><?php single_post_title(); ?></h1>
+				<?php if ( ! Modern_Post::is_paged() ) : ?>
+				<div class="archive-description">
+					<?php
+
+					$page_for_posts = get_post( absint( get_option( 'page_for_posts' ) ) );
+
+					echo apply_filters( 'get_the_excerpt', $page_for_posts->post_excerpt );
+
+					?>
+				</div>
+				<?php endif; ?>
 			</header>
 
 			<?php
