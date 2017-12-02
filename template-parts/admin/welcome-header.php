@@ -45,7 +45,7 @@
 		<?php esc_html_e( 'Please take time to read the steps below to set up your website.', 'modern' ); ?>
 	</div>
 
-	<p class="wm-actions">
+	<p>
 
 		<a href="https://webmandesign.github.io/docs/modern/" class="button button-primary button-hero"><?php esc_html_e( 'Theme Documentation', 'modern' ); ?></a>
 

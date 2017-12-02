@@ -39,7 +39,7 @@
 
 	<h3><?php esc_html_e( 'Recommended image sizes', 'modern' ); ?></h3>
 
-	<p><?php esc_html_e( 'For the optimal theme display, please, set image sizes recommended in table below.', 'modern' ); ?></p>
+	<p><?php esc_html_e( 'For the optimal theme display, please, set image sizes recommended in the table below.', 'modern' ); ?></p>
 
 	<p>
 		<?php esc_html_e( 'Do you already have images uploaded to your website and want to resize them?', 'modern' ); ?>

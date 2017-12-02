@@ -533,12 +533,12 @@ class Modern_Post_Media {
 
 				if ( ! empty( $post_media ) ) {
 
-					$output .= '<div class="image-count-' . absint( count( $post_media ) ) . '">';
+					$output .= '<div class="entry-media-gallery-images image-count-' . absint( count( $post_media ) ) . '">';
 
 					$i = 0;
 
 					foreach( $post_media as $image_id ) {
-						$output .= '<a href="' . esc_url( $link_url ) . '">';
+						$output .= '<a href="' . esc_url( $link_url ) . '" class="entry-media-gallery-image">';
 						$output .= wp_get_attachment_image( absint( $image_id ), (string) apply_filters( 'wmhook_modern_post_media_gallery_image_size', $image_size, ++$i, count( $post_media ), $image_id ) );
 						$output .= '</a>';
 					}
@@ -600,8 +600,9 @@ class Modern_Post_Media {
 			// Processing
 
 				if ( (bool) apply_filters( 'wmhook_modern_post_media_audio_thumbnail_enable',
-					empty( $post_media )
-					|| $is_shortcode
+					empty( $post_media ) || $is_shortcode,
+					$post_media,
+					$is_shortcode
 				) ) {
 					$output .= self::image_featured( $image_size );
 				}

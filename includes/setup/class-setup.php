@@ -163,8 +163,7 @@ class Modern_Setup {
 
 			// Helper variables
 
-				$transient = 'display_upgrade_notice';
-				$notices   = array_unique( array_filter( (array) get_transient( $transient ) ) );
+				$notices = array_unique( array_filter( (array) get_transient( Modern_Customize::$transient_upgrade ) ) );
 
 
 			// Processing
@@ -176,7 +175,7 @@ class Modern_Setup {
 						get_template_part( 'template-parts/admin/notice-upgrade', $notice );
 					}
 
-					delete_transient( $transient );
+					delete_transient( Modern_Customize::$transient_upgrade );
 				}
 
 		} // /admin_notice_upgrade
@@ -203,8 +202,7 @@ class Modern_Setup {
 
 			// Helper variables
 
-				$transient      = 'display_upgrade_notice';
-				$upgrade_notice = (array) get_transient( $transient );
+				$upgrade_notice = (array) get_transient( Modern_Customize::$transient_upgrade );
 
 
 			// Processing
@@ -212,7 +210,7 @@ class Modern_Setup {
 				$upgrade_notice[] = 'child-theme'; // What admin notice to display?
 
 				set_transient(
-					$transient,
+					Modern_Customize::$transient_upgrade,
 					$upgrade_notice,
 					7 * 24 * 60 * 60
 				);

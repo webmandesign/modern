@@ -29,6 +29,8 @@ class Modern_Customize {
 
 		private static $instance;
 
+		public static $transient_upgrade = 'display_upgrade_notice';
+
 
 
 		/**
@@ -1242,11 +1244,10 @@ class Modern_Customize {
 
 							// Make sure we display typography options upgrade notice
 
-								$transient        = 'display_upgrade_notice';
-								$upgrade_notice   = (array) get_transient( $transient );
+								$upgrade_notice   = (array) get_transient( self::$transient_upgrade );
 								$upgrade_notice[] = '2.0.0-typography'; // What admin notice to display?
 								set_transient(
-									$transient,
+									self::$transient_upgrade,
 									$upgrade_notice,
 									7 * 24 * 60 * 60
 								);

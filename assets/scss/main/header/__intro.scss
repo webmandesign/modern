@@ -96,18 +96,32 @@
 				@extend %font_weight_300;
 			}
 
-			.slick-slider & {
-				// Make it 3x the size of slideshow prev/next button.
-				padding-bottom: 2.62 * 3rem;
-
-				@include responsive( map_get( $breakpoint, 'xl' ) ) {
-					padding-bottom: 3.62 * 3rem;
-				}
-
-			}
-
 		}
 
 }
 
-// @todo  Slideshow .no-js styles.
+
+
+// Slideshow
+
+	.intro-slideshow {
+
+		&-item {
+
+			&:not(.slick-slide):not(:first-child) {
+				display: none;
+			}
+
+		}
+
+		&.slick-slider .intro-title {
+			// Make it 3x the size of slideshow prev/next button.
+			padding-bottom: 2.62 * 3rem;
+
+			@include responsive( map_get( $breakpoint, 'xl' ) ) {
+				padding-bottom: 3.62 * 3rem;
+			}
+
+		}
+
+	}

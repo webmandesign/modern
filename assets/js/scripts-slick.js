@@ -36,13 +36,13 @@
 		 */
 
 			var
-				$slickContainerPostFormatGallery = '.format-gallery [class^="image-count-"]',
+				$slickContainerPostFormatGallery = '.format-gallery .entry-media-gallery-images',
 				$slickArgsPostFormatGallery = {
 					'adaptiveHeight' : true,
 					'autoplay'       : true,
 					'fade'           : true,
 					'pauseOnHover'   : true,
-					'slide'          : 'a',
+					'slide'          : '.entry-media-gallery-image',
 					'swipeToSlide'   : true,
 					'prevArrow'      : $htmlButton['prev'],
 					'nextArrow'      : $htmlButton['next']
@@ -94,7 +94,7 @@
 		if ( $( document.body ).hasClass( 'has-intro-slideshow' ) ) {
 
 			var
-				$slickArgsIntroImages = {
+				$slickArgsIntroMedia = {
 					'adaptiveHeight' : true,
 					'accessibility'  : false,
 					'arrows'         : false,
@@ -102,12 +102,12 @@
 					'fade'           : true,
 					'pauseOnHover'   : false,
 					'swipe'          : false,
-					'slide'          : '.intro-slideshow-media',
+					'slide'          : '.intro-slideshow-item',
 					'touchMove'      : false
 				},
-				$slickArgsIntroTitles = {
+				$slickArgsIntroContent = {
 					'adaptiveHeight' : true,
-					'asNavFor'       : '.intro-slideshow-images',
+					'asNavFor'       : '#intro-slideshow-media',
 					'autoplay'       : true,
 					'autoplaySpeed'  : 8000,
 					'dots'           : true,
@@ -119,30 +119,12 @@
 					'nextArrow'      : $htmlButton['next']
 				};
 
-			// Create a new container for our images slider
-
-				$( '<div class="intro-slideshow-images intro-media">' )
-					.prependTo( '#intro-container' );
-
-			// Move all the posts images to our newly created container
-
-				$( '#intro .intro-slideshow-media' )
-					.closest( '.intro-inner' )
-						.addClass( 'intro-slideshow-titles' )
-						.end()
-					.each( function() {
-
-						$( this )
-							.appendTo( '#intro-container .intro-slideshow-images' );
-
-					} );
-
 			// Initialize the actual sliders
 
-				$( '#intro-container .intro-slideshow-images' )
-					.slick( $slickArgsIntroImages );
-				$( '#intro-container .intro-slideshow-titles' )
-					.slick( $slickArgsIntroTitles );
+				$( '#intro-slideshow-media' )
+					.slick( $slickArgsIntroMedia );
+				$( '#intro-slideshow-content' )
+					.slick( $slickArgsIntroContent );
 
 		}
 

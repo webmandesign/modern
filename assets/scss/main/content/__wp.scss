@@ -138,6 +138,11 @@
 				margin: 0;
 			}
 
+			&-current-item {
+				@extend %font_weight_700;
+				padding-bottom: $golden_major +rem;
+			}
+
 		}
 
 		.entry-media & {

@@ -262,8 +262,7 @@ class Modern_TGMPA_Plugins {
 					<p>
 						<?php esc_html_e( 'Please note that these are just recommended plugins, not required ones.', 'modern' ); ?>
 						<?php esc_html_e( 'Install only those plugins you will use.', 'modern' ); ?>
-						<?php echo esc_html_x( 'Or install the ones you prefer.', 'Plugins.', 'modern' ); ?> <br>
-						<?php esc_html_e( 'For example, if you are not building an eCommerce website, there is no need to install WooCommerce plugin suggested below.', 'modern' ); ?>
+						<?php echo esc_html_x( 'Or install the ones you prefer.', 'Plugins.', 'modern' ); ?>
 					</p>
 				</div>
 

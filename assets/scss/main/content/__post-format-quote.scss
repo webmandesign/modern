@@ -8,7 +8,7 @@
 
 
 
-.format-quote {
+%post_format_quote {
 
 	a {
 		color: inherit;
@@ -38,6 +38,10 @@
 
 	}
 
+}
+
+.format-quote {
+	@extend %post_format_quote;
 }
 
 .single-format-quote .content-area .entry {

@@ -22,7 +22,7 @@
 	<p>
 		<?php esc_html_e( 'Please note that custom typography options have been changed in this theme update to provide more flexible typography setup.', 'modern' ); ?>
 		<?php esc_html_e( 'You will most likely need to load your custom fonts using additional plugin.', 'modern' ); ?>
-		<?php esc_html_e( 'Please read the information in Customizer &rarr; Theme Options &rarr; Typography for more details on custom typography setup.', 'modern' ); ?>
+		<?php esc_html_e( 'Please read the information in Appearance &rarr; Customize &rarr; Theme Options &rarr; Typography for more details on custom typography setup.', 'modern' ); ?>
 	</p>
 	<p>
 		<a href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>" class="button">

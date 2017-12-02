@@ -18,15 +18,19 @@
 
 // Requirements check
 
-	if ( ! is_page_template( 'page-template/_front.php' ) ) {
+	$post_type = 'jetpack-testimonial';
+
+	if (
+		! is_page_template( 'page-template/_front.php' )
+		|| ! post_type_exists( $post_type )
+	) {
 		return;
 	}
 
 
 // Helper variables
 
-	$context   = basename( __FILE__ );
-	$post_type = 'jetpack-testimonial';
+	$context = basename( __FILE__ );
 
 	$query = new WP_Query( (array) apply_filters( 'wmhook_modern_loop_query', array(
 		'post_type'           => $post_type,

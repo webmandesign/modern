@@ -15,8 +15,12 @@
 	.site-footer {
 		@extend %box_shadow;
 		position: relative;
-		margin-top: $golden +em;
+		margin-top: $vertical_gap * $golden_major + $golden;
 		z-index: 5;
+
+		@include responsive( map_get( $breakpoint, 'l' ) ) {
+			margin-top: $vertical_gap + $golden;
+		}
 
 		&-area {
 

@@ -25,6 +25,8 @@ class Modern_NS_Featured_Posts {
 
 		private static $instance;
 
+		private static $supported_post_types = array();
+
 
 
 		/**
@@ -35,6 +37,19 @@ class Modern_NS_Featured_Posts {
 		 */
 		private function __construct() {
 
+			// Helper variables
+
+				$plugin_options = get_option( 'nsfp_plugin_options' );
+
+				if ( isset( $plugin_options['nsfp_posttypes'] ) ) {
+					foreach ( (array) $plugin_options['nsfp_posttypes'] as $post_type => $enabled ) {
+						if ( post_type_exists( $post_type ) ) {
+							self::$supported_post_types[] = $post_type;
+						}
+					}
+				}
+
+
 			// Processing
 
 				// Hooks
@@ -42,6 +57,8 @@ class Modern_NS_Featured_Posts {
 					// Filters
 
 						add_filter( 'wmhook_modern_intro_get_slides', __CLASS__ . '::get_posts', 100 ); // After Jetpack featured content to override it.
+
+						add_filter( 'post_class', __CLASS__ . '::post_class', 100 );
 
 		} // /__construct
 
@@ -86,26 +103,54 @@ class Modern_NS_Featured_Posts {
 		 */
 		public static function get_posts( $featured_posts = array() ) {
 
-			// Helper variables
+			// Output
 
-				$post_type = array( 'post' );
+				if ( ! empty( self::$supported_post_types ) ) {
 
-				$plugin_options = get_option( 'nsfp_plugin_options' );
-				if ( isset( $plugin_options['nsfp_posttypes'] ) && ! empty( $plugin_options['nsfp_posttypes'] ) ) {
-					$post_type = array_keys( (array) $plugin_options['nsfp_posttypes'] );
+					return get_posts( (array) apply_filters( 'wmhook_modern_ns_featured_posts_get_posts_args', array(
+						'numberposts' => 6,
+						'post_type'   => (array) self::$supported_post_types,
+						'meta_key'    => '_is_ns_featured_post',
+						'meta_value'  => 'yes',
+					) ) );
+
+				} else {
+
+					return $featured_posts;
+
+				}
+
+		} // /get_posts
+
+
+
+		/**
+		 * Post classes
+		 *
+		 * @since    1.3.0
+		 * @version  2.0.0
+		 *
+		 * @param  array $classes
+		 */
+		public static function post_class( $classes ) {
+
+			// Processing
+
+				$post_id = get_the_ID();
+
+				if (
+					in_array( get_post_type( $post_id ), (array) self::$supported_post_types )
+					|| get_post_meta( $post_id, '_is_ns_featured_post', true )
+				) {
+					$classes[] = 'is-featured';
 				}
 
 
 			// Output
 
-				return get_posts( (array) apply_filters( 'wmhook_modern_ns_featured_posts_get_posts_args', array(
-					'numberposts' => 6,
-					'post_type'   => $post_type,
-					'meta_key'    => '_is_ns_featured_post',
-					'meta_value'  => 'yes',
-				) ) );
+				return $classes;
 
-		} // /get_posts
+		} // /post_class
 
 
 
@@ -113,4 +158,4 @@ class Modern_NS_Featured_Posts {
 
 } // /Modern_NS_Featured_Posts
 
-add_action( 'after_setup_theme', 'Modern_NS_Featured_Posts::init' );
+add_action( 'init', 'Modern_NS_Featured_Posts::init' ); // Hooking late, after CPTs are registered.

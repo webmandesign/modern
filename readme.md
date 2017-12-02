@@ -42,7 +42,6 @@ The theme was tested and is compatible with Chrome, Safari, Opera, Firefox, Edge
 
 
 ## Copyright
-@todo Assets copyright;
 
 ### Theme copyright
 
@@ -98,6 +97,12 @@ https://genericons.com
 **Bundled images in `images/header/` folder**
 Distributed under [CC0 license](https://creativecommons.org/publicdomain/zero/1.0/)
 https://pixabay.com/en/canada-lake-black-and-white-calm-407701/
+https://pixabay.com/en/leaves-tree-nature-leaf-plant-1345836/
+https://pixabay.com/en/trees-plants-nature-forest-grass-2601040/
+https://pixabay.com/en/trees-forest-woods-grass-nature-925682/
+https://pixabay.com/en/winter-frost-fog-road-cold-dark-622126/
+https://stocksnap.io/photo/ZKBPKSFZ7I
+https://unsplash.com/photos/w1g2o4J_4Dg
 
 **Bundled images in `images/svg/` folder**
 Based on Font Awesome icons, Copyright (c) Dave Gandy
@@ -105,9 +110,8 @@ Distributed under [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
 http://fontawesome.io
 
 **Images used in theme screenshot and demo website**
-Copyright (c) https://openclipart.org
-Copyright (c) https://unsplash.com
-Copyright (c) https://stocksnap.io
-Copyright (c) https://www.pexels.com
 Copyright (c) https://pixabay.com
+Copyright (c) https://stocksnap.io
+Copyright (c) https://unsplash.com
+Copyright (c) https://www.pexels.com
 License: CC0, https://creativecommons.org/publicdomain/zero/1.0/

@@ -20,6 +20,8 @@
 
 		}
 
+
+
 		.front-page-section {
 			@extend %margin_top;
 			@extend %margin_bottom;
@@ -49,7 +51,10 @@
 
 		}
 
+
+
 		.taxonomy-terms {
+			display: inline-block;
 			margin: 0 0 ( power( $golden, 2 ) +em );
 			list-style: none;
 

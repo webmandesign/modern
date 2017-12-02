@@ -38,5 +38,10 @@
  * 20) Plugin integration
  */
 
-	require MODERN_PATH_PLUGINS . 'jetpack/class-jetpack.php';
-	require MODERN_PATH_PLUGINS . 'jetpack/class-jetpack-customize.php';
+	define( 'MODERN_PATH_PLUGINS_JETPACK', MODERN_PATH_PLUGINS . 'jetpack/class-jetpack-' );
+
+	require MODERN_PATH_PLUGINS_JETPACK . 'setup.php';
+	require MODERN_PATH_PLUGINS_JETPACK . 'custom-post-types.php';
+	require MODERN_PATH_PLUGINS_JETPACK . 'content-options.php';
+	require MODERN_PATH_PLUGINS_JETPACK . 'infinite-scroll.php';
+	require MODERN_PATH_PLUGINS_JETPACK . 'customize.php';

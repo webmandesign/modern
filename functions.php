@@ -148,6 +148,12 @@
 			require MODERN_PATH_PLUGINS . 'advanced-custom-fields/advanced-custom-fields.php';
 		}
 
+	// Breadcrumb NavXT
+
+		if ( function_exists( 'bcn_display' ) ) {
+			require MODERN_PATH_PLUGINS . 'breadcrumb-navxt/breadcrumb-navxt.php';
+		}
+
 	// Jetpack
 
 		if ( class_exists( 'Jetpack' ) ) {
@@ -164,10 +170,4 @@
 
 		if ( class_exists( 'OCDI_Plugin' ) && is_admin() ) {
 			require MODERN_PATH_PLUGINS . 'one-click-demo-import/one-click-demo-import.php';
-		}
-
-	// Subtitles
-
-		if ( class_exists( 'Subtitles' ) ) {
-			require MODERN_PATH_PLUGINS . 'subtitles/subtitles.php';
 		}

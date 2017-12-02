@@ -21,6 +21,7 @@
 				text-decoration: none;
 				background-position: 50% 50%;
 				background-size: cover;
+				border-top: 2px solid;
 				z-index: 1;
 
 				&::before {
@@ -31,8 +32,8 @@
 					left: 0;
 					top: 0;
 					z-index: -1;
-					opacity: .95;
-					transition: opacity ( $small_animation_speed +s );
+					opacity: .9;
+					transition: opacity ( $large_animation_speed +s );
 				}
 
 				&:hover::before {
@@ -60,11 +61,6 @@
 					display: block;
 				}
 
-		}
-
-		&-previous,
-		&-next {
-			margin-top: 2px;
 		}
 
 		&-next {

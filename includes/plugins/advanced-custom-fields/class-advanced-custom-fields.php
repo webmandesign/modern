@@ -111,7 +111,7 @@ class Modern_Advanced_Custom_Fields {
 							100 => array(
 								'key'          => 'modern_intro_text',
 								'label'        => esc_html__( 'Custom intro text', 'modern' ),
-								'instructions' => esc_html__( 'Here you can override the default intro intro section text with a custom one (no HTML).', 'modern' ),
+								'instructions' => esc_html__( 'Here you can override the default intro section text with a custom one (no HTML).', 'modern' ) . '<br>' . esc_html__( 'This only works when this page is set as static front page, or when this post is displayed in front page slideshow.', 'modern' ),
 								'name'         => 'banner_text', // Using old name "banner_text" for backwards compatibility.
 								'type'         => 'text',
 							),
@@ -121,7 +121,7 @@ class Modern_Advanced_Custom_Fields {
 							200 => array(
 								'key'          => 'modern_intro_image',
 								'label'        => esc_html__( 'Custom intro image', 'modern' ),
-								'instructions' => esc_html__( 'Here you can override the default intro intro section image with a custom one.', 'modern' ),
+								'instructions' => esc_html__( 'Here you can override the default intro section image with a custom one.', 'modern' ),
 								'name'         => 'banner_image', // Using old name "banner_image" for backwards compatibility.
 								'type'         => 'image',
 								'save_format'  => 'id',

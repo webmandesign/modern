@@ -167,100 +167,84 @@
 
 
 
+	// Featured images
+
+		.jetpack-featured-images {
+
+			&-archive {
+
+				&-disabled {
+
+					.posts {
+
+						.post-thumbnail {
+							display: none;
+						}
+
+					}
+
+				}
+
+			}
+
+			&-page {
+
+				&-disabled {
+
+					&.page {
+
+						.content-area .post-thumbnail {
+							display: none;
+						}
+
+					}
+
+				}
+
+			}
+
+			&-portfolio {
+
+				&-disabled {
+
+					&.single-jetpack-portfolio {
+
+						.content-area .post-thumbnail {
+							display: none;
+						}
+
+					}
+
+				}
+
+			}
+
+			&-post {
+
+				&-disabled {
+
+					&.single-post {
+
+						.content-area .post-thumbnail {
+							display: none;
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+
+
 // Custom post types
-// @todo
-
-	// Portfolio
-
-		.portfolio-entry {
-
-			.entry-content & {
-				padding: $golden +em;
-				margin: 1em;
-				border-width: 1px;
-				border-style: solid;
-				border-bottom-width: 2px;
-				border-bottom-color: inherit;
-
-				@include responsive( map_get( $breakpoint, 'm' ) ) {
-					padding: 2em;
-				}
-
-				.portfolio-featured-image {
-					display: block;
-					margin: calc( #{ $golden * -1em } - 1px ); // Cover border around post entry.
-					margin-bottom: $golden +em;
-
-					@include responsive( map_get( $breakpoint, 'm' ) ) {
-						margin: calc( -2em - 1px ); // Cover border around post entry.
-						margin-bottom: 2em;
-					}
-
-					img {
-						width: 100%;
-					}
-
-				}
-
-				&-title a {
-					text-decoration: none;
-				}
-
-			}
-
-		}
-
-		.jetpack-portfolio-shortcode {
-			display: flex;
-			flex-wrap: wrap;
-
-			.entry-content & {
-				margin: -1em;
-			}
-
-			.portfolio-entry {
-				$columns: 1; // Default layout on small devices.
-				width: calc( #{ percentage( 1 / $columns ) } - 2em );
-			}
-
-			@include responsive( map_get( $breakpoint, 'm' ) ) {
-
-				.portfolio-entry {
-					$columns: 2; // Default layout on medium devices.
-					width: calc( #{ percentage( 1 / $columns ) } - 2em );
-				}
-
-				.portfolio-entry-column-1 {
-					$columns: 1;
-					width: calc( #{ percentage( 1 / $columns ) } - 2em );
-				}
-
-			}
-
-			@include responsive( map_get( $breakpoint, 'l' ) ) {
-
-				@for $columns from 3 through 6 {
-
-					.portfolio-entry-column-#{ $columns } {
-						width: calc( #{ percentage( 1 / $columns ) } - 2em );
-					}
-
-				}
-
-			}
-
-		}
-
-
 
 	// Testimonials
 
 		.type-jetpack-testimonial {
-
-			.entry-media,
-			.entry-header {
-				@extend %screen_reader_hiding;
-			}
+			@extend %post_format_quote;
 
 			.quote-source {
 				font-size: $golden_minor / 2 + 1em;
@@ -269,67 +253,11 @@
 
 		}
 
-		.testimonial-entry {
+		.single-jetpack-testimonial .content-area .entry {
 
-			.entry-content & {
-				margin: 1em;
-
-				.testimonial-featured-image {
-					display: inline-block;
-					max-width: 6em;
-					margin-top: 1em;
-				}
-
-			}
-
-			&-title {
-
-				.entry-subtitle {
-					margin: 0;
-					font-size: inherit;
-				}
-
-			}
-
-		}
-
-		.jetpack-testimonial-shortcode {
-			display: flex;
-			flex-wrap: wrap;
-
-			.entry-content & {
-				margin: -1em;
-			}
-
-			.testimonial-entry {
-				$columns: 1; // Default layout on small devices.
-				width: calc( #{ percentage( 1 / $columns ) } - 2em );
-			}
-
-			@include responsive( map_get( $breakpoint, 'm' ) ) {
-
-				.testimonial-entry {
-					$columns: 2; // Default layout on medium devices.
-					width: calc( #{ percentage( 1 / $columns ) } - 2em );
-				}
-
-				.testimonial-entry-column-1 {
-					$columns: 1;
-					width: calc( #{ percentage( 1 / $columns ) } - 2em );
-				}
-
-			}
-
-			@include responsive( map_get( $breakpoint, 'l' ) ) {
-
-				@for $columns from 3 through 6 {
-
-					.testimonial-entry-column-#{ $columns } {
-						width: calc( #{ percentage( 1 / $columns ) } - 2em );
-					}
-
-				}
-
+			h1, h2, h3, h4,
+			.h1, .h2, .h3, .h4 {
+				color: inherit;
 			}
 
 		}

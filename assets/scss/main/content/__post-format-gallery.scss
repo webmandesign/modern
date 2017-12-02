@@ -10,6 +10,12 @@
 
 .format-gallery {
 
-	// @todo  Slideshow .no-js styles.
+	.entry-media-gallery-image {
+
+		&:not(.slick-slide):not(:first-child) {
+			display: none;
+		}
+
+	}
 
 }

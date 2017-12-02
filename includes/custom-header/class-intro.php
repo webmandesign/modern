@@ -130,15 +130,10 @@ class Modern_Intro {
 
 					$header_images = array(
 						'pixabay.canada-407701.jpg',
-						'pixabay.dark-692315.jpg',
-						'pixabay.landscape-2628163.jpg',
 						'pixabay.leaves-1345836.jpg',
-						'pixabay.trees-925682.jpg',
 						'pixabay.trees-2601040.jpg',
-						'pixabay.valley-828583.jpg',
+						'pixabay.trees-925682.jpg',
 						'pixabay.winter-622126.jpg',
-						'StockSnap_F9A9BC32GG.jpg',
-						'StockSnap_SMZ95FJTOG.jpg',
 						'StockSnap_ZKBPKSFZ7I.jpg',
 						'unsplash.colin-carter-75587.jpg',
 					);
@@ -389,25 +384,42 @@ class Modern_Intro {
 				remove_action( 'wmhook_modern_intro', __CLASS__ . '::content' );
 				remove_action( 'wmhook_modern_intro_after', __CLASS__ . '::media', -10 );
 
-				add_action( 'wmhook_modern_intro', __CLASS__ . '::slideshow' );
+				add_action( 'wmhook_modern_intro', __CLASS__ . '::content_slideshow' );
+				add_action( 'wmhook_modern_intro_after', __CLASS__ . '::media_slideshow', -10 );
 
 		} // /set_slideshow_display
 
 
 
 		/**
-		 * Display slideshow
+		 * Display slideshow content
 		 *
 		 * @since    2.0.0
 		 * @version  2.0.0
 		 */
-		public static function slideshow() {
+		public static function content_slideshow() {
 
 			// Processing
 
-				get_template_part( 'template-parts/intro/intro', 'slideshow' );
+				get_template_part( 'template-parts/intro/intro-content', 'slideshow' );
 
-		} // /slideshow
+		} // /content_slideshow
+
+
+
+		/**
+		 * Display slideshow media
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function media_slideshow() {
+
+			// Processing
+
+				get_template_part( 'template-parts/intro/intro-media', 'slideshow' );
+
+		} // /media_slideshow
 
 
 
@@ -418,7 +430,7 @@ class Modern_Intro {
 		 * Compatible with Jetpack `featured-content` where we pass the
 		 * "wmhook_modern_intro_get_slides" filter name into settings.
 		 *
-		 * @see  Modern_Jetpack::__construct()
+		 * @see  Modern_Jetpack_Setup::__construct()
 		 *
 		 * @since    2.0.0
 		 * @version  2.0.0

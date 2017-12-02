@@ -23,10 +23,10 @@
 
 	<p>
 		<?php esc_html_e( 'If you like this free WordPress theme, please, consider supporting its development by purchasing one of my premium products.', 'modern' ); ?>
-		(<a href="https://www.webmandesign.eu"><?php esc_html_e( 'Go to WebMan Design website &raquo;', 'modern' ); ?></a>)
+		(<a href="https://www.webmandesign.eu" target="_blank"><?php esc_html_e( 'Go to WebMan Design website &raquo;', 'modern' ); ?></a>)
 		<?php esc_html_e( 'Or perhaps you are considering a small donation?', 'modern' ); ?>
 		&rarr;
-		<a href="@todo"><em><?php esc_html_e( '"Hey Oliver, have a cup of coffee on me :)"', 'modern' ); ?></em></a>
+		<a href="https://www.paypal.me/webmandesign/20" target="_blank"><em><?php esc_html_e( '"Hey Oliver, have a gallon of coffee on me :)"', 'modern' ); ?></em></a>
 	</p>
 
 	<p>
@@ -34,6 +34,10 @@
 		<a href="https://wordpress.org/support/theme/modern/reviews/?filter=5">
 			<?php esc_html_e( "Let's go and rate the theme &#9733;&#9733;&#9733;&#9733;&#9733; :)", 'modern' ); ?>
 		</a>
+	</p>
+
+	<p>
+		<a href="https://www.paypal.me/webmandesign/20" target="_blank" class="button button-primary button-hero"><?php esc_html_e( 'Support theme development', 'modern' ); ?></a>
 	</p>
 
 	<p class="welcome-upgrade-thanks">
@@ -48,7 +52,8 @@
 		position: relative;
 		padding: 2.62em;
 		background-color: #1a1c1e;
-		background-image: url('<?php echo esc_url_raw( trailingslashit( get_template_directory_uri() ) ); ?>assets/images/header/header.jpg');
+		background-image: url('<?php echo esc_url_raw( get_header_image() ); ?>');
+		background-position: 50% 50%;
 		background-size: cover;
 		color: #fff;
 		z-index: 1;
@@ -65,14 +70,6 @@
 			opacity: .85;
 			z-index: -1;
 		}
-
-	.welcome-upgrade .two-col {
-		position: relative;
-		-webkit-align-items: stretch;
-		-moz-box-align: stretch;
-		-ms-flex-align: stretch;
-		align-items: stretch;
-	}
 
 	.welcome-upgrade h2 {
 		margin: 0 0 1em;
@@ -99,30 +96,5 @@
 		.welcome-upgrade a:hover {
 			text-decoration: none;
 		}
-
-		.welcome-upgrade-button {
-			display: inline-block;
-			padding: .62em 1.62em;
-			margin-top: 1em;
-			text-decoration: none;
-			font-size: 1rem;
-			text-shadow: none;
-			background: none;
-			color: inherit;
-			border: 2px solid;
-			box-shadow: none;
-		}
-
-			.welcome-upgrade-button:hover,
-			.welcome-upgrade-button:focus,
-			.welcome-upgrade-button:active {
-				background-color: #fefeff;
-				color: #0f1732;
-				border-color: #fefeff;
-			}
-
-	.welcome-upgrade li::before {
-		margin: 0 .62em;
-	}
 
 </style>

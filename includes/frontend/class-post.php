@@ -138,15 +138,6 @@ class Modern_Post {
 						$classes[] = 'is-sticky';
 					}
 
-				// Featured post
-
-					if (
-						class_exists( 'NS_Featured_Posts' )
-						&& get_post_meta( get_the_ID(), '_is_ns_featured_post', true )
-					) {
-						$classes[] = 'is-featured';
-					}
-
 
 			// Output
 
