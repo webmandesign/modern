@@ -66,6 +66,35 @@
 				transform: scaleX( -1 );
 			}
 
+
+
+			// Make sure the images are not too small on mobile screens
+
+				@include responsive( map_get( $breakpoint, 'l' ), 'max-width' ) {
+
+					&,
+					.slick-slide {
+						overflow: hidden;
+					}
+
+					.site & img {
+						position: relative;
+						width: auto;
+						height: 110%;
+						height: 110vh;
+						max-width: none;
+						max-height: none;
+						left: 50%;
+						transform: translateX( -50% );
+					}
+
+					body:not(.home) & img {
+						transform: scaleX( -1 )
+						           translateX( 50% );
+					}
+
+				}
+
 		}
 
 
@@ -85,9 +114,21 @@
 			padding: 8% 0;
 			margin: 0;
 			line-height: 1 + $golden_minor / 2;
-			font-size: 5.852rem; // @see  http://www.modularscale.com/?1&em&1.125
+			font-size: 2.887rem; // @see  http://www.modularscale.com/?1&em&1.125
 			font-weight: 700;
 			border-top: 2px solid;
+
+			@include responsive( map_get( $breakpoint, 'm' ) ) {
+				font-size: 3.653rem; // @see  http://www.modularscale.com/?1&em&1.125
+			}
+
+			@include responsive( map_get( $breakpoint, 'l' ) ) {
+				font-size: 4.624rem; // @see  http://www.modularscale.com/?1&em&1.125
+			}
+
+			@include responsive( map_get( $breakpoint, 'xl' ) ) {
+				font-size: 5.852rem; // @see  http://www.modularscale.com/?1&em&1.125
+			}
 
 			a {
 				display: inline-block; // To make pagination suffix float the same line when subtitle is displayed.

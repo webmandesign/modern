@@ -33,7 +33,7 @@
 		@extend %button_default_colors;
 	}
 
-	.main-navigation-container {
+	.has-navigation-mobile .main-navigation-container {
 
 		@include responsive( map_get( $breakpoint, 'l' ), 'max-width' ) {
 			/*[*/

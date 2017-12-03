@@ -832,9 +832,9 @@ class Modern_Customize {
 									'type'            => 'text',
 									'id'              => 'typography_fonts_logo',
 									'label'           => esc_html__( 'Logo font', 'modern' ),
-									'default'         => "serif",
+									'default'         => "sans-serif",
 									'input_attrs'     => array(
-										'placeholder' => "serif",
+										'placeholder' => "sans-serif",
 									),
 									'active_callback' => __CLASS__ . '::is_typography_custom_fonts',
 									'validate'        => 'Modern_Library_Sanitize::fonts',

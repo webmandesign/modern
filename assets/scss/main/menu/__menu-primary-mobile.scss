@@ -100,6 +100,23 @@
 
 			@include responsive( map_get( $breakpoint, 'l' ), 'max-width' ) {
 
+				.site-header-navigation {
+					padding-top: $golden +rem;
+					padding-bottom: $golden +rem;
+
+					&::before {
+						opacity: 1;
+					}
+
+					.menu-search {
+						max-width: none;
+						padding: 0;
+						margin-top: 0;
+						margin-bottom: $golden +rem;
+					}
+
+				}
+
 				.main-navigation-container {
 
 					.menu {
@@ -110,10 +127,12 @@
 						display: inline-block;
 						padding: 0;
 						margin: 0;
-						margin-#{$right}: $golden_major +rem; // {{RTL}}
+						margin-#{$right}: $golden_minor + 1em; // {{RTL}}
 					}
 
 					a {
+						padding-left: 0;
+						padding-right: 0;
 						border-#{$left}-width: 0; // {{RTL}}
 						border-top-width: 2px;
 					}

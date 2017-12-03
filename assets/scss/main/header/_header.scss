@@ -55,10 +55,12 @@
 		}
 
 		&-content {
-			padding-top: power( $golden, 3 ) +em;
-			padding-bottom: power( $golden, 3 ) +em;
+			padding-top: power( $golden, 2 ) +em;
+			padding-bottom: power( $golden, 2 ) +em;
 
 			@include responsive( map_get( $breakpoint, 'l' ) ) {
+				padding-top: power( $golden, 3 ) +em;
+				padding-bottom: power( $golden, 3 ) +em;
 				margin-top: 3.5em;
 			}
 

@@ -119,10 +119,10 @@
 		}
 
 		.slick-next {
-			#{$left}: 3rem;
+			#{$left}: 2.62rem + 1;
 
 			@include responsive( map_get( $breakpoint, 'xl' ) ) {
-				#{$left}: 4rem;
+				#{$left}: 3.62rem + 1;
 			}
 
 		}
@@ -142,16 +142,17 @@
 
 				li {
 					display: inline-block;
-					margin: $golden_minor / 2 +em;
+					margin: .5em;
 				}
 
+				$dot_size : 2.62; // In em.
 				button {
 					display: inline-block;
-					width: 2em;
+					width: $dot_size +em;
 					padding: 0;
-					line-height: 2;
+					line-height: $dot_size;
 					font-weight: 400;
-					border-radius: 2em;
+					border-radius: $dot_size +em;
 					box-shadow: inset 0 0 0 1px;
 				}
 
