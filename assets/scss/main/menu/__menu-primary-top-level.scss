@@ -15,10 +15,13 @@
 		@include responsive( map_get( $breakpoint, 'l' ) ) {
 			padding-top: $golden_minor +rem;
 			padding-bottom: $golden_minor +rem;
-			margin-#{$right}: $golden_major +rem; // {{RTL}}
+			margin-#{$right}: $golden_minor + 1rem; // {{RTL}}
 
 			> a {
+				padding-left: 0;
+				padding-right: 0;
 				border-width: 0;
+				border-top-width: 2px;
 			}
 
 		}

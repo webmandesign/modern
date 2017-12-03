@@ -98,11 +98,11 @@ class Modern_Jetpack_Customize {
 
 					// Option pointers only
 
-						$wp_customize->selective_refresh->add_partial( 'posts_per_page_front_portfolio', array(
+						$wp_customize->selective_refresh->add_partial( 'layout_posts_per_page_front_portfolio', array(
 							'selector' => '.front-page-section-type-jetpack-portfolio .front-page-section-inner',
 						) );
 
-						$wp_customize->selective_refresh->add_partial( 'posts_per_page_front_testimonials', array(
+						$wp_customize->selective_refresh->add_partial( 'layout_posts_per_page_front_testimonials', array(
 							'selector' => '.front-page-section-type-jetpack-testimonial .front-page-section-inner',
 						) );
 
@@ -130,27 +130,27 @@ class Modern_Jetpack_Customize {
 							/**
 							 * Layout / Front page template portfolio section
 							 */
-							300 . 'layout' . 200 => array(
+							300 . 'layout' . 300 => array(
 								'type'    => 'html',
 								'content' => '<h3><small>' . esc_html__( 'Front page:', 'modern' ) . '</small> ' . esc_html__( 'Portfolio section', 'modern' ) . '</h3><p class="description">' . esc_html__( 'Options for setting up portfolio section on "Front page" template.', 'modern' ) . '</p>',
 							),
 
-								300 . 'layout' . 210 => array(
+								300 . 'layout' . 310 => array(
 									'type'    => 'select',
-									'id'      => 'location_front_portfolio',
+									'id'      => 'layout_location_front_portfolio',
 									'label'   => esc_html__( 'Display location', 'modern' ),
 									'choices' => Modern_Customize::front_page_section_locations(),
 									'default' => 'tha_content_before|10',
 								),
 
-								300 . 'layout' . 220 => array(
+								300 . 'layout' . 320 => array(
 									'type'    => 'range',
-									'id'      => 'posts_per_page_front_portfolio',
+									'id'      => 'layout_posts_per_page_front_portfolio',
 									'label'   => esc_html__( 'Posts count', 'modern' ),
 									'default' => 6,
 									'min'     => 0,
 									'max'     => 12,
-									'step'    => 3,
+									'step'    => 1,
 								),
 
 						) );
@@ -162,27 +162,27 @@ class Modern_Jetpack_Customize {
 							/**
 							 * Layout / Front page template testimonials section
 							 */
-							300 . 'layout' . 300 => array(
+							300 . 'layout' . 400 => array(
 								'type'    => 'html',
 								'content' => '<h3><small>' . esc_html__( 'Front page:', 'modern' ) . '</small> ' . esc_html__( 'Testimonials section', 'modern' ) . '</h3><p class="description">' . esc_html__( 'Options for setting up testimonials section on "Front page" template.', 'modern' ) . '</p>',
 							),
 
-								300 . 'layout' . 310 => array(
+								300 . 'layout' . 410 => array(
 									'type'    => 'select',
-									'id'      => 'location_front_testimonials',
+									'id'      => 'layout_location_front_testimonials',
 									'label'   => esc_html__( 'Display location', 'modern' ),
 									'choices' => Modern_Customize::front_page_section_locations(),
 									'default' => 'tha_content_after|10',
 								),
 
-								300 . 'layout' . 320 => array(
+								300 . 'layout' . 420 => array(
 									'type'    => 'range',
-									'id'      => 'posts_per_page_front_testimonials',
+									'id'      => 'layout_posts_per_page_front_testimonials',
 									'label'   => esc_html__( 'Posts count', 'modern' ),
 									'default' => 3,
 									'min'     => 0,
 									'max'     => 12,
-									'step'    => 3,
+									'step'    => 1,
 								),
 
 						) );

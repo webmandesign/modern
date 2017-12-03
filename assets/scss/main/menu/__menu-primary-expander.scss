@@ -84,3 +84,16 @@
 		}
 
 	}
+
+
+
+// In top level primary menu items
+
+	.main-navigation-container .menu > ul > .menu-item-has-children > a {
+		padding-#{$right}: calc( 16px + #{ $golden_minor +em } ); // {{RTL}}
+
+		.expander {
+			#{$right}: 0; // {{RTL}}
+		}
+
+	}

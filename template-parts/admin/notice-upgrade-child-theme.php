@@ -15,7 +15,7 @@
 
 ?>
 
-<div class="updated notice is-dismissible theme-upgrade-notice-child-theme">
+<div class="updated notice is-dismissible theme-upgrade-notice-alert">
 	<h2>
 		<?php esc_html_e( 'IMPORTANT: This is a major theme upgrade', 'modern' ); ?>
 	</h2>
@@ -46,7 +46,7 @@
 
 <style type="text/css" media="screen">
 
-	.notice.theme-upgrade-notice-child-theme {
+	.notice.theme-upgrade-notice-alert {
 		padding: 1.62em;
 		font-weight: bolder;
 		background: #f5c6cb;
@@ -54,13 +54,13 @@
 		border: .5em solid rgba(0,0,0,.1);
 	}
 
-	.notice.theme-upgrade-notice-child-theme h2 {
+	.notice.theme-upgrade-notice-alert h2 {
 		margin-top: 0;
 		font-weight: 800;
 		color: inherit;
 	}
 
-	.notice.theme-upgrade-notice-child-theme p {
+	.notice.theme-upgrade-notice-alert p {
 		max-width: 40em;
 		margin-bottom: 0;
 	}

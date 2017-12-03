@@ -21,6 +21,14 @@
 			text-align: center;
 		}
 
+		img {
+
+			@include responsive( map_get( $breakpoint, 'm' ), 'max-width' ) {
+				width: 100%;
+			}
+
+		}
+
 
 
 		// Hiding the post media

@@ -21,18 +21,48 @@ $padding : power( $golden, 2 ); // In em.
 		display: flex;
 		flex-direction: column;
 		position: relative;
-		width: calc( 100% - #{ $gutter +em } );
 		padding: $padding / 2 +em; // Half the padding for mobiles.
 		margin: $gutter / 2 +em;
 
+		// Small screens:
+		// 1 column
+		width: calc( 100% - #{ $gutter +em } );
+
 		@include responsive( map_get( $breakpoint, 'm' ) ) {
-			padding: $padding +em;
+		// Medium screens:
+		// 2 columns
+
 			width: calc( 50% - #{ $gutter +em } );
+			padding: $padding +em;
 		}
 
 		@include responsive( map_get( $breakpoint, 'l' ) ) {
+		// Large screens:
+		// 2 columns when such layout is set
+		// 3 columns when such layout is set
+		// 3 columns when 4 columns layout is set
+		//
+		// Large screens with sidebar:
+		// 2 columns when 3 or 4 columns layout is set
 
-			.no-widgets-sidebar & {
+			.no-widgets-sidebar:not(.posts-layout-columns-2) & {
+				width: calc( 33.33% - #{ $gutter +em } );
+			}
+
+		}
+
+		@include responsive( map_get( $breakpoint, 'xl' ) ) {
+		// Extra large screens:
+		// 4 columns when such layout is set
+		//
+		// Extra large screens with sidebar:
+		// 3 columns when 4 columns layout is set
+
+			.posts-layout-columns-4.no-widgets-sidebar & { // Higher specificity selector required to override the "Large screen" styles.
+				width: calc( 25% - #{ $gutter +em } );
+			}
+
+			.posts-layout-columns-4.has-widgets-sidebar & {
 				width: calc( 33.33% - #{ $gutter +em } );
 			}
 

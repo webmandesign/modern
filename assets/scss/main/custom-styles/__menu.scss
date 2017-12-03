@@ -29,7 +29,10 @@
 
 // Mobile menu
 
-	.main-navigation:not(.is-active) .menu-toggle:not(:hover):not(:focus):not(:active),
+	.menu-toggle {
+		@extend %button_default_colors;
+	}
+
 	.main-navigation-container {
 
 		@include responsive( map_get( $breakpoint, 'l' ), 'max-width' ) {

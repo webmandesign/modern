@@ -12,11 +12,14 @@
 
 	.site-header-content & {
 		@extend %font_size_golden;
-		float: $right; // {{RTL}}
+		width: 100%;
+		margin-top: $golden +rem;
 		white-space: nowrap;
 
-		@include responsive( map_get( $breakpoint, 'xl' ) ) {
+		@include responsive( map_get( $breakpoint, 'm' ) ) {
+			width: auto;
 			padding-#{$left}: $golden +em; // {{RTL}}
+			margin-top: 0;
 			margin-#{$left}: auto; // {{RTL}}
 		}
 

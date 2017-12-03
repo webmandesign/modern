@@ -85,7 +85,7 @@
 	.site-description {
 		@extend %font_size_1rem;
 
-		@include responsive( map_get( $breakpoint, 'l' ) ) {
+		@include responsive( map_get( $breakpoint, 'xl' ) ) {
 			display: inline-block;
 			padding-#{$left}: $golden +em; // {{RTL}}
 			margin-#{$left}: $golden +em; // {{RTL}}

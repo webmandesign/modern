@@ -557,12 +557,12 @@ class Modern_Post {
 
 					// Helper variables
 
-						$location = explode( '|', (string) get_theme_mod( 'location_front_blog', 'tha_content_before|20' ) );
+						$location = explode( '|', (string) get_theme_mod( 'layout_location_front_blog', 'tha_content_before|20' ) );
 						if ( ! isset( $location[1] ) ) {
 							$location[1] = 10;
 						}
 
-						if ( 1 > intval( get_theme_mod( 'posts_per_page_front_blog', 6 ) ) ) {
+						if ( 1 > intval( get_theme_mod( 'layout_posts_per_page_front_blog', 6 ) ) ) {
 							$location[0] = false;
 						}
 

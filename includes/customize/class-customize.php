@@ -152,7 +152,7 @@ class Modern_Customize {
 							'selector' => '.archive .intro-title',
 						) );
 
-						$wp_customize->selective_refresh->add_partial( 'posts_per_page_front_blog', array(
+						$wp_customize->selective_refresh->add_partial( 'layout_posts_per_page_front_blog', array(
 							'selector' => '.front-page-section-type-post .front-page-section-inner',
 						) );
 
@@ -667,33 +667,46 @@ class Modern_Customize {
 							'in_panel'       => esc_html_x( 'Theme Options', 'Customizer panel title.', 'modern' ),
 						),
 
-
+							300 . 'layout' . 100 => array(
+								'type'        => 'range',
+								'id'          => 'layout_posts_columns',
+								'label'       => esc_html__( 'Posts list columns', 'modern' ),
+								'description' => esc_html__( 'Number of columns displayed in list of posts.', 'modern' ) .
+								                 ' ' .
+								                 esc_html__( 'Please note that sidebar affects the columns count if it is displayed on the page with list of posts.', 'modern' ) .
+								                 '<br>' .
+								                 esc_html__( 'You may also need to rise the thumbnail image size if you set this to 2 columns (see Settings &rarr; Media).', 'modern' ),
+								'default'     => 3,
+								'min'         => 2,
+								'max'         => 4,
+								'step'        => 1,
+							),
 
 							/**
 							 * Front page template blog section
 							 */
 
-								300 . 'layout' . 100 => array(
+								300 . 'layout' . 200 => array(
 									'type'    => 'html',
 									'content' => '<h3><small>' . esc_html__( 'Front page:', 'modern' ) . '</small> ' . esc_html__( 'Blog section', 'modern' ) . '</h3><p class="description">' . esc_html__( 'Options for setting up blog posts section on "Front page" template.', 'modern' ) . '</p>',
 								),
 
-									300 . 'layout' . 110 => array(
+									300 . 'layout' . 210 => array(
 										'type'    => 'select',
-										'id'      => 'location_front_blog',
+										'id'      => 'layout_location_front_blog',
 										'label'   => esc_html__( 'Display location', 'modern' ),
 										'choices' => self::front_page_section_locations(),
 										'default' => 'tha_content_before|20',
 									),
 
-									300 . 'layout' . 120 => array(
+									300 . 'layout' . 220 => array(
 										'type'    => 'range',
-										'id'      => 'posts_per_page_front_blog',
+										'id'      => 'layout_posts_per_page_front_blog',
 										'label'   => esc_html__( 'Posts count', 'modern' ),
 										'default' => 6,
 										'min'     => 0,
 										'max'     => 12,
-										'step'    => 3,
+										'step'    => 1,
 									),
 
 
@@ -1242,10 +1255,10 @@ class Modern_Customize {
 
 							set_theme_mod( 'typography_custom_fonts', $typography_custom );
 
-							// Make sure we display typography options upgrade notice
+							// Make sure we display 2.0.0 upgrade notice
 
 								$upgrade_notice   = (array) get_transient( self::$transient_upgrade );
-								$upgrade_notice[] = '2.0.0-typography'; // What admin notice to display?
+								$upgrade_notice[] = '2.0.0'; // What admin notice to display?
 								set_transient(
 									self::$transient_upgrade,
 									$upgrade_notice,

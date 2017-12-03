@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin notice: Upgrade: 2.0.0 typography options
+ * Admin notice: Upgrade: 2.0.0
  *
  * @package    Modern
  * @copyright  WebMan Design, Oliver Juhas
@@ -15,7 +15,7 @@
 
 ?>
 
-<div class="updated notice is-dismissible theme-upgrade-notice-typography">
+<div class="updated notice is-dismissible theme-upgrade-notice-info">
 	<h2>
 		<?php esc_html_e( 'IMPORTANT: Typography options change', 'modern' ); ?>
 	</h2>
@@ -33,20 +33,20 @@
 
 <style type="text/css" media="screen">
 
-	.notice.theme-upgrade-notice-typography {
+	.notice.theme-upgrade-notice-info {
 		padding: 1.62em;
 		background: #ffeeba;
 		color: #856404;
 		border: .5em solid rgba(0,0,0,.1);
 	}
 
-	.notice.theme-upgrade-notice-typography h2 {
+	.notice.theme-upgrade-notice-info h2 {
 		margin-top: 0;
 		font-weight: 800;
 		color: inherit;
 	}
 
-	.notice.theme-upgrade-notice-typography p {
+	.notice.theme-upgrade-notice-info p {
 		max-width: 40em;
 		margin-bottom: 0;
 	}

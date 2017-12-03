@@ -21,6 +21,7 @@ form[role="search"],
 			height: 100%;
 			#{$right}: 0; // {{RTL}}
 			top: 0;
+			line-height: $golden;
 			text-align: center;
 			font-size: $golden +em;
 			z-index: 1;
@@ -81,7 +82,7 @@ form[role="search"],
 %form_search_submit_button {
 	@extend .overflow-hidden;
 	position: absolute;
-	width: power( $golden, 2 ) +rem;
+	width: power( $golden, 2 ) +em;
 	height: 100%;
 	#{$right}: 0; // {{RTL}}
 	top: 0;

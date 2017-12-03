@@ -451,7 +451,8 @@ class Modern_Setup {
 						420,
 						0,
 						false,
-						esc_html__( 'In posts list.', 'modern' ),
+						esc_html__( 'In posts list.', 'modern' ) . ' ' .
+						esc_html__( 'You may want to rise this image size if you set posts to display in 2 columns.', 'modern' ),
 					),
 
 					'medium' => array(

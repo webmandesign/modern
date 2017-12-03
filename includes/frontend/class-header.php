@@ -334,6 +334,23 @@ class Modern_Header {
 
 					$classes[] = 'no-js';
 
+				// Footer layout
+
+					// Enable footer masonry layout?
+					$footer_widgets = wp_get_sidebars_widgets();
+					if (
+						isset( $footer_widgets['footer'] )
+						&& 3 < count( (array) $footer_widgets['footer'] )
+					) {
+						$classes[] = 'has-masonry-footer';
+					}
+
+				// Is mobile navigation enabled?
+
+					if ( get_theme_mod( 'navigation_mobile', true ) ) {
+						$classes[] = 'has-navigation-mobile';
+					}
+
 				// Is site branding text displayed?
 
 					if ( 'blank' === get_header_textcolor() ) {
@@ -378,17 +395,6 @@ class Modern_Header {
 
 					if ( ! (bool) apply_filters( 'wmhook_modern_intro_disable', false ) ) {
 						$classes[] = 'has-intro';
-
-						// Enable footer masonry layout?
-
-							$footer_widgets = wp_get_sidebars_widgets();
-							if (
-								isset( $footer_widgets['footer'] )
-								&& 3 < count( (array) $footer_widgets['footer'] )
-							) {
-								$classes[] = 'has-masonry-footer';
-							}
-
 					} else {
 						$classes[] = 'no-intro';
 					}
@@ -402,6 +408,10 @@ class Modern_Header {
 							$classes[] = 'has-widgets-' . $sidebar;
 						}
 					}
+
+				// Posts layout
+
+					$classes[] = 'posts-layout-columns-' . absint( get_theme_mod( 'layout_posts_columns', 3 ) );
 
 				// Enable intro slideshow?
 

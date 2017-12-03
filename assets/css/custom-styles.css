@@ -112,7 +112,7 @@ mark, .highlight { /*[*/ box-shadow: 0.38em 0 0 #009068, -0.38em 0 0 #009068; /*
 /* FILE: main/custom-styles/__menu.scss */
 @media only screen and (min-width: 55em) { .main-navigation-container li ul { /*[*/ background-color: #0a0c0e; color: #ffffff; /*]*/ /*// background-color: [[color_header_background]]; color: [[color_header_text]]; //*/ } }
 
-@media only screen and (max-width: 54.9375em) { .main-navigation:not(.is-active) .menu-toggle:not(:hover):not(:focus):not(:active), .main-navigation-container { /*[*/ background-color: #0a0c0e; color: #ffffff; border-color: rgba(255, 255, 255, 0.2); /*]*/ /*// background-color: [[color_header_background]]; color: [[color_header_text]]; border-color: [[color_header_text(20)]]; //*/ } }
+@media only screen and (max-width: 54.9375em) { .main-navigation-container { /*[*/ background-color: #0a0c0e; color: #ffffff; border-color: rgba(255, 255, 255, 0.2); /*]*/ /*// background-color: [[color_header_background]]; color: [[color_header_text]]; border-color: [[color_header_text(20)]]; //*/ } }
 
 /* FILE: main/custom-styles/__intro.scss */
 .intro-media::after { /*[*/ background-image: linear-gradient(transparent, #1a1c1e); /*]*/ /*// background-image: linear-gradient( transparent, [[background_color]] ); //*/ }
