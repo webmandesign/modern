@@ -122,7 +122,6 @@ class Modern_Intro {
 					'height'             => ( isset( $image_sizes['modern-intro'] ) ) ? ( $image_sizes['modern-intro'][1] ) : ( 1080 ),
 					'flex-width'         => true,
 					'flex-height'        => true,
-					'video'              => true,
 					'random-default'     => true,
 				) ) );
 
