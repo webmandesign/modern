@@ -59,7 +59,7 @@ class Modern_Jetpack_Custom_Post_Types {
 
 					// Filters
 
-						add_filter( 'wmhook_modern_post_navigation_post_type', __CLASS__ . '::add_post_types' );
+						add_filter( 'wmhook_modern_post_navigation_post_type',          __CLASS__ . '::add_post_types' );
 						add_filter( 'wmhook_modern_summary_continue_reading_post_type', __CLASS__ . '::add_post_types' );
 
 						add_filter( 'wmhook_modern_loop_content_type', __CLASS__ . '::content_type_testimonials' );
@@ -139,10 +139,7 @@ class Modern_Jetpack_Custom_Post_Types {
 
 			// Requirements check
 
-				if (
-					! empty( $context )
-					&& 'loop-front-portfolio.php' !== $context
-				) {
+				if ( $context && 'loop-front-portfolio.php' !== $context ) {
 					return;
 				}
 
@@ -284,6 +281,7 @@ class Modern_Jetpack_Custom_Post_Types {
 			// Processing
 
 				if ( 'jetpack-testimonial' === get_post_type() ) {
+					// Display "quote" post format content
 					$content_type = 'quote';
 				}
 

@@ -4,7 +4,7 @@
  * Template Name: Front page
  * Template Post Type: page
  *
- * Displays portfolio and blog posts above normal page content.
+ * Displays blog, portfolio and testimonials posts besides the normal page content.
  *
  * @package    Modern
  * @copyright  WebMan Design, Oliver Juhas

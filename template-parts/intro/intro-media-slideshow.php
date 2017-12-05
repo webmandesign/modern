@@ -35,7 +35,7 @@
 					if ( is_numeric( $custom_image ) ) {
 						echo wp_get_attachment_image( absint( $custom_image ), $image_size );
 					} else {
-						echo '<img src="' . esc_url( $custom_image ) . '" alt="" />';
+						echo '<img src="' . esc_url( $custom_image ) . '" alt="' . the_title_attribute( 'echo=0&post=' . $post->ID ) . '" />';
 					}
 
 				} elseif ( has_post_thumbnail( $post ) ) {

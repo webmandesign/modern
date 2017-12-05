@@ -1022,9 +1022,9 @@ code::before, pre::before, .wp-playlist::before, .pagination a:hover::before, .p
 
 .slick-arrow, .site-header-navigation, .posts .sticky::before, .is-singular .content-area, .posts .entry, .format-image .entry-media::before, .site-footer, .sidebar .widget { box-shadow: 0 0 2em rgba(0, 0, 0, 0.4); }
 
-.entry-content-container, .comments-area-inner, .site-info-inner, .footer-widgets { padding-top: 3.72rem; }
+.attachment .entry-media, .entry-content-container, .comments-area-inner, .site-info-inner, .footer-widgets { padding-top: 3.72rem; }
 
-@media only screen and (min-width: 55em) { .entry-content-container, .comments-area-inner, .site-info-inner, .footer-widgets { padding-top: 6rem; } }
+@media only screen and (min-width: 55em) { .attachment .entry-media, .entry-content-container, .comments-area-inner, .site-info-inner, .footer-widgets { padding-top: 6rem; } }
 
 .entry-content-container, .comments-area-inner, .site-info-inner, .footer-widgets { padding-bottom: 3.72rem; }
 
@@ -1682,6 +1682,10 @@ blockquote.alignleft::before { float: left; margin-left: 0; margin-right: .09em;
 
 .hide-media .entry-media { display: none; }
 
+.attachment .entry-media { max-width: 39em; max-width: 70ch; margin-left: auto; margin-right: auto; }
+
+.attachment .entry-media + .entry-content-container { padding-top: 2.6244em; }
+
 .attachment caption { caption-side: top; }
 
 .attachment-download { padding: 1.62em; margin-bottom: 1.62em; border-width: 2px; border-style: dashed; }
@@ -2140,7 +2144,7 @@ div.sharedaddy { margin: 2.6244rem auto 0; border-color: inherit; }
 .message-oldie a { text-decoration: underline; font-weight: bold; color: inherit; }
 
 @media only screen and (-ms-high-contrast: none), (-ms-high-contrast: active) { .site-header > div, .posts .entry > div, .posts .entry-content > * { min-height: 1px; }
-  .post-password-form, .comments-area-inner { max-width: 94ch; }
+  .post-password-form, .comments-area-inner, .attachment .entry-media { max-width: 94ch; }
   .entry-content-container, .content-layout-no-paddings div#jp-relatedposts, .content-layout-no-paddings div.sharedaddy, .content-layout-no-paddings .entry-author { max-width: calc( 94ch + 3.24em); }
   .footer-widgets .widget { min-width: 10em; } }
 

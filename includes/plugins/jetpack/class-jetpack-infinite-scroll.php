@@ -122,6 +122,9 @@ class Modern_Jetpack_Infinite_Scroll {
 		/**
 		 * Infinite scroll posts renderer
 		 *
+		 * We use generic, global hook names in here, but passing
+		 * a context/scope parameter you can check for.
+		 *
 		 * @see  __construct()
 		 *
 		 * @since    2.0.0
@@ -142,7 +145,10 @@ class Modern_Jetpack_Infinite_Scroll {
 					 *
 					 * Or, you can use the filter hook below to modify which content file to load.
 					 */
-					get_template_part( 'template-parts/content/content', apply_filters( 'wmhook_modern_loop_content_type', get_post_format(), 'jetpack-infinite-scroll' ) );
+					get_template_part(
+						'template-parts/content/content',
+						apply_filters( 'wmhook_modern_loop_content_type', get_post_format(), 'jetpack-infinite-scroll' )
+					);
 
 				endwhile;
 

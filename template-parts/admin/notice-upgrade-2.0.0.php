@@ -15,7 +15,7 @@
 
 ?>
 
-<div class="updated notice is-dismissible theme-upgrade-notice-info">
+<div class="updated notice is-dismissible theme-upgrade-notice theme-upgrade-notice-info">
 	<h2>
 		<?php esc_html_e( 'IMPORTANT: Typography options change', 'modern' ); ?>
 	</h2>

@@ -45,6 +45,19 @@
 
 	.attachment {
 
+		.entry-media {
+			@extend %padding_top;
+			max-width: 39em;
+			max-width: 70ch;
+			margin-left: auto;
+			margin-right: auto;
+
+			+ .entry-content-container {
+				padding-top: power( $golden, 2 ) +em;
+			}
+
+		}
+
 		caption {
 			caption-side: top;
 		}

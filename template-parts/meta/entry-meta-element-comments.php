@@ -15,10 +15,7 @@
 
 // Requirements check
 
-	if (
-		post_password_required()
-		|| ! comments_open( get_the_ID() )
-	) {
+	if ( ! comments_open( get_the_ID() ) ) {
 		return;
 	}
 

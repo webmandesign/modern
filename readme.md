@@ -9,14 +9,14 @@
 
 ## Description
 
-**Modern** is responsive, accessible blog and portfolio WordPress theme by WebMan Design. It is perfect for personal portfolios. Supports Jetpack plugin, Theme Hook Alliance action hooks, translation-ready code, featured posts slideshow and other cool features.
+**Modern** is accessibility ready blog and portfolio WordPress theme by WebManDesign.eu. It is a perfect theme for personal portfolios. The theme is optimized for search engines and the responsive design makes it ready for mobile devices with high resolution displays compatibility. Supports Jetpack plugin, Theme Hook Alliance action hooks, translation-ready code with support for multilingual setup (including RTL languages), featured posts slideshow on front page. Huge focus was put into readability, putting your website content in front. The theme loads really fast and has a secure, clean, flexible and developer friendly code. It is also compatible with any page builder plugin.
 
 Follow [WebMan Design on Twitter](https://twitter.com/webmandesigneu) and become a fan on [Facebook](https://www.facebook.com/webmandesigneu) for staying informed about theme updates and news.
 
 
 ## Documentation
 
-Theme documentation is available on-line at https://webmandesign.github.io/docs/modern/
+Theme documentation is available online at https://webmandesign.github.io/docs/modern/
 
 
 ## Demo

@@ -21,14 +21,16 @@
 	$blog_page_id = absint( get_option( 'page_for_posts' ) );
 
 	if ( $blog_url = get_permalink( $blog_page_id ) ) {
-		$title = '<a href="' . esc_url( $blog_url ) . '">' . get_the_title( $blog_page_id ) . '</a>';
+		$label = get_the_title( $blog_page_id );
+		$title = '<a href="' . esc_url( $blog_url ) . '">' . $label . '</a>';
 	} else {
-		$title = esc_html__( 'Blog', 'modern' );
+		$label = esc_html__( 'Blog', 'modern' );
+		$title = $label;
 	}
 
 
 ?>
 
 <h2 class="front-page-section-title">
-	<?php echo apply_filters( 'wmhook_modern_title', $title, basename( __FILE__ ) ); ?>
+	<?php echo apply_filters( 'wmhook_modern_title', $title, basename( __FILE__ ), $label ); ?>
 </h2>

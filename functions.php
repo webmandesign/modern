@@ -121,9 +121,6 @@
 	// Theme Customization
 
 		require MODERN_PATH_INCLUDES . 'customize/class-customize.php';
-
-	// Customized Styles
-
 		require MODERN_PATH_INCLUDES . 'customize/class-customize-styles.php';
 
 	// Custom Header / Intro
@@ -151,6 +148,14 @@
 	// Beaver Builder
 
 		if ( class_exists( 'FLBuilder' ) ) {
+			/**
+			 * Upgrade link URL
+			 *
+			 * @since    2.0.0
+			 * @version  2.0.0
+			 *
+			 * @param  string $url
+			 */
 			function modern_beaver_builder_upgrade_url( $url ) {
 				return esc_url( add_query_arg( 'fla', '67', $url ) );
 			}

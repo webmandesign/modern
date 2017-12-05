@@ -56,12 +56,12 @@ class Modern_Jetpack_Setup {
 					// Featured content
 
 						add_theme_support( 'featured-content', apply_filters( 'wmhook_modern_jetpack_setup_featured_content', array(
-							'featured_content_filter' => 'wmhook_modern_intro_get_slides',
-							'max_posts'               => 6,
-							'post_types'              => array(
+							'max_posts'  => 6,
+							'post_types' => array(
 								'post',
 								'jetpack-portfolio',
 							),
+							'featured_content_filter' => 'wmhook_modern_intro_get_slides',
 						) ) );
 
 				// Hooks
@@ -73,8 +73,8 @@ class Modern_Jetpack_Setup {
 					// Filters
 
 						if ( is_callable( 'Modern_Content::headings_level_up' ) ) {
-							add_filter( 'jetpack_sharing_display_markup', 'Modern_Content::headings_level_up', 999 );
-							add_filter( 'jetpack_relatedposts_filter_headline', 'Modern_Content::headings_level_up', 999 );
+							add_filter( 'jetpack_sharing_display_markup',           'Modern_Content::headings_level_up', 999 );
+							add_filter( 'jetpack_relatedposts_filter_headline',     'Modern_Content::headings_level_up', 999 );
 							add_filter( 'jetpack_relatedposts_filter_post_heading', 'Modern_Content::headings_level_up', 999 );
 						}
 

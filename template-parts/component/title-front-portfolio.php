@@ -20,12 +20,11 @@
 
 	$post_type = 'jetpack-portfolio';
 	$labels    = get_post_type_labels( get_post_type_object( $post_type ) );
+	$title     = '<a href="' . esc_url( get_post_type_archive_link( $post_type ) ) . '">' . esc_html( $labels->name ) . '</a>';
 
 
 ?>
 
 <h2 class="front-page-section-title">
-	<a href="<?php echo esc_url( get_post_type_archive_link( $post_type ) ); ?>">
-		<?php echo apply_filters( 'wmhook_modern_title', esc_html( $labels->name ), basename( __FILE__ ) ); ?>
-	</a>
+	<?php echo apply_filters( 'wmhook_modern_title', $title, basename( __FILE__ ), esc_html( $labels->name ) ); ?>
 </h2>

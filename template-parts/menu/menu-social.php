@@ -24,15 +24,15 @@
 
 	$social_menu_html = get_transient( 'modern_social_links' );
 	$social_menu_args = array(
-			'theme_location' => 'social',
-			'container'      => false,
-			'menu_class'     => 'social-links-items',
-			'depth'          => 1,
-			'link_before'    => '<span class="screen-reader-text">',
-			'link_after'     => '</span>',
-			'fallback_cb'    => false,
-			'items_wrap'     => '<ul data-id="%1$s" class="%2$s">%3$s<li class="back-to-top-link"><a href="#" class="back-to-top" title="' . esc_attr__( 'Back to top', 'modern' ) . '"><span class="screen-reader-text">' . esc_html__( 'Back to top &uarr;', 'modern' ) . '</span></a></li></ul>',
-		);
+		'theme_location' => 'social',
+		'container'      => false,
+		'menu_class'     => 'social-links-items',
+		'depth'          => 1,
+		'link_before'    => '<span class="screen-reader-text">',
+		'link_after'     => '</span>',
+		'fallback_cb'    => false,
+		'items_wrap'     => '<ul data-id="%1$s" class="%2$s">%3$s<li class="back-to-top-link"><a href="#" class="back-to-top" title="' . esc_attr__( 'Back to top', 'modern' ) . '"><span class="screen-reader-text">' . esc_html__( 'Back to top &uarr;', 'modern' ) . '</span></a></li></ul>',
+	);
 
 
 ?>

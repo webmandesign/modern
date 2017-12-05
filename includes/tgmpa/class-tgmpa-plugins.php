@@ -105,35 +105,35 @@ class Modern_TGMPA_Plugins {
 				 */
 				$plugins = apply_filters( 'wmhook_modern_tgmpa_plugins_recommend_plugins', array(
 
-						/**
-						 * WordPress Repository plugins
-						 */
+					/**
+					 * WordPress Repository plugins
+					 */
 
-							// Recommended
+						// Recommended
 
-								'advanced-custom-fields' => array(
-									'name'        => 'Advanced Custom Fields',
-									'description' => esc_html__( 'For easy post and page attributes setup.', 'modern' ),
-									'slug'        => 'advanced-custom-fields',
-									'required'    => false,
-									'is_callable' => 'register_field_group',
-								),
+							'advanced-custom-fields' => array(
+								'name'        => 'Advanced Custom Fields',
+								'description' => esc_html__( 'For easy post and page attributes setup.', 'modern' ),
+								'slug'        => 'advanced-custom-fields',
+								'required'    => false,
+								'is_callable' => 'register_field_group',
+							),
 
-								'jetpack' => array(
-									'name'        => 'Jetpack',
-									'description' => esc_html__( 'For adding Portfolio functionality.', 'modern' ),
-									'slug'        => 'jetpack',
-									'required'    => false,
-								),
+							'jetpack' => array(
+								'name'        => 'Jetpack',
+								'description' => esc_html__( 'For adding Portfolio, Testimonials, tile galleries and other functionality.', 'modern' ),
+								'slug'        => 'jetpack',
+								'required'    => false,
+							),
 
-								'one-click-demo-import' => array(
-									'name'        => 'One Click Demo Import',
-									'description' => esc_html__( 'For installing theme demo content easily.', 'modern' ),
-									'slug'        => 'one-click-demo-import',
-									'required'    => false,
-								),
+							'one-click-demo-import' => array(
+								'name'        => 'One Click Demo Import',
+								'description' => esc_html__( 'For installing theme demo content easily.', 'modern' ),
+								'slug'        => 'one-click-demo-import',
+								'required'    => false,
+							),
 
-					) );
+				) );
 
 				$config = apply_filters( 'wmhook_modern_tgmpa_plugins_recommend_config', array() );
 

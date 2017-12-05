@@ -117,7 +117,9 @@ class Modern_Post_Media {
 
 			// Processing
 
-				if ( Modern_Post::is_singular() ) {
+				if ( is_attachment() ) {
+					$image_size = 'medium';
+				} elseif ( Modern_Post::is_singular() ) {
 					$image_size = 'large';
 				} else {
 					$image_size = 'thumbnail';

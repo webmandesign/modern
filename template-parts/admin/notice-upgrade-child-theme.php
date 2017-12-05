@@ -15,7 +15,7 @@
 
 ?>
 
-<div class="updated notice is-dismissible theme-upgrade-notice-alert">
+<div class="updated notice is-dismissible theme-upgrade-notice theme-upgrade-notice-alert">
 	<h2>
 		<?php esc_html_e( 'IMPORTANT: This is a major theme upgrade', 'modern' ); ?>
 	</h2>

@@ -8,10 +8,8 @@ The starter theme was created by **WebMan Design**. Please read the instructions
 This starter theme requires installation of these additional scripts:
 
 * [**WebMan WordPress Theme Framework**](https://github.com/webmandesign/webman-theme-framework) - copy the `library` folder into the theme's root folder.
-* [**Theme Update Notifier**](https://github.com/webmandesign/webman-theme-framework) - copy the `update-notifier` folder into the `includes` folder.
 * [**WordPress CSS starter**](https://github.com/webmandesign/wp-css-starter) - copy the `starter` SASS folder into the `assets/scss` folder.
-* ** @todo OPTIONAL:**
-  [**Post Formats**](https://github.com/webmandesign/wp-post-formats) - copy the `class-post-formats.php` file into the `includes/post-formats` folder.
+* [**Post Formats**](https://github.com/webmandesign/wp-post-formats) - copy the `class-post-formats.php` file into the `includes/post-formats` folder.
 
 
 ## Replacements
@@ -55,27 +53,11 @@ Developers, fill this section with the actual values used for replacements for f
 | `text_domain`     | modern |
 
 
-## Documentation
-
-The theme documentation template can be found in `documentation` subfolder. Documentation uses the `theme_name`, `theme_slug`, `version_since` and `version` from above to be replaced.
-
-
 ## Upgrades
 
 In case you upgrade the library (`library/*.*`) and/or other universal pluggable/external scripts, such as CSS starter (`assets/scss/starter`), you will need to batch replace certain string variables (see above).
 
 Reference of what variables need to be replaced can be found in the scripts themselves.
-
-
-## Debugging
-
-*This information is only relevant for when theme supports `stylesheet-generator`.*
-
-For SASS debugging define a `MODERN_DEBUG_SASS` constant and set it to `true`.
-
-Or simply use `webman-sass-debug.php` plugin for that.
-
-This will force loading `fallback.css` instead of the customizer-generated stylesheet.
 
 
 *(C) WebMan Design, Oliver Juhas, [https://www.webmandesign.eu]*

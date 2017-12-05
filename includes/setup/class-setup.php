@@ -345,9 +345,7 @@ class Modern_Setup {
 					// Image sizes (x, y, crop)
 
 						if ( ! empty( $image_sizes ) ) {
-
 							foreach ( $image_sizes as $size => $setup ) {
-
 								if ( ! in_array( $size, array( 'thumbnail', 'medium', 'medium_large', 'large' ) ) ) {
 
 									add_image_size(
@@ -358,9 +356,7 @@ class Modern_Setup {
 									);
 
 								}
-
-							} // /foreach
-
+							}
 						}
 
 				// Force-regenerate styles
@@ -403,9 +399,7 @@ class Modern_Setup {
 
 			// Processing
 
-				// Allow filtering
-
-					$GLOBALS['content_width'] = absint( apply_filters( 'wmhook_modern_content_width', 1200 ) );
+				$GLOBALS['content_width'] = absint( apply_filters( 'wmhook_modern_content_width', 1200 ) );
 
 		} // /content_width
 
@@ -581,7 +575,7 @@ class Modern_Setup {
 					 * supported by the font, translate this to 'off'.
 					 * The font will not load then.
 					 */
-					if ( 'off' !== esc_html_x( 'on', 'Oxygen font: on or off', 'modern' ) ) {
+					if ( 'off' !== esc_html_x( 'on', 'Fira Sans font: on or off', 'modern' ) ) {
 						$fonts_setup[] = 'Fira Sans:400,300';
 					}
 				}
@@ -776,8 +770,8 @@ class Modern_Setup {
 
 			// Processing
 
-				register_meta( 'post', 'quote_source', 'esc_html' );
 				register_meta( 'post', 'content_layout', 'esc_attr' );
+				register_meta( 'post', 'quote_source', 'esc_html' );
 				// Using old name "banner_image" and "banner_text" for backwards compatibility.
 				register_meta( 'post', 'banner_image', 'esc_attr' );
 				register_meta( 'post', 'banner_text', 'esc_html' );
