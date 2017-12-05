@@ -1,13 +1,13 @@
 /* FILE: custom-styles.scss */
 /* FILE: main/custom-styles/_main.scss */
 /* FILE: main/custom-styles/__extenders.scss */
-.button, button, input[type="button"], input[type="reset"], input[type="submit"], .child-page .more-link, .main-navigation-container .button > a, .menu-toggle, mark, #page mark, .highlight, #page .highlight, .pagination .current, .bypostauthor > .comment-body .comment-author::before, .widget_calendar tbody a, .widget .tagcloud a:hover, .widget .tagcloud a:focus, .widget .tagcloud a:active, .set-colors-accent, .slick-slider .slick-arrow, .slick-slider .slick-dots button:hover, .slick-slider .slick-dots button:focus, .slick-slider .slick-active button, .posts .sticky::before, .format-image .entry-media::before, .format-quote.entry, .format-status.entry, .type-jetpack-testimonial.entry, .post-navigation .nav-links a, .sidebar .widget .current_page_item > a, .sidebar .widget .current-menu-item > a, .site #infinite-handle span { /*[*/ background-color: #00855b; color: #ffffff; /*]*/ /*// background-color: [[color_accent]]; color: [[color_accent_text]]; //*/ }
+.button, button, input[type="button"], input[type="reset"], input[type="submit"], .main-navigation-container .button > a, .menu-toggle, mark, #page mark, .highlight, #page .highlight, .pagination .current, .bypostauthor > .comment-body .comment-author::before, .widget_calendar tbody a, .widget .tagcloud a:hover, .widget .tagcloud a:focus, .widget .tagcloud a:active, .set-colors-accent, .slick-slider .slick-arrow, .slick-slider .slick-dots button:hover, .slick-slider .slick-dots button:focus, .slick-slider .slick-active button, .posts .sticky::before, .format-image .entry-media::before, .format-quote.entry, .format-status.entry, .type-jetpack-testimonial.entry, .post-navigation .nav-links a, .sidebar .widget .current_page_item > a, .sidebar .widget .current-menu-item > a, .site #infinite-handle span { /*[*/ background-color: #00855b; color: #ffffff; /*]*/ /*// background-color: [[color_accent]]; color: [[color_accent_text]]; //*/ }
 
 .site-content div.sharedaddy .sd-content ul li a.sd-button:not(.no-text) { /*[*/ background-color: #00855b; /*]*/ /*// background-color: [[color_accent]]; //*/ }
 
 a, .accent-color { /*[*/ color: #00855b; /*]*/ /*// color: [[color_accent]]; //*/ }
 
-.button:focus, button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, .child-page .more-link:focus, .main-navigation-container .button > a:focus, .menu-toggle:focus { /*[*/ outline: thin dashed #00855b; /*]*/ /*// outline: thin dashed [[color_accent]]; //*/ }
+.button:focus, button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, .main-navigation-container .button > a:focus, .menu-toggle:focus { /*[*/ outline: thin dashed #00855b; /*]*/ /*// outline: thin dashed [[color_accent]]; //*/ }
 
 .site-header-navigation, .site-header-navigation::before, .set-colors-header { /*[*/ background-color: #0a0c0e; color: #ffffff; border-color: rgba(255, 255, 255, 0.2); /*]*/ /*// background-color: [[color_header_background]]; color: [[color_header_text]]; border-color: [[color_header_text(20)]]; //*/ }
 

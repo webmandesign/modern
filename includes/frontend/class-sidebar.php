@@ -103,17 +103,17 @@ class Modern_Sidebar {
 
 				$widget_areas = array(
 
-						'sidebar' => array(
-							'name'        => esc_html__( 'Sidebar', 'modern' ),
-							'description' => esc_html__( 'Default sidebar area.', 'modern' ),
-						),
+					'sidebar' => array(
+						'name'        => esc_html__( 'Sidebar', 'modern' ),
+						'description' => esc_html__( 'Default sidebar area.', 'modern' ),
+					),
 
-						'footer' => array(
-							'name'        => esc_html__( 'Footer Widgets', 'modern' ),
-							'description' => esc_html__( 'Widgetized area displaying the main website footer content.', 'modern' ),
-						),
+					'footer' => array(
+						'name'        => esc_html__( 'Footer Widgets', 'modern' ),
+						'description' => esc_html__( 'Widgetized area displaying the main website footer content.', 'modern' ),
+					),
 
-					);
+				);
 
 
 			// Processing

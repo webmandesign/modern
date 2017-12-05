@@ -177,8 +177,8 @@
 
 		// Animation speeds
 
-			$small_animation_speed: .3; // Seconds
-			$large_animation_speed: .5; // Seconds
+			$small_animation_speed: .3; // In seconds
+			$large_animation_speed: .5; // In seconds
 
 
 
@@ -351,7 +351,7 @@
 			'ul',
 			'blockquote',
 			'.gallery',
-			'.tiled-gallery'
+			'.tiled-gallery',
 		);
 
 
@@ -366,5 +366,4 @@
 			'input[type="button"]',
 			'input[type="reset"]',
 			'input[type="submit"]',
-			'.child-page .more-link'
 		);

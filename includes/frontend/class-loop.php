@@ -186,11 +186,11 @@ class Modern_Loop {
 			// Helper variables
 
 				$args = (array) apply_filters( 'wmhook_modern_pagination_args', array(
-						'prev_text' => esc_html_x( '&laquo;', 'Pagination text (visible): previous.', 'modern' ) . '<span class="screen-reader-text"> '
-						               . esc_html_x( 'Previous page', 'Pagination text (hidden): previous.', 'modern' ) . '</span>',
-						'next_text' => '<span class="screen-reader-text">' . esc_html_x( 'Next page', 'Pagination text (hidden): next.', 'modern' )
-						               . ' </span>' . esc_html_x( '&raquo;', 'Pagination text (visible): next.', 'modern' ),
-					), 'comments' );
+					'prev_text' => esc_html_x( '&laquo;', 'Pagination text (visible): previous.', 'modern' ) . '<span class="screen-reader-text"> '
+					               . esc_html_x( 'Previous page', 'Pagination text (hidden): previous.', 'modern' ) . '</span>',
+					'next_text' => '<span class="screen-reader-text">' . esc_html_x( 'Next page', 'Pagination text (hidden): next.', 'modern' )
+					               . ' </span>' . esc_html_x( '&raquo;', 'Pagination text (visible): next.', 'modern' ),
+				), 'comments' );
 
 				$pagination = paginate_comments_links( array_merge( $args, array( 'echo' => false ) ) );
 

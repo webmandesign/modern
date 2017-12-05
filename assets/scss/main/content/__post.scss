@@ -37,13 +37,14 @@
 			display: none;
 		}
 
-		.entry-content &,
-		&.has-more-tag {
-			@extend %font_size_higher;
+		.entry-content & {
+			font-size: $golden_minor / 2 + 1em;
+			line-height: $typography_line_height / ( $golden_minor / 2 + 1 );
 		}
 
-		.posts .entry-content & {
+		.posts &:not(.has-more-tag) {
 			font-size: 1em;
+			line-height: inherit;
 		}
 
 	}

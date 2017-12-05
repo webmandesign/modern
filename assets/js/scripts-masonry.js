@@ -75,8 +75,12 @@
 						// Processing
 
 							setTimeout( function() {
-								$footerWidgetsContainer
-									.masonry( 'reload' );
+
+								// Processing
+
+									$footerWidgetsContainer
+										.masonry( 'reload' );
+
 							}, 100 );
 
 					} );

@@ -641,8 +641,9 @@ class Modern_Post {
 
 			/**
 			 * Front page section: Portfolio
+			 * Front page section: Testimonials
 			 *
-			 * @see  `includes/plugins/jetpack/class-jetpack.php`
+			 * @see  `includes/plugins/jetpack/class-jetpack-custom-post-types.php`
 			 */
 
 

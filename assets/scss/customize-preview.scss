@@ -24,18 +24,6 @@
 			transform: translateY( -15px );
 		}
 
-		.intro-media & {
-			//
-			// Unfortunately, as the intro media is positioned below other
-			// HTML elements, it is not possible to click on it.
-			// So, we do not need to display it either.
-			//
-			// But we use an additional option pointer, so we style that
-			// one below (see `.intro-container .option-pointer`).
-			//
-			display: none;
-		}
-
 		.widget [data-customize-partial-type="nav_menu_instance"] & {
 			display: none;
 		}
@@ -89,14 +77,18 @@
 
 		}
 
-	}
+		.intro-media & {
+			//
+			// Unfortunately, as the intro media is positioned below other
+			// HTML elements, it is not possible to click on it.
+			// So, we do not need to display it either.
+			//
+			// But we use an additional option pointer, so we style that
+			// one below (see `.intro-container .option-pointer`).
+			//
+			display: none;
+		}
 
-	.site-branding,
-	.site-header-inner > nav,
-	.site-branding-text,
-	.site-info-inner > div,
-	.site-info-inner > nav {
-		position: relative;
 	}
 
 	.intro-container .option-pointer {
@@ -108,4 +100,12 @@
 			float: left;
 		}
 
+	}
+
+	.site-branding,
+	.site-header-inner > nav,
+	.site-branding-text,
+	.site-info-inner > div,
+	.site-info-inner > nav {
+		position: relative;
 	}

@@ -51,7 +51,7 @@ class Modern_Customize {
 
 					// Indicate widget sidebars can use selective refresh in the Customizer
 
-						add_theme_support( 'customize-selective-refresh-widgets' );
+						add_theme_support( 'customize-selective-refresh-widgets' ); // @todo  Make it work with masonry footer!
 
 				// Hooks
 
@@ -1323,7 +1323,7 @@ class Modern_Customize {
 
 							set_theme_mod( 'typography_custom_fonts', $typography_custom );
 
-							// Make sure we display 2.0.0 upgrade notice
+							// Make sure we display 2.0.0 upgrade notice (that contains typography options upgrade info)
 
 								$upgrade_notice   = (array) get_transient( self::$transient_upgrade );
 								$upgrade_notice[] = '2.0.0'; // What admin notice to display?

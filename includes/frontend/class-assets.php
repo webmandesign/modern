@@ -760,9 +760,9 @@ class Modern_Assets {
 					if ( version_compare( $GLOBALS['wp_version'], '4.7', '>=' ) ) {
 
 						$urls[] = array(
-								'href' => 'https://fonts.gstatic.com',
-								'crossorigin',
-							);
+							'href' => 'https://fonts.gstatic.com',
+							'crossorigin',
+						);
 
 					} else {
 

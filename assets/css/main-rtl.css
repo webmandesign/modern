@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /* FILE: main-rtl.scss */
+/* FILE: main.scss */
 /* FILE: starter/_starter.scss */
 /* FILE: starter/generic/_generic.scss */
 /* FILE: starter/generic/__normalize.scss */
@@ -312,7 +313,7 @@ blockquote cite, code, pre, small, .small, .font-size-s, .wp-caption-text, #canc
 
 .font-size-sm, .main-navigation, .posts .entry-meta, .footer-area-site-info { font-size: 0.905em; }
 
-.sidebar .widget_nav_menu .social-links a, .post-table-of-contents a::before, .entry-content .entry-summary, .entry-summary.has-more-tag { font-size: 1.19em; }
+.sidebar .widget_nav_menu .social-links a, .post-table-of-contents a::before { font-size: 1.19em; }
 
 blockquote, .font-size-l, .comments-title, .social-links, .posts .format-image .entry-content, .posts .format-link .entry-content, .format-status .entry-content, .post-navigation .nav-links .title { font-size: 1.38em; }
 
@@ -1777,7 +1778,9 @@ blockquote.alignleft::before { float: left; margin-left: 0; margin-right: .09em;
 
 .entry-summary:empty { display: none; }
 
-.posts .entry-content .entry-summary { font-size: 1em; }
+.entry-content .entry-summary { font-size: 1.19em; line-height: 1.36134; }
+
+.posts .entry-summary:not(.has-more-tag) { font-size: 1em; line-height: inherit; }
 
 /* FILE: main/content/__post-format-gallery.scss */
 .format-gallery .entry-media-gallery-image:not(.slick-slide):not(:first-child) { display: none; }

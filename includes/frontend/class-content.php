@@ -259,25 +259,25 @@ class Modern_Content {
 				switch ( $html ) {
 
 					case 'h3':
-							$html = tag_escape( 'h2' );
+						$html = tag_escape( 'h2' );
 						break;
 
 					case 'h4':
-							$html = tag_escape( 'h3' );
+						$html = tag_escape( 'h3' );
 						break;
 
 					default:
-							$html = str_replace(
-									array(
-										'<h3', '</h3', // 1) H3...
-										'<h4', '</h4', // 2) H4...
-									),
-									array(
-										'<h2', '</h2', // 1) ...to H2
-										'<h3', '</h3', // 2) ...to H3
-									),
-									$html
-								);
+						$html = str_replace(
+							array(
+								'<h3', '</h3', // 1) H3...
+								'<h4', '</h4', // 2) H4...
+							),
+							array(
+								'<h2', '</h2', // 1) ...to H2
+								'<h3', '</h3', // 2) ...to H3
+							),
+							$html
+						);
 						break;
 
 				} // /switch
