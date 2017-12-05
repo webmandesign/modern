@@ -28,7 +28,10 @@
 			//
 			// Unfortunately, as the intro media is positioned below other
 			// HTML elements, it is not possible to click on it.
-			// So, we do not need to display it either
+			// So, we do not need to display it either.
+			//
+			// But we use an additional option pointer, so we style that
+			// one below (see `.intro-container .option-pointer`).
 			//
 			display: none;
 		}
@@ -94,4 +97,15 @@
 	.site-info-inner > div,
 	.site-info-inner > nav {
 		position: relative;
+	}
+
+	.intro-container .option-pointer {
+		float: right;
+		position: relative;
+		margin: 0 .5em;
+
+		[dir="rtl"] & { // {{RTL}}
+			float: left;
+		}
+
 	}

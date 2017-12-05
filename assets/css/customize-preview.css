@@ -24,3 +24,7 @@
 .footer-area-site-info .customize-partial-edit-shortcut button { left: -15px; }
 
 .site-branding, .site-header-inner > nav, .site-branding-text, .site-info-inner > div, .site-info-inner > nav { position: relative; }
+
+.intro-container .option-pointer { float: right; position: relative; margin: 0 .5em; }
+
+[dir="rtl"] .intro-container .option-pointer { float: left; }

@@ -166,59 +166,91 @@ class Modern_Customize {
 								'selector' => '.front-page-section-type-post .front-page-section-inner',
 							) );
 
-						// Blog front page default intro title text
+						/**
+						 * IMPORTANT
+						 *
+						 * For options with `preview_js` (ones that do not require page or partial refresh),
+						 * we need to add a custom helper HTML so the option pointer can be hooked there.
+						 * Here is an example of such setup.
+						 *
+						 * We need to add a helper HTML not to trigger content or page refresh with this option pointer.
+						 * Only required for options with `preview_js` set.
+						 */
 
-							/**
-							 * IMPORTANT
-							 *
-							 * For options with `preview_js` (ones that do not require page or partial refresh),
-							 * we need to add a custom helper HTML so the option pointer can be hooked there.
-							 * Here is an example of such setup.
-							 */
-							$wp_customize->selective_refresh->add_partial( 'texts_intro', array(
-								'selector'            => '.home.blog .intro-title .option-pointer',
-								'render_callback'     => '__return_empty_string',
-								'fallback_refresh'    => false,
-								'container_inclusive' => false,
-							) );
-							/**
-							 * We need to add a helper HTML not to trigger content or page refresh with this option pointer.
-							 * Only required for options with `preview_js` set.
-							 */
-							add_filter( 'wmhook_modern_intro_title', __CLASS__ . '::option_pointer_' . 'texts_intro', 0 );
+							// Header image (we need to add this as the theme styles make the original pointer inaccessible)
+
+								$wp_customize->selective_refresh->add_partial( 'header_image', array(
+									'selector'            => '#intro-container .option-pointer',
+									'render_callback'     => '__return_empty_string',
+									'fallback_refresh'    => false,
+									'container_inclusive' => false,
+								) );
+
+								add_action( 'wmhook_modern_intro_before', __CLASS__ . '::option_pointer_' . 'header_image', 0 );
+
+							// Blog front page default intro title text
+
+								$wp_customize->selective_refresh->add_partial( 'texts_intro', array(
+									'selector'            => '.home.blog .intro-title .option-pointer',
+									'render_callback'     => '__return_empty_string',
+									'fallback_refresh'    => false,
+									'container_inclusive' => false,
+								) );
+
+								add_filter( 'wmhook_modern_intro_title', __CLASS__ . '::option_pointer_' . 'texts_intro', 0 );
 
 		} // /setup
 
 
 
 			/**
-			 * Option pointer: texts_intro
-			 *
 			 * This is only required for options with `preview_js` set.
 			 * Outputs a helper HTML for our option pointer so we don't trigger
 			 * any content or page refresh.
-			 *
-			 * @since    2.0.0
-			 * @version  2.0.0
 			 */
-			public static function option_pointer_texts_intro( $title ) {
 
-				// Processing
+				/**
+				 * Option pointer: header_image
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 */
+				public static function option_pointer_header_image() {
 
-					if (
-						is_customize_preview()
-						&& is_front_page()
-						&& is_home()
-					) {
-						$title = '<small class="option-pointer"></small>' . $title;
-					}
+					// Output
+
+						if ( is_customize_preview() ) {
+							echo '<small class="option-pointer"></small>';
+						}
+
+				} // /option_pointer_header_image
 
 
-				// Output
 
-					return $title;
+				/**
+				 * Option pointer: texts_intro
+				 *
+				 * @since    2.0.0
+				 * @version  2.0.0
+				 */
+				public static function option_pointer_texts_intro( $title ) {
 
-			} // /option_pointer_texts_intro
+					// Processing
+
+						if (
+							is_customize_preview()
+							&& is_front_page()
+							&& is_home()
+						) {
+							$title = '<small class="option-pointer"></small>' . $title;
+						}
+
+
+					// Output
+
+						return $title;
+
+				} // /option_pointer_texts_intro
 
 
 
