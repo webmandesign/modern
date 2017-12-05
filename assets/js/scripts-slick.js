@@ -45,7 +45,8 @@
 					'slide'          : '.entry-media-gallery-image',
 					'swipeToSlide'   : true,
 					'prevArrow'      : $htmlButton['prev'],
-					'nextArrow'      : $htmlButton['next']
+					'nextArrow'      : $htmlButton['next'],
+					'rtl'            : ( 'rtl' === $( 'html' ).attr( 'dir' ) )
 				};
 
 			function setupSlickPostFormatGallery( element, slick ) {
@@ -103,7 +104,8 @@
 					'pauseOnHover'   : false,
 					'swipe'          : false,
 					'slide'          : '.intro-slideshow-item',
-					'touchMove'      : false
+					'touchMove'      : false,
+					'rtl'            : ( 'rtl' === $( 'html' ).attr( 'dir' ) )
 				},
 				$slickArgsIntroContent = {
 					'adaptiveHeight' : true,
@@ -116,7 +118,8 @@
 					'slide'          : '.intro-slideshow-item',
 					'swipeToSlide'   : true,
 					'prevArrow'      : $htmlButton['prev'],
-					'nextArrow'      : $htmlButton['next']
+					'nextArrow'      : $htmlButton['next'],
+					'rtl'            : ( 'rtl' === $( 'html' ).attr( 'dir' ) )
 				};
 
 			// Initialize the actual sliders

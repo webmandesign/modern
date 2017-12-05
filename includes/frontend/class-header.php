@@ -377,6 +377,17 @@ class Modern_Header {
 								$classes[] = 'has-custom-banner-image';
 							}
 
+						// Any page builder layout
+
+							$content_layout = (string) get_post_meta( $post_id, 'content_layout', true );
+
+							if ( 'stretched' === $content_layout ) {
+								$classes[] = 'content-layout-no-paddings';
+								$classes[] = 'content-layout-stretched';
+							} elseif ( 'no-paddings' === $content_layout ) {
+								$classes[] = 'content-layout-no-paddings';
+							}
+
 					} else {
 
 						// Add a class of hfeed to non-singular pages

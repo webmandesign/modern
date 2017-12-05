@@ -116,13 +116,9 @@ mark, .highlight { /*[*/ box-shadow: 0.38em 0 0 #009068, -0.38em 0 0 #009068; /*
 	}
 
 endif(typography_custom_fonts)**/
-html { max-width: 824px; padding: 20px; }
+html { max-width: 1240px; padding: 20px; }
 
 body { width: 100%; max-width: 39em; max-width: 70ch; font-size: 16px; }
-
-body.post-type-page { max-width: 100%; }
-
-body.page-template-sidebar { padding-right: 38% !important; }
 
 body *, body *::after, body *::before { border-color: inherit; }
 

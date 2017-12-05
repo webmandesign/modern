@@ -2,16 +2,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Modern\n"
-"Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
-"POT-Creation-Date: 2015-08-12 12:21+0200\n"
+"Report-Msgid-Bugs-To: https://www.webmandesign.eu/reference/#links-support\n"
+"POT-Creation-Date: 2017-12-05 19:14+0100\n"
 "PO-Revision-Date: 2015-04-15 10:00+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
-"Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
+"Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 2.0.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -20,644 +20,1984 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: 404.php:20
+#: 404.php:27
 msgid "Oops! That page can not be found."
 msgstr ""
 
-#: 404.php:24
+#: 404.php:33
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
-#: comments.php:43
+#. translators: 1: title.
+#: comments.php:54
+#, php-format
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:62
 #, php-format
 msgctxt "Comments list title."
-msgid "1 comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgid "%1$d thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$d thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:48
-msgctxt "Add new comment link text."
-msgid "Add yours &rarr;"
-msgstr ""
-
-#: comments.php:63
-msgid "Comments are closed. You can not add new comments."
-msgstr ""
-
-#: comments.php:87
-msgid "Comment navigation"
-msgstr ""
-
-#: comments.php:90
-msgid "&larr; Older comments"
-msgstr ""
-
 #: comments.php:94
-msgid "Newer comments &rarr;"
+msgid "Comments are closed."
 msgstr ""
 
-#: content-custom-header.php:99
-msgid "Set the default text in Customizer > Predefined Texts"
-msgstr ""
-
-#: content-none.php:16
-msgid "Nothing Found"
-msgstr ""
-
-#: content-none.php:22
+#. translators: Custom header image description, %d: image sequential number.
+#: includes/custom-header/class-intro.php:148
 #, php-format
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgid "Header image %d"
 msgstr ""
 
-#: content-none.php:26
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with some "
-"different keywords."
+#: includes/customize/class-customize.php:265
+msgid "Logo image"
 msgstr ""
 
-#: content-none.php:32
-msgid ""
-"It seems we can not find what you are looking for. Perhaps searching can "
-"help."
+#: includes/customize/class-customize.php:266
+msgid "Please, do not forget to set the logo max height."
 msgstr ""
 
-#: content-status.php:25
+#: includes/customize/class-customize.php:266
+msgid ""
+"To make your logo image ready for high DPI screens, please upload twice as "
+"big image."
+msgstr ""
+
+#: includes/customize/class-customize.php:274
+msgid "Max logo image height (px)"
+msgstr ""
+
+#: includes/customize/class-customize.php:295
+#: includes/customize/class-customize.php:326
+#: includes/customize/class-customize.php:368
+#: includes/customize/class-customize.php:455
+#: includes/customize/class-customize.php:515
+#: includes/customize/class-customize.php:597
+#: includes/customize/class-customize.php:686
+#: includes/customize/class-customize.php:750
+#: includes/customize/class-customize.php:787
+#: includes/customize/class-customize.php:959
+msgctxt "Customizer panel title."
+msgid "Theme Options"
+msgstr ""
+
+#: includes/customize/class-customize.php:296
+msgid "Theme Credits"
+msgstr ""
+
+#: includes/customize/class-customize.php:299
+#, php-format
+msgctxt "1: linked theme name, 2: theme author name."
+msgid "%1$s is a WordPress theme developed by %2$s."
+msgstr ""
+
+#: includes/customize/class-customize.php:306
+#, php-format
+msgctxt "%s: theme author link."
+msgid "You can obtain other professional WordPress themes at %s."
+msgstr ""
+
+#: includes/customize/class-customize.php:311
+msgid "Thank you for using a theme by WebMan Design!"
+msgstr ""
+
+#: includes/customize/class-customize.php:325
+#: includes/customize/class-customize.php:367
+#: includes/customize/class-customize.php:454
+#: includes/customize/class-customize.php:514
+#: includes/customize/class-customize.php:596
+#, php-format
+msgctxt "%s = section name. Customizer section title."
+msgid "Colors: %s"
+msgstr ""
+
+#: includes/customize/class-customize.php:325
+msgctxt "Customizer color section title"
+msgid "Accents"
+msgstr ""
+
+#: includes/customize/class-customize.php:337
+msgid "These colors affect links, buttons and other elements."
+msgstr ""
+
+#: includes/customize/class-customize.php:342
+msgid "Primary accent color"
+msgstr ""
+
+#: includes/customize/class-customize.php:348
+msgid "Accent color"
+msgstr ""
+
+#: includes/customize/class-customize.php:354
+msgid "Accent text color"
+msgstr ""
+
+#: includes/customize/class-customize.php:355
+msgid "Color of text on accent color background."
+msgstr ""
+
+#: includes/customize/class-customize.php:367
+msgctxt "Customizer color section title"
+msgid "Header"
+msgstr ""
+
+#: includes/customize/class-customize.php:379
+msgid "Header"
+msgstr ""
+
+#: includes/customize/class-customize.php:385
+#: includes/customize/class-customize.php:473
+#: includes/customize/class-customize.php:533
+#: includes/customize/class-customize.php:615
+msgid "Background color"
+msgstr ""
+
+#: includes/customize/class-customize.php:410
+#: includes/customize/class-customize.php:488
+#: includes/customize/class-customize.php:548
+#: includes/customize/class-customize.php:636
+msgid "Text color"
+msgstr ""
+
+#: includes/customize/class-customize.php:411
+msgid "This color affects navigation menu only."
+msgstr ""
+
+#: includes/customize/class-customize.php:411
+msgid ""
+"If you want to set a different header logo and social icons color, please "
+"see Colors: Intro options."
+msgstr ""
+
+#: includes/customize/class-customize.php:454
+msgctxt "Customizer color section title"
+msgid "Intro"
+msgstr ""
+
+#: includes/customize/class-customize.php:466
+msgid "Intro"
+msgstr ""
+
+#: includes/customize/class-customize.php:467
+msgid ""
+"This is a specially styled, main, dominant intro section (with optional "
+"slideshow) on front page, or site background image section on other pages."
+msgstr ""
+
+#: includes/customize/class-customize.php:467
+msgid ""
+"The text color below also controls other text color on the website - see "
+"below."
+msgstr ""
+
+#: includes/customize/class-customize.php:489
+msgid ""
+"This color is also applied on main site container, and thus on all elements "
+"outside the actual post or page content area (the elements that are "
+"displayed over the intro section or the website background, such as header "
+"logo and social icons)."
+msgstr ""
+
+#: includes/customize/class-customize.php:514
+msgctxt "Customizer color section title"
+msgid "Content"
+msgstr ""
+
+#: includes/customize/class-customize.php:526
+msgid "Content"
+msgstr ""
+
+#: includes/customize/class-customize.php:527
+msgid ""
+"These are colors for actual post or page content area (both in single post/"
+"page display and in posts lists)."
+msgstr ""
+
+#: includes/customize/class-customize.php:569
+#: includes/customize/class-customize.php:657
+msgid "Headings color"
+msgstr ""
+
+#: includes/customize/class-customize.php:596
+msgctxt "Customizer color section title"
+msgid "Footer"
+msgstr ""
+
+#: includes/customize/class-customize.php:608
+msgid "Footer"
+msgstr ""
+
+#: includes/customize/class-customize.php:609
+msgid ""
+"The main footer widgets area is displayed only if it contains some widgets."
+msgstr ""
+
+#: includes/customize/class-customize.php:685
+msgctxt "Customizer section title."
+msgid "Layout"
+msgstr ""
+
+#: includes/customize/class-customize.php:692
+msgid "Posts list columns"
+msgstr ""
+
+#: includes/customize/class-customize.php:693
+msgid "Number of columns displayed in list of posts."
+msgstr ""
+
+#: includes/customize/class-customize.php:695
+msgid ""
+"Please note that sidebar affects the columns count if it is displayed on the "
+"page with list of posts."
+msgstr ""
+
+#: includes/customize/class-customize.php:697
+msgid ""
+"You may also need to rise the thumbnail image size if you set this to 2 "
+"columns (see Settings &rarr; Media)."
+msgstr ""
+
+#: includes/customize/class-customize.php:713
+#: includes/plugins/jetpack/class-jetpack-customize.php:137
+#: includes/plugins/jetpack/class-jetpack-customize.php:169
+msgid "Front page:"
+msgstr ""
+
+#: includes/customize/class-customize.php:714
+msgid "Blog section"
+msgstr ""
+
+#: includes/customize/class-customize.php:717
+msgid "Options for setting up blog posts section on \"Front page\" template."
+msgstr ""
+
+#: includes/customize/class-customize.php:724
+#: includes/plugins/jetpack/class-jetpack-customize.php:143
+#: includes/plugins/jetpack/class-jetpack-customize.php:175
+msgid "Display location"
+msgstr ""
+
+#: includes/customize/class-customize.php:732
+#: includes/plugins/jetpack/class-jetpack-customize.php:151
+#: includes/plugins/jetpack/class-jetpack-customize.php:183
+msgid "Posts count"
+msgstr ""
+
+#: includes/customize/class-customize.php:749
+msgctxt "Customizer section title."
+msgid "Texts"
+msgstr ""
+
+#: includes/customize/class-customize.php:756
+msgid "Default blog intro text"
+msgstr ""
+
+#: includes/customize/class-customize.php:757
+msgid ""
+"This text will be displayed in intro section of your website front page only "
+"if latest posts are displayed there."
+msgstr ""
+
+#: includes/customize/class-customize.php:758
+#: template-parts/intro/intro-content.php:41
+msgid "Welcome to our site!"
+msgstr ""
+
+#: includes/customize/class-customize.php:769
+msgid "Footer credits (copyright)"
+msgstr ""
+
+#: includes/customize/class-customize.php:770
+#, php-format
+msgid "Set %s to disable this area."
+msgstr ""
+
+#: includes/customize/class-customize.php:770
+msgid "Leaving the field empty will fall back to default theme setting."
+msgstr ""
+
+#: includes/customize/class-customize.php:770
+#, php-format
+msgid "You can use %s to display dynamic, always current year."
+msgstr ""
+
+#: includes/customize/class-customize.php:786
+msgctxt "Customizer section title."
+msgid "Typography"
+msgstr ""
+
+#: includes/customize/class-customize.php:793
+msgid "Basic font size in px"
+msgstr ""
+
+#: includes/customize/class-customize.php:794
+msgid ""
+"All other font sizes are calculated automatically from this basic font size."
+msgstr ""
+
+#: includes/customize/class-customize.php:818
+msgid "Use custom fonts"
+msgstr ""
+
+#: includes/customize/class-customize.php:825
+msgid "Custom fonts setup"
+msgstr ""
+
+#: includes/customize/class-customize.php:828
 #, php-format
 msgctxt ""
-"Status post format text on mouse hover (Status: John Doe on 1st January "
-"2015)."
-msgid "Status: %s on %s"
+"%s: linked examples of web fonts libraries such as Google Fonts or Adobe "
+"Typekit."
+msgid ""
+"This theme does not restrict you to choose from a predefined set of fonts. "
+"Instead, please use any font service (such as %s) plugin you like."
 msgstr ""
 
-#: image.php:78
-msgctxt "Attachment page publish time."
-msgid "Image published on:"
+#: includes/customize/class-customize.php:832
+msgid ""
+"You can set your fonts plugin according to information provided below, or "
+"insert your custom font names (a value of \"font-family\" CSS property) "
+"directly into input fields (you still need to use a plugin to load those "
+"fonts on the website)."
 msgstr ""
 
-#: image.php:82
-msgid "Image size:"
+#: includes/customize/class-customize.php:840
+msgid "General text font"
 msgstr ""
 
-#: image.php:86
-msgid "Image file name:"
+#: includes/customize/class-customize.php:852
+#: includes/setup/class-setup.php:685
+msgid "Headings font"
 msgstr ""
 
-#: inc/customizer/controls/class-WM_Customizer_Multiselect.php:42
-msgid "Press CTRL key for multiple selection."
+#: includes/customize/class-customize.php:864
+#: includes/setup/class-setup.php:691
+msgid "Logo font"
 msgstr ""
 
-#: inc/jetpack/jetpack.php:146
+#: includes/customize/class-customize.php:875
+msgid "Info: CSS selectors"
+msgstr ""
+
+#: includes/customize/class-customize.php:877
+msgid ""
+"Here you can find CSS selectors list associated with each font group in the "
+"theme. You can use these in your custom font plugin settings."
+msgstr ""
+
+#: includes/customize/class-customize.php:881
+msgid "General text font CSS selectors:"
+msgstr ""
+
+#: includes/customize/class-customize.php:891
+msgid "Headings font CSS selectors:"
+msgstr ""
+
+#: includes/customize/class-customize.php:908
+msgid "Logo font CSS selectors:"
+msgstr ""
+
+#: includes/customize/class-customize.php:958
+msgctxt "Customizer section title."
+msgid "Others"
+msgstr ""
+
+#: includes/customize/class-customize.php:965
+msgid "Show \"Welcome\" page"
+msgstr ""
+
+#: includes/customize/class-customize.php:966
+msgid "Under \"Appearance\" WordPress dashboard menu."
+msgstr ""
+
+#: includes/customize/class-customize.php:974
+msgid "Enable mobile navigation"
+msgstr ""
+
+#: includes/customize/class-customize.php:975
+msgid ""
+"If your website navigation is very simple and you do not want to use the "
+"mobile navigation functionality, you can disable it here."
+msgstr ""
+
+#: includes/customize/class-customize.php:982
+msgid "Archive page title prefix"
+msgstr ""
+
+#: includes/customize/class-customize.php:985
+msgid "Display \"Category:\" prefix"
+msgstr ""
+
+#: includes/customize/class-customize.php:986
+msgid "Display \"Tag:\" prefix"
+msgstr ""
+
+#: includes/customize/class-customize.php:987
+msgid "Display \"Author:\" prefix"
+msgstr ""
+
+#: includes/customize/class-customize.php:988
+msgid "Display \"Archives:\" prefix"
+msgstr ""
+
+#: includes/customize/class-customize.php:989
+msgid "Display \"Taxonomy:\" prefix"
+msgstr ""
+
+#: includes/customize/class-customize.php:1149
+msgid ""
+"Please set your website credits text or the theme default one will be "
+"displayed."
+msgstr ""
+
+#: includes/customize/class-customize.php:1200
+msgid "Do not display"
+msgstr ""
+
+#: includes/customize/class-customize.php:1202
+#: includes/customize/class-customize.php:1203
+#: includes/customize/class-customize.php:1204
+#, php-format
+msgctxt "%d: Position priority number."
+msgid "Above page content, position %d"
+msgstr ""
+
+#: includes/customize/class-customize.php:1206
+#: includes/customize/class-customize.php:1207
+#: includes/customize/class-customize.php:1208
+#, php-format
+msgctxt "%d: Position priority number."
+msgid "Below page content, position %d"
+msgstr ""
+
+#: includes/frontend/class-assets.php:352
+msgctxt "Slideshow slide."
+msgid "Previous"
+msgstr ""
+
+#: includes/frontend/class-assets.php:353
+msgctxt "Slideshow slide."
+msgid "Next"
+msgstr ""
+
+#: includes/frontend/class-header.php:191
+msgid "Skip to main navigation"
+msgstr ""
+
+#: includes/frontend/class-header.php:197
+msgid "Skip to footer"
+msgstr ""
+
+#: includes/frontend/class-loop.php:116 includes/frontend/class-loop.php:189
+msgctxt "Pagination text (visible): previous."
+msgid "&laquo;"
+msgstr ""
+
+#: includes/frontend/class-loop.php:117 includes/frontend/class-loop.php:190
+msgctxt "Pagination text (hidden): previous."
+msgid "Previous page"
+msgstr ""
+
+#: includes/frontend/class-loop.php:118 includes/frontend/class-loop.php:191
+msgctxt "Pagination text (hidden): next."
+msgid "Next page"
+msgstr ""
+
+#: includes/frontend/class-loop.php:119 includes/frontend/class-loop.php:192
+msgctxt "Pagination text (visible): next."
+msgid "&raquo;"
+msgstr ""
+
+#: includes/frontend/class-menu.php:117
+msgctxt "Navigational menu location"
+msgid "Primary"
+msgstr ""
+
+#: includes/frontend/class-menu.php:118
+msgctxt "Navigational menu location"
+msgid "Social Links"
+msgstr ""
+
+#: includes/frontend/class-menu.php:176 includes/frontend/class-menu.php:187
+msgid "Skip to menu toggle button"
+msgstr ""
+
+#: includes/frontend/class-post-summary.php:114
+msgid "This content is password protected."
+msgstr ""
+
+#: includes/frontend/class-post-summary.php:114
+msgid "Enter the password to view it."
+msgstr ""
+
+#: includes/frontend/class-post.php:333
+msgid "Skip back to main navigation"
+msgstr ""
+
+#: includes/frontend/class-post.php:370
+msgctxt "$s: Custom post type singular label"
+msgid "Previous $s"
+msgstr ""
+
+#: includes/frontend/class-post.php:376
+msgctxt "$s: Custom post type singular label"
+msgid "Next $s"
+msgstr ""
+
+#: includes/frontend/class-post.php:383
+msgid "Published in"
+msgstr ""
+
+#: includes/frontend/class-post.php:394
+msgid "Post navigation"
+msgstr ""
+
+#: includes/frontend/class-sidebar.php:107
+msgid "Sidebar"
+msgstr ""
+
+#: includes/frontend/class-sidebar.php:108
+msgid "Default sidebar area."
+msgstr ""
+
+#: includes/frontend/class-sidebar.php:112
+msgid "Footer Widgets"
+msgstr ""
+
+#: includes/frontend/class-sidebar.php:113
+msgid "Widgetized area displaying the main website footer content."
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:109
+msgid "Intro options"
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:116
+msgid "Custom intro text"
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:117
+msgid ""
+"Here you can override the default intro section text with a custom one (no "
+"HTML)."
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:117
+msgid ""
+"This only works when this page is set as static front page, or when this "
+"post is displayed in front page slideshow."
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:126
+msgid "Custom intro image"
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:127
+msgid ""
+"Here you can override the default intro section image with a custom one."
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:226
+msgid "Child pages list options"
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:233
+msgid "Quote source"
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:234
+msgid "No HTML tags are supported here."
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:292
+msgid "Page builder layout"
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:297
+msgid "Content area layout"
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:301
+msgid "Leave as is"
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:309
+msgid "Fullwidth content with no paddings"
+msgstr ""
+
+#: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:311
+msgid ""
+"As every page builder plugin works differently, set this according to your "
+"needs."
+msgstr ""
+
+#: includes/plugins/jetpack/class-jetpack-customize.php:137
+msgid "Portfolio section"
+msgstr ""
+
+#: includes/plugins/jetpack/class-jetpack-customize.php:137
+msgid "Options for setting up portfolio section on \"Front page\" template."
+msgstr ""
+
+#: includes/plugins/jetpack/class-jetpack-customize.php:169
+msgid "Testimonials section"
+msgstr ""
+
+#: includes/plugins/jetpack/class-jetpack-customize.php:169
+msgid "Options for setting up testimonials section on \"Front page\" template."
+msgstr ""
+
+#: includes/plugins/jetpack/class-jetpack-infinite-scroll.php:111
 msgid "Load more&hellip;"
 msgstr ""
 
-#: inc/jetpack/jetpack.php:193 inc/setup.php:1783
-msgid "All projects"
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:114
+msgid "Theme demo content"
 msgstr ""
 
-#: inc/lib/admin.php:102
-msgid "Image"
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:147
+msgid "Media files quality"
 msgstr ""
 
-#: inc/lib/core.php:127
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:151
+msgid ""
+"Please note that imported media files (such as images, video and audio "
+"files) are of low quality to prevent copyright infringement."
+msgstr ""
+
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:152
+msgid ""
+"Please read \"Credits\" section of theme documentation for reference where "
+"the demo media files were obtained from."
+msgstr ""
+
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:153
+msgid "Get media for your website &raquo;"
+msgstr ""
+
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:161
+msgid "Install required plugins!"
+msgstr ""
+
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:165
+msgid ""
+"Please read the information about the theme demo required plugins first."
+msgstr ""
+
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:166
+msgid ""
+"If you do not install and activate demo required plugins, some of the "
+"content will not be imported."
+msgstr ""
+
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:167
+msgid ""
+"Read the information before you run the theme demo content import process."
+msgstr ""
+
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:168
+msgid "View the list of required plugins &raquo;"
+msgstr ""
+
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:341
+msgid "Jetpack Custom content types"
+msgstr ""
+
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:345
+msgid ""
+"Please make sure your Jetpack plugin is connected and you have activated "
+"Testimonials and Portfolios \"Custom content types\" in Jetpack settings "
+"(navigate to Jetpack &rarr; Settings &rarr; Writing)."
+msgstr ""
+
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:346
+msgid ""
+"If you do not activate these, the related demo content will not be imported."
+msgstr ""
+
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:350
+msgid ""
+"If your Jetpack plugin is connected, you may just try to reload this page "
+"and we will attempt to activate those custom content types for you "
+"automatically."
+msgstr ""
+
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:352
+msgid ""
+"If the operation is successful, this message will disappear and you should "
+"see 2 new items in your WordPress dashboard menu: \"Portfolio\" and "
+"\"Testimonials\"."
+msgstr ""
+
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:355
+msgid "Reload this page &raquo;"
+msgstr ""
+
+#: includes/setup/class-setup.php:454
+msgid "In posts list."
+msgstr ""
+
+#: includes/setup/class-setup.php:455
+msgid ""
+"You may want to rise this image size if you set posts to display in 2 "
+"columns."
+msgstr ""
+
+#: includes/setup/class-setup.php:466
+msgid "Not used in the theme."
+msgstr ""
+
+#: includes/setup/class-setup.php:473
+msgid "In single post or page."
+msgstr ""
+
+#: includes/setup/class-setup.php:480
+msgid "In intro section."
+msgstr ""
+
+#. translators: Do not translate into your own language!
+#. If there are characters in your language that are not
+#. supported by the font, translate this to 'off'.
+#. The font will not load then.
+#.
+#: includes/setup/class-setup.php:584
+msgctxt "Oxygen font: on or off"
+msgid "on"
+msgstr ""
+
+#: includes/setup/class-setup.php:645
+msgid "Thin (hairline) text"
+msgstr ""
+
+#: includes/setup/class-setup.php:646
+msgid "Extra light text"
+msgstr ""
+
+#: includes/setup/class-setup.php:647
+msgid "Light text"
+msgstr ""
+
+#: includes/setup/class-setup.php:648
+msgid "Normal weight text"
+msgstr ""
+
+#: includes/setup/class-setup.php:649
+msgid "Medium text"
+msgstr ""
+
+#: includes/setup/class-setup.php:650
+msgid "Semi bold text"
+msgstr ""
+
+#: includes/setup/class-setup.php:651
+msgid "Bold text"
+msgstr ""
+
+#: includes/setup/class-setup.php:652
+msgid "Extra bold text"
+msgstr ""
+
+#: includes/setup/class-setup.php:653
+msgid "Heavy text"
+msgstr ""
+
+#: includes/setup/class-setup.php:658
+msgid "Text weights"
+msgstr ""
+
+#: includes/setup/class-setup.php:675
+msgid "Fonts"
+msgstr ""
+
+#: includes/setup/class-setup.php:679
+msgid "General font"
+msgstr ""
+
+#: includes/setup/class-setup.php:697
+msgid "Inherit font"
+msgstr ""
+
+#: includes/setup/class-setup.php:708
+msgid "Columns"
+msgstr ""
+
+#: includes/setup/class-setup.php:715
 #, php-format
-msgctxt "Site logo image \"alt\" HTML attribute text."
-msgid "%s logo"
+msgctxt "%d: Number of columns."
+msgid "Text in %d column"
+msgid_plural "Text in %d columns"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/setup/class-setup.php:726
+msgid "Buttons"
 msgstr ""
 
-#: inc/lib/core.php:416
+#: includes/setup/class-setup.php:730
+msgid "Button from link"
+msgstr ""
+
+#: includes/tgmpa/class-tgmpa-plugins.php:116
+msgid "For easy post and page attributes setup."
+msgstr ""
+
+#: includes/tgmpa/class-tgmpa-plugins.php:124
+msgid "For adding Portfolio functionality."
+msgstr ""
+
+#: includes/tgmpa/class-tgmpa-plugins.php:131
+msgid "For installing theme demo content easily."
+msgstr ""
+
+#: includes/tgmpa/class-tgmpa-plugins.php:166
+msgid "Other useful plugins &raquo;"
+msgstr ""
+
+#: includes/tgmpa/class-tgmpa-plugins.php:191
+msgid "Description"
+msgstr ""
+
+#: includes/tgmpa/class-tgmpa-plugins.php:260
+msgctxt "Plugins."
+msgid "Recommended, not required"
+msgstr ""
+
+#: includes/tgmpa/class-tgmpa-plugins.php:263
+msgid "Please note that these are just recommended plugins, not required ones."
+msgstr ""
+
+#: includes/tgmpa/class-tgmpa-plugins.php:264
+msgid "Install only those plugins you will use."
+msgstr ""
+
+#: includes/tgmpa/class-tgmpa-plugins.php:265
+msgctxt "Plugins."
+msgid "Or install the ones you prefer."
+msgstr ""
+
+#: includes/welcome/class-welcome.php:149
+#: includes/welcome/class-welcome.php:151
+msgid "Welcome"
+msgstr ""
+
+#: library/includes/classes/class-core.php:177
 #, php-format
-msgctxt "Parted/paginated post table of content title."
+msgctxt "%s: post title."
 msgid "\"%s\" table of contents"
 msgstr ""
 
-#: inc/lib/core.php:460
+#: library/includes/classes/class-core.php:215
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: inc/lib/core.php:514
-msgid "Part %"
-msgstr ""
-
-#: inc/lib/core.php:617
+#: library/includes/classes/class-core.php:307
 #, php-format
-msgctxt "Number of comments in post meta."
-msgid "Comments: %s"
-msgstr ""
-
-#: inc/lib/core.php:617
-#, php-format
-msgctxt "Number of comments in post meta (keep the HTML tags)."
-msgid "<span class=\"comments-title\">Comments: </span>%s"
-msgstr ""
-
-#: inc/lib/core.php:648 inc/setup.php:1318
-#, php-format
-msgid "Edit the \"%s\""
-msgstr ""
-
-#: inc/lib/core.php:648 inc/setup.php:1318
-msgctxt "Edit post link."
-msgid "Edit"
-msgstr ""
-
-#: inc/lib/core.php:681
-#, php-format
-msgid "Permalink to \"%s\""
-msgstr ""
-
-#: inc/lib/core.php:708
-msgid "Views count"
-msgstr ""
-
-#: inc/lib/core.php:785
-#, php-format
-msgctxt "Paginated content title suffix."
+msgctxt "Paginated content title suffix, %s: page number."
 msgid "(page %s)"
 msgstr ""
 
-#: inc/lib/core.php:1015
-msgid "Skip to content"
+#: library/includes/classes/class-core.php:527
+msgid "Skip to main content"
 msgstr ""
 
-#: inc/lib/core.php:1016
-msgid "Skip to navigation"
+#: library/includes/classes/class-customize-control-html.php:32
+msgid "Please set the `content` parameter for the HTML control."
 msgstr ""
 
-#: inc/lib/core.php:1212
+#: library/includes/classes/class-customize-control-multiselect.php:115
+msgid "Press CTRL key for multiple selection."
+msgstr ""
+
+#: library/includes/classes/class-customize-styles.php:213
+msgid ""
+"ERROR: Wasn't able to create a theme CSS folder! Contact the theme support."
+msgstr ""
+
+#: library/includes/classes/class-customize-styles.php:752
+msgid ""
+"The theme writes a files to your server. You do not appear to have your FTP "
+"credentials set up in \"wp-config.php\" file."
+msgstr ""
+
+#: library/includes/classes/class-customize-styles.php:752
+msgid "Please set your FTP credentials first."
+msgstr ""
+
+#: library/includes/classes/class-visual-editor.php:219
+msgid "Text styles"
+msgstr ""
+
+#: library/includes/classes/class-visual-editor.php:223
+msgid "Dropcap text"
+msgstr ""
+
+#: library/includes/classes/class-visual-editor.php:229
+msgid "Uppercase heading or paragraph"
+msgstr ""
+
+#: library/includes/classes/class-visual-editor.php:235
+msgid "Highlighted (marked) text"
+msgstr ""
+
+#: library/includes/classes/class-visual-editor.php:241
+msgid "Small text"
+msgstr ""
+
+#: library/includes/classes/class-visual-editor.php:246
+msgid "Superscript"
+msgstr ""
+
+#: library/includes/classes/class-visual-editor.php:252
+msgid "Subscript"
+msgstr ""
+
+#: library/includes/classes/class-visual-editor.php:258
+#: library/includes/classes/class-visual-editor.php:264
+#: library/includes/classes/class-visual-editor.php:270
 #, php-format
-msgid "Category: %s"
+msgctxt "%d = HTML heading size number."
+msgid "Heading %d text style"
 msgstr ""
 
-#: inc/lib/core.php:1214
+#: library/includes/classes/class-visual-editor.php:281
+msgid "Text sizes"
+msgstr ""
+
+#: library/includes/classes/class-visual-editor.php:285
+#: library/includes/classes/class-visual-editor.php:291
+#: library/includes/classes/class-visual-editor.php:297
+#: library/includes/classes/class-visual-editor.php:303
 #, php-format
-msgid "Tag: %s"
+msgctxt "%d: Display text size number."
+msgid "Display %d"
 msgstr ""
 
-#: inc/lib/core.php:1216
-#, php-format
-msgid "Author: %s"
-msgstr ""
-
-#: inc/lib/core.php:1218
-#, php-format
-msgid "Year: %s"
-msgstr ""
-
-#: inc/lib/core.php:1218
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr ""
-
-#: inc/lib/core.php:1220
-#, php-format
-msgid "Month: %s"
-msgstr ""
-
-#: inc/lib/core.php:1220
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr ""
-
-#: inc/lib/core.php:1222
-#, php-format
-msgid "Day: %s"
-msgstr ""
-
-#: inc/lib/core.php:1222
-msgctxt "daily archives date format"
-msgid "F j, Y"
-msgstr ""
-
-#: inc/lib/core.php:1225
-msgctxt "post format archive title"
-msgid "Asides"
-msgstr ""
-
-#: inc/lib/core.php:1227
-msgctxt "post format archive title"
-msgid "Galleries"
-msgstr ""
-
-#: inc/lib/core.php:1229
-msgctxt "post format archive title"
-msgid "Images"
-msgstr ""
-
-#: inc/lib/core.php:1231
-msgctxt "post format archive title"
-msgid "Videos"
-msgstr ""
-
-#: inc/lib/core.php:1233
-msgctxt "post format archive title"
-msgid "Quotes"
-msgstr ""
-
-#: inc/lib/core.php:1235
-msgctxt "post format archive title"
-msgid "Links"
-msgstr ""
-
-#: inc/lib/core.php:1237
-msgctxt "post format archive title"
-msgid "Statuses"
-msgstr ""
-
-#: inc/lib/core.php:1239
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr ""
-
-#: inc/lib/core.php:1241
-msgctxt "post format archive title"
-msgid "Chats"
-msgstr ""
-
-#: inc/lib/core.php:1244
-#, php-format
-msgid "Archives: %s"
-msgstr ""
-
-#: inc/lib/core.php:1248
-#, php-format
-msgid "%1$s: %2$s"
-msgstr ""
-
-#: inc/lib/core.php:1250
-msgid "Archives"
-msgstr ""
-
-#: inc/lib/visual-editor.php:111
+#: library/includes/classes/class-visual-editor.php:314
 msgctxt "Visual editor blockquote formats group title."
 msgid "Quotes"
 msgstr ""
 
-#: inc/lib/visual-editor.php:115
+#: library/includes/classes/class-visual-editor.php:318
 msgid "Blockquote"
 msgstr ""
 
-#: inc/lib/visual-editor.php:119
+#: library/includes/classes/class-visual-editor.php:324
 msgid "Pullquote - align left"
 msgstr ""
 
-#: inc/lib/visual-editor.php:124
+#: library/includes/classes/class-visual-editor.php:331
 msgid "Pullquote - align right"
 msgstr ""
 
-#: inc/lib/visual-editor.php:129
+#: library/includes/classes/class-visual-editor.php:338
 msgctxt ""
 "Visual editor format label for HTML CITE tag used to set the blockquote "
 "source."
 msgid "Cite"
 msgstr ""
 
-#: inc/lib/visual-editor.php:138
-msgid "Text styles"
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:346
+msgid "Install Required Plugins"
 msgstr ""
 
-#: inc/lib/visual-editor.php:142
-msgid "Uppercase heading or paragraph"
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:347
+msgid "Install Plugins"
 msgstr ""
 
-#: inc/lib/visual-editor.php:148
-msgid "Highlighted (marked) text"
+#. translators: %s: plugin name.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:349
+#, php-format
+msgid "Installing Plugin: %s"
 msgstr ""
 
-#: inc/lib/visual-editor.php:153
-msgid "Button link"
+#. translators: %s: plugin name.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:351
+#, php-format
+msgid "Updating Plugin: %s"
 msgstr ""
 
-#: inc/setup-theme-options.php:67
-msgctxt "Customizer section title."
-msgid "Colors"
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:352
+msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: inc/setup-theme-options.php:68 inc/setup-theme-options.php:113
-#: inc/setup-theme-options.php:174
-msgctxt "Customizer panel title."
-msgid "Theme"
-msgstr ""
+#. translators: 1: plugin name(s).
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:355
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
 
-#: inc/setup-theme-options.php:69
-msgid "Theme Credits"
-msgstr ""
+#. translators: 1: plugin name(s).
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:361
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
 
-#: inc/setup-theme-options.php:70
+#. translators: 1: plugin name(s).
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:367
 #, php-format
 msgid ""
-"%s is free WordPress theme developed by WebMan. You can obtain other "
-"professional WordPress themes at <strong><a href=\"%s\" target=\"_blank"
-"\">WebManDesign.eu</a></strong>. Thank you for using this awesome theme!"
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:373
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:379
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:385
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:390
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:395
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:400
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:404
+msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: inc/setup-theme-options.php:79
-msgid "Text color"
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:405
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:846
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2552
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3599
+msgid "Return to the Dashboard"
 msgstr ""
 
-#: inc/setup-theme-options.php:80
-msgid "Color of text over background color"
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:406
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3178
+msgid "Plugin activated successfully."
 msgstr ""
 
-#: inc/setup-theme-options.php:86 inc/setup-theme-options.php:92
-msgid "Accent color"
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:407
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2971
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:409
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
 msgstr ""
 
-#: inc/setup-theme-options.php:93
-msgid "This color affects links, buttons and other elements of the website"
-msgstr ""
-
-#: inc/setup-theme-options.php:99
-msgid "Accent text color"
-msgstr ""
-
-#: inc/setup-theme-options.php:100
-msgid "Color of text over accent color background"
-msgstr ""
-
-#: inc/setup-theme-options.php:112
-msgctxt "Customizer section title."
-msgid "Fonts"
-msgstr ""
-
-#: inc/setup-theme-options.php:118
-msgid ""
-"Set a Google Font to be used for website logo, headings and general text."
-msgstr ""
-
-#: inc/setup-theme-options.php:118
+#. translators: 1: plugin name.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:411
 #, php-format
 msgid ""
-"Font matches recommendations from <a%s>Google Web Fonts Typographic Project</"
-"a>."
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
 msgstr ""
 
-#: inc/setup-theme-options.php:124
-msgid "Logo (site title) font"
-msgstr ""
-
-#: inc/setup-theme-options.php:131
-msgid "Headings font"
-msgstr ""
-
-#: inc/setup-theme-options.php:138
-msgid "General text font"
-msgstr ""
-
-#: inc/setup-theme-options.php:146
-msgid "Font subset"
-msgstr ""
-
-#: inc/setup-theme-options.php:154
-msgid "Basic font size"
-msgstr ""
-
-#: inc/setup-theme-options.php:155
-msgid ""
-"All other font sizes are calculated automatically from this basic font size"
-msgstr ""
-
-#: inc/setup-theme-options.php:173
-msgid "Texts"
-msgstr ""
-
-#: inc/setup-theme-options.php:179
-msgid "Front page banner area will display Header Images and custom text."
-msgstr ""
-
-#: inc/setup-theme-options.php:179
-msgid ""
-"If you set a Static Front Page, the page title will be displayed as banner "
-"text. Or you can override the text by setting <code>banner_text</code> "
-"custom field for your front page. Page featured image will be used as banner "
-"image."
-msgstr ""
-
-#: inc/setup-theme-options.php:179
-msgid ""
-"Or, if you are using Featured Content module of the Jetpack plugin, just set "
-"it up and posts slideshow will be displayed in the banner."
-msgstr ""
-
-#: inc/setup-theme-options.php:185
-msgid "Banner default text"
-msgstr ""
-
-#: inc/setup-theme-options.php:186
-msgid "Used only when displaying latest posts on homepage"
-msgstr ""
-
-#: inc/setup-theme-options.php:187
-msgid "Hello! Welcome to my awesome website!"
-msgstr ""
-
-#: inc/setup.php:160
-msgid " - do not use Google Font"
-msgstr ""
-
-#: inc/setup.php:163
-msgctxt "Google Font default setup options group title."
-msgid "Theme default"
-msgstr ""
-
-#: inc/setup.php:168 inc/setup.php:173 inc/setup.php:179 inc/setup.php:184
-#: inc/setup.php:189 inc/setup.php:194 inc/setup.php:199 inc/setup.php:203
-#: inc/setup.php:209
+#. translators: 1: dashboard link.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:413
 #, php-format
-msgctxt "Google Font setup recommendation (numbered) group title."
-msgid "Recommendation #%d"
+msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
-#: inc/setup.php:216
-msgctxt "Title for selection of fonts picked from Google Fontss"
-msgid "Fonts selection"
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:414
+msgid "Dismiss this notice"
 msgstr ""
 
-#: inc/setup.php:266
-msgid "Sidebar"
-msgstr ""
-
-#: inc/setup.php:267
-msgid "Page sidebar."
-msgstr ""
-
-#: inc/setup.php:270
-msgid "Footer Widgets"
-msgstr ""
-
-#: inc/setup.php:271
-msgid "Masonry layout is used to display footer widgets."
-msgstr ""
-
-#: inc/setup.php:364
-msgid "Primary Menu"
-msgstr ""
-
-#: inc/setup.php:365
-msgid "Social Links Menu"
-msgstr ""
-
-#: inc/setup.php:460
-msgid "In posts list."
-msgstr ""
-
-#: inc/setup.php:471
-msgid "In single post or page."
-msgstr ""
-
-#: inc/setup.php:477
-msgid "In banner and post/page background."
-msgstr ""
-
-#: inc/setup.php:534
-msgctxt "WordPress predefined image size name."
-msgid "Thumbnail size"
-msgstr ""
-
-#: inc/setup.php:535
-msgctxt "WordPress predefined image size name."
-msgid "Medium size"
-msgstr ""
-
-#: inc/setup.php:536
-msgctxt "WordPress predefined image size name."
-msgid "Large size"
-msgstr ""
-
-#: inc/setup.php:561
-msgid "Recommended image sizes"
-msgstr ""
-
-#: inc/setup.php:562
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:415
 msgid ""
-"For the theme to work correctly, please, set these recommended image sizes:"
+"There are one or more required or recommended plugins to install, update or "
+"activate."
 msgstr ""
 
-#: inc/setup.php:568
-msgid "Size name"
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:416
+msgid "Please contact the administrator of this site for help."
 msgstr ""
 
-#: inc/setup.php:569
-msgid "Size parameters"
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:541
+msgid "This plugin needs to be updated to be compatible with your theme."
 msgstr ""
 
-#: inc/setup.php:570
-msgid "Theme usage"
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:542
+msgid "Update Required"
 msgstr ""
 
-#: inc/setup.php:580 inc/setup.php:595
-msgid "cropped"
-msgstr ""
-
-#: inc/setup.php:580 inc/setup.php:595
-msgid "scaled"
-msgstr ""
-
-#: inc/setup.php:585 inc/setup.php:600
-#, php-format
-msgctxt "1: image width, 2: image height, 3: cropped or scaled?"
-msgid "%1$s &times; %2$s, %3$s"
-msgstr ""
-
-#: inc/setup.php:597
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:953
 msgid ""
-"Additional image size added by the theme. Can not be changed on this page."
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
 msgstr ""
 
-#: inc/setup.php:1170
-#, php-format
-msgid "%s site navigation"
-msgstr ""
-
-#: inc/setup.php:1174
-msgctxt "Display search form button title."
-msgid "Search"
-msgstr ""
-
-#: inc/setup.php:1176
-msgctxt "Mobile navigation toggle button title."
-msgid "Menu"
-msgstr ""
-
-#: inc/setup.php:1527
-msgid "This is sticky post"
-msgstr ""
-
-#: inc/setup.php:1582
-#, php-format
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:953
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:956
 msgid ""
-"This content is password protected. To view it please <a%s>enter the "
-"password</a>."
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
 msgstr ""
 
-#: inc/setup.php:1667
-#, php-format
-msgid "Continue reading%s&hellip;"
-msgstr ""
-
-#: inc/setup.php:1712
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:956
 msgid ""
-"<span class=\"meta-nav\">Published In</span><span class=\"post-title\">"
-"%title</span>"
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
 msgstr ""
 
-#: inc/setup.php:1714
-msgid ""
-"<span class=\"meta-nav\">Previous</span><span class=\"post-title\">%title</"
-"span>"
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:1140
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2967
+msgctxt "plugin A *and* plugin B"
+msgid "and"
 msgstr ""
 
-#: inc/setup.php:1715
-msgid ""
-"<span class=\"meta-nav\">Next</span><span class=\"post-title\">%title</span>"
-msgstr ""
-
-#: inc/setup.php:1719
-msgid "Post navigation"
-msgstr ""
-
-#: inc/setup.php:1771
-msgid "All posts"
-msgstr ""
-
-#: inc/setup.php:1813
+#. translators: %s: version number
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2001
 #, php-format
-msgid "Powered by %s."
+msgid "TGMPA v%s"
 msgstr ""
 
-#: inc/setup.php:1818
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2292
+msgid "Required"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2295
+msgid "Recommended"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2311
+msgid "WordPress Repository"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2314
+msgid "External Source"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2317
+msgid "Pre-Packaged"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2334
+msgid "Not Installed"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2338
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2340
+msgid "Active"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2346
+msgid "Required Update not Available"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2349
+msgid "Requires Update"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2352
+msgid "Update recommended"
+msgstr ""
+
+#. translators: 1: install status, 2: update status
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2361
 #, php-format
-msgid "Theme by %s."
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
 msgstr ""
 
-#: inc/setup.php:1821
-msgid "Back to top &uarr;"
+#. translators: 1: number of plugins.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2407
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2411
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2415
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2419
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2501
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
 msgstr ""
 
-#: page-template/_front.php:43
-msgid "Portfolio"
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2509
+msgid "Installed version:"
 msgstr ""
 
-#: page-template/_front.php:105 page-template/_front.php:107
-msgid "Blog"
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2517
+msgid "Minimum required version:"
 msgstr ""
 
-#: search.php:20
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2529
+msgid "Available version:"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2552
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2566
+msgid "Plugin"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2567
+msgid "Source"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2568
+msgid "Type"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2572
+msgid "Version"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2573
+msgid "Status"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2622
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2627
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2633
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2703
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2736
+msgid "Install"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2742
+msgid "Update"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2745
+msgid "Activate"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2776
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2778
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2819
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2821
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2927
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:2953
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3177
+msgid "Plugin activation failed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3517
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#. translators: 1: plugin name, 2: error message.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3520
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3522
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3526
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3528
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3528
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3536
+msgid "Show Details"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3528
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3536
+msgid "Hide Details"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3529
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3531
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3534
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3536
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3537
+msgid "All installations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: library/includes/vendor/tgmpa/class-tgm-plugin-activation.php:3539
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: library/includes/vendor/use-child-theme/class-use-child-theme.php:135
+#, php-format
+msgid "Please use a %s child theme to make changes!"
+msgstr ""
+
+#: library/includes/vendor/use-child-theme/class-use-child-theme.php:136
+msgid "Create and activate now &raquo;"
+msgstr ""
+
+#: library/includes/vendor/use-child-theme/class-use-child-theme.php:193
+msgid "All done! You are using a child theme now! Please refresh the page."
+msgstr ""
+
+#: library/includes/vendor/use-child-theme/class-use-child-theme.php:216
+msgid "Error: theme folder not writable!"
+msgstr ""
+
+#. translators: Custom page template name.
+#: page-template/_front.php:17
+msgid "Front page"
+msgstr ""
+
+#. translators: Custom page template name.
+#: page-template/_sidebar.php:14
+msgid "With sidebar"
+msgstr ""
+
+#. translators: %s: search query.
+#: search.php:32
 #, php-format
 msgid "Search Results for: %s"
 msgstr ""
 
-#: searchform.php:15
-msgctxt "Search field label."
-msgid "Search"
+#: sidebar-footer.php:28
+msgctxt "Sidebar aria label"
+msgid "Footer widgets"
 msgstr ""
 
-#: searchform.php:16
-msgid "Search field: type and press enter"
+#: sidebar.php:29
+msgctxt "Sidebar aria label"
+msgid "Sidebar"
 msgstr ""
 
-#: sidebar.php:22
-msgid "Toggle sidebar"
+#: template-parts/admin/media-image-sizes.php:19
+msgctxt "WordPress predefined image size name."
+msgid "Thumbnail size"
+msgstr ""
+
+#: template-parts/admin/media-image-sizes.php:20
+msgctxt "WordPress predefined image size name."
+msgid "Medium size"
+msgstr ""
+
+#: template-parts/admin/media-image-sizes.php:21
+msgctxt "WordPress predefined image size name."
+msgid "Large size"
+msgstr ""
+
+#: template-parts/admin/media-image-sizes.php:40
+msgid "Recommended image sizes"
+msgstr ""
+
+#: template-parts/admin/media-image-sizes.php:42
+msgid ""
+"For the optimal theme display, please, set image sizes recommended in the "
+"table below."
+msgstr ""
+
+#: template-parts/admin/media-image-sizes.php:45
+msgid ""
+"Do you already have images uploaded to your website and want to resize them?"
+msgstr ""
+
+#: template-parts/admin/media-image-sizes.php:46
+msgid "Use a plugin &raquo;"
+msgstr ""
+
+#: template-parts/admin/media-image-sizes.php:53
+msgid "Size name"
+msgstr ""
+
+#: template-parts/admin/media-image-sizes.php:54
+msgid "Size parameters"
+msgstr ""
+
+#: template-parts/admin/media-image-sizes.php:55
+msgid "Theme usage"
+msgstr ""
+
+#: template-parts/admin/media-image-sizes.php:68
+msgid "cropped"
+msgstr ""
+
+#: template-parts/admin/media-image-sizes.php:68
+msgid "scaled"
+msgstr ""
+
+#: template-parts/admin/media-image-sizes.php:80
+msgid ""
+"Additional image size added by the theme. Can not be changed on this page."
+msgstr ""
+
+#: template-parts/admin/media-image-sizes.php:90
+#, php-format
+msgctxt "1: image width, 2: image height, 3: cropped or scaled?"
+msgid "%1$d &times; %2$d, %3$s"
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-2.0.0.php:20
+msgid "IMPORTANT: Typography options change"
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-2.0.0.php:23
+msgid ""
+"Please note that custom typography options have been changed in this theme "
+"update to provide more flexible typography setup."
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-2.0.0.php:24
+msgid ""
+"You will most likely need to load your custom fonts using additional plugin."
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-2.0.0.php:25
+msgid ""
+"Please read the information in Appearance &rarr; Customize &rarr; Theme "
+"Options &rarr; Typography for more details on custom typography setup."
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-2.0.0.php:29
+msgid "Set customize typography now &raquo;"
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-child-theme.php:20
+msgid "IMPORTANT: This is a major theme upgrade"
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-child-theme.php:23
+msgid "Thank you for upgrading your theme!"
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-child-theme.php:24
+msgid "We have noticed you are using a child theme."
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-child-theme.php:25
+msgid ""
+"Please note that there are a lot of changes in this theme update and you "
+"should check the code of your child theme modifications for compatibility."
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-child-theme.php:28
+msgid "We are sorry for any inconvenience caused."
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-child-theme.php:29
+msgid ""
+"Please understand we strive to provide most relevant and up to date "
+"WordPress code in our products."
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-child-theme.php:30
+msgid "Thank you for understanding!"
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-child-theme.php:34
+msgid "Check documentation about child themes &raquo;"
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-child-theme.php:38
+msgid "Contact support for help &raquo;"
+msgstr ""
+
+#: template-parts/admin/notice-upgrade-child-theme.php:42
+msgid "Download a previous theme version &raquo;"
+msgstr ""
+
+#: template-parts/admin/notice-welcome.php:27
+#, php-format
+msgctxt "%s: Theme name."
+msgid "Thank you for installing %s!"
+msgstr ""
+
+#: template-parts/admin/notice-welcome.php:34
+msgid "Please read \"Welcome\" page for information about the theme setup."
+msgstr ""
+
+#: template-parts/admin/notice-welcome.php:41
+#, php-format
+msgctxt "%s: Theme name."
+msgid "Get started with %s"
+msgstr ""
+
+#: template-parts/admin/welcome-demo.php:22
+msgid "Installing the theme demo content"
+msgstr ""
+
+#: template-parts/admin/welcome-demo.php:25
+msgid ""
+"You can install the theme demo content including pages, posts, custom post "
+"types, layouts, menus and widgets directly from your WordPress dashboard by "
+"clicking the button bellow."
+msgstr ""
+
+#: template-parts/admin/welcome-demo.php:29
+msgid ""
+"Alternatively (such as when the automated installation fails) you can follow "
+"theme documentation instructions for manual demo content installation."
+msgstr ""
+
+#: template-parts/admin/welcome-demo.php:30
+msgid "Read the instructions &raquo;"
+msgstr ""
+
+#: template-parts/admin/welcome-demo.php:35
+msgid "Install and run \"One Click Demo Import\" plugin"
+msgstr ""
+
+#: template-parts/admin/welcome-demo.php:39
+msgid "Install theme demo content"
+msgstr ""
+
+#: template-parts/admin/welcome-demo.php:43
+msgid ""
+"Or head over to Appearance &raquo; Import Demo Data to start the import "
+"process."
+msgstr ""
+
+#: template-parts/admin/welcome-footer.php:22
+msgid ""
+"You can disable this page in Appearance &raquo; Customize &raquo; Theme "
+"Options &raquo; Others."
+msgstr ""
+
+#: template-parts/admin/welcome-header.php:26
+#, php-format
+msgctxt "1: theme name, 2: theme version number."
+msgid "Welcome to %1$s %2$s"
+msgstr ""
+
+#: template-parts/admin/welcome-header.php:38
+#, php-format
+msgctxt "1: theme name, 2: theme developer link."
+msgid "Thank you for using %1$s WordPress theme by %2$s!"
+msgstr ""
+
+#: template-parts/admin/welcome-header.php:45
+msgid "Please take time to read the steps below to set up your website."
+msgstr ""
+
+#: template-parts/admin/welcome-header.php:50
+msgid "Theme Documentation"
+msgstr ""
+
+#: template-parts/admin/welcome-header.php:52
+msgid "Support Center"
+msgstr ""
+
+#: template-parts/admin/welcome-promo.php:22
+msgid "Do you like this theme?"
+msgstr ""
+
+#: template-parts/admin/welcome-promo.php:25
+msgid ""
+"If you like this free WordPress theme, please, consider supporting its "
+"development by purchasing one of my premium products."
+msgstr ""
+
+#: template-parts/admin/welcome-promo.php:26
+msgid "Go to WebMan Design website &raquo;"
+msgstr ""
+
+#: template-parts/admin/welcome-promo.php:27
+msgid "Or perhaps you are considering a small donation?"
+msgstr ""
+
+#: template-parts/admin/welcome-promo.php:29
+msgid "\"Hey Oliver, have a gallon of coffee on me :)\""
+msgstr ""
+
+#: template-parts/admin/welcome-promo.php:33
+msgid "You can also rate the theme at WordPress repository page."
+msgstr ""
+
+#: template-parts/admin/welcome-promo.php:35
+msgid "Let's go and rate the theme &#9733;&#9733;&#9733;&#9733;&#9733; :)"
+msgstr ""
+
+#: template-parts/admin/welcome-promo.php:40
+msgid "Support theme development"
+msgstr ""
+
+#: template-parts/admin/welcome-promo.php:44
+msgid "Thank you!"
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:25
+msgid "Quickstart Guide"
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:33
+msgid "WordPress settings"
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:36
+msgid ""
+"Do not forget to set up your WordPress in \"Settings\" section of the "
+"WordPress dashboard."
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:37
+msgid "Please go through all the subsections and options."
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:38
+msgid "This step is required for all WordPress websites."
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:42
+msgid ""
+"Please, pay special attention to image sizes setup under Settings &rarr; "
+"Media."
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:45
+msgid "Set up your WordPress &raquo;"
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:53
+msgid "Jetpack plugin"
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:56
+msgid "This theme works best with Jetpack plugin."
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:57
+msgid ""
+"It adds Portfolios, Testimonials custom content types, additional theme "
+"options and functionality such as tiled galleries and infinite scroll."
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:62
+#, php-format
+msgctxt "%s: Jetpack plugin name."
+msgid "Install %s &raquo;"
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:68
+msgid ""
+"Great! Jetpack is active. Make sure it is connected to use its features."
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:79
+msgid "Customize the theme"
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:82
+msgid "You can customize the theme using live-preview editor."
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:83
+msgid "Customization changes will go live only after you save them!"
+msgstr ""
+
+#: template-parts/admin/welcome-quickstart.php:86
+msgid "Customize the Theme &raquo;"
+msgstr ""
+
+#: template-parts/admin/welcome-wordpress.php:22
+msgid "WordPress Video Tutorials &raquo;"
+msgstr ""
+
+#: template-parts/admin/welcome-wordpress.php:24
+msgid "New to WordPress?"
+msgstr ""
+
+#: template-parts/admin/welcome-wordpress.php:27
+msgid ""
+"If you are new to WordPress, please check out the introduction section in "
+"theme documentation."
+msgstr ""
+
+#: template-parts/component/breadcrumbs.php:31
+msgid "Breadcrumbs navigation"
+msgstr ""
+
+#. translators: 1: Posts post type plural label.
+#. translators: 1: Portfolio post type plural label.
+#. translators: 1: Testimonials post type plural label.
+#: template-parts/component/link-front-blog.php:38
+#: template-parts/component/link-front-portfolio.php:30
+#: template-parts/component/link-front-testimonials.php:30
+#, php-format
+msgid "All %s &raquo;"
+msgstr ""
+
+#: template-parts/component/link-more.php:23
+#, php-format
+msgctxt "%s: Name of current post."
+msgid "Continue reading%s&hellip;"
+msgstr ""
+
+#. translators: 1: Portfolio post type plural label.
+#: template-parts/component/list-terms-jetpack-portfolio-type.php:62
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: template-parts/component/oldie.php:28
+#, php-format
+msgctxt "%s: Version number"
+msgid ""
+"We are sorry, but this website works with Internet Explorer version %s or "
+"newer."
+msgstr ""
+
+#: template-parts/component/oldie.php:34
+msgid "Please, upgrade your Internet Explorer."
+msgstr ""
+
+#: template-parts/component/oldie.php:35
+msgid "Or, switch to another browser."
+msgstr ""
+
+#: template-parts/component/title-front-blog.php:26
+msgid "Blog"
+msgstr ""
+
+#: template-parts/content/content-attachment-image.php:35
+msgctxt "Attachment page image info table caption."
+msgid "Image info"
+msgstr ""
+
+#: template-parts/content/content-attachment-image.php:40
+msgctxt "Attachment page publish time."
+msgid "Image published on:"
+msgstr ""
+
+#: template-parts/content/content-attachment-image.php:47
+msgid "Image size:"
+msgstr ""
+
+#: template-parts/content/content-attachment-image.php:54
+msgid "Image file name:"
+msgstr ""
+
+#: template-parts/content/content-attachment.php:29
+msgid "Download attachment file:"
+msgstr ""
+
+#: template-parts/content/content-none.php:25
+msgid "Nothing Found"
+msgstr ""
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content/content-none.php:38
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content/content-none.php:52
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content/content-none.php:58
+msgid ""
+"It seems we can not find what you are looking for. Perhaps searching can "
+"help."
+msgstr ""
+
+#: template-parts/content/content-status.php:19
+#, php-format
+msgctxt ""
+"Status post format text on mouse hover (1: author name, 2: status publish "
+"date)."
+msgid "Status: %1$s on %2$s"
+msgstr ""
+
+#: template-parts/footer/site-info.php:49
+#, php-format
+msgctxt "1: theme name, 2: linked \"WordPress\" word."
+msgid "Using %1$s %2$s theme."
+msgstr ""
+
+#: template-parts/footer/site-info.php:51
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: template-parts/footer/site-info.php:56
+#: template-parts/menu/menu-social.php:34
+msgid "Back to top &uarr;"
+msgstr ""
+
+#: template-parts/menu/menu-primary.php:29
+msgid "Primary Menu"
+msgstr ""
+
+#: template-parts/menu/menu-primary.php:32
+msgctxt "Mobile navigation toggle button title."
+msgid "Menu"
+msgstr ""
+
+#: template-parts/menu/menu-social.php:34
+msgid "Back to top"
+msgstr ""
+
+#: template-parts/menu/menu-social.php:40
+msgid "Social Menu"
+msgstr ""
+
+#: template-parts/meta/entry-meta-element-author.php:20
+msgctxt "Post meta info description: author name."
+msgid "Written by:"
+msgstr ""
+
+#: template-parts/meta/entry-meta-element-category.php:30
+msgctxt "Post meta info description: categories list."
+msgid "Categorized in:"
+msgstr ""
+
+#: template-parts/meta/entry-meta-element-comments.php:34
+#, php-format
+msgctxt "%s: number of comments."
+msgid "Comments: %s"
+msgstr ""
+
+#: template-parts/meta/entry-meta-element-comments.php:36
+msgctxt "Post meta info description: comments count."
+msgid "Comments:"
+msgstr ""
+
+#: template-parts/meta/entry-meta-element-date.php:25
+#: template-parts/meta/entry-meta-element-date.php:28
+msgctxt "Post meta info description: publish date."
+msgid "Posted on:"
+msgstr ""
+
+#: template-parts/meta/entry-meta-element-date.php:33
+#: template-parts/meta/entry-meta-element-date.php:35
+msgctxt "Post meta info description: update date."
+msgid "Last updated on:"
+msgstr ""
+
+#: template-parts/meta/entry-meta-element-tags.php:27
+msgctxt "Post meta info description: tags list."
+msgid "Tagged as:"
 msgstr ""

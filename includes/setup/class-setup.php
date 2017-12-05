@@ -777,9 +777,10 @@ class Modern_Setup {
 			// Processing
 
 				register_meta( 'post', 'quote_source', 'esc_html' );
+				register_meta( 'post', 'content_layout', 'esc_attr' );
 				// Using old name "banner_image" and "banner_text" for backwards compatibility.
 				register_meta( 'post', 'banner_image', 'esc_attr' );
-				register_meta( 'post', 'banner_text',  'esc_html' );
+				register_meta( 'post', 'banner_text', 'esc_html' );
 
 		} // /register_meta
 

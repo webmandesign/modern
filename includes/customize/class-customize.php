@@ -127,7 +127,7 @@ class Modern_Customize {
 					// Site title
 
 						$wp_customize->selective_refresh->add_partial( 'blogname', array(
-							'selector'        => '.site-title-text',
+							'selector'        => '.site-title',
 							'render_callback' => __CLASS__ . '::partial_blogname',
 						) );
 
@@ -148,32 +148,44 @@ class Modern_Customize {
 
 					// Option pointers only
 
-						$wp_customize->selective_refresh->add_partial( 'archive_title_prefix', array(
-							'selector' => '.archive .intro-title',
-						) );
+						// Archive page title prefix
 
-						$wp_customize->selective_refresh->add_partial( 'layout_posts_per_page_front_blog', array(
-							'selector' => '.front-page-section-type-post .front-page-section-inner',
-						) );
+							$wp_customize->selective_refresh->add_partial( 'archive_title_prefix', array(
+								'selector' => '.archive .page-title',
+							) );
 
-						/**
-						 * IMPORTANT
-						 *
-						 * For options with `preview_js` (ones that do not require page or partial refresh),
-						 * we need to add a custom helper HTML so the option pointer can be hooked there.
-						 * Here is an example of such setup.
-						 */
-						$wp_customize->selective_refresh->add_partial( 'texts_intro', array(
-							'selector'            => '.home.blog .intro-title .option-pointer',
-							'render_callback'     => '__return_empty_string',
-							'fallback_refresh'    => false,
-							'container_inclusive' => false,
-						) );
-						/**
-						 * We need to add a helper HTML not to trigger content or page refresh with this option pointer.
-						 * Only required for options with `preview_js` set.
-						 */
-						add_filter( 'wmhook_modern_intro_title', __CLASS__ . '::option_pointer_' . 'texts_intro', 0 );
+						// Posts columns
+
+							$wp_customize->selective_refresh->add_partial( 'layout_posts_columns', array(
+								'selector' => 'body:not(.page-template-_front) .posts',
+							) );
+
+						// "Front page" page template sections options
+
+							$wp_customize->selective_refresh->add_partial( 'layout_location_front_blog', array(
+								'selector' => '.front-page-section-type-post .front-page-section-inner',
+							) );
+
+						// Blog front page default intro title text
+
+							/**
+							 * IMPORTANT
+							 *
+							 * For options with `preview_js` (ones that do not require page or partial refresh),
+							 * we need to add a custom helper HTML so the option pointer can be hooked there.
+							 * Here is an example of such setup.
+							 */
+							$wp_customize->selective_refresh->add_partial( 'texts_intro', array(
+								'selector'            => '.home.blog .intro-title .option-pointer',
+								'render_callback'     => '__return_empty_string',
+								'fallback_refresh'    => false,
+								'container_inclusive' => false,
+							) );
+							/**
+							 * We need to add a helper HTML not to trigger content or page refresh with this option pointer.
+							 * Only required for options with `preview_js` set.
+							 */
+							add_filter( 'wmhook_modern_intro_title', __CLASS__ . '::option_pointer_' . 'texts_intro', 0 );
 
 		} // /setup
 
@@ -230,11 +242,8 @@ class Modern_Customize {
 					$h_tags .= ', @h2, @.h2';
 					$h_tags .= ', @h3, @.h3';
 					$h_tags .= ', @h4, @.h4';
-
-				// Registered image sizes
-
-					$image_sizes = (array) get_intermediate_image_sizes();
-					$image_sizes = array_combine( $image_sizes, $image_sizes );
+					$h_tags .= ', @h5, @.h5';
+					$h_tags .= ', @h6, @.h6';
 
 
 			// Processing
@@ -248,32 +257,31 @@ class Modern_Customize {
 						/**
 						 * Site identity: Logo image size
 						 */
+						'0' . 10 . 'logo' . 10 => array(
+							'id'          => 'custom_logo_dimenstions_info',
+							'section'     => 'title_tagline',
+							'priority'    => 100,
+							'type'        => 'html',
+							'content'     => '<h3>' . esc_html__( 'Logo image', 'modern' ) . '</h3>',
+							'description' => esc_html__( 'Please, do not forget to set the logo max height.', 'modern' ) . ' ' . esc_html__( 'To make your logo image ready for high DPI screens, please upload twice as big image.', 'modern' ),
+						),
 
-							'0' . 10 . 'logo' . 10 => array(
-								'id'          => 'custom_logo_dimenstions_info',
+							'0' . 10 . 'logo' . 20 => array(
 								'section'     => 'title_tagline',
-								'priority'    => 100,
-								'type'        => 'html',
-								'content'     => '<h3>' . esc_html__( 'Logo image', 'modern' ) . '</h3>',
-								'description' => esc_html__( 'Please, do not forget to set the logo max height.', 'modern' ) . ' ' . esc_html__( 'To make your logo image ready for high DPI screens, please upload twice as big image.', 'modern' ),
-							),
-
-								'0' . 10 . 'logo' . 20 => array(
-									'section'     => 'title_tagline',
-									'priority'    => 102,
-									'type'        => 'text',
-									'id'          => 'custom_logo_height',
-									'label'       => esc_html__( 'Max logo image height (px)', 'modern' ),
-									'default'     => 100,
-									'validate'    => 'absint',
-									'input_attrs' => array(
-										'size'     => 5,
-										'maxwidth' => 3,
-									),
-									'preview_js'  => array(
-										'custom' => "jQuery( '.custom-logo' ).css( 'max-height', to + 'px' );",
-									),
+								'priority'    => 102,
+								'type'        => 'text',
+								'id'          => 'custom_logo_height',
+								'label'       => esc_html__( 'Max logo image height (px)', 'modern' ),
+								'default'     => 100,
+								'validate'    => 'absint',
+								'input_attrs' => array(
+									'size'     => 5,
+									'maxwidth' => 3,
 								),
+								'preview_js'  => array(
+									'custom' => "jQuery( '.custom-logo' ).css( 'max-height', to + 'px' );",
+								),
+							),
 
 
 
@@ -372,15 +380,14 @@ class Modern_Customize {
 								),
 
 									100 . 'colors' . 20 . 110 => array(
-										'type'        => 'color',
-										'id'          => 'color_header_background',
-										'label'       => esc_html__( 'Background color', 'modern' ),
-										'description' => esc_html__( 'This color is also used to style a mobile device browser address bar.', 'modern' ) . ' <a href="https://wordpress.org/plugins/chrome-theme-color-changer/">' . esc_html__( 'You can further customize it with a dedicated plugin.', 'modern' ) . '</a>',
-										'default'     => '#0a0c0e',
-										'preview_js'  => array(
+										'type'       => 'color',
+										'id'         => 'color_header_background',
+										'label'      => esc_html__( 'Background color', 'modern' ),
+										'default'    => '#0a0c0e',
+										'preview_js' => array(
 											'css' => array(
 
-												'.site-header-content, .masthead-placeholder' => array(
+												'.site-header-navigation, .site-header-navigation::before, .set-colors-header' => array(
 													'background-color'
 												),
 												'.main-navigation-container li ul' => array(
@@ -388,7 +395,7 @@ class Modern_Customize {
 													'selector_after'  => ' }',
 													'background-color',
 												),
-												'.main-navigation-container' => array(
+												'.has-navigation-mobile .main-navigation-container' => array(
 													'selector_before' => '@media only screen and (max-width: 54.9375em) { ',
 													'selector_after'  => ' }',
 													'background-color',
@@ -398,14 +405,15 @@ class Modern_Customize {
 										),
 									),
 									100 . 'colors' . 20 . 120 => array(
-										'type'       => 'color',
-										'id'         => 'color_header_text',
-										'label'      => esc_html__( 'Text color', 'modern' ),
-										'default'    => '#ffffff',
-										'preview_js' => array(
+										'type'        => 'color',
+										'id'          => 'color_header_text',
+										'label'       => esc_html__( 'Text color', 'modern' ),
+										'description' => esc_html__( 'This color affects navigation menu only.', 'modern' ) . ' ' . esc_html__( 'If you want to set a different header logo and social icons color, please see Colors: Intro options.', 'modern' ),
+										'default'     => '#ffffff',
+										'preview_js'  => array(
 											'css' => array(
 
-												'.site-header-content, .masthead-placeholder' => array(
+												'.site-header-navigation, .site-header-navigation::before, .set-colors-header' => array(
 													'color',
 													array(
 														'property'         => 'border-color',
@@ -419,10 +427,16 @@ class Modern_Customize {
 													'selector_after'  => ' }',
 													'color',
 												),
-												'.main-navigation-container' => array(
+												'.has-navigation-mobile .main-navigation-container' => array(
 													'selector_before' => '@media only screen and (max-width: 54.9375em) { ',
 													'selector_after'  => ' }',
 													'color',
+													array(
+														'property'         => 'border-color',
+														'prefix'           => 'rgba(',
+														'suffix'           => ',.' . $alpha[0] . ')',
+														'process_callback' => 'modern.Customize.hexToRgbJoin',
+													),
 												),
 
 											),
@@ -450,7 +464,7 @@ class Modern_Customize {
 								100 . 'colors' . 25 . 100 => array(
 									'type'        => 'html',
 									'content'     => '<h3>' . esc_html__( 'Intro', 'modern' ) . '</h3>',
-									'description' => esc_html__( 'This is a specially styled, main, dominant page title section.', 'modern' ),
+									'description' => esc_html__( 'This is a specially styled, main, dominant intro section (with optional slideshow) on front page, or site background image section on other pages.', 'modern' ) . '<br>' . esc_html__( 'The text color below also controls other text color on the website - see below.', 'modern' ),
 								),
 
 									100 . 'colors' . 25 . 110 => array(
@@ -461,7 +475,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.intro-container' => array(
+												'.site-header-content, .intro-container, .set-colors-intro' => array(
 													'background-color'
 												),
 
@@ -469,21 +483,20 @@ class Modern_Customize {
 										),
 									),
 									100 . 'colors' . 25 . 120 => array(
-										'type'       => 'color',
-										'id'         => 'color_intro_text',
-										'label'      => esc_html__( 'Text color', 'modern' ),
-										'default'    => '#ffffff',
-										'preview_js' => array(
+										'type'        => 'color',
+										'id'          => 'color_intro_text',
+										'label'       => esc_html__( 'Text color', 'modern' ),
+										'description' => esc_html__( 'This color is also applied on main site container, and thus on all elements outside the actual post or page content area (the elements that are displayed over the intro section or the website background, such as header logo and social icons).', 'modern' ),
+										'default'     => '#ffffff',
+										'preview_js'  => array(
 											'css' => array(
 
-												'.intro-container' => array(
+												'.site-header-content, .intro-container, .set-colors-intro' => array(
 													'color',
-													array(
-														'property'         => 'border-color',
-														'prefix'           => 'rgba(',
-														'suffix'           => ',.' . $alpha[0] . ')',
-														'process_callback' => 'modern.Customize.hexToRgbJoin',
-													),
+												),
+
+												'.site' => array(
+													'color',
 												),
 
 											),
@@ -509,8 +522,9 @@ class Modern_Customize {
 							 */
 
 								100 . 'colors' . 30 . 100 => array(
-									'type'    => 'html',
-									'content' => '<h3>' . esc_html__( 'Content', 'modern' ) . '</h3>',
+									'type'        => 'html',
+									'content'     => '<h3>' . esc_html__( 'Content', 'modern' ) . '</h3>',
+									'description' => esc_html__( 'These are colors for actual post or page content area (both in single post/page display and in posts lists).', 'modern' ),
 								),
 
 									100 . 'colors' . 30 . 110 => array(
@@ -521,7 +535,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.site, .site-content' => array(
+												'.is-singular .content-area, .set-colors-content, .entry, .sidebar .widget' => array(
 													'background-color'
 												),
 
@@ -536,7 +550,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.site, .site-content' => array(
+												'.is-singular .content-area, .set-colors-content, .entry, .sidebar .widget' => array(
 													'color',
 													array(
 														'property'         => 'border-color',
@@ -557,8 +571,13 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												$h_tags . ', .post-navigation, .dropcap-text::first-letter' => array(
-													'selector_replace' => '',
+												$h_tags . ', @.post-navigation, @.dropcap-text::first-letter, .dropcap-text::first-letter' => array(
+													'selector_replace' => array(
+														'.is-singular .content-area ',
+														'.set-colors-content ',
+														'.entry ',
+														'.sidebar .widget ',
+													),
 													'color'
 												),
 
@@ -598,13 +617,13 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.site-footer' => array(
+												'.site-footer, .set-colors-footer' => array(
 													'background-color'
 												),
-												'.site-footer mark, .site-footer .highlight, .site-footer .pagination .current, .site-footer .bypostauthor > .comment-body .comment-author::before, .site-footer .widget_calendar tbody a, .site-footer .widget .tagcloud a:hover, .site-footer .widget .tagcloud a:focus, .site-footer .widget .tagcloud a:active' => array(
+												'.site-footer mark, .site-footer #page mark, .site-footer .highlight, .site-footer #page .highlight, .site-footer .pagination .current, .site-footer .bypostauthor > .comment-body .comment-author::before, .site-footer .widget_calendar tbody a, .site-footer .widget .tagcloud a:hover, .site-footer .widget .tagcloud a:focus, .site-footer .widget .tagcloud a:active' => array(
 													'color'
 												),
-												'.site-footer .button:hover, .site-footer .button:focus, .site-footer .button:active, .site-footer button:hover, .site-footer button:focus, .site-footer button:active, .site-footer input[type="button"]:hover, .site-footer input[type="button"]:focus, .site-footer input[type="button"]:active, .site-footer input[type="reset"]:hover, .site-footer input[type="reset"]:focus, .site-footer input[type="reset"]:active, .site-footer input[type="submit"]:hover, .site-footer input[type="submit"]:focus, .site-footer input[type="submit"]:active' => array(
+												'.site-footer .button:hover, .site-footer .button:active, .site-footer .button:focus, .site-footer button:hover, .site-footer button:active, .site-footer button:focus, .site-footer input[type="button"]:hover, .site-footer input[type="button"]:active, .site-footer input[type="button"]:focus, .site-footer input[type="reset"]:hover, .site-footer input[type="reset"]:active, .site-footer input[type="reset"]:focus, .site-footer input[type="submit"]:hover, .site-footer input[type="submit"]:active, .site-footer input[type="submit"]:focus' => array(
 													'color'
 												),
 
@@ -619,7 +638,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.site-footer' => array(
+												'.site-footer, .set-colors-footer' => array(
 													'color',
 													array(
 														'property'         => 'border-color',
@@ -644,10 +663,10 @@ class Modern_Customize {
 													'selector_replace' => '.site-footer ',
 													'color'
 												),
-												'.site-footer mark, .site-footer .highlight, .site-footer .pagination .current, .site-footer .bypostauthor > .comment-body .comment-author::before, .site-footer .widget_calendar tbody a, .site-footer .widget .tagcloud a:hover, .site-footer .widget .tagcloud a:focus, .site-footer .widget .tagcloud a:active' => array(
+												'.site-footer mark, .site-footer #page mark, .site-footer .highlight, .site-footer #page .highlight, .site-footer .pagination .current, .site-footer .bypostauthor > .comment-body .comment-author::before, .site-footer .widget_calendar tbody a, .site-footer .widget .tagcloud a:hover, .site-footer .widget .tagcloud a:focus, .site-footer .widget .tagcloud a:active' => array(
 													'background-color'
 												),
-												'.site-footer .button:hover, .site-footer .button:focus, .site-footer .button:active, .site-footer button:hover, .site-footer button:focus, .site-footer button:active, .site-footer input[type="button"]:hover, .site-footer input[type="button"]:focus, .site-footer input[type="button"]:active, .site-footer input[type="reset"]:hover, .site-footer input[type="reset"]:focus, .site-footer input[type="reset"]:active, .site-footer input[type="submit"]:hover, .site-footer input[type="submit"]:focus, .site-footer input[type="submit"]:active' => array(
+												'.site-footer .button:hover, .site-footer .button:active, .site-footer .button:focus, .site-footer button:hover, .site-footer button:active, .site-footer button:focus, .site-footer input[type="button"]:hover, .site-footer input[type="button"]:active, .site-footer input[type="button"]:focus, .site-footer input[type="reset"]:hover, .site-footer input[type="reset"]:active, .site-footer input[type="reset"]:focus, .site-footer input[type="submit"]:hover, .site-footer input[type="submit"]:active, .site-footer input[type="submit"]:focus' => array(
 													'background-color'
 												),
 
@@ -682,13 +701,21 @@ class Modern_Customize {
 								'step'        => 1,
 							),
 
+
+
 							/**
 							 * Front page template blog section
 							 */
 
 								300 . 'layout' . 200 => array(
 									'type'    => 'html',
-									'content' => '<h3><small>' . esc_html__( 'Front page:', 'modern' ) . '</small> ' . esc_html__( 'Blog section', 'modern' ) . '</h3><p class="description">' . esc_html__( 'Options for setting up blog posts section on "Front page" template.', 'modern' ) . '</p>',
+									'content' => '<h3>' .
+									             '<small>' . esc_html__( 'Front page:', 'modern' ) . '</small> ' .
+									             esc_html__( 'Blog section', 'modern' ) .
+									             '</h3>' .
+									             '<p class="description">' .
+									             esc_html__( 'Options for setting up blog posts section on "Front page" template.', 'modern' ) .
+									             '</p>',
 								),
 
 									300 . 'layout' . 210 => array(
@@ -708,8 +735,6 @@ class Modern_Customize {
 										'max'     => 12,
 										'step'    => 1,
 									),
-
-
 
 
 
@@ -797,10 +822,15 @@ class Modern_Customize {
 
 								900 . 'typography' . 210 => array(
 									'type'    => 'html',
-									'content' => '<h3>' . esc_html__( 'Custom fonts setup', 'modern' ) . '</h3><p class="description">' . sprintf(
-											esc_html_x( 'This theme does not restrict you to choose from a predefined set of fonts. Instead, please use any font service (such as %s) plugin you like.', '%s: linked examples of web fonts libraries such as Google Fonts or Adobe Typekit.', 'modern' ),
-											'<a href="http://www.google.com/fonts"><strong>Google Fonts</strong></a>, <a href="https://typekit.com/fonts"><strong>Adobe Typekit</strong></a>'
-										) . '</p><p class="description">' . esc_html__( 'You can set your fonts plugin according to information provided below, or insert your custom font names (a value of "font-family" CSS property) directly into input fields (you still need to use a plugin to load those fonts on the website).', 'modern' ) . '</p>',
+									'content' => '<h3>' . esc_html__( 'Custom fonts setup', 'modern' ) . '</h3>' .
+									             '<p class="description">' .
+									             sprintf(
+									             		esc_html_x( 'This theme does not restrict you to choose from a predefined set of fonts. Instead, please use any font service (such as %s) plugin you like.', '%s: linked examples of web fonts libraries such as Google Fonts or Adobe Typekit.', 'modern' ),
+									             		'<a href="http://www.google.com/fonts"><strong>Google Fonts</strong></a>, <a href="https://typekit.com/fonts"><strong>Adobe Typekit</strong></a>'
+									             ) . '</p>' .
+									             '<p class="description">' .
+									             esc_html__( 'You can set your fonts plugin according to information provided below, or insert your custom font names (a value of "font-family" CSS property) directly into input fields (you still need to use a plugin to load those fonts on the website).', 'modern' ) .
+									             '</p>',
 									'active_callback' => __CLASS__ . '::is_typography_custom_fonts',
 								),
 
@@ -808,9 +838,9 @@ class Modern_Customize {
 									'type'            => 'text',
 									'id'              => 'typography_fonts_text',
 									'label'           => esc_html__( 'General text font', 'modern' ),
-									'default'         => "sans-serif",
+									'default'         => "'Fira Sans', sans-serif",
 									'input_attrs'     => array(
-										'placeholder' => "sans-serif",
+										'placeholder' => "'Fira Sans', sans-serif",
 									),
 									'active_callback' => __CLASS__ . '::is_typography_custom_fonts',
 									'validate'        => 'Modern_Library_Sanitize::fonts',
@@ -820,9 +850,9 @@ class Modern_Customize {
 									'type'            => 'text',
 									'id'              => 'typography_fonts_headings',
 									'label'           => esc_html__( 'Headings font', 'modern' ),
-									'default'         => "sans-serif",
+									'default'         => "'Fira Sans', sans-serif",
 									'input_attrs'     => array(
-										'placeholder' => "sans-serif",
+										'placeholder' => "'Fira Sans', sans-serif",
 									),
 									'active_callback' => __CLASS__ . '::is_typography_custom_fonts',
 									'validate'        => 'Modern_Library_Sanitize::fonts',
@@ -832,9 +862,9 @@ class Modern_Customize {
 									'type'            => 'text',
 									'id'              => 'typography_fonts_logo',
 									'label'           => esc_html__( 'Logo font', 'modern' ),
-									'default'         => "sans-serif",
+									'default'         => "'Fira Sans', sans-serif",
 									'input_attrs'     => array(
-										'placeholder' => "sans-serif",
+										'placeholder' => "'Fira Sans', sans-serif",
 									),
 									'active_callback' => __CLASS__ . '::is_typography_custom_fonts',
 									'validate'        => 'Modern_Library_Sanitize::fonts',
@@ -843,7 +873,9 @@ class Modern_Customize {
 								900 . 'typography' . 290 => array(
 									'type'            => 'html',
 									'content'         => '<h3>' . esc_html__( 'Info: CSS selectors', 'modern' ) . '</h3>'
-										. '<p class="description">' . esc_html__( 'Here you can find CSS selectors list associated with each font group in the theme. You can use these in your custom font plugin settings.', 'modern' ) . '</p>'
+										. '<p class="description">'
+										. esc_html__( 'Here you can find CSS selectors list associated with each font group in the theme. You can use these in your custom font plugin settings.', 'modern' )
+										. '</p>'
 
 										. '<p>'
 										. '<strong>' . esc_html__( 'General text font CSS selectors:', 'modern' ) . '</strong>'
@@ -996,15 +1028,15 @@ class Modern_Customize {
 			// Processing
 
 				$replacements = array(
-						'/*[*/'                            => '/** ', // Open a comment
-						'/*]*/'                            => ' **/', // Close a comment
-						'/*//'                             => '', // Remove a comment opening
-						'//*/'                             => '', // Remove a comment closing
-						'[[get_template_directory]]'       => untrailingslashit( get_template_directory() ),
-						'[[get_stylesheet_directory]]'     => untrailingslashit( get_stylesheet_directory() ),
-						'[[get_template_directory_uri]]'   => untrailingslashit( get_template_directory_uri() ),
-						'[[get_stylesheet_directory_uri]]' => untrailingslashit( get_stylesheet_directory_uri() ),
-					);
+					'/*[*/'                            => '/** ', // Open a comment
+					'/*]*/'                            => ' **/', // Close a comment
+					'/*//'                             => '', // Remove a comment opening
+					'//*/'                             => '', // Remove a comment closing
+					'[[get_template_directory]]'       => untrailingslashit( get_template_directory() ),
+					'[[get_stylesheet_directory]]'     => untrailingslashit( get_stylesheet_directory() ),
+					'[[get_template_directory_uri]]'   => untrailingslashit( get_template_directory_uri() ),
+					'[[get_stylesheet_directory_uri]]' => untrailingslashit( get_stylesheet_directory_uri() ),
+				);
 
 
 			// Output
@@ -1116,7 +1148,11 @@ class Modern_Customize {
 				if ( empty( $site_info_text ) ) {
 					esc_html_e( 'Please set your website credits text or the theme default one will be displayed.', 'modern' );
 				} else {
-					echo (string) $site_info_text;
+					echo str_replace(
+						'[year]',
+						esc_html( date_i18n( 'Y' ) ),
+						(string) $site_info_text
+					);
 				}
 
 		} // /partial_texts_site_info

@@ -1309,6 +1309,8 @@ h1.screen-reader-text, .comments-title h1.add-comment-link, h2.screen-reader-tex
 /* FILE: main/headings/__entry-header.scss */
 .entry-header { margin-bottom: 2.6244em; }
 
+.content-layout-no-paddings .content-area .entry-header { padding-top: 2.6244em; text-align: center; }
+
 .page-header { padding: 4.25153em 0; border-top: 2px solid; overflow: hidden; }
 
 @media only screen and (min-width: 55em) { .page-header .page-title { float: right; max-width: 48%; } }
@@ -1767,6 +1769,8 @@ blockquote.alignleft::before { float: left; margin-left: 0; margin-right: .09em;
 /* FILE: main/content/__post.scss */
 .entry-content-container { max-width: calc( 39em + 3.24em); max-width: calc( 70ch + 3.24em); padding-left: 1.62em; padding-right: 1.62em; margin-left: auto; margin-right: auto; }
 
+.content-layout-no-paddings .content-area .entry-content-container { padding: 0; max-width: none; }
+
 .entry-summary:empty { display: none; }
 
 .posts .entry-content .entry-summary { font-size: 1em; }
@@ -1838,6 +1842,8 @@ blockquote.alignleft::before { float: left; margin-left: 0; margin-right: .09em;
 .entry-meta .tags-links a::before { content: '\f302'; margin-left: 0.19em; }
 
 body:not(.group-blog) .entry-meta .author { display: none; }
+
+.content-layout-no-paddings .content-area .entry-meta { text-align: center; margin: 0; }
 
 a .entry-date { cursor: pointer; }
 
@@ -2076,19 +2082,21 @@ a .entry-date { cursor: pointer; }
 
 .site div#jp-relatedposts { border-color: inherit; }
 
-div.sharedaddy { margin-top: 2.6244rem; border-color: inherit; }
+.content-layout-no-paddings div#jp-relatedposts { max-width: calc( 39em + 3.24em); max-width: calc( 70ch + 3.24em); margin-left: auto; margin-right: auto; }
 
-.site div.sharedaddy:hover .sd-content ul li a.sd-button { opacity: .8; }
+div.sharedaddy { margin: 2.6244rem auto 0; border-color: inherit; }
 
-.site div.sharedaddy:hover .sd-content ul li a.sd-button:hover { opacity: 1; }
+.content-layout-no-paddings div.sharedaddy { max-width: calc( 39em + 3.24em); max-width: calc( 70ch + 3.24em); }
 
 .site .sd-social-icon .sd-content ul li[class*="share-"] a, .site .sd-social-icon .sd-content ul li[class*="share-"] a:hover, .site .sd-social-icon .sd-content ul li[class*="share-"] div.option a { border-width: 2px; border-style: solid; }
 
 .site .sd-social-icon .sd-content ul li[class*="share-"] a.sd-button::before { top: 0; }
 
-.entry-author { margin-top: 3.62674em; padding: 1.3122em; border-width: 1px; border-style: solid; }
+.entry-author { padding: 1.3122em; margin: 3.62674em auto 0; border-width: 1px; border-style: solid; }
 
 @media only screen and (min-width: 42em) { .entry-author { padding: 2.6244em; } }
+
+.content-layout-no-paddings .entry-author { max-width: calc( 39em + 3.24em); max-width: calc( 70ch + 3.24em); margin-bottom: 3.62674em; }
 
 .entry-author::before { opacity: .03; }
 
@@ -2131,8 +2139,9 @@ div.sharedaddy { margin-top: 2.6244rem; border-color: inherit; }
 
 .message-oldie a { text-decoration: underline; font-weight: bold; color: inherit; }
 
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { .site-header > * { min-height: 1px; }
-  .post-password-form, .search-results.no-widgets-sidebar .site-main form[role="search"], .search-results.no-widgets-sidebar .site-main .search-form, .page-summary, .no-widgets-sidebar .pagination { max-width: 94ch; } }
+@media only screen and (-ms-high-contrast: none), (-ms-high-contrast: active) { .site-header > div, .posts .entry > div, .posts .entry-content > * { min-height: 1px; }
+  .post-password-form, .comments-area-inner { max-width: 94ch; }
+  .entry-content-container, .content-layout-no-paddings div#jp-relatedposts, .content-layout-no-paddings div.sharedaddy, .content-layout-no-paddings .entry-author { max-width: calc( 94ch + 3.24em); }
+  .footer-widgets .widget { min-width: 10em; } }
 
-@media all and (min-width: 55em) and (-ms-high-contrast: none), (-ms-high-contrast: active) { .posts-layout-list.no-widgets-sidebar .content-area, .single.no-widgets-sidebar .content-area, .attachment.no-widgets-sidebar .content-area { max-width: 94ch; }
-  .main-navigation-container .megamenu > ul > li { min-width: 14em; } }
+@media only screen and (min-width: 55em) and (-ms-high-contrast: none), (-ms-high-contrast: active) { .main-navigation-container .megamenu > ul > li { min-width: 14em; } }

@@ -154,7 +154,8 @@ class Modern_Footer {
 				// Requirements check
 
 					if (
-						empty( $value )
+						is_customize_preview()
+						|| empty( $value )
 						|| ! is_string( $value )
 					) {
 						return $value;

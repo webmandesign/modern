@@ -12,6 +12,12 @@
 
 	.entry-header {
 		margin-bottom: power( $golden, 2 ) +em;
+
+		.content-layout-no-paddings .content-area & {
+			padding-top: power( $golden, 2 ) +em;
+			text-align: center;
+		}
+
 	}
 
 	.page-header {

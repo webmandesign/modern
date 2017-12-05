@@ -27,6 +27,13 @@
 			border-color: inherit;
 		}
 
+		.content-layout-no-paddings & {
+			max-width: calc( 39em + #{ $golden * 2em } );
+			max-width: calc( 70ch + #{ $golden * 2em } );
+			margin-left: auto;
+			margin-right: auto;
+		}
+
 		.jp-relatedposts-headline {
 			@extend %font_weight_700;
 		}
@@ -38,21 +45,17 @@
 // Sharing
 
 	div.sharedaddy {
-		margin-top: power( $golden, 2 ) +rem;
+		margin: ( power( $golden, 2 ) +rem ) auto 0;
 		border-color: inherit;
+
+		.content-layout-no-paddings & {
+			max-width: calc( 39em + #{ $golden * 2em } );
+			max-width: calc( 70ch + #{ $golden * 2em } );
+		}
 
 		.sd-title {
 			@extend %font_size_1em;
 			@extend %font_weight_700;
-		}
-
-		.site &:hover .sd-content ul li a.sd-button {
-			opacity: .8;
-
-			&:hover {
-				opacity: 1;
-			}
-
 		}
 
 	}
@@ -103,13 +106,19 @@
 
 		.entry-author {
 			@extend %background_overlay_from_text_color;
-			margin-top: power( 1 + $golden_minor, 4 ) +em;
 			padding: $padding / 2 +em; // Half the padding for mobiles.
+			margin: ( power( 1 + $golden_minor, 4 ) +em ) auto 0;
 			border-width: 1px;
 			border-style: solid;
 
 			@include responsive( map_get( $breakpoint, 'm' ) ) {
 				padding: $padding +em;
+			}
+
+			.content-layout-no-paddings & {
+				max-width: calc( 39em + #{ $golden * 2em } );
+				max-width: calc( 70ch + #{ $golden * 2em } );
+				margin-bottom: power( 1 + $golden_minor, 4 ) +em;
 			}
 
 			&::before {

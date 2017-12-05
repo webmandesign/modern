@@ -148,6 +148,15 @@
 			require MODERN_PATH_PLUGINS . 'advanced-custom-fields/advanced-custom-fields.php';
 		}
 
+	// Beaver Builder
+
+		if ( class_exists( 'FLBuilder' ) ) {
+			function modern_beaver_builder_upgrade_url( $url ) {
+				return esc_url( add_query_arg( 'fla', '67', $url ) );
+			}
+			add_filter( 'fl_builder_upgrade_url', 'modern_beaver_builder_upgrade_url' );
+		}
+
 	// Breadcrumb NavXT
 
 		if ( function_exists( 'bcn_display' ) ) {

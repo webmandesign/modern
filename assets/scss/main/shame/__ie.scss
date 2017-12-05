@@ -36,7 +36,10 @@
 // IE 11 specific styles
 //
 
-	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	@media
+		only screen
+		and (-ms-high-contrast: none), (-ms-high-contrast: active)
+	{
 
 		//
 		// In IE11 when an element is a child of `flex-direction: column;` parent,
@@ -44,7 +47,9 @@
 		// Applying this strange fix to take care of correct height calculation.
 		//
 
-			.site-header > * {
+			.site-header > div,
+			.posts .entry > div,
+			.posts .entry-content > * {
 				min-height: 1px;
 			}
 
@@ -55,11 +60,23 @@
 		//
 
 			.post-password-form,
-			.search-results.no-widgets-sidebar .site-main form[role="search"],
-			.search-results.no-widgets-sidebar .site-main .search-form,
-			.page-summary,
-			.no-widgets-sidebar .pagination {
+			.comments-area-inner {
 				max-width: 94ch;
+			}
+
+			.entry-content-container,
+			.content-layout-no-paddings div#jp-relatedposts,
+			.content-layout-no-paddings div.sharedaddy,
+			.content-layout-no-paddings .entry-author {
+				max-width: calc( 94ch + #{ $golden * 2em } );
+			}
+
+
+
+		// Others
+
+			.footer-widgets .widget {
+				min-width: 10em;
 			}
 
 	}
@@ -70,13 +87,11 @@
 // IE 11 specific styles with additional media queries
 //
 
-	@media all and (min-width: #{ map_get( $breakpoint, 'l' ) / 16 +em }) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-
-		.posts-layout-list.no-widgets-sidebar .content-area,
-		.single.no-widgets-sidebar .content-area,
-		.attachment.no-widgets-sidebar .content-area {
-			max-width: 94ch;
-		}
+	@media
+		only screen
+		and (min-width: #{ map_get( $breakpoint, 'l' ) / 16 +em })
+		and (-ms-high-contrast: none), (-ms-high-contrast: active)
+	{
 
 		.main-navigation-container .megamenu > ul > li {
 			min-width: 14em;

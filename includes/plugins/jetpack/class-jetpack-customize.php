@@ -98,13 +98,15 @@ class Modern_Jetpack_Customize {
 
 					// Option pointers only
 
-						$wp_customize->selective_refresh->add_partial( 'layout_posts_per_page_front_portfolio', array(
-							'selector' => '.front-page-section-type-jetpack-portfolio .front-page-section-inner',
-						) );
+						// "Front page" page template sections options
 
-						$wp_customize->selective_refresh->add_partial( 'layout_posts_per_page_front_testimonials', array(
-							'selector' => '.front-page-section-type-jetpack-testimonial .front-page-section-inner',
-						) );
+							$wp_customize->selective_refresh->add_partial( 'layout_posts_per_page_front_portfolio', array(
+								'selector' => '.front-page-section-type-jetpack-portfolio .front-page-section-inner',
+							) );
+
+							$wp_customize->selective_refresh->add_partial( 'layout_posts_per_page_front_testimonials', array(
+								'selector' => '.front-page-section-type-jetpack-testimonial .front-page-section-inner',
+							) );
 
 		} // /setup
 

@@ -697,6 +697,62 @@ class Modern_Post {
 
 
 
+		/**
+		 * Using some page builder?
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function is_page_builder_ready() {
+
+			// Requirements check
+
+				if ( ! self::is_singular() ) {
+					return false;
+				}
+
+
+			// Helper variables
+
+				$content_layout = (string) get_post_meta( get_the_ID(), 'content_layout', true );
+
+
+			// Output
+
+				return in_array( $content_layout, array( 'stretched', 'no-padding' ) );
+
+		} // /is_page_builder_ready
+
+
+
+			/**
+			 * Using some page builder?
+			 *
+			 * Return empty string if we do.
+			 * Useful for `pre` filter hooks.
+			 *
+			 * @since    2.0.0
+			 * @version  2.0.0
+			 *
+			 * @param  mixed $pre
+			 */
+			public static function is_page_builder_ready_maybe_return_empty_string( $pre ) {
+
+				// Processing
+
+					if ( self::is_page_builder_ready() ) {
+						return '';
+					}
+
+
+				// Output
+
+					return $pre;
+
+			} // /is_page_builder_ready_maybe_return_empty_string
+
+
+
 
 
 } // /Modern_Post

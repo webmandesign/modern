@@ -243,7 +243,15 @@ final class Modern_Library_Customize {
 												// Selector setup
 
 													if ( 'selector_replace' === $key ) {
-														$selector = str_replace( '@', $property, $selector );
+														if ( is_array( $property ) ) {
+															$selector_replaced = array();
+															foreach ( $property as $replace ) {
+																$selector_replaced[] = str_replace( '@', (string) $replace, $selector );
+															}
+															$selector = implode( ', ', $selector_replaced );
+														} else {
+															$selector = str_replace( '@', (string) $property, $selector );
+														}
 														continue;
 													}
 

@@ -13,6 +13,7 @@
  *  0) Init
  * 10) Intro section
  * 20) Post formats section
+ * 30) Any page builder setup
  */
 class Modern_Advanced_Custom_Fields {
 
@@ -52,6 +53,8 @@ class Modern_Advanced_Custom_Fields {
 						add_action( 'init', __CLASS__ . '::intro' );
 
 						add_action( 'init', __CLASS__ . '::post_format' );
+
+						add_action( 'init', __CLASS__ . '::any_page_builder' );
 
 		} // /__construct
 
@@ -260,6 +263,119 @@ class Modern_Advanced_Custom_Fields {
 				), 'post_format', $group_no ) );
 
 		} // /post_format
+
+
+
+
+
+	/**
+	 * 30) Any page builder setup
+	 */
+
+		/**
+		 * Post modifiers to support any page builder
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function any_page_builder() {
+
+			// Helper variables
+
+				$group_no = 0;
+
+
+			// Processing
+
+				register_field_group( (array) apply_filters( 'wmhook_modern_acf_register_field_group', array(
+					'id'     => 'modern_any_page_builder',
+					'title'  => esc_html__( 'Page builder layout', 'modern' ),
+					'fields' => array(
+
+						100 => array(
+							'key'           => 'modern_content_layout',
+							'label'         => esc_html__( 'Content area layout', 'modern' ),
+							'name'          => 'content_layout',
+							'type'          => 'radio',
+							'choices'       => array(
+								''            => esc_html__( 'Leave as is', 'modern' ),
+								/**
+								 * Not needed in this theme due to its design: it's always a boxed layout only,
+								 * and it makes no sense to have the `no-paddings` options when it has basically
+								 * the same effect as `stretched` one, while `stretched` option description
+								 * is more imaginable, more user friendly.
+								 */
+								// 'no-paddings' => esc_html__( 'Remove content paddings only', 'modern' ),
+								'stretched'   => esc_html__( 'Fullwidth content with no paddings', 'modern' ),
+							),
+							'instructions'  => esc_html__( 'As every page builder plugin works differently, set this according to your needs.', 'modern' ),
+							'default_value' => '',
+						),
+
+					),
+					'location' => array(
+
+						// Display everywhere except:
+						// - blog page,
+						// - Attachments CPT,
+						// - Jetpack CPTs,
+						// - WooCommerce orders CPT,
+						// - WooSidebars related CPTs,
+
+							100 => array(
+
+								100 => array(
+									'param'    => 'page_type',
+									'operator' => '!=',
+									'value'    => 'posts_page',
+									'order_no' => 0,
+									'group_no' => $group_no++,
+								),
+
+								200 => array(
+									'param'    => 'post_type',
+									'operator' => '!=',
+									'value'    => 'attachment',
+									'order_no' => 0,
+									'group_no' => $group_no++,
+								),
+
+								300 => array(
+									'param'    => 'post_type',
+									'operator' => '!=',
+									'value'    => 'jetpack-testimonial',
+									'order_no' => 0,
+									'group_no' => $group_no++,
+								),
+
+								400 => array(
+									'param'    => 'post_type',
+									'operator' => '!=',
+									'value'    => 'shop_order',
+									'order_no' => 0,
+									'group_no' => $group_no++,
+								),
+
+								500 => array(
+									'param'    => 'post_type',
+									'operator' => '!=',
+									'value'    => 'sidebar',
+									'order_no' => 0,
+									'group_no' => $group_no++,
+								),
+
+							),
+
+					),
+					'options' => array(
+						'position'       => 'side',
+						'layout'         => 'default',
+						'hide_on_screen' => array(),
+					),
+					'menu_order' => 20,
+				), 'any_page_builder', $group_no ) );
+
+		} // /any_page_builder
 
 
 
