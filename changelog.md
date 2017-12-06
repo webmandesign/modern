@@ -2,16 +2,47 @@
 
 ## 2.0.0
 
-* **Add**:
-* **Update**:
-* **Fix**:
+* **Add**: A lot of theme customization options
+* **Add**: Installing theme demo with one click
+* **Add**: Theme "Welcome" admin page (under Appearance admin menu)
+* **Add**: Making the theme accessibility ready
+* **Add**: Compatibility with any page builder plugin
+* **Add**: Compatibility with Jetpack Testimonials content type
+* **Add**: Compatibility with Jetpack Content Options
+* **Add**: Ability to display sidebar on any page/post
+* **Add**: More post editor "Formats" dropdown styles
+* **Add**: Easy post/page options setup with Advanced Custom Fields plugin compatibility
+* **Add**: Right To Left languages support
+* **Add**: More custom header images out of the box
+* **Add**: Compatibility with WPML and Polylang multilingual plugins
+* **Update**: Improved compatibility with WordPress 4.9
+* **Update**: Library 2.5.5, CSS Starter 3.16.0
+* **Update**: Code organization and improvements
+* **Update**: Removing microformats (Schema.org) markup in favor of dedicated plugins
+* **Update**: Improving and optimizing JavaScript codes
+* **Update**: Dropping Internet Explorer 9 and 10 compatibility
+* **Update**: Improving CSS styles
+* **Update**: Improving theme performance
+* **Update**: Improved sticky header
+* **Update**: Improved responsive styles
+* **Update**: Using SVG for social icons
+* **Update**: Ability to display social icons in a Navigational Menu widget anywhere on the website
+* **Update**: Making custom typography more flexible by supporting 3rd party plugins
+* **Update**: Theme demo content and website
+* **Update**: Localization
+* **Update**: Documentation
+* **Fix**: Front page slideshow controls issues
+* **Fix**: Featured image size on single post and page
+* **Fix**: All reported issues
 
 ### Files changed:
+
+	*.* (Yes, all files have been changed in this update.)
 
 
 ## 1.4.6
 
-* **Fix**: Gallery post slidshow navigation issue
+* **Fix**: Gallery post slideshow navigation issue
 
 ### Files changed:
 

@@ -85,7 +85,7 @@ if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) :
 
 		<li class="<?php echo esc_attr( $item_class ); ?>">
 			<a href="<?php echo esc_url( $term_link ); ?>" class="term-link button">
-				<?php esc_html_e( $term->name ); ?>
+				<?php echo esc_html( $term->name ); ?>
 			</a>
 		</li>
 
