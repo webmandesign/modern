@@ -51,7 +51,7 @@ class Modern_Customize {
 
 					// Indicate widget sidebars can use selective refresh in the Customizer
 
-						add_theme_support( 'customize-selective-refresh-widgets' ); // @todo  Make it work with masonry footer!
+						add_theme_support( 'customize-selective-refresh-widgets' );
 
 				// Hooks
 

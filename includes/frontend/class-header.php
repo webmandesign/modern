@@ -337,13 +337,18 @@ class Modern_Header {
 				// Footer layout
 
 					// Enable footer masonry layout?
-					$footer_widgets = wp_get_sidebars_widgets();
-					if (
-						isset( $footer_widgets['footer'] )
-						&& 3 < count( (array) $footer_widgets['footer'] )
-					) {
-						$classes[] = 'has-masonry-footer';
-					}
+
+						if ( is_customize_preview() ) {
+							$classes[] = 'has-masonry-footer';
+						} else {
+							$footer_widgets = wp_get_sidebars_widgets();
+							if (
+								isset( $footer_widgets['footer'] )
+								&& 3 < count( (array) $footer_widgets['footer'] )
+							) {
+								$classes[] = 'has-masonry-footer';
+							}
+						}
 
 				// Is mobile navigation enabled?
 
