@@ -306,9 +306,9 @@ blockquote blockquote, div.sharedaddy .sd-title { font-size: 1em; }
 
 .font-size-xs { font-size: 0.62em; }
 
-blockquote cite, code, pre, small, .small, .font-size-s, .wp-caption-text, #cancel-comment-reply-link, .comment-form label, .comments-title .add-comment-link, .comment-metadata, .comment .reply, .menu-item-description, .post-navigation .nav-links .label, .sidebar, .breadcrumbs, .entry-author .author-title { font-size: 0.81em; }
+blockquote cite, code, pre, small, .small, .font-size-s, .wp-caption-text, #cancel-comment-reply-link, .comment-form label, .comments-title .add-comment-link, .comment-metadata, .comment .reply, .menu-item-description, .post-navigation .nav-links .label, .breadcrumbs, .entry-author .author-title { font-size: 0.81em; }
 
-.font-size-sm, .main-navigation, .posts .entry-meta, .footer-area-site-info { font-size: 0.905em; }
+.font-size-sm, .main-navigation, .posts .entry-meta, .footer-area-site-info, .sidebar { font-size: 0.905em; }
 
 .sidebar .widget_nav_menu .social-links a, .post-table-of-contents a::before { font-size: 1.19em; }
 

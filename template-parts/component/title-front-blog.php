@@ -32,5 +32,5 @@
 ?>
 
 <h2 class="front-page-section-title">
-	<?php echo apply_filters( 'wmhook_modern_title', $title, basename( __FILE__ ), $label ); ?>
+	<?php echo (string) apply_filters( 'wmhook_modern_title', $title, basename( __FILE__ ), $label ); ?>
 </h2>

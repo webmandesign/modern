@@ -60,6 +60,8 @@
 
 	require MODERN_PATH_INCLUDES . 'setup/class-setup.php';
 
+	require MODERN_PATH_INCLUDES . 'starter-content/class-starter-content.php';
+
 
 
 

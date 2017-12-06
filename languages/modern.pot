@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modern\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu/reference/#links-support\n"
-"POT-Creation-Date: 2017-12-06 16:21+0100\n"
+"POT-Creation-Date: 2017-12-06 23:22+0100\n"
 "PO-Revision-Date: 2015-04-15 10:00+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: \n"
@@ -76,11 +76,11 @@ msgstr ""
 #: includes/customize/class-customize.php:400
 #: includes/customize/class-customize.php:487
 #: includes/customize/class-customize.php:547
-#: includes/customize/class-customize.php:628
-#: includes/customize/class-customize.php:717
-#: includes/customize/class-customize.php:781
-#: includes/customize/class-customize.php:818
-#: includes/customize/class-customize.php:990
+#: includes/customize/class-customize.php:629
+#: includes/customize/class-customize.php:718
+#: includes/customize/class-customize.php:782
+#: includes/customize/class-customize.php:819
+#: includes/customize/class-customize.php:991
 msgctxt "Customizer panel title."
 msgid "Theme Options"
 msgstr ""
@@ -109,7 +109,7 @@ msgstr ""
 #: includes/customize/class-customize.php:399
 #: includes/customize/class-customize.php:486
 #: includes/customize/class-customize.php:546
-#: includes/customize/class-customize.php:627
+#: includes/customize/class-customize.php:628
 #, php-format
 msgctxt "%s = section name. Customizer section title."
 msgid "Colors: %s"
@@ -152,14 +152,14 @@ msgstr ""
 #: includes/customize/class-customize.php:417
 #: includes/customize/class-customize.php:505
 #: includes/customize/class-customize.php:565
-#: includes/customize/class-customize.php:646
+#: includes/customize/class-customize.php:647
 msgid "Background color"
 msgstr ""
 
 #: includes/customize/class-customize.php:442
 #: includes/customize/class-customize.php:520
 #: includes/customize/class-customize.php:580
-#: includes/customize/class-customize.php:667
+#: includes/customize/class-customize.php:668
 msgid "Text color"
 msgstr ""
 
@@ -218,136 +218,136 @@ msgid ""
 msgstr ""
 
 #: includes/customize/class-customize.php:601
-#: includes/customize/class-customize.php:688
+#: includes/customize/class-customize.php:689
 msgid "Headings color"
 msgstr ""
 
-#: includes/customize/class-customize.php:627
+#: includes/customize/class-customize.php:628
 msgctxt "Customizer color section title"
 msgid "Footer"
 msgstr ""
 
-#: includes/customize/class-customize.php:639
+#: includes/customize/class-customize.php:640
 msgid "Footer"
 msgstr ""
 
-#: includes/customize/class-customize.php:640
+#: includes/customize/class-customize.php:641
 msgid ""
 "The main footer widgets area is displayed only if it contains some widgets."
 msgstr ""
 
-#: includes/customize/class-customize.php:716
+#: includes/customize/class-customize.php:717
 msgctxt "Customizer section title."
 msgid "Layout"
 msgstr ""
 
-#: includes/customize/class-customize.php:723
+#: includes/customize/class-customize.php:724
 msgid "Posts list columns"
 msgstr ""
 
-#: includes/customize/class-customize.php:724
+#: includes/customize/class-customize.php:725
 msgid "Number of columns displayed in list of posts."
 msgstr ""
 
-#: includes/customize/class-customize.php:726
+#: includes/customize/class-customize.php:727
 msgid ""
 "Please note that sidebar affects the columns count if it is displayed on the "
 "page with list of posts."
 msgstr ""
 
-#: includes/customize/class-customize.php:728
+#: includes/customize/class-customize.php:729
 msgid ""
 "You may also need to rise the thumbnail image size if you set this to 2 "
 "columns (see Settings &rarr; Media)."
 msgstr ""
 
-#: includes/customize/class-customize.php:744
+#: includes/customize/class-customize.php:745
 #: includes/plugins/jetpack/class-jetpack-customize.php:137
 #: includes/plugins/jetpack/class-jetpack-customize.php:169
 msgid "Front page:"
 msgstr ""
 
-#: includes/customize/class-customize.php:745
+#: includes/customize/class-customize.php:746
 msgid "Blog section"
 msgstr ""
 
-#: includes/customize/class-customize.php:748
+#: includes/customize/class-customize.php:749
 msgid "Options for setting up blog posts section on \"Front page\" template."
 msgstr ""
 
-#: includes/customize/class-customize.php:755
+#: includes/customize/class-customize.php:756
 #: includes/plugins/jetpack/class-jetpack-customize.php:143
 #: includes/plugins/jetpack/class-jetpack-customize.php:175
 msgid "Display location"
 msgstr ""
 
-#: includes/customize/class-customize.php:763
+#: includes/customize/class-customize.php:764
 #: includes/plugins/jetpack/class-jetpack-customize.php:151
 #: includes/plugins/jetpack/class-jetpack-customize.php:183
 msgid "Posts count"
 msgstr ""
 
-#: includes/customize/class-customize.php:780
+#: includes/customize/class-customize.php:781
 msgctxt "Customizer section title."
 msgid "Texts"
 msgstr ""
 
-#: includes/customize/class-customize.php:787
+#: includes/customize/class-customize.php:788
 msgid "Default blog intro text"
 msgstr ""
 
-#: includes/customize/class-customize.php:788
+#: includes/customize/class-customize.php:789
 msgid ""
 "This text will be displayed in intro section of your website front page only "
 "if latest posts are displayed there."
 msgstr ""
 
-#: includes/customize/class-customize.php:789
+#: includes/customize/class-customize.php:790
 #: template-parts/intro/intro-content.php:41
 msgid "Welcome to our site!"
 msgstr ""
 
-#: includes/customize/class-customize.php:800
+#: includes/customize/class-customize.php:801
 msgid "Footer credits (copyright)"
 msgstr ""
 
-#: includes/customize/class-customize.php:801
+#: includes/customize/class-customize.php:802
 #, php-format
 msgid "Set %s to disable this area."
 msgstr ""
 
-#: includes/customize/class-customize.php:801
+#: includes/customize/class-customize.php:802
 msgid "Leaving the field empty will fall back to default theme setting."
 msgstr ""
 
-#: includes/customize/class-customize.php:801
+#: includes/customize/class-customize.php:802
 #, php-format
 msgid "You can use %s to display dynamic, always current year."
 msgstr ""
 
-#: includes/customize/class-customize.php:817
+#: includes/customize/class-customize.php:818
 msgctxt "Customizer section title."
 msgid "Typography"
 msgstr ""
 
-#: includes/customize/class-customize.php:824
+#: includes/customize/class-customize.php:825
 msgid "Basic font size in px"
 msgstr ""
 
-#: includes/customize/class-customize.php:825
+#: includes/customize/class-customize.php:826
 msgid ""
 "All other font sizes are calculated automatically from this basic font size."
 msgstr ""
 
-#: includes/customize/class-customize.php:849
+#: includes/customize/class-customize.php:850
 msgid "Use custom fonts"
 msgstr ""
 
-#: includes/customize/class-customize.php:856
+#: includes/customize/class-customize.php:857
 msgid "Custom fonts setup"
 msgstr ""
 
-#: includes/customize/class-customize.php:859
+#: includes/customize/class-customize.php:860
 #, php-format
 msgctxt ""
 "%s: linked examples of web fonts libraries such as Google Fonts or Adobe "
@@ -357,7 +357,7 @@ msgid ""
 "Instead, please use any font service (such as %s) plugin you like."
 msgstr ""
 
-#: includes/customize/class-customize.php:863
+#: includes/customize/class-customize.php:864
 msgid ""
 "You can set your fonts plugin according to information provided below, or "
 "insert your custom font names (a value of \"font-family\" CSS property) "
@@ -365,110 +365,110 @@ msgid ""
 "fonts on the website)."
 msgstr ""
 
-#: includes/customize/class-customize.php:871
+#: includes/customize/class-customize.php:872
 msgid "General text font"
 msgstr ""
 
-#: includes/customize/class-customize.php:883
-#: includes/setup/class-setup.php:679
+#: includes/customize/class-customize.php:884
+#: includes/setup/class-setup.php:683
 msgid "Headings font"
 msgstr ""
 
-#: includes/customize/class-customize.php:895
-#: includes/setup/class-setup.php:685
+#: includes/customize/class-customize.php:896
+#: includes/setup/class-setup.php:689
 msgid "Logo font"
 msgstr ""
 
-#: includes/customize/class-customize.php:906
+#: includes/customize/class-customize.php:907
 msgid "Info: CSS selectors"
 msgstr ""
 
-#: includes/customize/class-customize.php:908
+#: includes/customize/class-customize.php:909
 msgid ""
 "Here you can find CSS selectors list associated with each font group in the "
 "theme. You can use these in your custom font plugin settings."
 msgstr ""
 
-#: includes/customize/class-customize.php:912
+#: includes/customize/class-customize.php:913
 msgid "General text font CSS selectors:"
 msgstr ""
 
-#: includes/customize/class-customize.php:922
+#: includes/customize/class-customize.php:923
 msgid "Headings font CSS selectors:"
 msgstr ""
 
-#: includes/customize/class-customize.php:939
+#: includes/customize/class-customize.php:940
 msgid "Logo font CSS selectors:"
 msgstr ""
 
-#: includes/customize/class-customize.php:989
+#: includes/customize/class-customize.php:990
 msgctxt "Customizer section title."
 msgid "Others"
 msgstr ""
 
-#: includes/customize/class-customize.php:996
+#: includes/customize/class-customize.php:997
 msgid "Show \"Welcome\" page"
 msgstr ""
 
-#: includes/customize/class-customize.php:997
+#: includes/customize/class-customize.php:998
 msgid "Under \"Appearance\" WordPress dashboard menu."
 msgstr ""
 
-#: includes/customize/class-customize.php:1005
+#: includes/customize/class-customize.php:1006
 msgid "Enable mobile navigation"
 msgstr ""
 
-#: includes/customize/class-customize.php:1006
+#: includes/customize/class-customize.php:1007
 msgid ""
 "If your website navigation is very simple and you do not want to use the "
 "mobile navigation functionality, you can disable it here."
 msgstr ""
 
-#: includes/customize/class-customize.php:1013
+#: includes/customize/class-customize.php:1014
 msgid "Archive page title prefix"
 msgstr ""
 
-#: includes/customize/class-customize.php:1016
+#: includes/customize/class-customize.php:1017
 msgid "Display \"Category:\" prefix"
 msgstr ""
 
-#: includes/customize/class-customize.php:1017
+#: includes/customize/class-customize.php:1018
 msgid "Display \"Tag:\" prefix"
 msgstr ""
 
-#: includes/customize/class-customize.php:1018
+#: includes/customize/class-customize.php:1019
 msgid "Display \"Author:\" prefix"
 msgstr ""
 
-#: includes/customize/class-customize.php:1019
+#: includes/customize/class-customize.php:1020
 msgid "Display \"Archives:\" prefix"
 msgstr ""
 
-#: includes/customize/class-customize.php:1020
+#: includes/customize/class-customize.php:1021
 msgid "Display \"Taxonomy:\" prefix"
 msgstr ""
 
-#: includes/customize/class-customize.php:1180
+#: includes/customize/class-customize.php:1181
 msgid ""
 "Please set your website credits text or the theme default one will be "
 "displayed."
 msgstr ""
 
-#: includes/customize/class-customize.php:1231
+#: includes/customize/class-customize.php:1232
 msgid "Do not display"
 msgstr ""
 
-#: includes/customize/class-customize.php:1233
 #: includes/customize/class-customize.php:1234
 #: includes/customize/class-customize.php:1235
+#: includes/customize/class-customize.php:1236
 #, php-format
 msgctxt "%d: Position priority number."
 msgid "Above page content, position %d"
 msgstr ""
 
-#: includes/customize/class-customize.php:1237
 #: includes/customize/class-customize.php:1238
 #: includes/customize/class-customize.php:1239
+#: includes/customize/class-customize.php:1240
 #, php-format
 msgctxt "%d: Position priority number."
 msgid "Below page content, position %d"
@@ -737,25 +737,25 @@ msgstr ""
 msgid "Reload this page &raquo;"
 msgstr ""
 
-#: includes/setup/class-setup.php:448
+#: includes/setup/class-setup.php:452
 msgid "In posts list."
 msgstr ""
 
-#: includes/setup/class-setup.php:449
+#: includes/setup/class-setup.php:453
 msgid ""
 "You may want to rise this image size if you set posts to display in 2 "
 "columns."
 msgstr ""
 
-#: includes/setup/class-setup.php:460
+#: includes/setup/class-setup.php:464
 msgid "Not used in the theme."
 msgstr ""
 
-#: includes/setup/class-setup.php:467
+#: includes/setup/class-setup.php:471
 msgid "In single post or page."
 msgstr ""
 
-#: includes/setup/class-setup.php:474
+#: includes/setup/class-setup.php:478
 msgid "In intro section."
 msgstr ""
 
@@ -764,68 +764,68 @@ msgstr ""
 #. supported by the font, translate this to 'off'.
 #. The font will not load then.
 #.
-#: includes/setup/class-setup.php:578
+#: includes/setup/class-setup.php:582
 msgctxt "Fira Sans font: on or off"
 msgid "on"
 msgstr ""
 
-#: includes/setup/class-setup.php:639
+#: includes/setup/class-setup.php:643
 msgid "Thin (hairline) text"
 msgstr ""
 
-#: includes/setup/class-setup.php:640
+#: includes/setup/class-setup.php:644
 msgid "Extra light text"
 msgstr ""
 
-#: includes/setup/class-setup.php:641
+#: includes/setup/class-setup.php:645
 msgid "Light text"
 msgstr ""
 
-#: includes/setup/class-setup.php:642
+#: includes/setup/class-setup.php:646
 msgid "Normal weight text"
 msgstr ""
 
-#: includes/setup/class-setup.php:643
+#: includes/setup/class-setup.php:647
 msgid "Medium text"
 msgstr ""
 
-#: includes/setup/class-setup.php:644
+#: includes/setup/class-setup.php:648
 msgid "Semi bold text"
 msgstr ""
 
-#: includes/setup/class-setup.php:645
+#: includes/setup/class-setup.php:649
 msgid "Bold text"
 msgstr ""
 
-#: includes/setup/class-setup.php:646
+#: includes/setup/class-setup.php:650
 msgid "Extra bold text"
 msgstr ""
 
-#: includes/setup/class-setup.php:647
+#: includes/setup/class-setup.php:651
 msgid "Heavy text"
 msgstr ""
 
-#: includes/setup/class-setup.php:652
+#: includes/setup/class-setup.php:656
 msgid "Text weights"
 msgstr ""
 
-#: includes/setup/class-setup.php:669
+#: includes/setup/class-setup.php:673
 msgid "Fonts"
 msgstr ""
 
-#: includes/setup/class-setup.php:673
+#: includes/setup/class-setup.php:677
 msgid "General font"
 msgstr ""
 
-#: includes/setup/class-setup.php:691
+#: includes/setup/class-setup.php:695
 msgid "Inherit font"
 msgstr ""
 
-#: includes/setup/class-setup.php:702
+#: includes/setup/class-setup.php:706
 msgid "Columns"
 msgstr ""
 
-#: includes/setup/class-setup.php:709
+#: includes/setup/class-setup.php:713
 #, php-format
 msgctxt "%d: Number of columns."
 msgid "Text in %d column"
@@ -833,12 +833,69 @@ msgid_plural "Text in %d columns"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/setup/class-setup.php:720
+#: includes/setup/class-setup.php:724
 msgid "Buttons"
 msgstr ""
 
-#: includes/setup/class-setup.php:724
+#: includes/setup/class-setup.php:728
 msgid "Button from link"
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:104
+msgctxt "Theme starter content"
+msgid "Remove sidebar"
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:105
+msgctxt "Theme starter content"
+msgid ""
+"To remove sidebar and use fullwidth layout for posts, pages and archive "
+"pages, you can just remove all the widgets from this sidebar."
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:146
+msgctxt "Theme starter content"
+msgid "Welcome to Modern WordPress theme!"
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:180
+msgctxt "Theme starter content"
+msgid "Primary Menu"
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:184
+msgctxt "Short for \"documentation\". Theme starter content."
+msgid "Home"
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:190
+msgctxt "Short for \"documentation\". Theme starter content."
+msgid "Portfolio"
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:195
+msgctxt "Short for \"documentation\". Theme starter content."
+msgid "Testimonials"
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:203
+msgctxt "Short for \"documentation\". Theme starter content."
+msgid "Documentation"
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:211
+msgctxt "Theme starter content"
+msgid "Social Links Menu"
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:215
+msgctxt "Theme starter content"
+msgid "Facebook"
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:220
+msgctxt "Theme starter content"
+msgid "Twitter"
 msgstr ""
 
 #: includes/tgmpa/class-tgmpa-plugins.php:116
@@ -1840,12 +1897,12 @@ msgstr ""
 msgid "Breadcrumbs navigation"
 msgstr ""
 
-#. translators: 1: Posts post type plural label.
+#. translators: 1: Blog post type plural label.
 #. translators: 1: Portfolio post type plural label.
-#. translators: 1: Testimonials post type plural label.
-#: template-parts/component/link-front-blog.php:38
-#: template-parts/component/link-front-portfolio.php:30
-#: template-parts/component/link-front-testimonials.php:30
+#. translators: 1: Testimonial post type plural label.
+#: template-parts/component/link-front-blog.php:35
+#: template-parts/component/link-front-portfolio.php:23
+#: template-parts/component/link-front-testimonials.php:23
 #, php-format
 msgid "All %s &raquo;"
 msgstr ""
