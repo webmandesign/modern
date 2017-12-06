@@ -11,9 +11,11 @@
 // Generic utility
 
 	.no-wrap {
+
 		@include responsive( map_get( $breakpoint, 'l' ) ) {
 			white-space: nowrap;
 		}
+
 	}
 
 	.text-#{$left} {
@@ -25,9 +27,11 @@
 	}
 
 	.text-#{$right} {
+
 		@include responsive( map_get( $breakpoint, 'm' ) ) {
 			text-align: $right !important; // {{RTL}}
 		}
+
 	}
 
 	@for $i from 1 through 10 {

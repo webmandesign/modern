@@ -138,18 +138,14 @@
 		#{$h_tags},
 		.post-navigation,
 		.dropcap-text::first-letter {
-			@extend %site_content_headings_color;
+			/*[*/
+			color: map_get( $colors, 'content_headings' );
+			/*]*/
+			/*//
+			color: [[color_content_headings]];
+			//*/
 		}
 
-	}
-
-	%site_content_headings_color {
-		/*[*/
-		color: map_get( $colors, 'content_headings' );
-		/*]*/
-		/*//
-		color: [[color_content_headings]];
-		//*/
 	}
 
 

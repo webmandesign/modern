@@ -43,6 +43,16 @@
 				border-color: inherit;
 			}
 
+			@media
+				only screen
+				and (-ms-high-contrast: none), (-ms-high-contrast: active)
+			{
+				//
+				// IE calculates `ch` units a bit differently, a bit too narrow.
+				//
+				max-width: 94ch;
+			}
+
 		}
 
 

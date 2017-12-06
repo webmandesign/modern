@@ -10,8 +10,7 @@
 
 // Default site content elements
 
-	.is-singular .content-area,
-	.#{$special_color_class_prefix}content {
+	.is-singular .content-area {
 		@extend %site_content_colors;
 	}
 

@@ -70,24 +70,4 @@
 			color: map_get( $colors, '#{$color}_text' ); //*
 		}
 
-		.#{$special_color_class_prefix}#{$color} {
-			background-color: map_get( $colors, '#{$color}_background' ); //*
-			color: map_get( $colors, '#{$color}_text' ); //*
-		}
-
-	}
-
-
-
-// Special color classes
-
-	div[class*="#{$special_color_class_prefix}"] {
-
-		a,
-		h1, h2, h3, h4,
-		.h1, .h2, .h3, .h4,
-		.dropcap-text::first-letter {
-			color: inherit; //*
-		}
-
 	}

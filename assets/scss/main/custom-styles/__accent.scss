@@ -24,7 +24,7 @@
 		'.widget_calendar tbody a',
 		'.widget .tagcloud a:hover',
 		'.widget .tagcloud a:focus',
-		'.widget .tagcloud a:active'
+		'.widget .tagcloud a:active',
 	);
 
 
@@ -36,8 +36,7 @@
 		@extend %accent_color;
 	}
 
-	#{$accent_color_elements},
-	.#{$special_color_class_prefix}accent {
+	#{$accent_color_elements} {
 		@extend %accent_colors;
 	}
 

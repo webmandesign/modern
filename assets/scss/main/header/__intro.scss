@@ -46,14 +46,14 @@
 				z-index: 1;
 			}
 
-			&::after {
-				height: percentage( $golden_major );
-			}
+				&::after {
+					height: percentage( $golden_major );
+				}
 
-			&::before {
-				background-color: inherit;
-				opacity: .66;
-			}
+				&::before {
+					background-color: inherit;
+					opacity: .66;
+				}
 
 			$image_blur_radius : 10px;
 			body:not(.home) & img {
@@ -108,7 +108,7 @@
 
 
 
-	// Entry title in intro section
+	// Intro title
 
 		&-title {
 			padding: 8% 0;

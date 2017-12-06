@@ -8,19 +8,29 @@
 
 
 
-.site-footer,
-.#{$special_color_class_prefix}footer {
+.site-footer {
 	@extend %site_footer_colors;
-}
 
+	#{$accent_color_elements} {
+		text-shadow: none; //*
+		/*[*/
+		background-color: map_get( $colors, 'footer_headings' );
+		color: map_get( $colors, 'footer_background' );
+		/*]*/
+		/*//
+		background-color: [[color_footer_headings]];
+		color: [[color_footer_background]];
+		//*/
+	}
 
+	.button,
+	button,
+	input[type="button"],
+	input[type="reset"],
+	input[type="submit"] {
+		text-shadow: none; //*
 
-// Footer accent colors are actually footer headings colors
-
-	.site-footer {
-
-		#{$accent_color_elements} {
-			text-shadow: none; //*
+		@include haf() {
 			/*[*/
 			background-color: map_get( $colors, 'footer_headings' );
 			color: map_get( $colors, 'footer_background' );
@@ -31,29 +41,11 @@
 			//*/
 		}
 
-		.button,
-		button,
-		input[type="button"],
-		input[type="reset"],
-		input[type="submit"] {
-			text-shadow: none; //*
-
-			@include haf() {
-				/*[*/
-				background-color: map_get( $colors, 'footer_headings' );
-				color: map_get( $colors, 'footer_background' );
-				/*]*/
-				/*//
-				background-color: [[color_footer_headings]];
-				color: [[color_footer_background]];
-				//*/
-			}
-
-		}
-
-		mark,
-		.highlight {
-			box-shadow: none; //*
-		}
-
 	}
+
+	mark,
+	.highlight {
+		box-shadow: none; //*
+	}
+
+}

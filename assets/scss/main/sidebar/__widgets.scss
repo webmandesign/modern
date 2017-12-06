@@ -12,11 +12,6 @@
 
 	.widget {
 
-		&[class*="set-colors-"] {
-			padding-left: $golden +em;
-			padding-right: $golden +em;
-		}
-
 		form {
 			margin-bottom: 0;
 		}

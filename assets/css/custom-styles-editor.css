@@ -1,7 +1,7 @@
 /* FILE: custom-styles-editor.scss */
 /* FILE: main/custom-styles/_editor-style.scss */
 /* FILE: main/custom-styles/__extenders.scss */
-.button, button, input[type="button"], input[type="reset"], input[type="submit"], .main-navigation-container .button > a, mark, #page mark, .highlight, #page .highlight, .pagination .current, .bypostauthor > .comment-body .comment-author::before, .widget_calendar tbody a, .widget .tagcloud a:hover, .widget .tagcloud a:focus, .widget .tagcloud a:active, .set-colors-accent { /*[*/ background-color: #00855b; color: #ffffff; /*]*/ /*// background-color: [[color_accent]]; color: [[color_accent_text]]; //*/ }
+.button, button, input[type="button"], input[type="reset"], input[type="submit"], .main-navigation-container .button > a, mark, #page mark, .highlight, #page .highlight, .pagination .current, .bypostauthor > .comment-body .comment-author::before, .widget_calendar tbody a, .widget .tagcloud a:hover, .widget .tagcloud a:focus, .widget .tagcloud a:active { /*[*/ background-color: #00855b; color: #ffffff; /*]*/ /*// background-color: [[color_accent]]; color: [[color_accent_text]]; //*/ }
 
 a, .accent-color { /*[*/ color: #00855b; /*]*/ /*// color: [[color_accent]]; //*/ }
 
@@ -32,21 +32,11 @@ button, input, select, textarea { background-color: transparent; }
 
 .color-error { background-color: rgba(238, 0, 0, 0.85); color: #fff; }
 
-.set-colors-error { background-color: rgba(238, 0, 0, 0.85); color: #fff; }
-
 .color-info { background-color: rgba(0, 85, 238, 0.85); color: #fff; }
-
-.set-colors-info { background-color: rgba(0, 85, 238, 0.85); color: #fff; }
 
 .color-success { background-color: rgba(0, 119, 34, 0.85); color: #fff; }
 
-.set-colors-success { background-color: rgba(0, 119, 34, 0.85); color: #fff; }
-
 .color-warning { background-color: rgba(255, 221, 0, 0.85); color: #310; }
-
-.set-colors-warning { background-color: rgba(255, 221, 0, 0.85); color: #310; }
-
-div[class*="set-colors-"] a, div[class*="set-colors-"] h1, div[class*="set-colors-"] h2, div[class*="set-colors-"] h3, div[class*="set-colors-"] h4, div[class*="set-colors-"] .h1, div[class*="set-colors-"] .h2, div[class*="set-colors-"] .h3, div[class*="set-colors-"] .h4, div[class*="set-colors-"] .dropcap-text::first-letter { color: inherit; }
 
 /* FILE: main/custom-styles/__accent.scss */
 mark, .highlight { /*[*/ box-shadow: 0.38em 0 0 #00855b, -0.38em 0 0 #00855b; /*]*/ /*// box-shadow:  .38em 0 0 [[color_accent]], -.38em 0 0 [[color_accent]]; //*/ }
@@ -121,6 +111,8 @@ html { max-width: 1240px; padding: 20px; }
 body { width: 100%; max-width: 39em; max-width: 70ch; font-size: 16px; }
 
 body *, body *::after, body *::before { border-color: inherit; }
+
+@media only screen and (-ms-high-contrast: none), (-ms-high-contrast: active) { body { max-width: 94ch; } }
 
 body .mejs-container, body .wp-playlist { margin: 0 !important; }
 

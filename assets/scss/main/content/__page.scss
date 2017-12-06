@@ -20,8 +20,6 @@
 
 		}
 
-
-
 		.front-page-section {
 			@extend %margin_top;
 			@extend %margin_bottom;
@@ -47,54 +45,6 @@
 
 			.archive-link {
 				margin-top: power( $golden, 2 ) +em;
-			}
-
-		}
-
-
-
-		.taxonomy-terms {
-			display: inline-block;
-			margin: 0 0 ( power( $golden, 2 ) +em );
-			list-style: none;
-
-			&-item {
-				display: inline-block;
-				margin: ( $golden_minor +em ) 0;
-				margin-#{$right}: $golden_major +em; // {{RTL}}
-				transition: opacity ( $small_animation_speed +s );
-			}
-
-			.button {
-				border: 2px solid transparent;
-
-				@include haf() {
-					opacity: 1;
-				}
-
-			}
-
-			.archive &,
-			&:hover {
-
-				.taxonomy-terms-item {
-
-					&:not(.is-active) {
-
-						.button {
-
-							&:not(:hover):not(:focus) {
-								background: transparent;
-								color: inherit;
-								border-color: currentColor;
-							}
-
-						}
-
-					}
-
-				}
-
 			}
 
 		}

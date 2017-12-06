@@ -12,10 +12,10 @@
 // Elements
 
 	a {
-		text-decoration: none;
+		text-decoration: underline;
 
 		@include haf() {
-			text-decoration: underline;
+			text-decoration: none;
 		}
 
 	}

@@ -14,15 +14,6 @@
 		@extend %font_headings;
 	}
 
-		h1.h2,
-		h1.h3,
-		h1.display-1,
-		h1.display-2,
-		h1.display-3,
-		h1.display-4 {
-			font-style: inherit;
-		}
-
 		@for $i from 1 through 9 {
 
 			$weight: $i * 100;

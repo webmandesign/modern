@@ -8,8 +8,7 @@
 
 
 
-.intro-container,
-.#{$special_color_class_prefix}intro {
+.intro-container {
 	@extend %intro_colors;
 }
 

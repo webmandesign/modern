@@ -419,7 +419,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.site-header-navigation, .site-header-navigation::before, .set-colors-header' => array(
+												'.site-header-navigation, .site-header-navigation::before' => array(
 													'background-color'
 												),
 												'.main-navigation-container li ul' => array(
@@ -445,7 +445,7 @@ class Modern_Customize {
 										'preview_js'  => array(
 											'css' => array(
 
-												'.site-header-navigation, .site-header-navigation::before, .set-colors-header' => array(
+												'.site-header-navigation, .site-header-navigation::before' => array(
 													'color',
 													array(
 														'property'         => 'border-color',
@@ -507,7 +507,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.site-header-content, .intro-container, .set-colors-intro' => array(
+												'.site-header-content, .intro-container' => array(
 													'background-color'
 												),
 
@@ -523,7 +523,7 @@ class Modern_Customize {
 										'preview_js'  => array(
 											'css' => array(
 
-												'.site-header-content, .intro-container, .set-colors-intro' => array(
+												'.site-header-content, .intro-container' => array(
 													'color',
 												),
 
@@ -567,7 +567,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.is-singular .content-area, .set-colors-content, .entry, .sidebar .widget' => array(
+												'.is-singular .content-area, .entry, .sidebar .widget' => array(
 													'background-color'
 												),
 
@@ -582,7 +582,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.is-singular .content-area, .set-colors-content, .entry, .sidebar .widget' => array(
+												'.is-singular .content-area, .entry, .sidebar .widget' => array(
 													'color',
 													array(
 														'property'         => 'border-color',
@@ -606,7 +606,6 @@ class Modern_Customize {
 												$h_tags . ', @.post-navigation, @.dropcap-text::first-letter, .dropcap-text::first-letter' => array(
 													'selector_replace' => array(
 														'.is-singular .content-area ',
-														'.set-colors-content ',
 														'.entry ',
 														'.sidebar .widget ',
 													),
@@ -649,7 +648,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.site-footer, .set-colors-footer' => array(
+												'.site-footer' => array(
 													'background-color'
 												),
 												'.site-footer mark, .site-footer #page mark, .site-footer .highlight, .site-footer #page .highlight, .site-footer .pagination .current, .site-footer .bypostauthor > .comment-body .comment-author::before, .site-footer .widget_calendar tbody a, .site-footer .widget .tagcloud a:hover, .site-footer .widget .tagcloud a:focus, .site-footer .widget .tagcloud a:active' => array(
@@ -670,7 +669,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.site-footer, .set-colors-footer' => array(
+												'.site-footer' => array(
 													'color',
 													array(
 														'property'         => 'border-color',
