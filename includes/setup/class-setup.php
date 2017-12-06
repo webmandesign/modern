@@ -195,7 +195,11 @@ class Modern_Setup {
 
 			// Requirements check
 
-				if ( version_compare( $version_old, '2.0.0', '>=' ) ) {
+				if (
+					! is_child_theme()
+					|| empty( $version_old )
+					|| version_compare( $version_old, '2.0.0', '>=' )
+				) {
 					return;
 				}
 
