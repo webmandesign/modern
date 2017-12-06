@@ -42,6 +42,21 @@
 			<?php esc_html_e( 'Download a previous theme version &raquo;', 'modern' ); ?>
 		</a>
 	</p>
+
+	<p>
+		<a href="<?php echo esc_url( admin_url( 'themes.php?page=modern-welcome' ) ); ?>" class="button button-primary">
+			<?php
+
+			$theme_name = wp_get_theme( 'modern' )->get( 'Name' );
+
+			printf(
+				esc_html_x( 'Get started with %s', '%s: Theme name.', 'modern' ),
+				$theme_name
+			);
+
+			?>
+		</a>
+	</p>
 </div>
 
 <style type="text/css" media="screen">
@@ -63,6 +78,10 @@
 	.notice.theme-upgrade-notice-alert p {
 		max-width: 40em;
 		margin-bottom: 0;
+	}
+
+	.notice.theme-upgrade-notice-alert .button {
+		font-weight: 400;
 	}
 
 </style>

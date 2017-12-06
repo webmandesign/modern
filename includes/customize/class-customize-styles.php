@@ -341,6 +341,7 @@ class Modern_Customize_Styles {
 				$output = array();
 
 				$helper = apply_filters( 'wmhook_modern_customize_styles_get_custom_styles_array_helper', array(
+					'layout_width_content' => get_theme_mod( 'layout_width_content', 1200 ),
 					'typography_size_html' => get_theme_mod( 'typography_size_html', 16 ),
 				), $scope );
 
@@ -377,6 +378,29 @@ class Modern_Customize_Styles {
 
 							'typography-media-query-close' => array(
 								'custom' => "\t" . '}',
+							),
+
+						/**
+						 * Layout
+						 */
+
+							'layout' => array(
+								'custom' => '/* Layout */',
+							),
+
+							'layout-width-content' => array(
+								'selector' => implode( ', ', array(
+									// All the selectors with `@extend %content_width;` from SASS files // $content_width
+									'.site-header-inner',
+									'.intro-inner',
+									'.site-content-inner',
+									'.front-page-section-inner',
+									'.site-footer-area-inner',
+								) ),
+								'styles'   => array(
+									'max-width|1' => $helper['layout_width_content'] . 'px',
+									'max-width|2' => ( $helper['layout_width_content'] / $helper['typography_size_html'] ) . 'rem',
+								),
 							),
 
 					);

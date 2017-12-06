@@ -95,6 +95,41 @@
 
 
 
+	/**
+	 * Body background color
+	 */
+
+		wp.customize( 'background_color', function( value ) {
+
+			// Processing
+
+				value
+					.bind( function( to ) {
+
+						/**
+						 * @see `assets/scss/main/custom-styles/__intro.scss`
+						 *
+						 * Unfortunately, jQuery can not apply styles on CSS pseudo elements,
+						 * so we need to set the linear gradient background on container,
+						 * and then make sure the pseudo element inherits the styles (see below).
+						 */
+						$( '.intro-media' )
+							.css( {
+								'background-image' : 'linear-gradient( transparent, ' + to + ' )',
+							} )
+							.addClass( 'background-changed' );
+
+					} );
+
+				// Make sure the pseudo element inherits the above styles
+
+					$( '#intro-container' )
+						.append( '<style> .intro-media.background-changed::after { background-image: inherit; } </style>' );
+
+		} ); // /background_color
+
+
+
 
 
 } )( jQuery );

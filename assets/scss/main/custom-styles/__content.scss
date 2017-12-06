@@ -78,3 +78,17 @@
 			}
 
 		}
+
+
+
+// Pages
+
+	// Page template: Front page
+
+		.page-template-_front {
+
+			.comments-area {
+				@extend %site_content_colors;
+			}
+
+		}

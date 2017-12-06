@@ -567,7 +567,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.is-singular .content-area, .entry, .sidebar .widget' => array(
+												'.is-singular .content-area, .page-template-_front .comments-area, .entry, .sidebar .widget' => array(
 													'background-color'
 												),
 
@@ -582,7 +582,7 @@ class Modern_Customize {
 										'preview_js' => array(
 											'css' => array(
 
-												'.is-singular .content-area, .entry, .sidebar .widget' => array(
+												'.is-singular .content-area, .page-template-_front .comments-area, .entry, .sidebar .widget' => array(
 													'color',
 													array(
 														'property'         => 'border-color',
@@ -606,6 +606,7 @@ class Modern_Customize {
 												$h_tags . ', @.post-navigation, @.dropcap-text::first-letter, .dropcap-text::first-letter' => array(
 													'selector_replace' => array(
 														'.is-singular .content-area ',
+														'.page-template-_front .comments-area ',
 														'.entry ',
 														'.sidebar .widget ',
 													),
