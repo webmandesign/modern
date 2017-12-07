@@ -307,7 +307,7 @@ class Modern_Post_Media {
 					)
 				) {
 
-					$image_link = ( is_single( $post_id ) || is_attachment() ) ? ( wp_get_attachment_image_src( $image_id, 'full' ) ) : ( array( esc_url( get_permalink() ) ) );
+					$image_link = ( Modern_Post::is_singular( $post_id ) || is_attachment() ) ? ( wp_get_attachment_image_src( $image_id, 'full' ) ) : ( array( esc_url( get_permalink() ) ) );
 					$image_link = array_filter( (array) apply_filters( 'wmhook_modern_post_media_image_featured_link', $image_link ) );
 
 					$output .= '<figure class="post-thumbnail">';

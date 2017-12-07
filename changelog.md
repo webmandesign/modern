@@ -15,6 +15,8 @@
 * **Add**: Right To Left languages support
 * **Add**: More custom header images out of the box
 * **Add**: Compatibility with WPML and Polylang multilingual plugins
+* **Add**: Support for page excerpt
+* **Add**: Simple theme starter content
 * **Update**: Improved compatibility with WordPress 4.9
 * **Update**: Library 2.5.5, CSS Starter 3.16.0
 * **Update**: Code organization and improvements

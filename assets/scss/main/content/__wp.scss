@@ -75,8 +75,13 @@
 			width: 100%;
 		}
 
-		&-columns-1 .gallery-item {
-			margin-top: 2em;
+		&-item {
+			flex: 0 1 auto;
+
+			.gallery-columns-1 & {
+				margin-top: 2em;
+			}
+
 		}
 
 		&-caption {

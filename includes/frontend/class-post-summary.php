@@ -152,7 +152,7 @@ class Modern_Post_Summary {
 				// Adding "Continue reading" link
 
 					if (
-						! is_single( $post_id )
+						! Modern_Post::is_singular( $post_id )
 						&& in_array( get_post_type( $post_id ), (array) apply_filters( 'wmhook_modern_summary_continue_reading_post_type', array( 'post', 'page' ) ) )
 					) {
 						$excerpt .= apply_filters( 'wmhook_modern_summary_continue_reading', '' );

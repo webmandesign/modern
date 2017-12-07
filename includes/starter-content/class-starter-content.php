@@ -58,15 +58,15 @@ class Modern_Starter_Content {
 
 				// Loading
 
+					self::posts();
+
 					self::attachments();
-
-					self::widgets();
-
-					self::pages();
 
 					self::options();
 
 					self::nav_menus();
+
+					self::widgets();
 
 				// Setup
 
@@ -85,58 +85,12 @@ class Modern_Starter_Content {
 	 */
 
 		/**
-		 * Widgets
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function widgets() {
-
-			// Output
-
-				self::$content['widgets'] = array(
-
-					'sidebar' => array(
-
-						'text_sidebar' => array(
-							'text',
-							array(
-								'title' => esc_html_x( 'Remove sidebar', 'Theme starter content', 'modern' ),
-								'text'  => esc_html_x( 'To remove sidebar and use fullwidth layout for posts, pages and archive pages, you can just remove all the widgets from this sidebar.', 'Theme starter content', 'modern' ),
-							),
-						),
-
-					),
-
-					'footer' => array(
-
-						'text_business_info',
-
-						'text_empty' => array(
-							'text',
-							array(
-								'title' => '',
-								'text'  => '',
-							),
-						),
-
-						'text_about',
-
-					),
-
-				);
-
-		} // /widgets
-
-
-
-		/**
 		 * Pages
 		 *
 		 * @since    2.0.0
 		 * @version  2.0.0
 		 */
-		public static function pages() {
+		public static function posts() {
 
 			// Output
 
@@ -153,14 +107,94 @@ class Modern_Starter_Content {
 						'thumbnail' => '{{image-leaves}}',
 					),
 
-					'blog',
 					'contact' => array(
 						'thumbnail' => '{{image-road}}',
 					),
 
+					'blog',
+
 				);
 
-		} // /pages
+		} // /posts
+
+
+
+		/**
+		 * Attachments
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function attachments() {
+
+			// Helper variables
+
+				$post_title = esc_html_x( 'Please see Settings &rarr; Media for the best image sizes.', 'Theme starter content', 'modern' );
+
+
+			// Output
+
+				self::$content['attachments'] = array(
+
+					'image-arch' => array(
+						'post_title' => $post_title,
+						'file'       => 'assets/images/header/unsplash.colin-carter-75587.jpg',
+					),
+
+					'image-leaves' => array(
+						'post_title' => $post_title,
+						'file'       => 'assets/images/header/pixabay.leaves-1345836.jpg',
+					),
+
+					'image-road' => array(
+						'post_title' => $post_title,
+						'file'       => 'assets/images/header/pixabay.winter-622126.jpg',
+					),
+
+				);
+
+		} // /attachments
+
+
+
+		/**
+		 * WordPress options
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function options() {
+
+			// Output
+
+				self::$content['options'] = array(
+
+					// Reading
+
+						'show_on_front'  => 'page',
+						'page_on_front'  => '{{home}}',
+						'page_for_posts' => '{{blog}}',
+						'posts_per_page' => 6,
+
+					// Media
+
+						'thumbnail_size_w' => 420,
+						'thumbnail_size_h' => 0,
+						'thumbnail_crop'   => 0,
+
+						'medium_size_w' => 744,
+						'medium_size_h' => 0,
+
+						'large_size_w' => 1200,
+						'large_size_h' => 0,
+
+					// Permalinks
+
+						'permalink_structure' => '/%postname%/',
+
+				);
+
+		} // /options
 
 
 
@@ -233,73 +267,48 @@ class Modern_Starter_Content {
 
 
 		/**
-		 * WordPress options
+		 * Widgets
 		 *
 		 * @since    2.0.0
 		 * @version  2.0.0
 		 */
-		public static function options() {
+		public static function widgets() {
 
 			// Output
 
-				self::$content['options'] = array(
+				self::$content['widgets'] = array(
 
-					// Reading
+					'sidebar' => array(
 
-						'show_on_front'  => 'page',
-						'page_on_front'  => '{{home}}',
-						'page_for_posts' => '{{blog}}',
-						'posts_per_page' => 6,
+						'text_sidebar' => array(
+							'text',
+							array(
+								'title' => esc_html_x( 'Remove sidebar', 'Theme starter content', 'modern' ),
+								'text'  => esc_html_x( 'To remove sidebar and use fullwidth layout for posts, pages and archive pages, you can just remove all the widgets from this sidebar.', 'Theme starter content', 'modern' ),
+							),
+						),
 
-					// Media
-
-						'thumbnail_size_w' => 420,
-						'thumbnail_size_h' => 0,
-						'thumbnail_crop'   => 0,
-
-						'medium_size_w' => 744,
-						'medium_size_h' => 0,
-
-						'large_size_w' => 1200,
-						'large_size_h' => 0,
-
-					// Permalinks
-
-						'permalink_structure' => '/%postname%/',
-
-				);
-
-		} // /options
-
-
-
-		/**
-		 * Attachments
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function attachments() {
-
-			// Output
-
-				self::$content['attachments'] = array(
-
-					'image-arch' => array(
-						'file' => 'assets/images/header/unsplash.colin-carter-75587.jpg',
 					),
 
-					'image-leaves' => array(
-						'file' => 'assets/images/header/pixabay.leaves-1345836.jpg',
-					),
+					'footer' => array(
 
-					'image-road' => array(
-						'file' => 'assets/images/header/pixabay.winter-622126.jpg',
+						'text_business_info',
+
+						'text_empty' => array(
+							'text',
+							array(
+								'title' => '',
+								'text'  => '',
+							),
+						),
+
+						'text_about',
+
 					),
 
 				);
 
-		} // /attachments
+		} // /widgets
 
 
 

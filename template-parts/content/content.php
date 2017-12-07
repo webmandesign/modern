@@ -27,7 +27,7 @@ do_action( 'tha_entry_before' );
 
 		do_action( 'tha_entry_content_before' );
 
-		if ( is_single( get_the_ID() ) ) {
+		if ( Modern_Post::is_singular() ) {
 
 			if ( has_excerpt() && ! Modern_Post::is_paged() ) {
 				the_excerpt();

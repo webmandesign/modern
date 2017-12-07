@@ -1313,6 +1313,8 @@ h1.screen-reader-text, .comments-title h1.add-comment-link, h2.screen-reader-tex
 
 @media only screen and (min-width: 55em) { .page-header .archive-description { float: right; margin-top: 0; max-width: 48%; } }
 
+.page-header .archive-description a { color: inherit; }
+
 .entry-title, .page-title { padding: 0; margin: 0; }
 
 .entry-title small, .page-title small { display: block; margin-top: 0.38rem; }
@@ -1488,17 +1490,9 @@ body:not(.home) .intro-media img { width: calc( 100% + 20px); max-width: none; m
 
 @media only screen and (max-width: 54.9375em) and (min-height: 28em) { .has-navigation-mobile .site-footer { margin-bottom: 3.62rem; } }
 
-@-webkit-keyframes comeInFromBottom { 0% { -webkit-transform: translateY(100%); transform: translateY(100%); }
-  33% { -webkit-transform: translateY(100%); transform: translateY(100%); }
-  100% { -webkit-transform: translateY(0); transform: translateY(0); } }
+@media only screen and (max-width: 54.9375em) { .menu-toggle { position: fixed; width: auto; height: 3.62rem; left: 50%; bottom: -2px; padding: 0 1.62em; margin: 0; line-height: 1.38; text-align: center; font-size: 1em; font-weight: 700; border: 2px solid; border-radius: 2px; z-index: 999; box-shadow: 0 0 2em rgba(0, 0, 0, 0.4); opacity: 1; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); } }
 
-@keyframes comeInFromBottom { 0% { -webkit-transform: translateY(100%); transform: translateY(100%); }
-  33% { -webkit-transform: translateY(100%); transform: translateY(100%); }
-  100% { -webkit-transform: translateY(0); transform: translateY(0); } }
-
-@media only screen and (max-width: 54.9375em) { .menu-toggle { position: fixed; width: 76%; height: 3.62rem; left: 0; bottom: -2px; padding: 0 1.62em; margin: 0 12%; line-height: 1.38; text-align: center; font-size: 1em; font-weight: 700; border: 2px solid; border-radius: 2px; z-index: 999; box-shadow: 0 0 2em rgba(0, 0, 0, 0.4); opacity: 1; -webkit-animation: comeInFromBottom 1s; animation: comeInFromBottom 1s; } }
-
-@media only screen and (max-width: 54.9375em) and (max-height: 27.9375em) { .menu-toggle { position: relative; width: 100%; bottom: auto; margin: 0; border: 0; border-radius: 0; -webkit-animation: none; animation: none; }
+@media only screen and (max-width: 54.9375em) and (max-height: 27.9375em) { .menu-toggle { position: relative; width: 100%; bottom: auto; margin: 0; border: 0; border-radius: 0; }
   .site-header-navigation .site-header-inner { width: 100%; } }
 
 @media only screen and (min-width: 55em) { .menu-toggle { display: none; } }
@@ -1629,6 +1623,8 @@ blockquote.alignleft::before { float: right; margin-right: 0; margin-left: .09em
 @media only screen and (min-width: 100em) { .no-widgets-sidebar blockquote.alignright { margin-right: -19%; } }
 
 .gallery img { width: 100%; }
+
+.gallery-item { -webkit-flex: 0 1 auto; -ms-flex: 0 1 auto; flex: 0 1 auto; }
 
 .gallery-columns-1 .gallery-item { margin-top: 2em; }
 
@@ -1771,7 +1767,7 @@ blockquote.alignleft::before { float: right; margin-right: 0; margin-left: .09em
 
 .entry-summary:empty { display: none; }
 
-.entry-content .entry-summary { font-size: 1.19em; line-height: 1.36134; }
+.entry-content .entry-summary { font-size: 1.19em; line-height: 1.38; }
 
 .posts .entry-summary:not(.has-more-tag) { font-size: 1em; line-height: inherit; }
 
@@ -1790,8 +1786,6 @@ blockquote.alignleft::before { float: right; margin-right: 0; margin-left: .09em
 .format-quote a, .type-jetpack-testimonial a { color: inherit; }
 
 .entry.format-quote, .entry.type-jetpack-testimonial { border-color: currentColor; }
-
-.posts .format-quote .entry-media, .posts .type-jetpack-testimonial .entry-media { display: none; }
 
 .single-format-quote .content-area .entry h1, .single-format-quote .content-area .entry h2, .single-format-quote .content-area .entry h3, .single-format-quote .content-area .entry h4, .single-format-quote .content-area .entry .h1, .single-format-quote .content-area .entry .h2, .single-format-quote .content-area .entry .h3, .single-format-quote .content-area .entry .h4 { color: inherit; }
 

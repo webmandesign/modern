@@ -659,12 +659,18 @@ class Modern_Post {
 		 *
 		 * @since    2.0.0
 		 * @version  2.0.0
+		 *
+		 * @param  int $post_id
 		 */
-		public static function is_singular() {
+		public static function is_singular( $post_id = 0 ) {
 
 			// Helper variables
 
-				$post_id = get_the_ID();
+				$post_id = absint( $post_id );
+
+				if ( ! $post_id ) {
+					$post_id = get_the_ID();
+				}
 
 
 			// Output

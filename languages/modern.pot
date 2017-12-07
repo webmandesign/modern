@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modern\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu/reference/#links-support\n"
-"POT-Creation-Date: 2017-12-06 23:22+0100\n"
+"POT-Creation-Date: 2017-12-07 14:57+0100\n"
 "PO-Revision-Date: 2015-04-15 10:00+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: \n"
@@ -841,61 +841,66 @@ msgstr ""
 msgid "Button from link"
 msgstr ""
 
-#: includes/starter-content/class-starter-content.php:104
-msgctxt "Theme starter content"
-msgid "Remove sidebar"
-msgstr ""
-
-#: includes/starter-content/class-starter-content.php:105
-msgctxt "Theme starter content"
-msgid ""
-"To remove sidebar and use fullwidth layout for posts, pages and archive "
-"pages, you can just remove all the widgets from this sidebar."
-msgstr ""
-
-#: includes/starter-content/class-starter-content.php:146
+#: includes/starter-content/class-starter-content.php:100
 msgctxt "Theme starter content"
 msgid "Welcome to Modern WordPress theme!"
 msgstr ""
 
-#: includes/starter-content/class-starter-content.php:180
+#: includes/starter-content/class-starter-content.php:132
+msgctxt "Theme starter content"
+msgid "Please see Settings &rarr; Media for the best image sizes."
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:214
 msgctxt "Theme starter content"
 msgid "Primary Menu"
 msgstr ""
 
-#: includes/starter-content/class-starter-content.php:184
+#: includes/starter-content/class-starter-content.php:218
 msgctxt "Short for \"documentation\". Theme starter content."
 msgid "Home"
 msgstr ""
 
-#: includes/starter-content/class-starter-content.php:190
+#: includes/starter-content/class-starter-content.php:224
 msgctxt "Short for \"documentation\". Theme starter content."
 msgid "Portfolio"
 msgstr ""
 
-#: includes/starter-content/class-starter-content.php:195
+#: includes/starter-content/class-starter-content.php:229
 msgctxt "Short for \"documentation\". Theme starter content."
 msgid "Testimonials"
 msgstr ""
 
-#: includes/starter-content/class-starter-content.php:203
+#: includes/starter-content/class-starter-content.php:237
 msgctxt "Short for \"documentation\". Theme starter content."
 msgid "Documentation"
 msgstr ""
 
-#: includes/starter-content/class-starter-content.php:211
+#: includes/starter-content/class-starter-content.php:245
 msgctxt "Theme starter content"
 msgid "Social Links Menu"
 msgstr ""
 
-#: includes/starter-content/class-starter-content.php:215
+#: includes/starter-content/class-starter-content.php:249
 msgctxt "Theme starter content"
 msgid "Facebook"
 msgstr ""
 
-#: includes/starter-content/class-starter-content.php:220
+#: includes/starter-content/class-starter-content.php:254
 msgctxt "Theme starter content"
 msgid "Twitter"
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:286
+msgctxt "Theme starter content"
+msgid "Remove sidebar"
+msgstr ""
+
+#: includes/starter-content/class-starter-content.php:287
+msgctxt "Theme starter content"
+msgid ""
+"To remove sidebar and use fullwidth layout for posts, pages and archive "
+"pages, you can just remove all the widgets from this sidebar."
 msgstr ""
 
 #: includes/tgmpa/class-tgmpa-plugins.php:116

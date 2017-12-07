@@ -39,7 +39,7 @@
 
 		.entry-content & {
 			font-size: $golden_minor / 2 + 1em;
-			line-height: $typography_line_height / ( $golden_minor / 2 + 1 );
+			line-height: 1 + $golden_minor;
 		}
 
 		.posts &:not(.has-more-tag) {
