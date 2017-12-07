@@ -13,6 +13,7 @@
 	.entry {
 
 		&-media {
+			position: relative;
 
 			&::before {
 				@extend %genericon;

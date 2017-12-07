@@ -1612,7 +1612,7 @@ body:not(.home) .intro-media img { width: calc( 100% + 20px); max-width: none; m
 /* FILE: main/content/__wp.scss */
 blockquote.alignleft, blockquote.alignright { padding: 0; margin-top: 0.62em; }
 
-@media only screen and (min-width: 28em) { blockquote.alignleft, blockquote.alignright { width: 35%; } }
+@media only screen and (min-width: 28em) { blockquote.alignleft, blockquote.alignright { width: 35%; font-size: 1.19em; } }
 
 blockquote.alignleft::before { float: left; margin-left: 0; margin-right: .09em; }
 
@@ -1777,6 +1777,8 @@ blockquote.alignleft::before { float: left; margin-left: 0; margin-right: .09em;
 .format-gallery .entry-media-gallery-image:not(.slick-slide):not(:first-child) { display: none; }
 
 /* FILE: main/content/__post-format-image.scss */
+.format-image .entry-media { position: relative; }
+
 .format-image .entry-media::before { content: '\f102'; position: absolute; width: 2em; height: 2em; right: -0.38em; top: -0.38em; line-height: 2em; text-align: center; }
 
 .format-image .entry-header { margin-bottom: 0.62em; }

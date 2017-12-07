@@ -21,6 +21,7 @@
 
 				@include responsive( map_get( $breakpoint, 's' ) ) {
 					width: 35%;
+					font-size: $golden_minor / 2 +1em;
 				}
 
 			}
