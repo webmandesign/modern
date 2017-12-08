@@ -312,7 +312,7 @@ blockquote cite, code, pre, small, .small, .font-size-s, .wp-caption-text, #canc
 
 .sidebar .widget_nav_menu .social-links a, .post-table-of-contents a::before { font-size: 1.19em; }
 
-blockquote, .font-size-l, .comments-title, .social-links, .posts .format-image .entry-content, .posts .format-link .entry-content, .format-status .entry-content, .post-navigation .nav-links .title { font-size: 1.38em; }
+.font-size-l, .comments-title, .social-links, .post-navigation .nav-links .title { font-size: 1.38em; }
 
 .font-size-xl, .site-header-content .social-links, .posts .sticky::before, .format-image .entry-media::before { font-size: 1.62em; }
 
@@ -320,7 +320,7 @@ blockquote, .font-size-l, .comments-title, .social-links, .posts .format-image .
 
 .weight-200 { font-weight: 200; }
 
-blockquote, .weight-300, .search-results .page-title, .author .intro-title span, .post-table-of-contents .is-passed a, .posts .format-image .entry-content, .posts .format-link .entry-content, .front-page-section-title, .comments-title span { font-weight: 300; }
+.weight-300, blockquote, .search-results .page-title, .author .intro-title span, .post-table-of-contents .is-passed a, .posts .format-image .entry-content, .posts .format-link .entry-content, .front-page-section-title, .comments-title span { font-weight: 300; }
 
 blockquote cite, .weight-400, #cancel-comment-reply-link, .comments-title .add-comment-link, .button:disabled, button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, input[type="submit"]:disabled, .main-navigation-container .button > a:disabled, .entry-title small, .page-title small, .post-table-of-contents .is-current a, .entry-author .author-title { font-weight: 400; }
 
@@ -340,9 +340,9 @@ cite, .font-style-normal, .widget_calendar caption, address, .site-title { font-
 
 .line-height-xs { line-height: 1; }
 
-blockquote, table, .line-height-s, .wp-caption-text, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, .widget-title, .widget-title-style .widgettitle, .site-branding-text, .main-navigation-container li ul a { line-height: 1.38; }
+table, .line-height-s, .wp-caption-text, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, .widget-title, .widget-title-style .widgettitle, .site-branding-text, .main-navigation-container li ul a { line-height: 1.38; }
 
-html, .line-height-m, .form-allowed-tags, .sidebar, .tagcloud, blockquote { line-height: 1.62; }
+html, .line-height-m, .form-allowed-tags, .sidebar, .tagcloud { line-height: 1.62; }
 
 /* FILE: starter/content/_content.scss */
 /* FILE: starter/wp/_wp.scss */
@@ -971,6 +971,10 @@ ul li.icon::before, ul li.icon-bullet::before { position: absolute; left: -1.38e
 
 blockquote { padding: 0; margin: 2em 0 1.62em; }
 
+@media only screen and (min-width: 42em) { blockquote { font-size: 1.19em; } }
+
+@media only screen and (min-width: 80em) { blockquote { font-size: 1.38em; } }
+
 blockquote:first-child { margin-top: 0.62em; }
 
 blockquote:last-child { margin-bottom: 0; }
@@ -1488,7 +1492,7 @@ body:not(.home) .intro-media img { width: calc( 100% + 20px); max-width: none; m
   body:not(.has-navigation-mobile) .main-navigation-container li { display: inline-block; padding: 0; margin: 0; margin-right: 1.38em; }
   body:not(.has-navigation-mobile) .main-navigation-container a { padding-left: 0; padding-right: 0; border-left-width: 0; border-top-width: 2px; } }
 
-@media only screen and (max-width: 54.9375em) and (min-height: 28em) { .has-navigation-mobile .site-footer { margin-bottom: 3.62rem; } }
+@media only screen and (max-width: 54.9375em) and (min-height: 28em) { .has-navigation-mobile .site-footer { padding-bottom: 3.62rem; } }
 
 @media only screen and (max-width: 54.9375em) { .menu-toggle { position: fixed; width: auto; height: 3.62rem; left: 50%; bottom: -2px; padding: 0 1.62em; margin: 0; line-height: 1.38; text-align: center; font-size: 1em; font-weight: 700; border: 2px solid; border-radius: 2px; z-index: 999; box-shadow: 0 0 2em rgba(0, 0, 0, 0.4); opacity: 1; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); } }
 
@@ -1610,7 +1614,9 @@ body:not(.home) .intro-media img { width: calc( 100% + 20px); max-width: none; m
 /* FILE: main/content/__wp.scss */
 blockquote.alignleft, blockquote.alignright { padding: 0; margin-top: 0.62em; }
 
-@media only screen and (min-width: 28em) { blockquote.alignleft, blockquote.alignright { width: 35%; font-size: 1.19em; } }
+@media only screen and (min-width: 28em) { blockquote.alignleft, blockquote.alignright { width: 35%; } }
+
+@media only screen and (min-width: 80em) { blockquote.alignleft, blockquote.alignright { font-size: 1.19em; } }
 
 blockquote.alignleft::before { float: right; margin-right: 0; margin-left: .09em; }
 
@@ -1781,7 +1787,15 @@ blockquote.alignleft::before { float: right; margin-right: 0; margin-left: .09em
 
 .format-image .entry-header { margin-bottom: 0.62em; }
 
+@media only screen and (min-width: 42em) { .posts .format-image .entry-content { font-size: 1.19em; } }
+
+@media only screen and (min-width: 80em) { .posts .format-image .entry-content { font-size: 1.38em; } }
+
 /* FILE: main/content/__post-format-link.scss */
+@media only screen and (min-width: 42em) { .posts .format-link .entry-content { font-size: 1.19em; } }
+
+@media only screen and (min-width: 80em) { .posts .format-link .entry-content { font-size: 1.38em; } }
+
 .posts .format-link .entry-content a::before { content: '\f107'; margin: 0 0.19em; opacity: .66; }
 
 /* FILE: main/content/__post-format-quote.scss */
@@ -1799,6 +1813,10 @@ blockquote.alignleft::before { float: right; margin-right: 0; margin-left: .09em
 .format-status .entry-media .avatar { max-width: 6.88748em; margin-top: 1.3122em; border-radius: 6.88748em; }
 
 @media only screen and (min-width: 42em) { .format-status .entry-media .avatar { margin-top: 2.6244em; } }
+
+@media only screen and (min-width: 42em) { .format-status .entry-content { font-size: 1.19em; } }
+
+@media only screen and (min-width: 80em) { .format-status .entry-content { font-size: 1.38em; } }
 
 .format-status .entry-content::before { content: '\f300'; float: left; margin-right: 0.38em; }
 
@@ -1955,7 +1973,9 @@ a .entry-date { cursor: pointer; }
 
 @media only screen and (min-width: 55em) { .sidebar { width: 28%; width: calc( 32% - 2rem); margin-top: 0; } }
 
-.sidebar .widget { padding: 2.6244rem; margin-bottom: 2rem; }
+.sidebar .widget { padding: 1.3122rem; margin-bottom: 2rem; }
+
+@media only screen and (min-width: 42em) { .sidebar .widget { padding: 2.6244rem; } }
 
 /* FILE: main/sidebar/__widgets.scss */
 .widget form { margin-bottom: 0; }

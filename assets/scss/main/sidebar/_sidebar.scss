@@ -22,9 +22,17 @@
 		}
 
 		.widget {
+			// Posts entry padding.
+			$padding : power( $golden, 2 ); // In rem.
+
 			@extend %box_shadow;
-			padding: power( $golden, 2 ) +rem;
+			padding: $padding / 2 +rem; // Half the padding for mobiles.
 			margin-bottom: 2rem;
+
+			@include responsive( map_get( $breakpoint, 'm' ) ) {
+				padding: $padding +rem;
+			}
+
 		}
 
 	}

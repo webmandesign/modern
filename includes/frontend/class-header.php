@@ -48,6 +48,7 @@ class Modern_Header {
 
 						add_action( 'wp_head', __CLASS__ . '::head', 1 );
 						add_action( 'wp_head', __CLASS__ . '::head_pingback', 1 );
+						add_action( 'wp_head', __CLASS__ . '::head_chrome_color', 1 );
 
 						add_action( 'tha_body_top', __CLASS__ . '::oldie', 5 );
 						add_action( 'tha_body_top', __CLASS__ . '::site_open' );
@@ -144,6 +145,26 @@ class Modern_Header {
 				}
 
 		} // /head_pingback
+
+
+
+		/**
+		 * Chrome theme color with support for Chrome Theme Color Changer plugin
+		 *
+		 * @see  https://wordpress.org/plugins/chrome-theme-color-changer
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function head_chrome_color() {
+
+			// Output
+
+				if ( ! class_exists( 'Chrome_Theme_Color_Changer' ) ) {
+					echo '<meta name="theme-color" content="' . esc_attr( get_theme_mod( 'color_header_background', '#0a0c0e' ) ) . '">';
+				}
+
+		} // /head_chrome_color
 
 
 

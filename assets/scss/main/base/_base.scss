@@ -55,9 +55,17 @@
 	}
 
 	blockquote {
-		@extend %line_height_golden;
+		@extend %font_weight_300;
 		padding: 0;
 		margin: 2em 0 ( $golden +em );
+
+		@include responsive( map_get( $breakpoint, 'm' ) ) {
+			font-size: $golden_minor / 2 + 1em;
+		}
+
+		@include responsive( map_get( $breakpoint, 'xl' ) ) {
+			font-size: $golden_minor + 1em;
+		}
 
 		&:first-child {
 			margin-top: $golden_major +em;

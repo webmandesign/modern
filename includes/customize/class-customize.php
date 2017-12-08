@@ -412,11 +412,12 @@ class Modern_Customize {
 								),
 
 									100 . 'colors' . 20 . 110 => array(
-										'type'       => 'color',
-										'id'         => 'color_header_background',
-										'label'      => esc_html__( 'Background color', 'modern' ),
-										'default'    => '#0a0c0e',
-										'preview_js' => array(
+										'type'        => 'color',
+										'id'          => 'color_header_background',
+										'label'       => esc_html__( 'Background color', 'modern' ),
+										'description' => esc_html__( 'This color is also used to style a mobile device browser address bar.', 'modern' ) . ' <a href="https://wordpress.org/plugins/chrome-theme-color-changer/">' . esc_html__( 'You can further customize it with a dedicated plugin.', 'modern' ) . '</a>',
+										'default'     => '#0a0c0e',
+										'preview_js'  => array(
 											'css' => array(
 
 												'.site-header-navigation, .site-header-navigation::before' => array(

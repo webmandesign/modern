@@ -47,7 +47,14 @@
 		}
 
 		&-content {
-			@extend %font_size_golden_minor;
+
+			@include responsive( map_get( $breakpoint, 'm' ) ) {
+				font-size: $golden_minor / 2 + 1em;
+			}
+
+			@include responsive( map_get( $breakpoint, 'xl' ) ) {
+				font-size: $golden_minor + 1em;
+			}
 
 			&::before {
 				@extend %genericon;
