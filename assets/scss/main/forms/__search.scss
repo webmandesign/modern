@@ -80,7 +80,6 @@ form[role="search"],
 
 
 %form_search_submit_button {
-	@extend .overflow-hidden;
 	position: absolute;
 	width: power( $golden, 2 ) +em;
 	height: 100%;
@@ -93,4 +92,5 @@ form[role="search"],
 	border-width: 0;
 	z-index: 2;
 	box-shadow: none;
+	overflow: hidden;
 }

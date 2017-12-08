@@ -9,6 +9,7 @@
 
 
 // Contact form
+@if ( index( $supported_jetpack_modules, 'contact-form' ) ) {
 
 	.contact-form {
 
@@ -22,9 +23,12 @@
 
 	}
 
+}
+
 
 
 // Infinite scroll
+@if ( index( $supported_jetpack_modules, 'infinite-scroll' ) ) {
 
 	.neverending {
 
@@ -112,9 +116,12 @@
 		clear: both;
 	}
 
+}
+
 
 
 // Related posts
+@if ( index( $supported_jetpack_modules, 'related-posts' ) ) {
 
 	div#jp-relatedposts {
 		font-size: 1rem;
@@ -124,6 +131,7 @@
 			margin: ( $golden +em ) 0 0;
 			border-top-width: 2px;
 			border-top-style: solid;
+			border-color: inherit;
 
 			a {
 
@@ -176,13 +184,13 @@
 						display: none;
 						width: 100%;
 
-						@include responsive( map_get( $breakpoint, 'm' ) ) {
+						@include media( map_get( $breakpoint, 'm' ) ) {
 							display: block;
 						}
 
 					}
 
-					@include responsive( map_get( $breakpoint, 'm' ) ) {
+					@include media( map_get( $breakpoint, 'm' ) ) {
 						$columns: 3;
 						$gutter: 2; // %
 						width: percentage( ( ( 100 + $gutter ) / $columns - $gutter ) / 100 );
@@ -198,15 +206,18 @@
 
 	}
 
+}
+
 
 
 // Responsive videos
+@if ( index( $supported_jetpack_modules, 'responsive-videos' ) ) {
 
 	.jetpack-video-wrapper {
-		margin: ( $golden +em ) 0;
+		margin: 0 0 ( $golden +em );
 
-		&:first-child {
-			margin-top: 0;
+		&:last-child {
+			margin-bottom: 0;
 		}
 
 		.entry-media &,
@@ -216,9 +227,12 @@
 
 	}
 
+}
+
 
 
 // Sharing
+@if ( index( $supported_jetpack_modules, 'sharing' ) ) {
 
 	div.sharedaddy {
 		padding: ( $golden +em ) 0 0;
@@ -226,6 +240,7 @@
 		font-size: 1rem;
 		border-top-width: 2px;
 		border-top-style: solid;
+		border-color: inherit;
 
 		.sd-social {
 
@@ -295,17 +310,23 @@
 
 	}
 
+}
+
 
 
 // Tiled gallery
+@if ( index( $supported_jetpack_modules, 'tiled-gallery' ) ) {
 
 	.tiled-gallery-item {
-		@extend .overflow-hidden;
+		overflow: hidden;
 	}
+
+}
 
 
 
 // VideoPress
+@if ( index( $supported_jetpack_modules, 'videopress' ) ) {
 
 	%videopress {
 		width: 100% !important;
@@ -365,9 +386,12 @@
 
 	}
 
+}
+
 
 
 // Widgets
+@if ( index( $supported_jetpack_modules, 'widgets' ) ) {
 
 	// Blog Subscriptions
 
@@ -422,3 +446,5 @@
 			}
 
 		}
+
+}

@@ -100,36 +100,6 @@
 
 // Media player
 
-	.wp-video {
-		margin-bottom: $golden +em;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
-
-	}
-
-	.mejs-container {
-		margin-bottom: $golden +em;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
-
-		.posts & {
-			min-width: 0 !important; // Overriding inline element styles.
-		}
-
-		.entry-media & a {
-			width: auto;
-		}
-
-		.entry-media & .mejs-horizontal-volume-slider {
-			width: 56px;
-		}
-
-	}
-
 	.wp-playlist {
 		@extend %background_overlay_from_text_color;
 

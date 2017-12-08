@@ -1,4 +1,5 @@
 /* FILE: custom-styles.scss */
+/* inStyle (v1.6.3) github.com/salsita/inStyle 2016 | MIT @mixin ============================= */
 /* FILE: main/custom-styles/_main.scss */
 /* FILE: main/custom-styles/__extenders.scss */
 .button, button, input[type="button"], input[type="reset"], input[type="submit"], .main-navigation-container .button > a, .menu-toggle, mark, #page mark, .highlight, #page .highlight, .pagination .current, .bypostauthor > .comment-body .comment-author::before, .widget_calendar tbody a, .widget .tagcloud a:hover, .widget .tagcloud a:focus, .widget .tagcloud a:active, .slick-slider .slick-arrow, .slick-slider .slick-dots button:hover, .slick-slider .slick-dots button:focus, .slick-slider .slick-active button, .posts .sticky::before, .format-image .entry-media::before, .format-quote.entry, .format-status.entry, .type-jetpack-testimonial.entry, .post-navigation .nav-links a, .sidebar .widget .current_page_item > a, .sidebar .widget .current-menu-item > a, .site #infinite-handle span { /*[*/ background-color: #00855b; color: #ffffff; /*]*/ /*// background-color: [[color_accent]]; color: [[color_accent_text]]; //*/ }
@@ -89,7 +90,7 @@ endif(typography_custom_fonts)**/
 /* FILE: main/custom-styles/__accent.scss */
 mark, .highlight { /*[*/ box-shadow: 0.38em 0 0 #00855b, -0.38em 0 0 #00855b; /*]*/ /*// box-shadow:  .38em 0 0 [[color_accent]], -.38em 0 0 [[color_accent]]; //*/ }
 
-@media only screen and (max-width: 41.9375em) { .pagination a { /*[*/ background-color: #00855b; color: #ffffff; /*]*/ /*// background-color: [[color_accent]]; color: [[color_accent_text]]; //*/ } }
+@media only screen and (min-width: 42em) { .pagination a { /*[*/ background-color: #00855b; color: #ffffff; /*]*/ /*// background-color: [[color_accent]]; color: [[color_accent_text]]; //*/ } }
 
 /* FILE: main/custom-styles/__header.scss */
 .site-header-content, .site-header-navigation { background: none; }
@@ -102,7 +103,7 @@ mark, .highlight { /*[*/ box-shadow: 0.38em 0 0 #00855b, -0.38em 0 0 #00855b; /*
 /* FILE: main/custom-styles/__menu.scss */
 @media only screen and (min-width: 55em) { .main-navigation-container li ul { /*[*/ background-color: #0a0c0e; color: #ffffff; /*]*/ /*// background-color: [[color_header_background]]; color: [[color_header_text]]; //*/ } }
 
-@media only screen and (max-width: 54.9375em) { .has-navigation-mobile .main-navigation-container { /*[*/ background-color: #0a0c0e; color: #ffffff; border-color: rgba(255, 255, 255, 0.2); /*]*/ /*// background-color: [[color_header_background]]; color: [[color_header_text]]; border-color: [[color_header_text(20)]]; //*/ } }
+@media only screen and (min-width: 55em) { .has-navigation-mobile .main-navigation-container { /*[*/ background-color: #0a0c0e; color: #ffffff; border-color: rgba(255, 255, 255, 0.2); /*]*/ /*// background-color: [[color_header_background]]; color: [[color_header_text]]; border-color: [[color_header_text(20)]]; //*/ } }
 
 /* FILE: main/custom-styles/__intro.scss */
 .intro-media::after { /*[*/ background-image: linear-gradient(transparent, #1a1c1e); /*]*/ /*// background-image: linear-gradient( transparent, [[background_color]] ); //*/ }

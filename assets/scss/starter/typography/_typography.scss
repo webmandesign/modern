@@ -15,7 +15,7 @@
 		font-size: 100%;
 		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-		@include responsive( map_get( $breakpoint, 's' ) ) {
+		@include media( map_get( $breakpoint, 's' ) ) {
 			font-size: percentage( $font_size / 16 );
 		}
 

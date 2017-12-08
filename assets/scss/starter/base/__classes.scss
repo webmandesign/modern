@@ -11,41 +11,47 @@
 // Screen reader
 
 	%screen_reader_hiding {
-		clip: rect( 1px, 1px, 1px, 1px );
 		position: absolute !important;
-		height: 1px;
 		width: 1px;
+		height: 1px;
 		line-height: 1px;
+		word-wrap: normal !important;
+		clip-path: inset( 50% );
+		clip: rect( 1px, 1px, 1px, 1px );
 		overflow: hidden;
 	}
 
 	%screen_reader_hiding_disable {
-		clip: auto;
 		position: static !important;
 		height: auto;
 		width: auto;
-		line-height: normal;
+		line-height: inherit;
+		word-wrap: break-word !important;
+		clip-path: none;
+		clip: auto;
 		overflow: visible;
 	}
 
 	.screen-reader-text {
 		@extend %screen_reader_hiding;
 		padding: 0;
-		margin: 0;
+		margin: -1px;
+		// border: 0;
 
 		&.skip-link {
 
 			@include haf() {
-				clip: auto !important;
-				display: block;
-				width: auto;
 				height: auto;
+				width: auto;
+				line-height: inherit;
+				word-wrap: break-word !important;
+				clip-path: none;
+				clip: auto;
+
 				#{$left}: $golden_minor +rem; // {{RTL}}
 				top: $golden_minor +rem;
-				line-height: normal;
-				text-decoration: none;
 				padding: 1rem;
-				font-size: 14px;
+				text-decoration: none;
 				font-size: .81rem;
 				font-weight: 700;
 				background-color: #47c;

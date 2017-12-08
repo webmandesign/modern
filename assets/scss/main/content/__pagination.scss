@@ -10,9 +10,9 @@
 
 .pagination {
 	@extend %margin_top;
-	@extend .overflow-hidden;
 	padding: 1px; // To display accessibility outline.
 	text-align: center;
+	overflow: hidden;
 
 	a,
 	span {

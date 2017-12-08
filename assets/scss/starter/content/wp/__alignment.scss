@@ -46,13 +46,11 @@
 	%pullquote {
 		clear: none;
 		width: 50%;
-		padding: 0;
-		margin-top: 0;
+		padding: 0 6%;
 		margin-left: 6%;
 		margin-right: 6%;
-		padding: 0 6%;
 
-		@include responsive( map_get( $breakpoint, 's' ) ) {
+		@include media( map_get( $breakpoint, 's' ) ) {
 			width: percentage( $golden_minor );
 		}
 
@@ -66,7 +64,7 @@
 			margin-left: 0;
 			text-align: right;
 
-			@include responsive( map_get( $breakpoint, 'xxl' ) ) {
+			@include media( map_get( $breakpoint, 'xxl' ) ) {
 				margin-left: percentage( -$golden_minor / 4 );
 			}
 
@@ -78,7 +76,7 @@
 			margin-right: 0;
 			text-align: left;
 
-			@include responsive( map_get( $breakpoint, 'xxl' ) ) {
+			@include media( map_get( $breakpoint, 'xxl' ) ) {
 				margin-right: percentage( -$golden_minor / 4 );
 			}
 

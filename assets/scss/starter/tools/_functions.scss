@@ -22,7 +22,7 @@
 // @param  num $base
 // @param  int $exp
 //
-// @return  num Base raised to the power of exponent
+// @return  num Base raised to the power of exponent.
 //
 @function power( $base, $exp: 1 ) {
 
@@ -36,17 +36,13 @@
 		@if 0 <= $exp {
 
 			@for $i from 1 through $exp {
-
 				$output: $output * $base;
-
 			}
 
 		} @else {
 
 			@for $i from $exp to 0 {
-
 				$output: $output / $base;
-
 			}
 
 		}
@@ -65,21 +61,17 @@
 //
 // @link  https://webdesign.tutsplus.com/courses/become-a-css-superhero-with-stylus/lessons/create-a-px-to-rem-or-em-converter-function
 //
-// @param  int $value Value of px to convert
-// @param  int $base  If set, the output is in em relative to this base value
+// @param  int $value           Value of px to convert.
+// @param  int $base_font_size  If set, the output is in em relative to this base (font-size) value.
 //
-@function px( $value, $base: 0 ) {
+@function px( $value, $base_font_size: 0 ) {
 
 	// Output
 
-		@if 0 < $base {
-
-			@return $value / $base +em
-
+		@if 0 < $base_font_size {
+			@return $value / $base_font_size +em
 		} @else {
-
 			@return $value / $font_size +rem
-
 		}
 
 } // /px
@@ -96,8 +88,8 @@
 //     }
 //   }
 //
-// @param  int $selector The CSS selector to repeat
-// @param  int $multiply How many times to repeat the selector?
+// @param  int $selector  The CSS selector to repeat.
+// @param  int $multiply  How many times to repeat the selector?
 //
 @function repeat_selector( $selector, $multiply: 1 ) {
 

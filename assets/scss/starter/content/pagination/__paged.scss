@@ -28,7 +28,7 @@
 		display: inline-block;
 	}
 
-	> span.dots,
+	.dots,
 	.extend {
 		width: auto;
 	}
@@ -37,7 +37,7 @@
 		@extend %font_weight_700;
 	}
 
-	@include responsive( map_get( $breakpoint, 'm' ) ) {
+	@include media( map_get( $breakpoint, 'm' ) ) {
 
 		a,
 		span {

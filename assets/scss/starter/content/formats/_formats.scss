@@ -8,108 +8,58 @@
 
 
 
-%no_margin {
-	margin: 0;
+// Link
+@if ( index( $supported_post_formats, 'link' ) ) {
+
+	.format-link {
+
+		.entry-content {
+
+			a {
+				font-weight: bolder;
+			}
+
+		}
+
+	}
+
 }
 
 
 
-// Image
-
-	@if ( null != index( $supported_post_formats, 'image' ) ) {
-
-		.format-image {
-
-			.posts & {
-
-				.entry-summary {
-					@extend %no_margin;
-				}
-
-			}
-
-		}
-
-	}
-
-
-
-// Link
-
-	@if ( null != index( $supported_post_formats, 'link' ) ) {
-
-		.format-link {
-
-			.entry-content {
-
-				a {
-					@extend %font_weight_700;
-				}
-
-			}
-
-			.posts & {
-
-				p {
-					@extend %no_margin;
-				}
-
-			}
-
-		}
-
-	}
-
-
-
 // Quote
+@if ( index( $supported_post_formats, 'quote' ) ) {
 
-	@if ( null != index( $supported_post_formats, 'quote' ) ) {
+	.format-quote {
 
-		.format-quote {
+		.entry-content {
 
-			blockquote {
-				padding: 0;
-				margin-top: 0;
-			}
-
-			.entry-content {
-
-				a {
-					@extend %font_weight_700;
-				}
-
+			a {
+				font-weight: bolder;
 			}
 
 		}
 
 	}
+
+}
 
 
 
 // Status
+@if ( index( $supported_post_formats, 'status' ) ) {
 
-	@if ( null != index( $supported_post_formats, 'status' ) ) {
+	.format-status {
+		cursor: help;
 
-		.format-status {
-			cursor: help;
+		.entry-content {
 
-			.entry-content {
-
-				a {
-					@extend %font_weight_700;
-				}
-
-			}
-
-			.posts & {
-
-				p {
-					@extend %no_margin;
-				}
-
+			a {
+				font-weight: bolder;
 			}
 
 		}
 
 	}
+
+}

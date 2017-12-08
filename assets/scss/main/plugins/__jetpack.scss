@@ -23,10 +23,6 @@
 
 	div#jp-relatedposts {
 
-		.site & {
-			border-color: inherit;
-		}
-
 		.content-layout-no-paddings & {
 			max-width: calc( 39em + #{ $golden * 2em } );
 			max-width: calc( 70ch + #{ $golden * 2em } );
@@ -46,7 +42,6 @@
 
 	div.sharedaddy {
 		margin: ( power( $golden, 2 ) +rem ) auto 0;
-		border-color: inherit;
 
 		.content-layout-no-paddings & {
 			max-width: calc( 39em + #{ $golden * 2em } );
