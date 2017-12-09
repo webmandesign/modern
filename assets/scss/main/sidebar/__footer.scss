@@ -15,7 +15,7 @@
 
 	&-inner {
 
-		@include responsive( map_get( $breakpoint, 'm' ), 'max-width' ) {
+		@include media( ( map_get( $breakpoint, 'm' ), 'max-width' ) ) {
 			// Preventing mobile horizontal scrolling
 			// (Required for horizontal_widget_area.)
 			overflow: hidden;
@@ -26,7 +26,7 @@
 	.widget {
 		width: calc( 100% - #{ 2 * $golden +rem } );
 
-		@include responsive( map_get( $breakpoint, 'l' ) ) {
+		@include media( map_get( $breakpoint, 'l' ) ) {
 			width: calc( 50% - #{ 2 * $golden +rem } );
 
 			&:nth-child(1):nth-last-child(1) {
@@ -35,7 +35,7 @@
 
 		}
 
-		@include responsive( map_get( $breakpoint, 'xl' ) ) {
+		@include media( map_get( $breakpoint, 'xl' ) ) {
 			width: calc( 33.33% - #{ 2 * $golden +rem } );
 
 			&:nth-child(1):nth-last-child(2),

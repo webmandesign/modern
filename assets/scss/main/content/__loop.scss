@@ -28,7 +28,7 @@ $padding : power( $golden, 2 ); // In em.
 		// 1 column
 		width: calc( 100% - #{ $gutter +em } );
 
-		@include responsive( map_get( $breakpoint, 'm' ) ) {
+		@include media( map_get( $breakpoint, 'm' ) ) {
 		// Medium screens:
 		// 2 columns
 
@@ -36,7 +36,7 @@ $padding : power( $golden, 2 ); // In em.
 			padding: $padding +em;
 		}
 
-		@include responsive( map_get( $breakpoint, 'l' ) ) {
+		@include media( map_get( $breakpoint, 'l' ) ) {
 		// Large screens:
 		// 2 columns when such layout is set
 		// 3 columns when such layout is set
@@ -51,7 +51,7 @@ $padding : power( $golden, 2 ); // In em.
 
 		}
 
-		@include responsive( map_get( $breakpoint, 'xl' ) ) {
+		@include media( map_get( $breakpoint, 'xl' ) ) {
 		// Extra large screens:
 		// 4 columns when such layout is set
 		//
@@ -74,7 +74,7 @@ $padding : power( $golden, 2 ); // In em.
 			margin: -$padding / 2 +em; // Half the padding for mobiles.
 			margin-bottom: $padding / 2 +em; // Half the padding for mobiles.
 
-			@include responsive( map_get( $breakpoint, 'm' ) ) {
+			@include media( map_get( $breakpoint, 'm' ) ) {
 				margin: -$padding +em;
 				margin-bottom: $padding +em;
 			}

@@ -99,7 +99,7 @@
 			box-shadow: inset 0 0 0 1px;
 			transform: none;
 
-			@include responsive( map_get( $breakpoint, 'xl' ) ) {
+			@include media( map_get( $breakpoint, 'xl' ) ) {
 				width: 3.62rem;
 				height: 3.62rem;
 				bottom: 3.62rem;
@@ -121,7 +121,7 @@
 		.slick-next {
 			#{$left}: 2.62rem + 1;
 
-			@include responsive( map_get( $breakpoint, 'xl' ) ) {
+			@include media( map_get( $breakpoint, 'xl' ) ) {
 				#{$left}: 3.62rem + 1;
 			}
 
@@ -129,11 +129,11 @@
 
 		.slick-dots {
 
-			@include responsive( map_get( $breakpoint, 'l' ), 'max-width' ) {
+			@include media( ( map_get( $breakpoint, 'l' ), 'max-width' ) ) {
 				display: none !important;
 			}
 
-			@include responsive( map_get( $breakpoint, 'l' ) ) {
+			@include media( map_get( $breakpoint, 'l' ) ) {
 				position: absolute;
 				#{$right}: 0; // {{RTL}}
 				bottom: 2.62rem;

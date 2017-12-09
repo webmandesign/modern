@@ -43,7 +43,7 @@
 		> li,
 		.children > li {
 
-			@include responsive( map_get( $breakpoint, 'm' ) ) {
+			@include media( map_get( $breakpoint, 'm' ) ) {
 				padding-#{$left}: 100px; // {{RTL}}
 			}
 
@@ -87,7 +87,7 @@
 
 		.avatar {
 
-			@include responsive( map_get( $breakpoint, 'm' ) ) {
+			@include media( map_get( $breakpoint, 'm' ) ) {
 				width: 80px;
 			}
 
@@ -131,7 +131,7 @@
 
 		.avatar {
 
-			@include responsive( map_get( $breakpoint, 'm' ), 'max-width' ) {
+			@include media( ( map_get( $breakpoint, 'm' ), 'max-width' ) ) {
 				border-left: ( $golden_minor +em ) solid;
 			}
 
@@ -140,7 +140,7 @@
 		&::before {
 			@extend %genericon;
 
-			@include responsive( map_get( $breakpoint, 'm' ) ) {
+			@include media( map_get( $breakpoint, 'm' ) ) {
 				// Avatar is 80x80 px
 				content: '\f411';
 				position: absolute;
@@ -219,7 +219,7 @@
 				margin-#{$left}: 0;
 				line-height: inherit;
 
-				@include responsive( map_get( $breakpoint, 'm' ) ) {
+				@include media( map_get( $breakpoint, 'm' ) ) {
 					display: inline-block;
 				}
 

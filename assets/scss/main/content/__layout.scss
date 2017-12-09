@@ -38,7 +38,7 @@
 
 	.content-area {
 
-		@include responsive( map_get( $breakpoint, 'l' ) ) {
+		@include media( map_get( $breakpoint, 'l' ) ) {
 
 			.has-widgets-sidebar & {
 				width: 68%;

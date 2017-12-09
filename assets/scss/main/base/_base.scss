@@ -59,11 +59,11 @@
 		padding: 0;
 		margin: 2em 0 ( $golden +em );
 
-		@include responsive( map_get( $breakpoint, 'm' ) ) {
+		@include media( map_get( $breakpoint, 'm' ) ) {
 			font-size: $golden_minor / 2 + 1em;
 		}
 
-		@include responsive( map_get( $breakpoint, 'xl' ) ) {
+		@include media( map_get( $breakpoint, 'xl' ) ) {
 			font-size: $golden_minor + 1em;
 		}
 
@@ -113,7 +113,7 @@
 		border-bottom-width: 1px;
 		border-bottom-style: solid;
 
-		@include responsive( map_get( $breakpoint, 'm' ) ) {
+		@include media( map_get( $breakpoint, 'm' ) ) {
 			margin: ( power( 1 + $golden_minor, 4 ) +em ) 0;
 		}
 

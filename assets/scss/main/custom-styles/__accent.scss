@@ -56,7 +56,7 @@
 
 		a {
 
-			@include responsive( map_get( $breakpoint, 'm' ), 'max-width' ) {
+			@include media( ( map_get( $breakpoint, 'm' ), 'max-width' ) ) {
 				/*[*/
 				background-color: map_get( $colors, 'accent' );
 				color: map_get( $colors, 'accent_text' );

@@ -25,7 +25,7 @@
 		line-height: inherit;
 		color: inherit;
 
-		@include responsive( map_get( $breakpoint, 'xl' ) ) {
+		@include media( map_get( $breakpoint, 'xl' ) ) {
 			margin-#{$right}: power( $golden, 2 ) +em; // {{RTL}}
 		}
 
@@ -63,7 +63,7 @@
 		line-height: inherit;
 		font-size: nth( map_get( $h_tags_setup, 'h1, .h1' ), 1 ) +rem;
 
-		@include responsive( map_get( $breakpoint, 'l' ) ) {
+		@include media( map_get( $breakpoint, 'l' ) ) {
 			display: inline-block;
 			vertical-align: middle;
 		}
@@ -85,7 +85,7 @@
 	.site-description {
 		@extend %font_size_1rem;
 
-		@include responsive( map_get( $breakpoint, 'xl' ) ) {
+		@include media( map_get( $breakpoint, 'xl' ) ) {
 			display: inline-block;
 			padding-#{$left}: $golden +em; // {{RTL}}
 			margin-#{$left}: $golden +em; // {{RTL}}

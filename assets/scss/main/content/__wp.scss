@@ -19,11 +19,11 @@
 				padding: 0;
 				margin-top: $golden_major +em;
 
-				@include responsive( map_get( $breakpoint, 's' ) ) {
+				@include media( map_get( $breakpoint, 's' ) ) {
 					width: 35%;
 				}
 
-				@include responsive( map_get( $breakpoint, 'xl' ) ) {
+				@include media( map_get( $breakpoint, 'xl' ) ) {
 					font-size: $golden_minor / 2 + 1em;
 				}
 
@@ -37,11 +37,11 @@
 					margin-#{$left}: .09em; // {{RTL}}
 				}
 
-				@include responsive( map_get( $breakpoint, 'xl' ) ) {
+				@include media( map_get( $breakpoint, 'xl' ) ) {
 					margin-left: percentage( -$golden_minor / 4 );
 				}
 
-				@include responsive( map_get( $breakpoint, 'xxl' ) ) {
+				@include media( map_get( $breakpoint, 'xxl' ) ) {
 
 					.no-widgets-sidebar & {
 						margin-left: percentage( -$golden_minor / 2 );
@@ -53,11 +53,11 @@
 
 			&.alignright {
 
-				@include responsive( map_get( $breakpoint, 'xl' ) ) {
+				@include media( map_get( $breakpoint, 'xl' ) ) {
 					margin-right: percentage( -$golden_minor / 4 );
 				}
 
-				@include responsive( map_get( $breakpoint, 'xxl' ) ) {
+				@include media( map_get( $breakpoint, 'xxl' ) ) {
 
 					.no-widgets-sidebar & {
 						margin-right: percentage( -$golden_minor / 2 );

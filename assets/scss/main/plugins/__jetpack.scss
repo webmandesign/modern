@@ -106,7 +106,7 @@
 			border-width: 1px;
 			border-style: solid;
 
-			@include responsive( map_get( $breakpoint, 'm' ) ) {
+			@include media( map_get( $breakpoint, 'm' ) ) {
 				padding: $padding +em;
 			}
 
@@ -135,7 +135,7 @@
 					width: 3em;
 					margin-bottom: 1em;
 
-					@include responsive( map_get( $breakpoint, 'm' ) ) {
+					@include media( map_get( $breakpoint, 'm' ) ) {
 						float: $left; // {{RTL}}
 						margin-#{$right}: $golden +em;
 					}
@@ -159,7 +159,7 @@
 
 				&-bio {
 
-					@include responsive( map_get( $breakpoint, 'm' ) ) {
+					@include media( map_get( $breakpoint, 'm' ) ) {
 						clear: both;
 					}
 

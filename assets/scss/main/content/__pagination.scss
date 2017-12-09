@@ -34,7 +34,7 @@
 			@extend %background_overlay_from_text_color;
 		}
 
-		@include responsive( map_get( $breakpoint, 'xl' ), 'max-width' ) {
+		@include media( ( map_get( $breakpoint, 'xl' ), 'max-width' ) ) {
 		// Media query is to prevent Apple mobile devices issue.
 		// @see  https://css-tricks.com/annoying-mobile-double-tap-link-issue/
 
@@ -54,7 +54,7 @@
 			display: none;
 		}
 
-		@include responsive( map_get( $breakpoint, 'xl' ), 'max-width' ) {
+		@include media( ( map_get( $breakpoint, 'xl' ), 'max-width' ) ) {
 		// Media query is to prevent Apple mobile devices issue.
 		// @see  https://css-tricks.com/annoying-mobile-double-tap-link-issue/
 
@@ -66,7 +66,7 @@
 
 	}
 
-	@include responsive( map_get( $breakpoint, 'm' ), 'max-width' ) {
+	@include media( ( map_get( $breakpoint, 'm' ), 'max-width' ) ) {
 
 		.prev {
 			float: $left; // {{RTL}}
@@ -78,7 +78,7 @@
 
 	}
 
-	@include responsive( map_get( $breakpoint, 'm' ), 'max-width' ) {
+	@include media( ( map_get( $breakpoint, 'm' ), 'max-width' ) ) {
 		position: relative;
 
 		&::after {

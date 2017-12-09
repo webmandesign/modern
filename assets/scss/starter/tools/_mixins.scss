@@ -38,6 +38,7 @@
 // 		$content;
 // 	}
 //
+// @since  4.0.0
 //
 // @param  lists $queries  Media query condition lists (arrays).
 //
@@ -114,17 +115,6 @@
 
 	// Legacy, backwards compatibility
 
-		//
-		// Responsive media query
-		//
-		// Backwards compatibility:
-		// Keeping this mixin as legacy from pre-`media( $queries... )` mixin times,
-		// so it does not throw any errors!
-		//
-		// @param  string $width     Breakpoint width in px
-		// @param  string $property  What CSS property to use (if you set `max-$` the $width will be lowered by 1px)
-		// @param  string $unit      Unit to use with the query (em by default, px breakpoint value will be converted)
-		//
 		@mixin responsive(
 				$width: map_get( $breakpoint, 's' ),
 				$property: 'min-width',
@@ -140,19 +130,6 @@
 				}
 		} // /responsive
 
-		//
-		// Responsive media query: min and max
-		//
-		// Backwards compatibility:
-		// Keeping this mixin as legacy from pre-`media( $queries... )` mixin times,
-		// so it does not throw any errors!
-		//
-		// @param  string $min           Value for $property_min in px
-		// @param  string $max           Value for $property_max in px (will be lowered by 1px if $property_max = `max-$`)
-		// @param  string $property_min  What CSS property to use for min
-		// @param  string $property_max  What CSS property to use for max
-		// @param  string $unit          Unit to use with the query (em by default, px breakpoint value will be converted)
-		//
 		@mixin responsive_minmax(
 				$min: map_get( $breakpoint, 's' ),
 				$max: map_get( $breakpoint, 'm' ),

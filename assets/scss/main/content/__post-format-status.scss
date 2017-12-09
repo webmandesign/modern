@@ -38,7 +38,7 @@
 				margin-top: $padding / 2 +em; // Half the padding for mobiles.
 				border-radius: power( $golden, 4 ) +em;
 
-				@include responsive( map_get( $breakpoint, 'm' ) ) {
+				@include media( map_get( $breakpoint, 'm' ) ) {
 					margin-top: $padding +em;
 				}
 
@@ -48,11 +48,11 @@
 
 		&-content {
 
-			@include responsive( map_get( $breakpoint, 'm' ) ) {
+			@include media( map_get( $breakpoint, 'm' ) ) {
 				font-size: $golden_minor / 2 + 1em;
 			}
 
-			@include responsive( map_get( $breakpoint, 'xl' ) ) {
+			@include media( map_get( $breakpoint, 'xl' ) ) {
 				font-size: $golden_minor + 1em;
 			}
 

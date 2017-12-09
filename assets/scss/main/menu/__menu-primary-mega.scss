@@ -10,7 +10,7 @@
 
 
 
-@include responsive( map_get( $breakpoint, 'l' ) ) {
+@include media( map_get( $breakpoint, 'l' ) ) {
 
 	.main-navigation-container .megamenu {
 
@@ -127,7 +127,10 @@
 
 
 
-@include responsive_minmax( map_get( $breakpoint, 'l' ), map_get( $breakpoint, 'xl' ) ) {
+@include media(
+	( map_get( $breakpoint, 'l' ), 'min-width' ),
+	( map_get( $breakpoint, 'xl' ), 'max-width' )
+) {
 
 	.main-navigation-container .megamenu {
 		position: static;

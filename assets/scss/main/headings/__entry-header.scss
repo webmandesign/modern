@@ -27,7 +27,7 @@
 
 		.page-title {
 
-			@include responsive( map_get( $breakpoint, 'l' ) ) {
+			@include media( map_get( $breakpoint, 'l' ) ) {
 				float: $left; // {{RTL}}
 				max-width: 48%;
 			}
@@ -37,7 +37,7 @@
 		.archive-description {
 			margin-top: $golden +em;
 
-			@include responsive( map_get( $breakpoint, 'l' ) ) {
+			@include media( map_get( $breakpoint, 'l' ) ) {
 				float: $right; // {{RTL}}
 				margin-top: 0;
 				max-width: 48%;
@@ -64,7 +64,7 @@
 				display: block;
 				margin-top: $golden_minor +rem;
 
-				@include responsive( map_get( $breakpoint, 'm' ) ) {
+				@include media( map_get( $breakpoint, 'm' ) ) {
 					$pagination_suffix_font_size: .5; // In em.
 					display: inline-block;
 					margin-top: ( 1 - $pagination_suffix_font_size ) / $pagination_suffix_font_size +em;

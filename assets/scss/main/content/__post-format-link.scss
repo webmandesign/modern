@@ -25,11 +25,11 @@
 			.posts & {
 				@extend %font_weight_300;
 
-				@include responsive( map_get( $breakpoint, 'm' ) ) {
+				@include media( map_get( $breakpoint, 'm' ) ) {
 					font-size: $golden_minor / 2 + 1em;
 				}
 
-				@include responsive( map_get( $breakpoint, 'xl' ) ) {
+				@include media( map_get( $breakpoint, 'xl' ) ) {
 					font-size: $golden_minor + 1em;
 				}
 

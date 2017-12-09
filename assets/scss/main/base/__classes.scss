@@ -12,7 +12,7 @@
 
 	.no-wrap {
 
-		@include responsive( map_get( $breakpoint, 'l' ) ) {
+		@include media( map_get( $breakpoint, 'l' ) ) {
 			white-space: nowrap;
 		}
 
@@ -28,7 +28,7 @@
 
 	.text-#{$right} {
 
-		@include responsive( map_get( $breakpoint, 'm' ) ) {
+		@include media( map_get( $breakpoint, 'm' ) ) {
 			text-align: $right !important; // {{RTL}}
 		}
 
@@ -140,7 +140,7 @@
 		column-width: 12em;
 		margin: ( $golden +em ) 0;
 
-		@include responsive( map_get( $breakpoint, 'm' ) ) {
+		@include media( map_get( $breakpoint, 'm' ) ) {
 			margin: ( power( $golden, 2 ) +em ) 0;
 		}
 

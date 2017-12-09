@@ -70,7 +70,7 @@
 
 			// Make sure the images are not too small on mobile screens
 
-				@include responsive( map_get( $breakpoint, 'l' ), 'max-width' ) {
+				@include media( ( map_get( $breakpoint, 'l' ), 'max-width' ) ) {
 
 					&,
 					.slick-slide {
@@ -118,15 +118,15 @@
 			font-weight: 700;
 			border-top: 2px solid;
 
-			@include responsive( map_get( $breakpoint, 'm' ) ) {
+			@include media( map_get( $breakpoint, 'm' ) ) {
 				font-size: 3.653rem; // @see  http://www.modularscale.com/?1&em&1.125
 			}
 
-			@include responsive( map_get( $breakpoint, 'l' ) ) {
+			@include media( map_get( $breakpoint, 'l' ) ) {
 				font-size: 4.624rem; // @see  http://www.modularscale.com/?1&em&1.125
 			}
 
-			@include responsive( map_get( $breakpoint, 'xl' ) ) {
+			@include media( map_get( $breakpoint, 'xl' ) ) {
 				font-size: 5.852rem; // @see  http://www.modularscale.com/?1&em&1.125
 			}
 
@@ -161,7 +161,7 @@
 			// Make it 3x the size of slideshow prev/next button.
 			padding-bottom: 2.62 * 3rem;
 
-			@include responsive( map_get( $breakpoint, 'xl' ) ) {
+			@include media( map_get( $breakpoint, 'xl' ) ) {
 				padding-bottom: 3.62 * 3rem;
 			}
 

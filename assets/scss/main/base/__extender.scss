@@ -25,7 +25,7 @@
 			padding: ( $golden +em ) 0;
 			margin: 0 ( $golden +rem );
 
-			@include responsive( map_get( $breakpoint, 'l' ) ) {
+			@include media( map_get( $breakpoint, 'l' ) ) {
 				flex-basis: 0%;
 			}
 
@@ -93,7 +93,7 @@
 	%padding_top {
 		padding-top: $vertical_gap * $golden_major;
 
-		@include responsive( map_get( $breakpoint, 'l' ) ) {
+		@include media( map_get( $breakpoint, 'l' ) ) {
 			padding-top: $vertical_gap;
 		}
 
@@ -102,7 +102,7 @@
 	%padding_bottom {
 		padding-bottom: $vertical_gap * $golden_major;
 
-		@include responsive( map_get( $breakpoint, 'l' ) ) {
+		@include media( map_get( $breakpoint, 'l' ) ) {
 			padding-bottom: $vertical_gap;
 		}
 
@@ -111,7 +111,7 @@
 	%margin_top {
 		margin-top: $vertical_gap * $golden_major;
 
-		@include responsive( map_get( $breakpoint, 'l' ) ) {
+		@include media( map_get( $breakpoint, 'l' ) ) {
 			margin-top: $vertical_gap;
 		}
 
@@ -120,7 +120,7 @@
 	%margin_bottom {
 		margin-bottom: $vertical_gap * $golden_major;
 
-		@include responsive( map_get( $breakpoint, 'l' ) ) {
+		@include media( map_get( $breakpoint, 'l' ) ) {
 			margin-bottom: $vertical_gap;
 		}
 

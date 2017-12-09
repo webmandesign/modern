@@ -23,7 +23,7 @@
 
 		img {
 
-			@include responsive( map_get( $breakpoint, 'm' ), 'max-width' ) {
+			@include media( ( map_get( $breakpoint, 'm' ), 'max-width' ) ) {
 				width: 100%;
 			}
 
