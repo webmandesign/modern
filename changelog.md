@@ -18,8 +18,8 @@
 * **Add**: Support for page excerpt
 * **Add**: Simple theme starter content
 * **Update**: Improved compatibility with WordPress 4.9
-* **Update**: Library @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@TODO
-* **Update**: CSS Starter 4.0.0
+* **Update**: Library 2.6.0
+* **Update**: CSS Starter 4.0.1
 * **Update**: Code organization and improvements
 * **Update**: Removing microformats (Schema.org) markup in favor of dedicated plugins
 * **Update**: Improving and optimizing JavaScript codes
