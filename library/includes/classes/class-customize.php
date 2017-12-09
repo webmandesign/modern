@@ -8,7 +8,7 @@
  * @subpackage  Customize
  *
  * @since    1.0.0
- * @version  2.5.4
+ * @version  2.6.0
  *
  * Contents:
  *
@@ -190,7 +190,7 @@ final class Modern_Library_Customize {
 		 * @uses  `wmhook_modern_theme_options` global hook
 		 *
 		 * @since    1.0.0
-		 * @version  2.0.0
+		 * @version  2.6.0
 		 */
 		public static function preview_scripts() {
 
@@ -341,7 +341,7 @@ final class Modern_Library_Customize {
 		 * @uses  `wmhook_modern_theme_options` global hook
 		 *
 		 * @since    1.0.0
-		 * @version  2.5.4
+		 * @version  2.6.0
 		 *
 		 * @param  object $wp_customize WP customizer object.
 		 */

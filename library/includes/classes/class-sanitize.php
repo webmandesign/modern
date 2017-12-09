@@ -8,7 +8,7 @@
  * @subpackage  Core
  *
  * @since    2.5.0
- * @version  2.5.4
+ * @version  2.5.6
  *
  * Contents:
  *
@@ -28,7 +28,7 @@ final class Modern_Library_Sanitize {
 		 * Sanitize checkbox
 		 *
 		 * Sanitization callback for checkbox type controls.
-		 * This callback sanitizes `$value` as a boolean, either TRUE or FALSE.
+		 * This callback sanitizes `$checked` as a boolean value, either TRUE or FALSE.
 		 *
 		 * @since    2.5.0
 		 * @version  2.5.0
@@ -144,30 +144,6 @@ final class Modern_Library_Sanitize {
 
 
 		/**
-		 * Sanitize floating point number
-		 *
-		 * Sanitization callback for float number type controls.
-		 * This callback sanitizes `$value` as a float number.
-		 * Has to do a wrapper for `floatval()` here as otherwise
-		 * you can get a PHP warning when using in customizer
-		 * ("floatval() expects exactly 1 parameter, 2 given").
-		 *
-		 * @since    2.5.0
-		 * @version  2.5.0
-		 *
-		 * @param  float $value
-		 */
-		public static function float( $value ) {
-
-			// Output
-
-				return floatval( $value );
-
-		} // /float
-
-
-
-		/**
 		 * Sanitize fonts
 		 *
 		 * Sanitization callback for `font-family` CSS property value.
@@ -200,6 +176,30 @@ final class Modern_Library_Sanitize {
 				return ( ( $value ) ? ( (string) $value ) : ( (string) $default ) );
 
 		} // /fonts
+
+
+
+		/**
+		 * Sanitize float
+		 *
+		 * Sanitization callback for float number type controls.
+		 * This callback sanitizes `$value` as a float number.
+		 * Has to do a wrapper for `floatval()` here as otherwise
+		 * you can get a PHP warning when using in customizer
+		 * ("floatval() expects exactly 1 parameter, 2 given").
+		 *
+		 * @since    2.5.6
+		 * @version  2.5.6
+		 *
+		 * @param  string $value
+		 */
+		public static function float( $value ) {
+
+			// Output
+
+				return floatval( $value );
+
+		} // /float
 
 
 

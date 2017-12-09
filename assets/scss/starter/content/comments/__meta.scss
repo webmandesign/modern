@@ -18,13 +18,13 @@
 
 	.avatar {
 		display: block;
-		width: 60 *$px;
+		width: 5em - $golden;
 		margin-bottom: 1em;
 		border-radius: 50%;
 
 		@include media( map_get( $breakpoint, 'm' ) ) {
 			position: absolute;
-			width: 90 *$px;
+			width: 5em;
 			#{$left}: 0; // {{RTL}}
 			top: $golden +em;
 			margin-bottom: 0;

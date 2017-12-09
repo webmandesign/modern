@@ -8,7 +8,7 @@
  * @subpackage  Customize
  *
  * @since    1.0.0
- * @version  2.1.1
+ * @version  2.6.0
  */
 class Modern_Customize_Control_Multiselect extends WP_Customize_Control {
 

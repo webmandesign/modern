@@ -46,7 +46,7 @@
 					height: 100%;
 
 					> ul {
-						max-width: map_get( $breakpoint, 's' ) * $px; // No need to stretch the menu, keep it narrow and centered
+						max-width: map_get( $breakpoint, 's' ) / 16 +rem; // No need to stretch the menu, keep it narrow and centered
 						padding: ( power( $golden, 3 ) +rem ) ( $golden +rem ) ( power( $golden, 3 ) + $golden +rem );
 						margin-left: auto;
 						margin-right: auto;

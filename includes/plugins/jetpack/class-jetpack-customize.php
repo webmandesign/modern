@@ -100,11 +100,11 @@ class Modern_Jetpack_Customize {
 
 						// "Front page" page template sections options
 
-							$wp_customize->selective_refresh->add_partial( 'layout_posts_per_page_front_portfolio', array(
+							$wp_customize->selective_refresh->add_partial( 'layout_location_front_portfolio', array(
 								'selector' => '.front-page-section-type-jetpack-portfolio .front-page-section-inner',
 							) );
 
-							$wp_customize->selective_refresh->add_partial( 'layout_posts_per_page_front_testimonials', array(
+							$wp_customize->selective_refresh->add_partial( 'layout_location_front_testimonials', array(
 								'selector' => '.front-page-section-type-jetpack-testimonial .front-page-section-inner',
 							) );
 

@@ -74,7 +74,7 @@ class Modern_Setup {
 
 						add_filter( 'wmhook_modern_assets_google_fonts_url_fonts_setup', __CLASS__ . '::google_fonts' );
 
-						add_filter( 'wmhook_modern_library_editor_custom_mce_format', __CLASS__ . '::visual_editor_formats' );
+						add_filter( 'wmhook_modern_library_editor_style_formats', __CLASS__ . '::visual_editor_formats' );
 
 		} // /__construct
 

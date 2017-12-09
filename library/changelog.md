@@ -1,5 +1,39 @@
 # WebMan WordPress Theme Framework Changelog
 
+## 2.6.0
+
+* **Add**: Customizer range control hover color
+* **Update**: Removing filter to enable RTL (generating RTL stylesheets automatically if the compatibility file found in the theme)
+* **Update**: Renaming `custom_mce_format` method and filters to `style_formats`
+* **Update**: Improving stylesheet generator method
+* **Update**: Removing donation link from customizer styles
+* **Update**: Updating code formatting
+* **Update**: Improving `selector_replace` for `preview_js` in theme options
+
+### Files changed:
+
+	changelog.md
+	init.php
+	includes/classes/class-core.php
+	includes/classes/class-customize-control-multiselect.php
+	includes/classes/class-customize-styles.php
+	includes/classes/class-customize.php
+	includes/classes/class-visual-editor.php
+	includes/vendor/tgmpa/class-tgm-plugin-activation.php
+	scss/styles/_customize.scss
+
+
+## 2.5.6
+
+* **Add**: Float value sanitization method
+
+### Files changed:
+
+	changelog.md
+	init.php
+	includes/classes/class-sanitize.php
+
+
 ## 2.5.5
 
 * **Fix**: Welcome page columns vertical align in WordPress 4.9
@@ -108,7 +142,7 @@
 
 ## 2.4.1
 
-* **Fix**: Modern theme reference.
+* **Fix**: Reykjavik theme reference.
 
 ### Files changed:
 

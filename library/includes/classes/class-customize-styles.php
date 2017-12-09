@@ -5,13 +5,12 @@
  * @uses  `wmhook_modern_theme_options` global hook
  * @uses  `wmhook_modern_custom_styles` global hook
  * @uses  `wmhook_modern_custom_styles_alphas` global hook
- * @uses  `wmhook_modern_enable_rtl` global hook
  *
  * @package     WebMan WordPress Theme Framework
  * @subpackage  Customize
  *
  * @since    1.8.0
- * @version  2.5.3
+ * @version  2.6.0
  *
  * Contents:
  *
@@ -134,15 +133,16 @@ final class Modern_Library_Customize_Styles {
 		 * Generate main CSS file
 		 *
 		 * @since    1.0.0
-		 * @version  2.5.0
+		 * @version  2.6.0
 		 *
-		 * @param  array $args
+		 * @param  string $scope
 		 */
-		public static function generate_main_css( $args = array() ) {
+		public static function generate_main_css( $scope = '' ) {
 
 			// Pre
 
-				$pre = apply_filters( 'wmhook_modern_library_generate_main_css_pre', ! self::$supports_generator, $args );
+				$scope = '-' . trim( (string) apply_filters( 'wmhook_modern_library_generate_main_css_scope', $scope ), ' -' );
+				$pre   = apply_filters( 'wmhook_modern_library_generate_main_css_pre', ! self::$supports_generator, $scope );
 
 				if ( false !== $pre ) {
 					return $pre;
@@ -155,16 +155,14 @@ final class Modern_Library_Customize_Styles {
 
 				$filesystem = self::get_filesystem();
 
-				$args = apply_filters( 'wmhook_modern_library_generate_main_css_args', wp_parse_args( $args, array(
-						'type' => '',
-					) ) );
-				$args['type'] = trim( $args['type'] );
+				$required_file = MODERN_PATH . 'assets/css-generate/generate-css' . $scope . '.php';
 
 
 			// Requirements check
 
 				if (
-					! $filesystem
+					! file_exists( $required_file )
+					|| ! $filesystem
 					|| ! is_callable( array( $filesystem, 'put_contents' ) )
 					|| ! function_exists( 'wp_mkdir_p' )
 				) {
@@ -177,8 +175,8 @@ final class Modern_Library_Customize_Styles {
 				// Get the file content with output buffering
 
 					ob_start();
-					require_once MODERN_PATH . 'assets/css-generate/generate-css' . $args['type'] . '.php';
-					$output = apply_filters( 'wmhook_modern_library_generate_main_css_output', trim( ob_get_clean() ), $args );
+					require_once $required_file;
+					$output = apply_filters( 'wmhook_modern_library_generate_main_css_output', trim( ob_get_clean() ), $scope );
 
 					// Requirements check
 
@@ -188,7 +186,7 @@ final class Modern_Library_Customize_Styles {
 
 				// Minify output if set
 
-					$output_min = apply_filters( 'wmhook_modern_library_generate_main_css_output_min', $output, $args );
+					$output_min = apply_filters( 'wmhook_modern_library_generate_main_css_output_min', $output, $scope );
 
 				// Create the theme CSS folder
 
@@ -218,8 +216,8 @@ final class Modern_Library_Customize_Styles {
 								( 60 * 60 * 48 )
 							);
 
-						remove_theme_mod( '__url_css' . $args['type'] );
-						remove_theme_mod( '__path_theme_generated_files' . $args['type'] );
+						remove_theme_mod( '__url_css' . $scope );
+						remove_theme_mod( '__path_theme_generated_files' . $scope );
 
 						return false;
 
@@ -227,12 +225,12 @@ final class Modern_Library_Customize_Styles {
 
 				// Create the theme CSS files
 
-					$file_name = apply_filters( 'wmhook_modern_library_generate_main_css_file_name', 'modern-styles' . $args['type'], $args );
+					$file_name = apply_filters( 'wmhook_modern_library_generate_main_css_file_name', 'modern-styles' . $scope, $scope );
 
-					$global_css_path     = apply_filters( 'wmhook_modern_library_generate_main_css_global_css_path', trailingslashit( $theme_css_dir ) . $file_name . '.css', $args, $file_name, $theme_css_dir );
-					$global_css_path_dev = apply_filters( 'wmhook_modern_library_generate_main_css_global_css_path_dev', trailingslashit( $theme_css_dir ) . 'dev-' . $file_name . '.css', $args, $file_name, $theme_css_dir );
+					$global_css_path     = apply_filters( 'wmhook_modern_library_generate_main_css_global_css_path', trailingslashit( $theme_css_dir ) . $file_name . '.css', $scope, $file_name, $theme_css_dir );
+					$global_css_path_dev = apply_filters( 'wmhook_modern_library_generate_main_css_global_css_path_dev', trailingslashit( $theme_css_dir ) . 'dev-' . $file_name . '.css', $scope, $file_name, $theme_css_dir );
 
-					$global_css_url = apply_filters( 'wmhook_modern_library_generate_main_css_global_css_url', trailingslashit( $theme_css_url ) . $file_name . '.css', $args, $file_name, $theme_css_url );
+					$global_css_url = apply_filters( 'wmhook_modern_library_generate_main_css_global_css_url', trailingslashit( $theme_css_url ) . $file_name . '.css', $scope, $file_name, $theme_css_url );
 
 					if (
 						$output
@@ -253,12 +251,12 @@ final class Modern_Library_Customize_Styles {
 
 						// Store the CSS files paths and urls in DB
 
-							set_theme_mod( '__url_css' . $args['type'], $global_css_url );
-							set_theme_mod( '__path_theme_generated_files' . $args['type'], str_replace( $wp_upload_dir['basedir'], '', $theme_css_dir ) );
+							set_theme_mod( '__url_css' . $scope, $global_css_url );
+							set_theme_mod( '__path_theme_generated_files' . $scope, str_replace( $wp_upload_dir['basedir'], '', $theme_css_dir ) );
 
 						// Run custom actions
 
-							do_action( 'wmhook_modern_library_generate_main_css', $args );
+							do_action( 'wmhook_modern_library_generate_main_css', $scope );
 
 						return true;
 
@@ -266,8 +264,8 @@ final class Modern_Library_Customize_Styles {
 
 				// Well, if we've got down here, there is really nothing we can do...
 
-					remove_theme_mod( '__url_css' . $args['type'] );
-					remove_theme_mod( '__path_theme_generated_files' . $args['type'] );
+					remove_theme_mod( '__url_css' . $scope );
+					remove_theme_mod( '__path_theme_generated_files' . $scope );
 
 					return false;
 
@@ -278,14 +276,17 @@ final class Modern_Library_Customize_Styles {
 			/**
 			 * Generate editor CSS file
 			 *
+			 * If the editor version of `assets/css-generate/generate-css-$scope.php` file
+			 * does not exist in the theme, no processing is executed.
+			 *
 			 * @since    1.3.0
-			 * @version  1.3.0
+			 * @version  2.6.0
 			 */
 			public static function generate_main_css_editor() {
 
 				// Output
 
-					self::generate_main_css( array( 'type' => '-editor' ) );
+					self::generate_main_css( 'editor' );
 
 			} // /generate_main_css_editor
 
@@ -294,17 +295,18 @@ final class Modern_Library_Customize_Styles {
 			/**
 			 * Generate RTL CSS file
 			 *
+			 * If the RTL version of `assets/css-generate/generate-css-$scope.php` file
+			 * does not exist in the theme, no processing is executed.
+			 *
 			 * @since    1.3.0
-			 * @version  1.3.0
+			 * @version  2.6.0
 			 */
 			public static function generate_main_css_rtl() {
 
 				// Output
 
-					if ( apply_filters( 'wmhook_modern_enable_rtl', false ) ) {
-						self::generate_main_css( array( 'type' => '-rtl' ) );
-						self::generate_main_css( array( 'type' => '-editor-rtl' ) );
-					}
+					self::generate_main_css( 'rtl' );
+					self::generate_main_css( 'editor-rtl' );
 
 			} // /generate_main_css_rtl
 
@@ -368,7 +370,7 @@ final class Modern_Library_Customize_Styles {
 		 * @uses  `wmhook_modern_custom_styles_alphas` global hook
 		 *
 		 * @since    1.0.0
-		 * @version  2.5.3
+		 * @version  2.6.0
 		 *
 		 * @param  string $css    CSS string with variables to replace.
 		 * @param  string $scope  Optional CSS scope (such as 'editor' for generating editor styles).
@@ -653,8 +655,8 @@ final class Modern_Library_Customize_Styles {
 
 						$cache = (array) get_transient( self::$cache_key );
 
-						$cache['debug'][ $scope ] = (string) apply_filters( 'wmhook_modern_library_custom_styles_output_cache_debug', $output, $scope );
-						$cache[ $scope ]          = (string) apply_filters( 'wmhook_modern_library_custom_styles_output_cache', $output, $scope );
+						$cache['debug'][ $scope ] = apply_filters( 'wmhook_modern_library_custom_styles_output_cache_debug', $output, $scope );
+						$cache[ $scope ]          = apply_filters( 'wmhook_modern_library_custom_styles_output_cache', $output, $scope );
 						$cache['__replacements']  = (array) $replacements;
 
 						set_transient( self::$cache_key, $cache );
@@ -713,7 +715,7 @@ final class Modern_Library_Customize_Styles {
 		 * @see  http://wordpress.findincity.net/view/63538464303732726692954/using-wpfilesystem-in-plugins-to-store-customizer-settings
 		 *
 		 * @since    1.0.0
-		 * @version  2.2.7
+		 * @version  2.6.0
 		 */
 		public static function get_filesystem() {
 
@@ -900,7 +902,7 @@ final class Modern_Library_Customize_Styles {
 		 * Duplicating WordPress native function in case it does not exist yet
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  2.6.0
 		 *
 		 * @link  https://developer.wordpress.org/reference/functions/maybe_hash_hex_color/
 		 * @link  https://developer.wordpress.org/reference/functions/sanitize_hex_color_no_hash/

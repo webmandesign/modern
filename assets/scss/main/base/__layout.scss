@@ -27,14 +27,14 @@
 
 	%max_width_1920 {
 		max-width: 1920px;
-		max-width: 1920 * $px;
+		max-width: 1920 / $font_size +rem;
 	}
 
 	/* $content_width */
 	%content_width {
 		@extend %basic_width;
 		max-width: $content_width +px;
-		max-width: $content_width * $px;
+		max-width: $content_width / $font_size +rem;
 	}
 
 	%full_width {

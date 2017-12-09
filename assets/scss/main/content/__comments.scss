@@ -36,23 +36,6 @@
 
 
 
-// Comments list
-
-	.comment-list {
-
-		> li,
-		.children > li {
-
-			@include media( map_get( $breakpoint, 'm' ) ) {
-				padding-#{$left}: 100px; // {{RTL}}
-			}
-
-		}
-
-	}
-
-
-
 // Container title
 
 	.comments-title {
@@ -81,14 +64,6 @@
 
 			@include haf() {
 				text-decoration: underline;
-			}
-
-		}
-
-		.avatar {
-
-			@include media( map_get( $breakpoint, 'm' ) ) {
-				width: 80px;
 			}
 
 		}

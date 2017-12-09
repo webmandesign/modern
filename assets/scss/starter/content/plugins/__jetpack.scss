@@ -434,7 +434,7 @@
 				}
 
 				.widgets-list-layout-blavatar {
-					width: 40 *$px;
+					width: power( $golden, 2 ) +em;
 					margin-#{$right}: 1em; // {{RTL}}
 				}
 

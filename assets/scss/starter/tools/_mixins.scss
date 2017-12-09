@@ -38,6 +38,10 @@
 // 		$content;
 // 	}
 //
+// IMPORTANT:
+// Do not use LibSass when compiling SCSS files (with Prepros) as it seems
+// not to be able to handle lists as mixin parameters!
+//
 // @since  4.0.0
 //
 // @param  lists $queries  Media query condition lists (arrays).

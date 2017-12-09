@@ -53,10 +53,9 @@
 
 }
 
+	$direction_multiplier: 1;
 	@if rtl == $language_direction {
 		$direction_multiplier: -1;
-	} @else {
-		$direction_multiplier: 1;
 	}
 
 	.slick-prev {

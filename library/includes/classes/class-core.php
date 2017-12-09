@@ -6,7 +6,7 @@
  * @subpackage  Core
  *
  * @since    1.0.0
- * @version  2.4.3
+ * @version  2.6.0
  *
  * Contents:
  *
@@ -105,7 +105,7 @@ final class Modern_Library {
 		 * Do action on theme version change
 		 *
 		 * @since    1.0.0
-		 * @version  2.0.0
+		 * @version  2.6.0
 		 */
 		public static function theme_upgrade() {
 
@@ -146,7 +146,7 @@ final class Modern_Library {
 		 * Appends the output at the top and bottom of post content.
 		 *
 		 * @since    1.0.0
-		 * @version  2.1.0
+		 * @version  2.6.0
 		 *
 		 * @param  string $content
 		 */
@@ -260,7 +260,7 @@ final class Modern_Library {
 		 * Get the paginated heading suffix
 		 *
 		 * @since    1.0.0
-		 * @version  2.4.0
+		 * @version  2.6.0
 		 *
 		 * @param  string $tag           Wrapper tag
 		 * @param  string $singular_only Display only on singular posts of specific type
@@ -346,7 +346,7 @@ final class Modern_Library {
 		 * Checks for <!--more--> tag in post content
 		 *
 		 * @since    1.0.0
-		 * @version  2.4.0
+		 * @version  2.6.0
 		 *
 		 * @param  mixed $post
 		 */
@@ -559,7 +559,7 @@ final class Modern_Library {
 		 *   );
 		 *
 		 * @since    1.0.0
-		 * @version  2.0.0
+		 * @version  2.6.0
 		 *
 		 * @param  string    $contextual_help  Help text that appears on the screen.
 		 * @param  string    $screen_id        Screen ID.
