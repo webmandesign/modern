@@ -114,14 +114,6 @@ mark, .highlight { /*[*/ -webkit-box-shadow: 0.38em 0 0 #00855b, -0.38em 0 0 #00
 .post-navigation .nav-next a::before { /*[*/ background-image: -webkit-gradient(linear, right top, left top, color-stop(38%, #00855b), to(transparent)); background-image: -o-linear-gradient(right, #00855b 38%, transparent); background-image: linear-gradient(to left, #00855b 38%, transparent); /*]*/ /*// background-image: linear-gradient( to left, [[color_accent]] 38%, transparent ); //*/ }
 
 /* FILE: main/custom-styles/__footer.scss */
-.site-footer mark, .site-footer #page mark, .site-footer .highlight, .site-footer #page .highlight, .site-footer .pagination .current, .site-footer .bypostauthor > .comment-body .comment-author::before, .site-footer .widget_calendar tbody a, .site-footer .widget .tagcloud a:hover, .site-footer .widget .tagcloud a:focus, .site-footer .widget .tagcloud a:active { text-shadow: none; /*[*/ background-color: #1a1c1e; color: #eaecee; /*]*/ /*// background-color: [[color_footer_headings]]; color: [[color_footer_background]]; //*/ }
-
-.site-footer .button, .site-footer button, .site-footer input[type="button"], .site-footer input[type="reset"], .site-footer input[type="submit"] { text-shadow: none; }
-
-.site-footer .button:hover, .site-footer .button:active, .site-footer .button:focus, .site-footer button:hover, .site-footer button:active, .site-footer button:focus, .site-footer input[type="button"]:hover, .site-footer input[type="button"]:active, .site-footer input[type="button"]:focus, .site-footer input[type="reset"]:hover, .site-footer input[type="reset"]:active, .site-footer input[type="reset"]:focus, .site-footer input[type="submit"]:hover, .site-footer input[type="submit"]:active, .site-footer input[type="submit"]:focus { /*[*/ background-color: #1a1c1e; color: #eaecee; /*]*/ /*// background-color: [[color_footer_headings]]; color: [[color_footer_background]]; //*/ }
-
-.site-footer mark, .site-footer .highlight { -webkit-box-shadow: none; box-shadow: none; }
-
 /* FILE: main/custom-styles/__sidebar.scss */
 /* FILE: main/custom-styles/__plugins.scss */
 .infinite-loader .spinner > div > div { /*[*/ background-color: #00855b !important; /*]*/ /*// background-color: [[color_accent]] !important; //*/ }
