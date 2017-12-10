@@ -24,7 +24,7 @@ a, .accent-color { /*[*/ color: #00855b; /*]*/ /*// color: [[color_accent]]; //*
 
 .site-footer { /*[*/ background-color: #eaecee; color: #5a5c5e; border-color: rgba(90, 92, 94, 0.2); /*]*/ /*// background-color: [[color_footer_background]]; color: [[color_footer_text]]; border-color: [[color_footer_text(20)]]; //*/ }
 
-.site-footer h2, .site-footer h3, .site-footer h4, .site-footer .h1, .site-footer .h2, .site-footer .h3, .site-footer .h4, .site-footer a, .site-footer .accent-color { /*[*/ color: #1a1c1e; /*]*/ /*// color: [[color_footer_headings]]; //*/ }
+.site-footer h2, .site-footer h3, .site-footer h4, .site-footer .h1, .site-footer .h2, .site-footer .h3, .site-footer .h4, .site-footer a:not(.button), .site-footer .accent-color { /*[*/ color: #1a1c1e; /*]*/ /*// color: [[color_footer_headings]]; //*/ }
 
 /* FILE: main/custom-styles/__base.scss */
 body { background-color: #1a1c1e; }
