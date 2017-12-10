@@ -114,9 +114,14 @@
 			padding: 8% 0;
 			margin: 0;
 			line-height: 1 + $golden_minor / 2;
-			font-size: 2.887rem; // @see  http://www.modularscale.com/?1&em&1.125
 			font-weight: 700;
 			border-top: 2px solid;
+
+			font-size: nth( map_get( $h_tags_setup, 'h1, .h1' ), 1 ) +rem;
+
+			@include media( map_get( $breakpoint, 's' ) ) {
+				font-size: 2.887rem; // @see  http://www.modularscale.com/?1&em&1.125
+			}
 
 			@include media( map_get( $breakpoint, 'm' ) ) {
 				font-size: 3.653rem; // @see  http://www.modularscale.com/?1&em&1.125

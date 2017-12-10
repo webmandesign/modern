@@ -57,8 +57,13 @@
 			// Entry title
 
 				.title {
-					@extend %font_size_golden_minor;
 					display: block;
+					line-height: 1 + $golden_minor;
+
+					@include media( map_get( $breakpoint, 'm' ) ) {
+						font-size: $golden_minor + 1em;
+					}
+
 				}
 
 		}

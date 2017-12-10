@@ -91,7 +91,11 @@
 // Vertical gaps
 
 	%padding_top {
-		padding-top: $vertical_gap * $golden_major;
+		padding-top: $vertical_gap * $golden_minor;
+
+		@include media( map_get( $breakpoint, 'm' ) ) {
+			padding-top: $vertical_gap * $golden_major;
+		}
 
 		@include media( map_get( $breakpoint, 'l' ) ) {
 			padding-top: $vertical_gap;
@@ -100,7 +104,11 @@
 	}
 
 	%padding_bottom {
-		padding-bottom: $vertical_gap * $golden_major;
+		padding-bottom: $vertical_gap * $golden_minor;
+
+		@include media( map_get( $breakpoint, 'm' ) ) {
+			padding-bottom: $vertical_gap * $golden_major;
+		}
 
 		@include media( map_get( $breakpoint, 'l' ) ) {
 			padding-bottom: $vertical_gap;
@@ -109,7 +117,11 @@
 	}
 
 	%margin_top {
-		margin-top: $vertical_gap * $golden_major;
+		margin-top: $vertical_gap * $golden_minor;
+
+		@include media( map_get( $breakpoint, 'm' ) ) {
+			margin-top: $vertical_gap * $golden_major;
+		}
 
 		@include media( map_get( $breakpoint, 'l' ) ) {
 			margin-top: $vertical_gap;
@@ -118,7 +130,11 @@
 	}
 
 	%margin_bottom {
-		margin-bottom: $vertical_gap * $golden_major;
+		margin-bottom: $vertical_gap * $golden_minor;
+
+		@include media( map_get( $breakpoint, 'm' ) ) {
+			margin-bottom: $vertical_gap * $golden_major;
+		}
 
 		@include media( map_get( $breakpoint, 'l' ) ) {
 			margin-bottom: $vertical_gap;

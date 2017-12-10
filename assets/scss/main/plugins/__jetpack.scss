@@ -301,8 +301,12 @@
 			@extend %post_format_quote;
 
 			.quote-source {
-				font-size: $golden_minor / 2 + 1em;
 				font-weight: 700;
+
+				@include media( map_get( $breakpoint, 'l' ) ) {
+					font-size: $golden_minor / 2 + 1em;
+				}
+
 			}
 
 		}
