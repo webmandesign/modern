@@ -57,7 +57,7 @@
 	blockquote {
 		@extend %font_weight_300;
 		padding: 0;
-		margin: 2em 0 ( $golden +em );
+		margin: 2rem 0 ( $golden +rem );
 
 		@include media( map_get( $breakpoint, 'm' ) ) {
 			font-size: $golden_minor / 2 + 1em;

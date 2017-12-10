@@ -989,7 +989,7 @@ ul li.icon, ul li.icon-bullet { position: relative; list-style: none; }
 
 ul li.icon::before, ul li.icon-bullet::before { position: absolute; left: -1.38em; line-height: inherit; }
 
-blockquote { padding: 0; margin: 2em 0 1.62em; }
+blockquote { padding: 0; margin: 2rem 0 1.62rem; }
 
 @media only screen and (min-width: 42em) { blockquote { font-size: 1.19em; } }
 
