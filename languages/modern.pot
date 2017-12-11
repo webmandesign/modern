@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modern\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu/reference/#links-support\n"
-"POT-Creation-Date: 2017-12-08 14:00+0100\n"
+"POT-Creation-Date: 2017-12-11 20:30+0100\n"
 "PO-Revision-Date: 2015-04-15 10:00+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: \n"
@@ -610,7 +610,7 @@ msgid ""
 msgstr ""
 
 #: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:226
-msgid "Child pages list options"
+msgid "Quote post format"
 msgstr ""
 
 #: includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php:233
@@ -711,37 +711,37 @@ msgstr ""
 msgid "View the list of required plugins &raquo;"
 msgstr ""
 
-#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:341
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:369
 msgid "Jetpack Custom content types"
 msgstr ""
 
-#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:345
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:373
 msgid ""
 "Please make sure your Jetpack plugin is connected and you have activated "
 "Testimonials and Portfolios \"Custom content types\" in Jetpack settings "
 "(navigate to Jetpack &rarr; Settings &rarr; Writing)."
 msgstr ""
 
-#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:346
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:374
 msgid ""
 "If you do not activate these, the related demo content will not be imported."
 msgstr ""
 
-#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:350
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:378
 msgid ""
 "If your Jetpack plugin is connected, you may just try to reload this page "
 "and we will attempt to activate those custom content types for you "
 "automatically."
 msgstr ""
 
-#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:352
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:380
 msgid ""
 "If the operation is successful, this message will disappear and you should "
 "see 2 new items in your WordPress dashboard menu: \"Portfolio\" and "
 "\"Testimonials\"."
 msgstr ""
 
-#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:355
+#: includes/plugins/one-click-demo-import/class-one-click-demo-import.php:383
 msgid "Reload this page &raquo;"
 msgstr ""
 
@@ -984,18 +984,18 @@ msgstr ""
 msgid "Press CTRL key for multiple selection."
 msgstr ""
 
-#: library/includes/classes/class-customize-styles.php:213
+#: library/includes/classes/class-customize-styles.php:211
 msgid ""
 "ERROR: Wasn't able to create a theme CSS folder! Contact the theme support."
 msgstr ""
 
-#: library/includes/classes/class-customize-styles.php:752
+#: library/includes/classes/class-customize-styles.php:754
 msgid ""
 "The theme writes a files to your server. You do not appear to have your FTP "
 "credentials set up in \"wp-config.php\" file."
 msgstr ""
 
-#: library/includes/classes/class-customize-styles.php:752
+#: library/includes/classes/class-customize-styles.php:754
 msgid "Please set your FTP credentials first."
 msgstr ""
 

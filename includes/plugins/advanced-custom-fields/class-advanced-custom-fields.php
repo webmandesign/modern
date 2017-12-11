@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.0.1
  *
  * Contents:
  *
@@ -210,7 +210,7 @@ class Modern_Advanced_Custom_Fields {
 		 * Post formats metabox
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.0.1
 		 */
 		public static function post_format() {
 
@@ -223,7 +223,7 @@ class Modern_Advanced_Custom_Fields {
 
 				register_field_group( (array) apply_filters( 'wmhook_modern_acf_register_field_group', array(
 					'id'     => 'modern_page_format_options',
-					'title'  => esc_html__( 'Child pages list options', 'modern' ),
+					'title'  => esc_html__( 'Quote post format', 'modern' ),
 					'fields' => array(
 
 						// Quote source
