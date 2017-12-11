@@ -50,10 +50,14 @@ class Modern_Jetpack_Custom_Post_Types {
 
 				// Setup
 
-					add_post_type_support( 'jetpack-portfolio', 'excerpt' );
+					add_theme_support( 'jetpack-portfolio' );
 
-					add_post_type_support( 'jetpack-portfolio',   'custom-fields' );
-					add_post_type_support( 'jetpack-testimonial', 'custom-fields' );
+						add_post_type_support( 'jetpack-portfolio', 'excerpt' );
+						add_post_type_support( 'jetpack-portfolio', 'custom-fields' );
+
+					add_theme_support( 'jetpack-testimonial' );
+
+						add_post_type_support( 'jetpack-testimonial', 'custom-fields' );
 
 				// Hooks
 

@@ -211,7 +211,35 @@ class Modern_One_Click_Demo_Import {
 						}
 					}
 
+				// NS Featured Posts
+
+					self::ns_featured_posts();
+
 		} // /before
+
+
+
+		/**
+		 * NS Featured Posts plugin options
+		 *
+		 * @since    2.0.0
+		 * @version  2.0.0
+		 */
+		public static function ns_featured_posts() {
+
+			// Helper variables
+
+				$plugin_options = get_option( 'nsfp_plugin_options' );
+
+
+			// Processing
+
+				$plugin_options['nsfp_posttypes']['post'] = 1;
+				$plugin_options['nsfp_posttypes']['jetpack-portfolio'] = 1;
+
+				update_option( 'nsfp_plugin_options', $plugin_options );
+
+		} // /ns_featured_posts
 
 
 

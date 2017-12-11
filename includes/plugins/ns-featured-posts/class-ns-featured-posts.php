@@ -43,7 +43,7 @@ class Modern_NS_Featured_Posts {
 
 				if ( isset( $plugin_options['nsfp_posttypes'] ) ) {
 					foreach ( (array) $plugin_options['nsfp_posttypes'] as $post_type => $enabled ) {
-						if ( post_type_exists( $post_type ) ) {
+						if ( $enabled && post_type_exists( $post_type ) ) {
 							self::$supported_post_types[] = $post_type;
 						}
 					}

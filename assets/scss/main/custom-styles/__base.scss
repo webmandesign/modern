@@ -68,6 +68,11 @@
 		.color-#{$color} {
 			background-color: map_get( $colors, '#{$color}_background' ); //*
 			color: map_get( $colors, '#{$color}_text' ); //*
+
+			a:not(.button) {
+				color: inherit;
+			}
+
 		}
 
 	}

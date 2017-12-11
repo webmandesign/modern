@@ -47,11 +47,19 @@ button, input, select, textarea { background-color: transparent; }
 
 .color-error { background-color: rgba(238, 0, 0, 0.85); color: #fff; }
 
+.color-error a:not(.button) { color: inherit; }
+
 .color-info { background-color: rgba(0, 85, 238, 0.85); color: #fff; }
+
+.color-info a:not(.button) { color: inherit; }
 
 .color-success { background-color: rgba(0, 119, 34, 0.85); color: #fff; }
 
+.color-success a:not(.button) { color: inherit; }
+
 .color-warning { background-color: rgba(255, 221, 0, 0.85); color: #310; }
+
+.color-warning a:not(.button) { color: inherit; }
 
 /* FILE: main/custom-styles/__typography.scss */
 /**if(typography_custom_fonts)
