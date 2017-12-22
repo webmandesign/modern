@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.0.2
  *
  * Contents:
  *
@@ -301,7 +301,7 @@ class Modern_Intro {
 		 * Header image URL
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.0.2
 		 *
 		 * @param  string $url  Image URL or other custom header value.
 		 */
@@ -309,7 +309,12 @@ class Modern_Intro {
 
 			// Requirements check
 
-				if ( ! is_singular() && ! is_home() ) {
+				$is_dedicated_blog_page = is_home() && ! is_front_page();
+
+				if (
+					! is_singular()
+					&& ! $is_dedicated_blog_page
+				) {
 					return $url;
 				}
 
@@ -317,7 +322,7 @@ class Modern_Intro {
 			// Helper variables
 
 				$image_size = 'modern-intro';
-				$post_id    = ( is_home() && ! is_front_page() ) ? ( get_option( 'page_for_posts' ) ) : ( null );
+				$post_id    = ( $is_dedicated_blog_page ) ? ( get_option( 'page_for_posts' ) ) : ( null );
 
 				if ( empty( $post_id ) ) {
 					$post_id = get_the_ID();

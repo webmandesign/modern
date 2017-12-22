@@ -1,5 +1,28 @@
 # Modern Changelog
 
+## 2.0.2
+
+* **Add**: RSS and Xing social icons
+* **Update**: Demo content files
+* **Update**: Improving One Click Demo Import plugin compatibility, preventing PHP errors
+* **Fix**: Reintroducing post formats support for Jetpack Portfolio projects
+* **Fix**: Gaps between social links on mobile devices
+* **Fix**: Intro image display on blog front page
+
+### Files changed:
+
+	changelog.md
+	style.css
+	assets/images/svg/symbol-rss.svg
+	assets/images/svg/symbol-xing.svg
+	assets/scss/main.scss
+	includes/custom-header/class-intro.php
+	includes/custom-header/class-menu.php
+	includes/plugins/jetpack/class-jetpack-custom-post-types.php
+	includes/plugins/one-click-demo-import/class-one-click-demo-import.php
+	includes/plugins/one-click-demo-import/demo-content-modern.xml
+
+
 ## 2.0.1
 
 * **Fix**: Quote post format metabox title

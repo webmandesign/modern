@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.0.2
  *
  * Contents:
  *
@@ -35,7 +35,7 @@ class Modern_Jetpack_Custom_Post_Types {
 		 * Constructor
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.0.2
 		 */
 		private function __construct() {
 
@@ -52,12 +52,17 @@ class Modern_Jetpack_Custom_Post_Types {
 
 					add_theme_support( 'jetpack-portfolio' );
 
-						add_post_type_support( 'jetpack-portfolio', 'excerpt' );
-						add_post_type_support( 'jetpack-portfolio', 'custom-fields' );
+						add_post_type_support( 'jetpack-portfolio', array(
+							'custom-fields',
+							'excerpt',
+							'post-formats',
+						) );
 
 					add_theme_support( 'jetpack-testimonial' );
 
-						add_post_type_support( 'jetpack-testimonial', 'custom-fields' );
+						add_post_type_support( 'jetpack-testimonial', array(
+							'custom-fields',
+						) );
 
 				// Hooks
 

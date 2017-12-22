@@ -1622,9 +1622,7 @@ body:not(.home) .intro-media img { width: calc( 100% + 20px); max-width: none; m
 
 .text-right .social-links li { margin-right: 0.19em; margin-left: 0; }
 
-.social-links a { display: block; margin: 1px; text-decoration: none; color: inherit; }
-
-@media only screen and (min-width: 28em) { .social-links a { padding-left: 0.19em; padding-right: 0.19em; } }
+.social-links a { display: block; padding-left: 0.19em; padding-right: 0.19em; margin: 1px; text-decoration: none; color: inherit; }
 
 .social-links a:hover { text-decoration: none; }
 

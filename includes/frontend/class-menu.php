@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.0.2
  *
  * Contents:
  *
@@ -389,7 +389,7 @@ class Modern_Menu {
 			 * Social links supported icons
 			 *
 			 * @since    2.0.0
-			 * @version  2.0.0
+			 * @version  2.0.2
 			 */
 			public static function social_links_icons() {
 
@@ -416,6 +416,7 @@ class Modern_Menu {
 						'pinterest.com'     => 'pinterest',
 						'getpocket.com'     => 'get-pocket',
 						'reddit.com'        => 'reddit',
+						'/feed'             => 'rss',
 						'skype.com'         => 'skype',
 						'skype:'            => 'skype',
 						'slack.com'         => 'slack',
@@ -435,6 +436,7 @@ class Modern_Menu {
 						'vk.com'            => 'vk',
 						'wordpress.org'     => 'wordpress',
 						'wordpress.com'     => 'wordpress',
+						'xing.com'          => 'xing',
 						'yelp.com'          => 'yelp',
 						'youtube.com'       => 'youtube',
 					);

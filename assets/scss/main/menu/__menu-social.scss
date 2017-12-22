@@ -41,14 +41,11 @@
 
 	a {
 		display: block;
+		padding-left: $golden_minor / 2 +em;
+		padding-right: $golden_minor / 2 +em;
 		margin: 1px; // For focus outline to be visible in whole.
 		text-decoration: none;
 		color: inherit;
-
-		@include media( map_get( $breakpoint, 's' ) ) {
-			padding-left: $golden_minor / 2 +em;
-			padding-right: $golden_minor / 2 +em;
-		}
 
 		&:hover {
 			text-decoration: none;

@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.0.2
  *
  * Contents:
  *
@@ -271,7 +271,7 @@ class Modern_One_Click_Demo_Import {
 		 * Setup front and blog page
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.0.2
 		 */
 		public static function front_and_blog_page() {
 
@@ -281,15 +281,15 @@ class Modern_One_Click_Demo_Import {
 
 				// Front page
 
-					$page = get_page_by_path( 'home' );
-
-					update_option( 'page_on_front', $page->ID );
+					if ( $page = get_page_by_path( 'home' ) ) {
+						update_option( 'page_on_front', $page->ID );
+					}
 
 				// Blog page
 
-					$page = get_page_by_path( 'blog' );
-
-					update_option( 'page_for_posts', $page->ID );
+					if ( $page = get_page_by_path( 'blog' ) ) {
+						update_option( 'page_for_posts', $page->ID );
+					}
 
 		} // /front_and_blog_page
 
