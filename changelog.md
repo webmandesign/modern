@@ -1,5 +1,20 @@
 # Modern Changelog
 
+## 2.0.3
+
+* **Update**: Improving blog page summary display
+* **Fix**: Intro section color styles
+* **Fix**: Minor RTL styles issue with skip links
+
+### Files changed:
+
+	changelog.md
+	index.php
+	style.css
+	assets/scss/custom-styles.scss
+	assets/scss/main.scss
+
+
 ## 2.0.2
 
 * **Add**: RSS and Xing social icons

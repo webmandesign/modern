@@ -1102,7 +1102,7 @@ code::before, pre::before, .wp-playlist::before, .pagination a:hover::before, .p
 
 .site .background-size-stretch > div { background-size: inherit; }
 
-.skip-link-list { position: absolute; left: 0; top: 0; padding: 0; margin: 0; list-style: none; }
+.skip-link-list { position: absolute; right: 0; top: 0; padding: 0; margin: 0; list-style: none; }
 
 .skip-link-list-item { list-style: inherit; white-space: nowrap; }
 
