@@ -475,6 +475,8 @@ input[disabled] { cursor: default; opacity: .66; }
 
 .comment-form label { display: block; }
 
+.comment-form [type="checkbox"] + label, .comment-form [type="radio"] + label { display: inline-block; }
+
 .comment-form-author input, .comment-form-email input, .comment-form-url input, .comment-form-comment textarea { width: 100%; }
 
 .comment-form-url { clear: both; }
@@ -1920,6 +1922,8 @@ a .entry-date { cursor: pointer; }
 .comments-area .reply { margin-top: 1em; }
 
 .comments-title { margin-bottom: 1.62rem; }
+
+@media only screen and (min-width: 42em) { .comment-list .children { margin-left: -3.38em; } }
 
 .comment-meta a { text-decoration: none; }
 

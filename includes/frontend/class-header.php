@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.1.0
  *
  * Contents:
  *
@@ -338,7 +338,7 @@ class Modern_Header {
 		 * HTML Body classes
 		 *
 		 * @since    1.0.0
-		 * @version  2.0.0
+		 * @version  2.1.0
 		 *
 		 * @param  array $classes
 		 */
@@ -389,6 +389,12 @@ class Modern_Header {
 						$classes[] = 'is-singular';
 
 						$post_id = get_the_ID();
+
+						// Privacy Policy page
+
+							if ( (int) get_option( 'wp_page_for_privacy_policy' ) === $post_id ) {
+								$classes[] = 'page-privacy-policy';
+							}
 
 						// Has featured image?
 

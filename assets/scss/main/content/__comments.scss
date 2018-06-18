@@ -55,6 +55,22 @@
 
 
 
+// List
+
+	.comment-list {
+
+		.children {
+
+			@include media( map_get( $breakpoint, 'm' ) ) {
+				margin-#{$left}: $golden - 5em; // {{RTL}}
+			}
+
+		}
+
+	}
+
+
+
 // Avatar and meta info
 
 	.comment-meta {

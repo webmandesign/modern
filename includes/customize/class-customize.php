@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.1.0
  *
  * Contents:
  *
@@ -258,7 +258,7 @@ class Modern_Customize {
 		 * Set theme options array
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.1.0
 		 *
 		 * @param  array $options
 		 */
@@ -501,14 +501,15 @@ class Modern_Customize {
 								),
 
 									100 . 'colors' . 25 . 110 => array(
-										'type'       => 'color',
-										'id'         => 'color_intro_background',
-										'label'      => esc_html__( 'Background color', 'modern' ),
-										'default'    => '#1a1c1e',
-										'preview_js' => array(
+										'type'        => 'color',
+										'id'          => 'color_intro_background',
+										'label'       => esc_html__( 'Background color', 'modern' ),
+										'description' => esc_html__( 'This also controls the intro image overlay color.', 'modern' ),
+										'default'     => '#1a1c1e',
+										'preview_js'  => array(
 											'css' => array(
 
-												'.site-header-content, .intro-container' => array(
+												'.intro-media' => array(
 													'background-color'
 												),
 
@@ -524,7 +525,7 @@ class Modern_Customize {
 										'preview_js'  => array(
 											'css' => array(
 
-												'.site-header-content, .intro-container' => array(
+												'.site-header-content, .intro-container, .intro-media' => array(
 													'color',
 												),
 

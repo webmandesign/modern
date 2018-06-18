@@ -1,5 +1,24 @@
 # Modern Changelog
 
+## 2.1.0
+
+* **Add**: Adding intro background color option description
+* **Update**: WordPress 4.9.6 compatibility (GDPR)
+* **Update**: Improving nested comments indentation
+* **Update**: Localization
+* **Fix**: Intro background color display in customizer
+
+### Files changed:
+
+	changelog.md
+	style.css
+	assets/scss/main.scss
+	includes/customize/class-customize.php
+	includes/frontend/class-header.php
+	languages/modern.pot
+	template-parts/footer/site-info.php
+
+
 ## 2.0.3
 
 * **Update**: Improving blog page summary display
