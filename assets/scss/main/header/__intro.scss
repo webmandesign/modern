@@ -89,6 +89,7 @@
 					}
 
 					body:not(.home) & img {
+						width: auto;
 						transform: scaleX( -1 )
 						           translateX( 50% );
 					}

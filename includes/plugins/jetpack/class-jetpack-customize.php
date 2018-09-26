@@ -30,8 +30,6 @@ class Modern_Jetpack_Customize {
 		/**
 		 * Constructor
 		 *
-		 * @uses  `wmhook_modern_inline_styles_handle` global hook
-		 *
 		 * @since    2.0.0
 		 * @version  2.0.0
 		 */

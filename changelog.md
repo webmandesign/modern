@@ -1,5 +1,52 @@
 # Modern Changelog
 
+## 2.2.0
+
+* **Add**: Masonry posts layout option
+* **Update**: Library 2.7.0
+* **Update**: CSS Starter 4.0.2
+* **Update**: Removing archive title options in favor of plugin
+* **Update**: Improving NS Featured Posts plugin compatibility
+* **Update**: Improving post meta display
+* **Update**: Improving stylesheets loading
+* **Update**: Localization
+* **Fix**: All Envato Theme Check plugin test requirements
+* **Fix**: Jetpack Author Bio display
+* **Fix**: Intro image width on mobile devices
+* **Fix**: "Back to top" button accessibility
+
+### Files changed:
+
+	changelog.md
+	style.css
+	assets/js/scripts-global.js
+	assets/js/scripts-masonry.js
+	assets/js/scripts-slick.js
+	assets/scss/editor-style.scss
+	assets/scss/main.scss
+	assets/scss/starter/*.*
+	includes/customize/class-customize-styles.php
+	includes/customize/class-customize.php
+	includes/frontend/class-assets.php
+	includes/frontend/class-header.php
+	includes/frontend/class-loop.php
+	includes/frontend/class-menu.php
+	includes/frontend/class-post.php
+	includes/plugins/jetpack/class-jetpack-content-options.php
+	includes/plugins/jetpack/class-jetpack-custom-post-types.php
+	includes/plugins/jetpack/class-jetpack-setup.php
+	includes/plugins/ns-featured-posts/class-ns-featured-posts.php
+	includes/welcome/welcome.php
+	languages/modern.pot
+	library/*.*
+	template-parts/footer/site-info.php
+	template-parts/intro/intro-content.php
+	template-parts/loop/loop-front-blog.php
+	template-parts/loop/loop-front-portfolio.php
+	template-parts/loop/loop-front-testimonials.php
+	template-parts/menu/menu-primary.php
+
+
 ## 2.1.0
 
 * **Add**: Adding intro background color option description

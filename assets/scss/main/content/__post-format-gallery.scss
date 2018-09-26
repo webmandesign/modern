@@ -10,10 +10,13 @@
 
 .format-gallery {
 
-	.entry-media-gallery-image {
+	.entry-media-gallery-images:not(.slick-slider) {
+		display: flex;
+		flex-wrap: wrap;
 
-		&:not(.slick-slide):not(:first-child) {
-			display: none;
+		.entry-media-gallery-image {
+			flex: 1;
+			min-width: 50%;
 		}
 
 	}

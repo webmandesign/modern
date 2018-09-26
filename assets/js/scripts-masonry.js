@@ -1,18 +1,18 @@
 /**
  * Masonry layouts
  *
+ * @requires  jQuery
+ *
  * @package    Modern
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.2.0
  */
 
-
-
-
-
 ( function( $ ) {
+
+	'use strict';
 
 	if ( $().masonry ) {
 
@@ -130,6 +130,57 @@
 										.masonry( 'reload' );
 
 							}, 100 );
+
+					} );
+
+		}
+
+
+
+		/**
+		 * Masonry posts
+		 */
+		if ( $( document.body ).hasClass( 'has-posts-layout-masonry' ) ) {
+
+			var
+				$postsList = $( '.posts' );
+
+			$postsList
+				.imagesLoaded( function() {
+
+					// Processing
+
+						$postsList
+							.masonry( {
+								itemSelector    : '.entry',
+								percentPosition : true,
+								isOriginLeft    : ( 'rtl' !== $( 'html' ).attr( 'dir' ) )
+							} );
+
+				} );
+
+
+
+			/**
+			 * Jetpack Infinite Scroll posts loading
+			 *
+			 * @subpackage  Jetpack
+			 */
+
+				$( document.body )
+					.on( 'post-load', function() {
+
+						// Processing
+
+							$postsList
+								.imagesLoaded( function() {
+
+									// Processing
+
+										$postsList
+											.masonry( 'reload' );
+
+								} );
 
 					} );
 

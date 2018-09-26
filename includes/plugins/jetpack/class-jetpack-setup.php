@@ -8,13 +8,12 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.2.0
  *
  * Contents:
  *
  *  0) Init
- * 10) Assets
- * 20) Sharing
+ * 10) Sharing
  */
 class Modern_Jetpack_Setup {
 
@@ -34,7 +33,7 @@ class Modern_Jetpack_Setup {
 		 * Constructor
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.0
 		 */
 		private function __construct() {
 
@@ -65,10 +64,6 @@ class Modern_Jetpack_Setup {
 						) ) );
 
 				// Hooks
-
-					// Actions
-
-						add_action( 'wp_enqueue_scripts', __CLASS__ . '::assets', 100 );
 
 					// Filters
 
@@ -110,33 +105,7 @@ class Modern_Jetpack_Setup {
 
 
 	/**
-	 * 10) Assets
-	 */
-
-		/**
-		 * Assets
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function assets() {
-
-			// Processing
-
-				// Styles
-
-					// Deregister Genericons as we've got them in the theme
-
-						wp_deregister_style( 'genericons' );
-
-		} // /assets
-
-
-
-
-
-	/**
-	 * 20) Sharing
+	 * 10) Sharing
 	 */
 
 		/**

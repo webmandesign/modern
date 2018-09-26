@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.1.0
+ * @version  2.2.0
  *
  * Contents:
  *
@@ -106,7 +106,7 @@ class Modern_Customize {
 		 * Modify native WordPress options and setup partial refresh
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.0
 		 *
 		 * @param  object $wp_customize  WP customizer object.
 		 */
@@ -147,12 +147,6 @@ class Modern_Customize {
 						) );
 
 					// Option pointers only
-
-						// Archive page title prefix
-
-							$wp_customize->selective_refresh->add_partial( 'archive_title_prefix', array(
-								'selector' => '.archive .page-title',
-							) );
 
 						// Posts columns
 
@@ -258,7 +252,7 @@ class Modern_Customize {
 		 * Set theme options array
 		 *
 		 * @since    2.0.0
-		 * @version  2.1.0
+		 * @version  2.2.0
 		 *
 		 * @param  array $options
 		 */
@@ -721,6 +715,18 @@ class Modern_Customize {
 						),
 
 							300 . 'layout' . 100 => array(
+								'type'        => 'radio',
+								'id'          => 'layout_posts',
+								'label'       => esc_html__( 'Posts list style', 'modern' ),
+								'description' => esc_html__( 'Sets how posts, portfolio projects and testimonials are listed.', 'modern' ),
+								'default'     => 'equal-height',
+								'choices'     => array(
+									'equal-height' => esc_html__( 'Equal row height list', 'modern' ),
+									'masonry'      => esc_html__( 'Masonry list', 'modern' ),
+								),
+							),
+
+							300 . 'layout' . 110 => array(
 								'type'        => 'range',
 								'id'          => 'layout_posts_columns',
 								'label'       => esc_html__( 'Posts list columns', 'modern' ),
@@ -1010,21 +1016,6 @@ class Modern_Customize {
 								'default'     => true,
 							),
 
-							950 . 'others' . 120 => array(
-								'type'    => 'multicheckbox',
-								'id'      => 'archive_title_prefix',
-								'label'   => esc_html__( 'Archive page title prefix', 'modern' ),
-								'default' => array( 'category', 'tag', 'author' ),
-								'choices' => array(
-									'category'  => esc_html__( 'Display "Category:" prefix', 'modern' ),
-									'tag'       => esc_html__( 'Display "Tag:" prefix', 'modern' ),
-									'author'    => esc_html__( 'Display "Author:" prefix', 'modern' ),
-									'post-type' => esc_html__( 'Display "Archives:" prefix', 'modern' ),
-									'taxonomy'  => esc_html__( 'Display "Taxonomy:" prefix', 'modern' ),
-								),
-								// No need for `preview_js` as we really need to refresh the page to apply changes.
-							),
-
 
 
 					);
@@ -1168,13 +1159,13 @@ class Modern_Customize {
 		 * Render the site info in the footer for the selective refresh partial
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.0
 		 */
 		public static function partial_texts_site_info() {
 
 			// Helper variables
 
-				$site_info_text = trim( get_theme_mod( 'texts_site_info' ) );
+				$site_info_text = trim( Modern_Library_Customize::get_theme_mod( 'texts_site_info' ) );
 
 
 			// Output

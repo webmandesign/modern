@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.2.0
  *
  * Contents:
  *
@@ -213,11 +213,10 @@ class Modern_Customize_Styles {
 		/**
 		 * Enqueue HTML head inline styles
 		 *
-		 * @uses  `wmhook_modern_inline_styles_handle` global hook
 		 * @uses  `wmhook_modern_esc_css` global hook
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.0
 		 */
 		public static function inline_styles() {
 
@@ -245,7 +244,7 @@ class Modern_Customize_Styles {
 				if ( ! empty( $output ) ) {
 
 					wp_add_inline_style(
-						(string) apply_filters( 'wmhook_modern_inline_styles_handle', 'modern-stylesheet-global' ),
+						'modern',
 						(string) apply_filters( 'wmhook_modern_esc_css', $output )
 					);
 
@@ -330,7 +329,7 @@ class Modern_Customize_Styles {
 		 * and processing in oppose to custom CSS variables.
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.0
 		 *
 		 * @param  string $scope
 		 */
@@ -341,8 +340,8 @@ class Modern_Customize_Styles {
 				$output = array();
 
 				$helper = apply_filters( 'wmhook_modern_customize_styles_get_custom_styles_array_helper', array(
-					'layout_width_content' => get_theme_mod( 'layout_width_content', 1200 ),
-					'typography_size_html' => get_theme_mod( 'typography_size_html', 16 ),
+					'layout_width_content' => 1200,
+					'typography_size_html' => 16,
 				), $scope );
 
 

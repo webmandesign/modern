@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.2.0
  *
  * Contents:
  *
@@ -24,7 +24,7 @@
 
 	if (
 		! is_admin()
-		|| ! get_theme_mod( 'admin_welcome_page', true )
+		|| ! Modern_Library_Customize::get_theme_mod( 'admin_welcome_page' )
 	) {
 		return;
 	}

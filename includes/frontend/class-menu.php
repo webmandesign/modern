@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.2
+ * @version  2.2.0
  *
  * Contents:
  *
@@ -206,13 +206,13 @@ class Modern_Menu {
 			 * Primary navigation fallback
 			 *
 			 * @since    2.0.0
-			 * @version  2.0.0
+			 * @version  2.2.0
 			 */
 			public static function primary_fallback() {
 
 				// Helper variables
 
-					$output = wp_page_menu( array( 'echo' => false ) + (array) self::primary_menu_args( get_theme_mod( 'navigation_mobile', true ), 'fallback' ) );
+					$output = wp_page_menu( array( 'echo' => false ) + (array) self::primary_menu_args( Modern_Library_Customize::get_theme_mod( 'navigation_mobile' ), 'fallback' ) );
 
 
 				// Output

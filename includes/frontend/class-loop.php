@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.2.0
  *
  * Contents:
  *
@@ -34,7 +34,7 @@ class Modern_Loop {
 		 * Constructor
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.0
 		 */
 		private function __construct() {
 
@@ -51,8 +51,6 @@ class Modern_Loop {
 						// add_action( 'pre_get_posts', __CLASS__ . '::ignore_sticky_posts' );
 
 					// Filters
-
-						add_filter( 'get_the_archive_title', __CLASS__ . '::archive_title' );
 
 						add_filter( 'get_the_archive_description', __CLASS__ . '::archive_author_description' );
 
@@ -267,60 +265,6 @@ class Modern_Loop {
 	/**
 	 * 30) Archives
 	 */
-
-		/**
-		 * Archive page title
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 *
-		 * @param  string $title
-		 */
-		public static function archive_title( $title = '' ) {
-
-			// Helper variables
-
-				$use_prefix = get_theme_mod( 'archive_title_prefix', array( 'category', 'tag', 'author' ) );
-				$use_prefix = ( ! is_array( $use_prefix ) ) ? ( explode( ',', $use_prefix ) ) : ( $use_prefix );
-
-				$remove_prefix = array_diff( array(
-					'author',
-					'category',
-					'post-type',
-					'tag',
-					'taxonomy',
-				), (array) $use_prefix );
-
-
-			// Requirements check
-
-				if ( empty( $remove_prefix ) ) {
-					return $title;
-				}
-
-
-			// Processing
-
-				if ( in_array( 'category', $remove_prefix ) && is_category() ) {
-					$title = single_cat_title( '', false );
-				} elseif ( in_array( 'tag', $remove_prefix ) && is_tag() ) {
-					$title = single_tag_title( '', false );
-				} elseif ( in_array( 'author', $remove_prefix ) && is_author() ) {
-					$title = '<span class="vcard">' . get_the_author() . '</span>';
-				} elseif ( in_array( 'post-type', $remove_prefix ) && is_post_type_archive() ) {
-					$title = post_type_archive_title( '', false );
-				} elseif ( in_array( 'taxonomy', $remove_prefix ) && is_tax() ) {
-					$title = single_term_title( '', false );
-				}
-
-
-			// Output
-
-				return $title;
-
-		} // /archive_title
-
-
 
 		/**
 		 * Author archive description

@@ -165,6 +165,11 @@
 
 				}
 
+				&-link {
+					display: block;
+					margin-top: 1em;
+				}
+
 			}
 
 		}
@@ -235,6 +240,42 @@
 
 					}
 
+				}
+
+			}
+
+		}
+
+
+
+	// Post meta
+
+		.entry-meta {
+
+			&-top {
+
+				.date-hidden.comment-hidden.categories-hidden:not(.group-blog) & {
+					@extend %screen_reader_hiding;
+				}
+
+				.date-hidden.comment-hidden.categories-hidden.author-hidden.group-blog & {
+					@extend %screen_reader_hiding;
+				}
+
+			}
+
+			&-bottom {
+
+				.single.tags-hidden .site-main & {
+					@extend %screen_reader_hiding;
+				}
+
+				.date-hidden.comment-hidden:not(.group-blog) .posts & {
+					@extend %screen_reader_hiding;
+				}
+
+				.date-hidden.comment-hidden.author-hidden.group-blog .posts & {
+					@extend %screen_reader_hiding;
 				}
 
 			}

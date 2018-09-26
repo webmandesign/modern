@@ -6,22 +6,13 @@
  * setup related options and can not be edited via customizer.
  * This way we prevent creating additional options in the database.
  *
- * @copyright  WebMan Design, Oliver Juhas
- * @license    GPL-3.0, http://www.gnu.org/licenses/gpl-3.0.html
- *
  * @link  https://github.com/webmandesign/webman-theme-framework
  * @link  http://www.webmandesign.eu
  *
- * @package     WebMan WordPress Theme Framework
- * @subpackage  Core
- *
- * @version  2.6.0
- *
- * Used global hooks:
- *
- * @uses  wmhook_modern_theme_options
- * @uses  wmhook_modern_esc_css
- * @uses  wmhook_modern_custom_styles
+ * @package    WebMan WordPress Theme Framework
+ * @copyright  WebMan Design, Oliver Juhas
+ * @license    GPL-3.0, http://www.gnu.org/licenses/gpl-3.0.html
+ * @version    2.7.0
  *
  * Used development prefixes:
  *
@@ -106,7 +97,7 @@
 			// Plugins suggestions
 
 				if (
-					apply_filters( 'wmhook_modern_plugins_suggestion_enabled', true )
+					(bool) apply_filters( 'wmhook_modern_plugins_suggestion_enabled', true )
 					&& locate_template( 'includes/tgmpa/plugins.php' )
 				) {
 					require MODERN_LIBRARY . 'includes/vendor/tgmpa/class-tgm-plugin-activation.php';
@@ -115,7 +106,7 @@
 
 			// Child theme generator
 
-				if ( apply_filters( 'wmhook_modern_child_theme_generator_enabled', false ) ) {
+				if ( (bool) apply_filters( 'wmhook_modern_child_theme_generator_enabled', false ) ) {
 					require MODERN_LIBRARY . 'includes/vendor/use-child-theme/class-use-child-theme.php';
 				}
 

@@ -4,11 +4,13 @@
  *
  * Customizer select field (with optgroups).
  *
- * @package     WebMan WordPress Theme Framework
  * @subpackage  Customize
  *
+ * @package    WebMan WordPress Theme Framework
+ * @copyright  WebMan Design, Oliver Juhas
+ *
  * @since    1.0.0
- * @version  2.1.0
+ * @version  2.7.0
  */
 class Modern_Customize_Control_Select extends WP_Customize_Control {
 
@@ -28,7 +30,7 @@ class Modern_Customize_Control_Select extends WP_Customize_Control {
 					<span class="customize-control-title"><?php echo $this->label; ?></span>
 					<?php if ( $this->description ) : ?><span class="description customize-control-description"><?php echo $this->description; ?></span><?php endif; ?>
 
-					<select name="<?php echo $this->id; ?>" <?php $this->link(); ?>>
+					<select name="<?php echo esc_attr( $this->id ); ?>" <?php $this->link(); ?>>
 						<?php
 
 						foreach ( $this->choices as $value => $name ) {
@@ -41,7 +43,7 @@ class Modern_Customize_Control_Select extends WP_Customize_Control {
 								echo '<option value="' . esc_attr( $value ) . '" ' . selected( $this->value(), $value, false ) . '>' . esc_html( $name ) . '</option>';
 							}
 
-						} // /foreach
+						}
 
 						?>
 					</select>

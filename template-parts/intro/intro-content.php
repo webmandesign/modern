@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.2.0
  */
 
 
@@ -38,7 +38,7 @@
 		// Customizer option text...
 		$title = trim(
 			// This is already sanitized in database.
-			get_theme_mod( 'texts_intro', esc_html__( 'Welcome to our site!', 'modern' ) )
+			Modern_Library_Customize::get_theme_mod( 'texts_intro' )
 		);
 
 		// ...or site tagline

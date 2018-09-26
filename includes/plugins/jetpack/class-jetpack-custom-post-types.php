@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.2
+ * @version  2.2.0
  *
  * Contents:
  *
@@ -190,18 +190,18 @@ class Modern_Jetpack_Custom_Post_Types {
 				 * fine with customizer options.
 				 *
 				 * @since    2.0.0
-				 * @version  2.0.0
+				 * @version  2.2.0
 				 */
 				public static function template_front_display_portfolio() {
 
 					// Helper variables
 
-						$location = explode( '|', (string) get_theme_mod( 'layout_location_front_portfolio', 'tha_content_before|10' ) );
+						$location = explode( '|', (string) Modern_Library_Customize::get_theme_mod( 'layout_location_front_portfolio' ) );
 						if ( ! isset( $location[1] ) ) {
 							$location[1] = 10;
 						}
 
-						if ( 1 > intval( get_theme_mod( 'layout_posts_per_page_front_portfolio', 6 ) ) ) {
+						if ( 1 > intval( Modern_Library_Customize::get_theme_mod( 'layout_posts_per_page_front_portfolio' ) ) ) {
 							$location[0] = false;
 						}
 
@@ -325,18 +325,18 @@ class Modern_Jetpack_Custom_Post_Types {
 				 * fine with customizer options.
 				 *
 				 * @since    2.0.0
-				 * @version  2.0.0
+				 * @version  2.2.0
 				 */
 				public static function template_front_display_testimonials() {
 
 					// Helper variables
 
-						$location = explode( '|', (string) get_theme_mod( 'layout_location_front_testimonials', 'tha_content_after|10' ) );
+						$location = explode( '|', (string) Modern_Library_Customize::get_theme_mod( 'layout_location_front_testimonials' ) );
 						if ( ! isset( $location[1] ) ) {
 							$location[1] = 10;
 						}
 
-						if ( 1 > intval( get_theme_mod( 'layout_posts_per_page_front_testimonials', 3 ) ) ) {
+						if ( 1 > intval( Modern_Library_Customize::get_theme_mod( 'layout_posts_per_page_front_testimonials' ) ) ) {
 							$location[0] = false;
 						}
 

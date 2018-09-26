@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.2.0
  *
  * Contents:
  *
@@ -33,10 +33,8 @@ class Modern_Jetpack_Content_Options {
 		/**
 		 * Constructor
 		 *
-		 * @uses  `wmhook_modern_inline_styles_handle` global hook
-		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.0
 		 */
 		private function __construct() {
 
@@ -54,7 +52,7 @@ class Modern_Jetpack_Content_Options {
 					$content_options = array(
 						'author-bio'   => true,
 						'post-details' => array(
-							'stylesheet' => (string) apply_filters( 'wmhook_modern_inline_styles_handle', 'modern-stylesheet-global' ),
+							'stylesheet' => 'modern',
 							'categories' => '.cat-links',
 							'comment'    => '.comments-link',
 							'date'       => '.posted-on',
@@ -152,7 +150,7 @@ class Modern_Jetpack_Content_Options {
 		 * Get author bio HTML
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.0
 		 *
 		 * @param  boolean $remove_default_paragraph
 		 */
@@ -177,7 +175,10 @@ class Modern_Jetpack_Content_Options {
 							'<p class="author-bio">',
 							'</p><!-- .author-bio -->',
 						),
-						'',
+						array(
+							'<div class="author-bio">',
+							'</div><!-- .author-bio -->',
+						),
 						$output
 					);
 				}

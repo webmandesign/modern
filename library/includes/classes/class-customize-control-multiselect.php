@@ -4,11 +4,13 @@
  *
  * Customizer multi select field.
  *
- * @package     WebMan WordPress Theme Framework
  * @subpackage  Customize
  *
+ * @package    WebMan WordPress Theme Framework
+ * @copyright  WebMan Design, Oliver Juhas
+ *
  * @since    1.0.0
- * @version  2.6.0
+ * @version  2.7.0
  */
 class Modern_Customize_Control_Multiselect extends WP_Customize_Control {
 
@@ -21,12 +23,12 @@ class Modern_Customize_Control_Multiselect extends WP_Customize_Control {
 				if ( 'multicheckbox' === $this->type ) {
 
 					wp_enqueue_script(
-							'modern-customize-control-multicheckbox',
-							get_theme_file_uri( MODERN_LIBRARY_DIR . 'js/customize-control-multicheckbox.js' ),
-							array( 'customize-controls' ),
-							esc_attr( MODERN_THEME_VERSION ),
-							true
-						);
+						'modern-customize-control-multicheckbox',
+						get_theme_file_uri( MODERN_LIBRARY_DIR . 'js/customize-control-multicheckbox.js' ),
+						array( 'customize-controls' ),
+						MODERN_THEME_VERSION,
+						true
+					);
 
 				}
 
@@ -106,7 +108,7 @@ class Modern_Customize_Control_Multiselect extends WP_Customize_Control {
 				<span class="customize-control-title"><?php echo $this->label; ?></span>
 				<?php if ( $this->description ) : ?><span class="description customize-control-description"><?php echo $this->description; ?></span><?php endif; ?>
 
-				<select name="<?php echo $this->id; ?>" multiple="multiple" <?php $this->link(); ?>>
+				<select name="<?php echo esc_attr( $this->id ); ?>" multiple="multiple" <?php $this->link(); ?>>
 					<?php foreach ( $this->choices as $value => $label ) : ?>
 						<option value="<?php echo esc_attr( $value ); ?>"<?php selected( in_array( $value, $value_array ) ); ?>><?php echo esc_html( $label ); ?></option>
 					<?php endforeach; ?>

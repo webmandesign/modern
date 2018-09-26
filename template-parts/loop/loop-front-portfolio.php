@@ -9,7 +9,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.2.0
  */
 
 
@@ -34,7 +34,7 @@
 
 	$query = new WP_Query( (array) apply_filters( 'wmhook_modern_loop_query', array(
 		'post_type'           => $post_type,
-		'posts_per_page'      => absint( get_theme_mod( 'layout_posts_per_page_front_portfolio', 6 ) ),
+		'posts_per_page'      => absint( Modern_Library_Customize::get_theme_mod( 'layout_posts_per_page_front_portfolio' ) ),
 		'paged'               => 1,
 		'no_found_rows'       => true,
 		'ignore_sticky_posts' => true,

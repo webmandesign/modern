@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.1.0
+ * @version  2.2.0
  *
  * Contents:
  *
@@ -154,14 +154,14 @@ class Modern_Header {
 		 * @see  https://wordpress.org/plugins/chrome-theme-color-changer
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.0
 		 */
 		public static function head_chrome_color() {
 
 			// Output
 
 				if ( ! class_exists( 'Chrome_Theme_Color_Changer' ) ) {
-					echo '<meta name="theme-color" content="' . esc_attr( get_theme_mod( 'color_header_background', '#0a0c0e' ) ) . '">';
+					echo '<meta name="theme-color" content="' . esc_attr( Modern_Library_Customize::get_theme_mod( 'color_header_background' ) ) . '">';
 				}
 
 		} // /head_chrome_color
@@ -338,7 +338,7 @@ class Modern_Header {
 		 * HTML Body classes
 		 *
 		 * @since    1.0.0
-		 * @version  2.1.0
+		 * @version  2.2.0
 		 *
 		 * @param  array $classes
 		 */
@@ -373,7 +373,7 @@ class Modern_Header {
 
 				// Is mobile navigation enabled?
 
-					if ( get_theme_mod( 'navigation_mobile', true ) ) {
+					if ( Modern_Library_Customize::get_theme_mod( 'navigation_mobile' ) ) {
 						$classes[] = 'has-navigation-mobile';
 					}
 
@@ -454,7 +454,9 @@ class Modern_Header {
 
 				// Posts layout
 
-					$classes[] = 'posts-layout-columns-' . absint( get_theme_mod( 'layout_posts_columns', 3 ) );
+					$classes[] = 'posts-layout-columns-' . absint( Modern_Library_Customize::get_theme_mod( 'layout_posts_columns' ) );
+
+					$classes[] = sanitize_title( 'has-posts-layout-' . Modern_Library_Customize::get_theme_mod( 'layout_posts' ) );
 
 				// Enable intro slideshow?
 

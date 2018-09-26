@@ -4,11 +4,13 @@
  *
  * @link  https://github.com/WPTRT/code-examples/blob/master/customizer/sanitization-callbacks.php
  *
- * @package     WebMan WordPress Theme Framework
  * @subpackage  Core
  *
+ * @package    WebMan WordPress Theme Framework
+ * @copyright  WebMan Design, Oliver Juhas
+ *
  * @since    2.5.0
- * @version  2.5.6
+ * @version  2.7.0
  *
  * Contents:
  *
@@ -90,7 +92,7 @@ final class Modern_Library_Sanitize {
 		 * Returns an array of values.
 		 *
 		 * @since    2.5.0
-		 * @version  2.5.4
+		 * @version  2.6.1
 		 *
 		 * @param  mixed $value
 		 * @param  array $choices
@@ -132,7 +134,7 @@ final class Modern_Library_Sanitize {
 
 					$value[ $key ] = esc_attr( $single_value );
 
-				} // /foreach
+				}
 
 
 			// Output

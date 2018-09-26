@@ -246,7 +246,7 @@ th, td { padding: 0.62em 1em; border-width: 1px; border-style: solid; vertical-a
 th, tfoot td { text-align: right; border-width: 2px; }
 
 /* FILE: starter/base/__classes.scss */
-.screen-reader-text, .comments-title .add-comment-link, .comments-link .comments-title, .hide-widget-title-accessibly .widget-title, .hide-widget-title-accessibly .widgettitle, .site-title-hidden .site-branding-text, .main-navigation-container .hide > a, .main-navigation-container .hide-link > a, .menu-toggle-skip-link-container, .posts .format-link .entry-header, .posts .format-quote .entry-header, .posts .type-jetpack-testimonial .entry-header, .posts .format-status .entry-header, .tags-links .entry-meta-description { position: absolute !important; width: 1px; height: 1px; line-height: 1px; word-wrap: normal !important; -webkit-clip-path: inset(50%); clip-path: inset(50%); clip: rect(1px, 1px, 1px, 1px); overflow: hidden; }
+.screen-reader-text, .comments-title .add-comment-link, .comments-link .comments-title, .hide-widget-title-accessibly .widget-title, .hide-widget-title-accessibly .widgettitle, .site-title-hidden .site-branding-text, .main-navigation-container .hide > a, .main-navigation-container .hide-link > a, .menu-toggle-skip-link-container, .posts .format-link .entry-header, .posts .format-quote .entry-header, .posts .type-jetpack-testimonial .entry-header, .posts .format-status .entry-header, .tags-links .entry-meta-description, .date-hidden.comment-hidden.categories-hidden:not(.group-blog) .entry-meta-top, .date-hidden.comment-hidden.categories-hidden.author-hidden.group-blog .entry-meta-top, .single.tags-hidden .site-main .entry-meta-bottom, .date-hidden.comment-hidden:not(.group-blog) .posts .entry-meta-bottom, .date-hidden.comment-hidden.author-hidden.group-blog .posts .entry-meta-bottom { position: absolute !important; width: 1px; height: 1px; line-height: 1px; word-wrap: normal !important; -webkit-clip-path: inset(50%); clip-path: inset(50%); clip: rect(1px, 1px, 1px, 1px); overflow: hidden; }
 
 .main-navigation-container .hide > a:focus, .main-navigation-container .hide-link > a:focus { position: static !important; height: auto; width: auto; line-height: inherit; word-wrap: break-word !important; -webkit-clip-path: none; clip-path: none; clip: auto; overflow: visible; }
 
@@ -327,7 +327,7 @@ blockquote cite, code, pre, small, .small, .font-size-s, .wp-caption-text, #canc
 
 .weight-300, blockquote, .search-results .page-title, .author .intro-title span, .post-table-of-contents .is-passed a, .posts .format-image .entry-content, .posts .format-link .entry-content, .front-page-section-title, .comments-title span { font-weight: 300; }
 
-blockquote cite, .weight-400, #cancel-comment-reply-link, .comments-title .add-comment-link, .button:disabled, button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, input[type="submit"]:disabled, .main-navigation-container .button > a:disabled, .entry-title small, .page-title small, .post-table-of-contents .is-current a, .entry-author .author-title { font-weight: 400; }
+blockquote cite, .weight-400, #cancel-comment-reply-link, .comments-title .add-comment-link, .button:disabled, button:disabled, input:disabled[type="button"], input:disabled[type="reset"], input:disabled[type="submit"], .main-navigation-container .button > a:disabled, .entry-title small, .page-title small, .post-table-of-contents .is-current a, .entry-author .author-title { font-weight: 400; }
 
 .weight-500 { font-weight: 500; }
 
@@ -476,8 +476,6 @@ input[disabled] { cursor: default; opacity: .66; }
 .comment-form p { margin-bottom: 1em; }
 
 .comment-form label { display: block; }
-
-.comment-form [type="checkbox"] + label, .comment-form [type="radio"] + label { display: inline-block; }
 
 .comment-form-author input, .comment-form-email input, .comment-form-url input, .comment-form-comment textarea { width: 100%; }
 
@@ -653,7 +651,7 @@ form[role="search"] input[type="search"], form[role="search"] .search-field, .fo
 
 .widget_recent_entries .post-date { display: block; }
 
-.widget .tagcloud a { float: right; position: relative; display: inline-block; width: auto; padding: 0.19rem 0.62rem; margin: 2px 2px 0; margin-right: 0; white-space: nowrap; background-color: transparent; color: inherit; border-width: 1px; border-style: solid; z-index: 0; -webkit-transition: background .3s, color .3s, border .3s; -o-transition: background .3s, color .3s, border .3s; transition: background .3s, color .3s, border .3s; }
+.widget .tagcloud a { float: right; position: relative; display: inline-block; width: auto; padding: 0.19rem 0.62rem; margin: 2px 2px 0; margin-right: 0; white-space: nowrap; background-color: transparent; color: inherit; border-width: 1px; border-style: solid; z-index: 0; -webkit-transition: background .3s, color .3s, border .3s; -o-transition: background .3s, color .3s, border .3s; transition: background .3s, color .3s, border .3s; }
 
 .widget .tagcloud a:hover, .widget .tagcloud a:active, .widget .tagcloud a:focus { text-decoration: none; }
 
@@ -733,16 +731,6 @@ div.sharedaddy .sd-social .sd-button .share-count { background: inherit; color: 
 .entry-content .sd-content ul { margin: 0 !important; }
 
 .tiled-gallery-item { overflow: hidden; }
-
-.video-player, .videopress-placeholder, .videopress-placeholder img { width: 100% !important; height: auto !important; }
-
-.is-singular .video-player object, .is-singular .videopress-placeholder { position: absolute; width: 100%; height: 100%; left: 0; right: 0; top: 0; }
-
-.video-player object { width: 100%; }
-
-.is-singular .video-player { position: relative; height: 0 !important; padding: 0 0 56.25%; /* 16:9 ratio only */ }
-
-.videopress-placeholder .play-button + div { display: none; }
 
 .jetpack_subscription_widget form { margin-bottom: 0; }
 
@@ -1253,9 +1241,9 @@ form .button, form button, form input[type="button"], form input[type="reset"], 
 
 div[class*="hover-color-"] .button, div[class*="hover-color-"] button, div[class*="hover-color-"] input[type="button"], div[class*="hover-color-"] input[type="reset"], div[class*="hover-color-"] input[type="submit"], div[class*="hover-color-"] .main-navigation-container .button > a, .main-navigation-container div[class*="hover-color-"] .button > a { -webkit-transition: none; -o-transition: none; transition: none; }
 
-.button:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .main-navigation-container .button > a:hover, .button:active, button:active, input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active, .main-navigation-container .button > a:active, .button:focus, button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, .main-navigation-container .button > a:focus { text-decoration: none; border-color: currentColor; }
+.button:hover, button:hover, input:hover[type="button"], input:hover[type="reset"], input:hover[type="submit"], .main-navigation-container .button > a:hover, .button:active, button:active, input:active[type="button"], input:active[type="reset"], input:active[type="submit"], .main-navigation-container .button > a:active, .button:focus, button:focus, input:focus[type="button"], input:focus[type="reset"], input:focus[type="submit"], .main-navigation-container .button > a:focus { text-decoration: none; border-color: currentColor; }
 
-.button:disabled, button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, input[type="submit"]:disabled, .main-navigation-container .button > a:disabled { -webkit-box-shadow: none; box-shadow: none; opacity: .5; cursor: not-allowed; }
+.button:disabled, button:disabled, input:disabled[type="button"], input:disabled[type="reset"], input:disabled[type="submit"], .main-navigation-container .button > a:disabled { -webkit-box-shadow: none; box-shadow: none; opacity: .5; cursor: not-allowed; }
 
 /* FILE: main/forms/__search.scss */
 .site form[role="search"]::before, .site .search-form::before { content: '\f400'; position: absolute; width: 1.62em; height: 100%; left: 0; top: 0; line-height: 1.62; text-align: center; font-size: 1.62em; z-index: 1; }
@@ -1451,7 +1439,7 @@ body:not(.home) .intro-media img { width: calc( 100% + 20px); max-width: none; m
 
 @media only screen and (max-width: 54.9375em) { .intro-media, .intro-media .slick-slide { overflow: hidden; }
   .site .intro-media img { position: relative; width: auto; height: 110%; height: 110vh; max-width: none; max-height: none; left: 50%; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); }
-  body:not(.home) .intro-media img { -webkit-transform: scaleX(-1) translateX(50%); -ms-transform: scaleX(-1) translateX(50%); transform: scaleX(-1) translateX(50%); } }
+  body:not(.home) .intro-media img { width: auto; -webkit-transform: scaleX(-1) translateX(50%); -ms-transform: scaleX(-1) translateX(50%); transform: scaleX(-1) translateX(50%); } }
 
 .intro-title { padding: 8% 0; margin: 0; line-height: 1.19; font-weight: 700; border-top: 2px solid; font-size: 2.281rem; }
 
@@ -1805,14 +1793,16 @@ blockquote.alignleft::before { float: left; margin-left: 0; margin-right: .09em;
 .posts .entry-summary:not(.has-more-tag) { font-size: 1em; line-height: inherit; }
 
 /* FILE: main/content/__post-format-gallery.scss */
-.format-gallery .entry-media-gallery-image:not(.slick-slide):not(:first-child) { display: none; }
+.format-gallery .entry-media-gallery-images:not(.slick-slider) { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+
+.format-gallery .entry-media-gallery-images:not(.slick-slider) .entry-media-gallery-image { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; min-width: 50%; }
 
 /* FILE: main/content/__post-format-image.scss */
 .format-image .entry-media { position: relative; }
 
 .format-image .entry-media::before { content: '\f102'; position: absolute; width: 2em; height: 2em; right: -0.38em; top: -0.38em; line-height: 2em; text-align: center; }
 
-.format-image .entry-header { margin-bottom: 0.62em; }
+.posts .format-image .entry-header { margin-bottom: 0.62em; }
 
 @media only screen and (min-width: 42em) { .posts .format-image .entry-content { font-size: 1.19em; } }
 
@@ -2146,6 +2136,8 @@ div.sharedaddy { margin: 2.6244rem auto 0; }
 .entry-author .author-name { display: block; margin-top: 0.19em; text-transform: none; }
 
 @media only screen and (min-width: 42em) { .entry-author .author-bio { clear: both; } }
+
+.entry-author .author-link { display: block; margin-top: 1em; }
 
 .jetpack-featured-images-archive-disabled .posts .post-thumbnail { display: none; }
 

@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.2.0
  *
  * Contents:
  *
@@ -33,7 +33,7 @@ class Modern_NS_Featured_Posts {
 		 * Constructor
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.0
 		 */
 		private function __construct() {
 
@@ -56,7 +56,7 @@ class Modern_NS_Featured_Posts {
 
 					// Filters
 
-						add_filter( 'wmhook_modern_intro_get_slides', __CLASS__ . '::get_posts', 100 ); // After Jetpack featured content to override it.
+						add_filter( 'wmhook_modern_intro_get_slides', __CLASS__ . '::get_posts', 20 ); // After Jetpack featured content to override it.
 
 						add_filter( 'post_class', __CLASS__ . '::post_class', 100 );
 

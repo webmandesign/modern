@@ -5,14 +5,12 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.2.0
  */
 
-
-
-
-
 ( function( $ ) {
+
+	'use strict';
 
 	if ( $().slick ) {
 
@@ -34,6 +32,7 @@
 		/**
 		 * Gallery post format slideshow
 		 */
+		if ( ! $( document.body ).hasClass( 'has-posts-layout-masonry' ) ) {
 
 			var
 				$slickContainerPostFormatGallery = '.format-gallery .entry-media-gallery-images',
@@ -81,6 +80,8 @@
 							.slick( $slickArgsPostFormatGallery );
 
 				} );
+
+		}
 
 
 

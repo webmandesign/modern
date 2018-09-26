@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.2.0
  *
  * Contents:
  *
@@ -446,11 +446,10 @@ class Modern_Post {
 			/**
 			 * Post navigation styles
 			 *
-			 * @uses  `wmhook_modern_inline_styles_handle` global hook
 			 * @uses  `wmhook_modern_esc_css` global hook
 			 *
 			 * @since    1.0.0
-			 * @version  2.0.0
+			 * @version  2.2.0
 			 */
 			public static function navigation_styles() {
 
@@ -500,7 +499,7 @@ class Modern_Post {
 					if ( ! empty( $output ) ) {
 
 						wp_add_inline_style(
-							(string) apply_filters( 'wmhook_modern_inline_styles_handle', 'modern-stylesheet-global' ),
+							'modern',
 							(string) apply_filters( 'wmhook_modern_esc_css', $output, 'Modern_Post::navigation_styles' )
 						);
 
@@ -551,18 +550,18 @@ class Modern_Post {
 				 * fine with customizer options.
 				 *
 				 * @since    2.0.0
-				 * @version  2.0.0
+				 * @version  2.2.0
 				 */
 				public static function template_front_display_blog() {
 
 					// Helper variables
 
-						$location = explode( '|', (string) get_theme_mod( 'layout_location_front_blog', 'tha_content_before|20' ) );
+						$location = explode( '|', (string) Modern_Library_Customize::get_theme_mod( 'layout_location_front_blog' ) );
 						if ( ! isset( $location[1] ) ) {
 							$location[1] = 10;
 						}
 
-						if ( 1 > intval( get_theme_mod( 'layout_posts_per_page_front_blog', 6 ) ) ) {
+						if ( 1 > intval( Modern_Library_Customize::get_theme_mod( 'layout_posts_per_page_front_blog' ) ) ) {
 							$location[0] = false;
 						}
 
