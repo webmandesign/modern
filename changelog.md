@@ -1,5 +1,16 @@
 # Modern Changelog
 
+## 2.2.1
+
+* **Fix**: Blog page excerpt display
+
+### Files changed:
+
+	changelog.md
+	index.php
+	style.css
+
+
 ## 2.2.0
 
 * **Add**: Masonry posts layout option

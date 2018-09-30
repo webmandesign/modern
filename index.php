@@ -14,7 +14,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  2.0.3
+ * @version  2.2.1
  */
 
 
@@ -32,11 +32,17 @@ get_header();
 
 			<header class="page-header">
 				<h1 class="page-title"><?php single_post_title(); ?></h1>
-				<?php if ( ! Modern_Post::is_paged() ) : ?>
-				<div class="archive-description">
-					<?php echo get_the_excerpt( absint( get_option( 'page_for_posts' ) ) ); ?>
-				</div>
-				<?php endif; ?>
+				<?php
+				$page_for_posts = absint( get_option( 'page_for_posts' ) );
+
+				if ( ! Modern_Post::is_paged() && has_excerpt( $page_for_posts ) ) :
+					?>
+					<div class="archive-description">
+						<?php echo get_the_excerpt( $page_for_posts ); ?>
+					</div>
+					<?php
+				endif;
+				?>
 			</header>
 
 			<?php
