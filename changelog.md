@@ -1,5 +1,16 @@
 # Modern Changelog
 
+## 2.2.2
+
+* **Fix**: Theme options sanitization
+
+### Files changed:
+
+	changelog.md
+	style.css
+	includes/customize/class-customize.php
+
+
 ## 2.2.1
 
 * **Fix**: Blog page excerpt display
