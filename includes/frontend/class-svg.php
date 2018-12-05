@@ -6,13 +6,14 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.2.3
  *
  * Contents:
  *
- *  0) Init
- * 10) Include SVG images
- * 20) Return SVG markup
+ *   0) Init
+ *  10) Include SVG images
+ *  20) Return SVG markup
+ * 100) Helpers
  */
 class Modern_SVG {
 
@@ -32,7 +33,7 @@ class Modern_SVG {
 		 * Constructor
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.3
 		 */
 		private function __construct() {
 
@@ -43,12 +44,6 @@ class Modern_SVG {
 					// Actions
 
 						add_action( 'wp_footer', __CLASS__ . '::include_files', 9999 );
-
-						// Social menu SVG symbols cache flush
-
-							add_action( 'wp_update_nav_menu',   __CLASS__ . '::social_icons_symbols_cache_flush' );
-							add_action( 'customize_save_after', __CLASS__ . '::social_icons_symbols_cache_flush' );
-							add_action( 'wmhook_modern_library_theme_upgrade', __CLASS__ . '::social_icons_symbols_cache_flush' );
 
 		} // /__construct
 
@@ -84,10 +79,10 @@ class Modern_SVG {
 	 */
 
 		/**
-		 * Add SVG definitions to the footer
+		 * Add SVG images to the footer.
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.3
 		 */
 		public static function include_files() {
 
@@ -95,105 +90,14 @@ class Modern_SVG {
 
 				// Social icons SVG sprite
 
-					if ( has_nav_menu( 'social' ) && $social_icons = self::get_social_icons_symbols() ) {
-						echo '<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs>' . $social_icons . '</defs></svg>';
+					if ( has_nav_menu( 'social' ) ) {
+						$svg_icons = get_theme_file_path( 'assets/images/svg/social-icons.svg' );
+						if ( file_exists( $svg_icons ) ) {
+							require_once $svg_icons;
+						}
 					}
 
 		} // /include_files
-
-
-
-		/**
-		 * Get markup for social icons we need only
-		 *
-		 * @uses  `wmhook_modern_social_links_icons` global hook
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function get_social_icons_symbols() {
-
-			// Helper variables
-
-				$is_customize_preview = is_customize_preview();
-
-				$output = ( $is_customize_preview ) ? ( '' ) : ( (string) get_transient( 'modern_social_icons_symbols' ) );
-
-				// Output cache if it's set
-
-					if ( $output ) {
-						return $output;
-					}
-
-				$social_icons      = (array) apply_filters( 'wmhook_modern_social_links_icons', array() );
-				$menu_locations    = get_nav_menu_locations();
-				$social_menu_items = ( isset( $menu_locations['social'] ) ) ? ( wp_get_nav_menu_items( $menu_locations['social'] ) ) : ( array() );
-
-
-			// Requirements check
-
-				if ( empty( $social_icons ) || empty( $social_menu_items ) ) {
-					return;
-				}
-
-
-			// Processing
-
-				ob_start();
-
-				// Always load chain symbol as a fallback
-
-					locate_template( 'assets/images/svg/symbol-chain.svg', true );
-
-				// Then load only the icons we need (except in customizer preview load all)
-
-					if ( $is_customize_preview ) {
-
-						foreach ( $social_icons as $icon ) {
-							locate_template( 'assets/images/svg/symbol-' . sanitize_title( $icon ) . '.svg', true );
-						}
-
-					} else {
-
-						foreach ( $social_menu_items as $menu_item ) {
-							foreach ( $social_icons as $url => $icon ) {
-								if ( false !== strpos( $menu_item->url, $url ) ) {
-									locate_template( 'assets/images/svg/symbol-' . sanitize_title( $icon ) . '.svg', true );
-									break;
-								}
-							}
-						}
-
-					}
-
-				$output = ob_get_clean();
-
-				// Cache the markup
-
-					set_transient( 'modern_social_icons_symbols', $output );
-
-
-			// Output
-
-				return $output;
-
-		} // /get_social_icons_symbols
-
-
-
-		/**
-		 * Flush social icons symbols markup cache
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function social_icons_symbols_cache_flush() {
-
-			// Processing
-
-				delete_transient( 'modern_social_icons_symbols' );
-
-		} // /social_icons_symbols_cache_flush
 
 
 
@@ -207,7 +111,7 @@ class Modern_SVG {
 		 * Site navigation
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.3
 		 *
 		 * @param array $args {
 		 *     Parameters needed to display an SVG.
@@ -232,18 +136,18 @@ class Modern_SVG {
 				}
 
 
-			// Helper variables
+			// Variables
 
 				$output = array();
 
 				$args = wp_parse_args( $args, array(
-						'icon'     => '',
-						'title'    => '',
-						'desc'     => '',
-						'class'    => 'svgicon',
-						'base'     => 'icon',
-						'fallback' => false,
-					) );
+					'icon'     => '',
+					'title'    => '',
+					'desc'     => '',
+					'class'    => 'svgicon',
+					'base'     => 'icon',
+					'fallback' => false,
+				) );
 
 				$args = (array) apply_filters( 'wmhook_modern_svg_get_args', $args );
 
@@ -316,6 +220,31 @@ class Modern_SVG {
 				return implode( '', $output );
 
 		} // /get
+
+
+
+
+
+	/**
+	 * 100) Helpers
+	 */
+
+		/**
+		 * Get social links icons setup array.
+		 *
+		 * Array key = a part of link URL.
+		 * Array value = a part SVG symbol ID.
+		 *
+		 * @since    2.2.3
+		 * @version  2.2.3
+		 */
+		public static function get_social_icons() {
+
+			// Output
+
+				return (array) apply_filters( 'wmhook_modern_svg_get_social_icons', array() );
+
+		} // /get_social_icons
 
 
 

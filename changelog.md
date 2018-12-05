@@ -1,5 +1,34 @@
 # Modern Changelog
 
+## 2.2.3
+
+* **Add**: More social icons
+* **Update**: WordPress 5.0 ready
+* **Update**: Loading Genericons Neue as separate stylesheet
+* **Update**: Advanced Custom Fields plugin compatibility
+* **Fix**: Making social icons menu multilingual ready
+* **Fix**: Blog homepage intro text accepting empty value
+
+### Files changed:
+
+	changelog.md
+	functions.php
+	style.css
+	assets/fonts/genericons-neue/*.*
+	assets/images/svg/social-icons.svg
+	assets/js/scripts-slick.js
+	assets/scss/main.scss
+	includes/frontend/class-assets.php
+	includes/frontend/class-menu.php
+	includes/frontend/class-svg.php
+	includes/plugins/advanced-custom-fields/advanced-custom-fields.php
+	includes/plugins/advanced-custom-fields/class-advanced-custom-fields.php
+	includes/tgmpa/class-tgmpa-plugins.php
+	library/includes/classes/class-visual-editor.php
+	template-parts/intro/intro-content.php
+	template-parts/menu/menu-social.php
+
+
 ## 2.2.2
 
 * **Fix**: Theme options sanitization

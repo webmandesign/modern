@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.1
+ * @version  2.2.3
  *
  * Contents:
  *
@@ -33,13 +33,13 @@ class Modern_Advanced_Custom_Fields {
 		 * Constructor
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.3
 		 */
 		private function __construct() {
 
 			// Requirements check
 
-				if ( ! is_admin() ) {
+				if ( (bool) apply_filters( 'wmhook_modern_acf_disable', ! is_admin() ) ) {
 					return;
 				}
 
@@ -50,11 +50,11 @@ class Modern_Advanced_Custom_Fields {
 
 					// Actions
 
-						add_action( 'init', __CLASS__ . '::intro' );
+						$priority = 100; // Late enough for all post types to be registered.
 
-						add_action( 'init', __CLASS__ . '::post_format' );
-
-						add_action( 'init', __CLASS__ . '::any_page_builder' );
+						add_action( 'init', __CLASS__ . '::intro', $priority );
+						add_action( 'init', __CLASS__ . '::post_format', $priority );
+						add_action( 'init', __CLASS__ . '::any_page_builder', $priority );
 
 		} // /__construct
 
@@ -93,7 +93,7 @@ class Modern_Advanced_Custom_Fields {
 		 * Intro metabox
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.3
 		 */
 		public static function intro() {
 
@@ -104,7 +104,7 @@ class Modern_Advanced_Custom_Fields {
 
 			// Processing
 
-				register_field_group( (array) apply_filters( 'wmhook_modern_acf_register_field_group', array(
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_modern_acf_field_group', array(
 					'id'     => 'modern_intro_options',
 					'title'  => esc_html__( 'Intro options', 'modern' ),
 					'fields' => array(
@@ -188,12 +188,9 @@ class Modern_Advanced_Custom_Fields {
 							),
 
 					),
-					'options' => array(
-						'position'       => 'normal',
-						'layout'         => 'default',
-						'hide_on_screen' => array(),
-					),
 					'menu_order' => 20,
+					'position'   => ( function_exists( 'has_blocks' ) ) ? ( 'side' ) : ( 'normal' ),
+					'style'      => 'default',
 				), 'intro', $group_no ) );
 
 		} // /intro
@@ -210,7 +207,7 @@ class Modern_Advanced_Custom_Fields {
 		 * Post formats metabox
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.1
+		 * @version  2.2.3
 		 */
 		public static function post_format() {
 
@@ -221,7 +218,7 @@ class Modern_Advanced_Custom_Fields {
 
 			// Processing
 
-				register_field_group( (array) apply_filters( 'wmhook_modern_acf_register_field_group', array(
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_modern_acf_field_group', array(
 					'id'     => 'modern_page_format_options',
 					'title'  => esc_html__( 'Quote post format', 'modern' ),
 					'fields' => array(
@@ -254,12 +251,9 @@ class Modern_Advanced_Custom_Fields {
 							),
 
 					),
-					'options' => array(
-						'position'       => 'normal',
-						'layout'         => 'default',
-						'hide_on_screen' => array(),
-					),
 					'menu_order' => 20,
+					'position'   => ( function_exists( 'has_blocks' ) ) ? ( 'side' ) : ( 'normal' ),
+					'style'      => 'default',
 				), 'post_format', $group_no ) );
 
 		} // /post_format
@@ -276,7 +270,7 @@ class Modern_Advanced_Custom_Fields {
 		 * Post modifiers to support any page builder
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.3
 		 */
 		public static function any_page_builder() {
 
@@ -287,7 +281,7 @@ class Modern_Advanced_Custom_Fields {
 
 			// Processing
 
-				register_field_group( (array) apply_filters( 'wmhook_modern_acf_register_field_group', array(
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_modern_acf_field_group', array(
 					'id'     => 'modern_any_page_builder',
 					'title'  => esc_html__( 'Page builder layout', 'modern' ),
 					'fields' => array(
@@ -367,12 +361,9 @@ class Modern_Advanced_Custom_Fields {
 							),
 
 					),
-					'options' => array(
-						'position'       => 'side',
-						'layout'         => 'default',
-						'hide_on_screen' => array(),
-					),
 					'menu_order' => 20,
+					'position'   => 'side',
+					'style'      => 'default',
 				), 'any_page_builder', $group_no ) );
 
 		} // /any_page_builder

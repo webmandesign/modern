@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.2.0
+ * @version  2.2.3
  *
  * Contents:
  *
@@ -33,7 +33,7 @@ class Modern_Menu {
 		 * Constructor
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.3
 		 */
 		private function __construct() {
 
@@ -58,7 +58,7 @@ class Modern_Menu {
 
 					// Filters
 
-						add_filter( 'wmhook_modern_social_links_icons', __CLASS__ . '::social_links_icons' );
+						add_filter( 'wmhook_modern_svg_get_social_icons', __CLASS__ . '::social_links_icons' );
 
 						add_filter( 'walker_nav_menu_start_el', __CLASS__ . '::nav_menu_social_icons', 10, 4 );
 						add_filter( 'walker_nav_menu_start_el', __CLASS__ . '::nav_menu_item_description', 20, 4 );
@@ -66,7 +66,7 @@ class Modern_Menu {
 
 						add_filter( 'nav_menu_css_class', __CLASS__ . '::nav_menu_item_classes', 10, 4 );
 
-						add_filter( 'widget_nav_menu_args', __CLASS__ . '::social_widget', 10, 3 );
+						add_filter( 'widget_nav_menu_args', __CLASS__ . '::social_widget', 10, 2 );
 
 						add_filter( 'wp_nav_menu', __CLASS__ . '::primary_search', 20, 2 ); // See below for priority info
 
@@ -386,10 +386,37 @@ class Modern_Menu {
 
 
 			/**
+			 * Get menu args: Social.
+			 *
+			 * @since    2.2.3
+			 * @version  2.2.3
+			 *
+			 * @param  string $items_wrap
+			 */
+			public static function get_menu_args_social( $items_wrap = '<ul data-id="%1$s" class="%2$s">%3$s</ul>' ) {
+
+				// Output
+
+					return array(
+						'theme_location' => 'social',
+						'container'      => false,
+						'menu_class'     => 'social-links-items',
+						'depth'          => 1,
+						'link_before'    => '<span class="screen-reader-text">',
+						'link_after'     => '</span><!--{{icon}}-->',
+						'fallback_cb'    => false,
+						'items_wrap'     => (string) $items_wrap,
+					);
+
+			} // /get_menu_args_social
+
+
+
+			/**
 			 * Social links supported icons
 			 *
 			 * @since    2.0.0
-			 * @version  2.0.2
+			 * @version  2.2.3
 			 */
 			public static function social_links_icons() {
 
@@ -401,6 +428,7 @@ class Modern_Menu {
 						'codepen.io'        => 'codepen',
 						'deviantart.com'    => 'deviantart',
 						'digg.com'          => 'digg',
+						'docker.com'        => 'dockerhub',
 						'dribbble.com'      => 'dribbble',
 						'dropbox.com'       => 'dropbox',
 						'facebook.com'      => 'facebook',
@@ -413,6 +441,8 @@ class Modern_Menu {
 						'mailto:'           => 'envelope',
 						'medium.com'        => 'medium',
 						'paypal.com'        => 'paypal',
+						'pscp.tv'           => 'periscope',
+						'tel:'              => 'phone',
 						'pinterest.com'     => 'pinterest',
 						'getpocket.com'     => 'get-pocket',
 						'reddit.com'        => 'reddit',
@@ -446,12 +476,12 @@ class Modern_Menu {
 
 
 			/**
-			 * Display SVG icons in social links menu
+			 * Display SVG icons in social links menu.
 			 *
-			 * @uses  `wmhook_modern_social_links_icons` global hook
+			 * Note that the menu has to be set to output `<!--{{icon}}-->` placeholders!
 			 *
 			 * @since    2.0.0
-			 * @version  2.0.0
+			 * @version  2.2.3
 			 *
 			 * @param  string  $item_output The menu item output.
 			 * @param  WP_Post $item        Menu item object.
@@ -460,39 +490,36 @@ class Modern_Menu {
 			 */
 			public static function nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 
-				// Helper variables
+				// Requirements check
 
-					$locations = get_nav_menu_locations();
+					if ( false === strpos( $item_output, '<!--{{icon}}-->' ) ) {
+						return $item_output;
+					}
+
+
+				// Variables
+
+					$social_icons = Modern_SVG::get_social_icons();
+					$social_icon  = 'chain';
 
 
 				// Processing
 
-					if (
-						isset( $locations['social'] )
-						&& isset( $args->menu->term_id )
-						&& absint( $locations['social'] ) === absint( $args->menu->term_id )
-					) {
-
-						$social_icons = (array) apply_filters( 'wmhook_modern_social_links_icons', array() );
-						$social_icon  = 'chain';
-
-						foreach ( $social_icons as $url => $icon ) {
-							if ( false !== strpos( $item_output, $url ) ) {
-								$social_icon = $icon;
-								break;
-							}
+					foreach ( $social_icons as $url => $icon ) {
+						if ( false !== strpos( $item_output, $url ) ) {
+							$social_icon = $icon;
+							break;
 						}
-
-						$item_output = str_replace(
-							$args->link_after,
-							'</span>' . Modern_SVG::get( array(
-								'icon' => esc_attr( $social_icon ),
-								'base' => 'social-icon',
-							) ),
-							$item_output
-						);
-
 					}
+
+					$item_output = str_replace(
+						'<!--{{icon}}-->',
+						'<!--{{icon}}-->' . Modern_SVG::get( array(
+							'icon' => esc_attr( $social_icon ),
+							'base' => 'social-icon',
+						) ),
+						$item_output
+					);
 
 
 				// Output
@@ -504,29 +531,35 @@ class Modern_Menu {
 
 
 			/**
-			 * Display social links in Menu widget
+			 * Sets Social menu args for menu in widget.
+			 *
+			 * Checks whether the menu:
+			 * - is associated with `social` location,
+			 * - or has "[soc]" in menu title/name (useful for forcing the menu args on any menu in widget).
 			 *
 			 * @since    2.0.0
-			 * @version  2.0.0
+			 * @version  2.2.3
 			 *
 			 * @param  array  $nav_menu_args Array of parameters for `wp_nav_menu()` function.
 			 * @param  string $nav_menu      Menu slug assigned in the widget.
-			 * @param  array  $args          Widget parameters.
 			 */
-			public static function social_widget( $nav_menu_args, $nav_menu, $args ) {
+			public static function social_widget( $nav_menu_args, $nav_menu ) {
 
-				// Helper variables
+				// Variables
 
-					$nav_menu_obj = wp_get_nav_menu_object( $nav_menu );
-					$locations    = get_nav_menu_locations();
+					$locations = get_nav_menu_locations();
+
+					$locations['social'] = ( isset( $locations['social'] ) ) ? ( $locations['social'] ) : ( false );
 
 
 				// Requirements check
 
 					if (
-						! isset( $locations['social'] )
-						|| ! $locations['social']
-						|| absint( $locations['social'] ) !== absint( $nav_menu_obj->term_id )
+						! isset( $nav_menu->term_id )
+						|| (
+							false === stripos( $nav_menu->name, '[soc]' )
+							&& $locations['social'] !== $nav_menu->term_id
+						)
 					) {
 						return $nav_menu_args;
 					}
@@ -534,12 +567,14 @@ class Modern_Menu {
 
 				// Processing
 
+					$menu_args = self::get_menu_args_social();
+
 					$nav_menu_args['container_class'] = 'social-links';
 					$nav_menu_args['menu_class']      = 'social-links-items';
-					$nav_menu_args['depth']           = 1;
-					$nav_menu_args['link_before']     = '<span class="screen-reader-text">';
-					$nav_menu_args['link_after']      = '</span>';
-					$nav_menu_args['items_wrap']      = '<ul id="%1$s" class="%2$s">%3$s</ul>';
+					$nav_menu_args['depth']           = $menu_args['depth'];
+					$nav_menu_args['link_before']     = $menu_args['link_before'];
+					$nav_menu_args['link_after']      = $menu_args['link_after'];
+					$nav_menu_args['items_wrap']      = $menu_args['items_wrap'];
 
 
 				// Output
@@ -551,16 +586,39 @@ class Modern_Menu {
 
 
 			/**
+			 * Get cache key: Social menu.
+			 *
+			 * @since    2.2.3
+			 * @version  2.2.3
+			 */
+			public static function get_cache_key_social() {
+
+				// Output
+
+					return apply_filters(
+						'wmhook_modern_get_cache_key',
+						'modern_social_links',
+						'menu-social'
+					);
+
+			} // /get_cache_key_social
+
+
+
+			/**
 			 * Flush social menu cache
 			 *
 			 * @since    2.0.0
-			 * @version  2.0.0
+			 * @version  2.2.3
 			 */
 			public static function social_cache_flush() {
 
 				// Processing
 
-					delete_transient( 'modern_social_links' );
+					wp_cache_delete(
+						self::get_cache_key_social(),
+						'modern_' . get_bloginfo( 'language' )
+					);
 
 			} // /social_cache_flush
 

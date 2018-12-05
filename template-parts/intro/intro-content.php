@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.2.0
+ * @version  2.2.3
  */
 
 
@@ -40,11 +40,6 @@
 			// This is already sanitized in database.
 			Modern_Library_Customize::get_theme_mod( 'texts_intro' )
 		);
-
-		// ...or site tagline
-		if ( empty( $title ) ) {
-			$title = get_bloginfo( 'description', 'display' );
-		}
 
 	} elseif ( $custom_field_title = get_post_meta( $post_id, 'banner_text', true ) ) {
 	// Using old name "banner_text" for backwards compatibility.

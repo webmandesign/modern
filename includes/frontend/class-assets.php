@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.2.0
+ * @version  2.2.3
  *
  * Contents:
  *
@@ -109,13 +109,14 @@ class Modern_Assets {
 		 * Registering theme styles
 		 *
 		 * @since    1.0.0
-		 * @version  2.2.0
+		 * @version  2.2.3
 		 */
 		public static function register_styles() {
 
 			// Helper variables
 
 				$register_assets = array(
+					'genericons-neue'          => array( 'src' => get_theme_file_uri( 'assets/fonts/genericons-neue/genericons-neue.css' ) ),
 					'modern-google-fonts'      => array( 'src' => self::google_fonts_url() ),
 					'modern-stylesheet-global' => array( 'src' => get_theme_file_uri( 'assets/css/main.css' ) ),
 				);
@@ -193,7 +194,7 @@ class Modern_Assets {
 		 * Frontend styles enqueue
 		 *
 		 * @since    1.0.0
-		 * @version  2.2.0
+		 * @version  2.2.3
 		 */
 		public static function enqueue_styles() {
 
@@ -207,8 +208,12 @@ class Modern_Assets {
 				// Google Fonts
 
 					if ( self::google_fonts_url() ) {
-						$enqueue_assets[5] = 'modern-google-fonts';
+						$enqueue_assets[0] = 'modern-google-fonts';
 					}
+
+				// Genericons Neue
+
+					$enqueue_assets[5] = 'genericons-neue';
 
 				// Main
 
@@ -627,7 +632,7 @@ class Modern_Assets {
 		 * Editor stylesheets array
 		 *
 		 * @since    2.0.0
-		 * @version  2.2.0
+		 * @version  2.2.3
 		 */
 		public static function editor_stylesheets() {
 
@@ -645,7 +650,11 @@ class Modern_Assets {
 
 				// Google Fonts stylesheet
 
-					$visual_editor_stylesheets[5] = str_replace( ',', '%2C', self::google_fonts_url() );
+					$visual_editor_stylesheets[0] = str_replace( ',', '%2C', self::google_fonts_url() );
+
+				// Genericons Neue
+
+					$content_editor_stylesheets[5] = get_theme_file_uri( 'assets/fonts/genericons-neue/genericons-neue.css' );
 
 				// Editor stylesheet
 

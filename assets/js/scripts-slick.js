@@ -5,7 +5,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.2.0
+ * @version  2.2.3
  */
 
 ( function( $ ) {
@@ -23,8 +23,8 @@
 			var
 				$slickLocalize = ( 'undefined' !== typeof $modernSlickLocalize ) ? ( $modernSlickLocalize ) : ( { 'prev_text' : 'Previous', 'next_text' : 'Next' } ),
 				$htmlButton = {
-					'prev' : '<button type="button" class="slick-prev"><span class="genericon genericon-previous" aria-hidden="true"></span><span class="screen-reader-text">' + $slickLocalize['prev_text'] + '</span></button>',
-					'next' : '<button type="button" class="slick-next"><span class="genericon genericon-next" aria-hidden="true"></span><span class="screen-reader-text">' + $slickLocalize['next_text'] + '</span></button>'
+					'prev' : '<button type="button" class="slick-prev"><span class="screen-reader-text">' + $slickLocalize['prev_text'] + '</span></button>',
+					'next' : '<button type="button" class="slick-next"><span class="screen-reader-text">' + $slickLocalize['next_text'] + '</span></button>'
 				};
 
 

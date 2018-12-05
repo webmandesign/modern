@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.2.3
  *
  * Contents:
  *
@@ -93,7 +93,7 @@ class Modern_TGMPA_Plugins {
 		 * @link  https://github.com/thomasgriffin/TGM-Plugin-Activation/blob/master/example.php
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.2.3
 		 */
 		public static function recommend() {
 
@@ -116,7 +116,7 @@ class Modern_TGMPA_Plugins {
 								'description' => esc_html__( 'For easy post and page attributes setup.', 'modern' ),
 								'slug'        => 'advanced-custom-fields',
 								'required'    => false,
-								'is_callable' => 'register_field_group',
+								'is_callable' => 'acf_add_local_field_group',
 							),
 
 							'jetpack' => array(
