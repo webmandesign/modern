@@ -797,11 +797,12 @@ class Modern_Customize {
 									'<code>' . "'Fira Sans', sans-serif" . '</code>'
 								),
 								'default'           => "'Fira Sans', sans-serif",
+								'active_callback'   => __CLASS__ . '::is_typography_custom_fonts',
+								'sanitize_callback' => 'Modern_Library_Sanitize::fonts',
+								'css_var'           => 'Theme_Slug_Library_Sanitize::css_fonts',
 								'input_attrs'       => array(
 									'placeholder' => "'Fira Sans', sans-serif",
 								),
-								'active_callback'   => __CLASS__ . '::is_typography_custom_fonts',
-								'sanitize_callback' => 'Modern_Library_Sanitize::fonts',
 							),
 
 							900 . 'typography' . 230 => array(
@@ -813,11 +814,12 @@ class Modern_Customize {
 									'<code>' . "'Fira Sans', sans-serif" . '</code>'
 								),
 								'default'           => "'Fira Sans', sans-serif",
+								'active_callback'   => __CLASS__ . '::is_typography_custom_fonts',
+								'sanitize_callback' => 'Modern_Library_Sanitize::fonts',
+								'css_var'           => 'Theme_Slug_Library_Sanitize::css_fonts',
 								'input_attrs'       => array(
 									'placeholder' => "'Fira Sans', sans-serif",
 								),
-								'active_callback'   => __CLASS__ . '::is_typography_custom_fonts',
-								'sanitize_callback' => 'Modern_Library_Sanitize::fonts',
 							),
 
 							900 . 'typography' . 240 => array(
@@ -829,11 +831,12 @@ class Modern_Customize {
 									'<code>' . "'Fira Sans', sans-serif" . '</code>'
 								),
 								'default'           => "'Fira Sans', sans-serif",
+								'active_callback'   => __CLASS__ . '::is_typography_custom_fonts',
+								'sanitize_callback' => 'Modern_Library_Sanitize::fonts',
+								'css_var'           => 'Theme_Slug_Library_Sanitize::css_fonts',
 								'input_attrs'       => array(
 									'placeholder' => "'Fira Sans', sans-serif",
 								),
-								'active_callback'   => __CLASS__ . '::is_typography_custom_fonts',
-								'sanitize_callback' => 'Modern_Library_Sanitize::fonts',
 							),
 
 							900 . 'typography' . 290 => array(
