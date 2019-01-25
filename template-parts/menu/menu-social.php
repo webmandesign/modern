@@ -75,7 +75,7 @@
 			);
 		}
 
-		echo $social_menu_html;
+		echo $social_menu_html; // WPCS: XSS OK.
 
 	}
 

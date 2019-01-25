@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.2.0
+ * @version  2.3.0
  *
  * Contents:
  *
@@ -93,7 +93,7 @@ class Modern_Loop {
 		 * Pagination
 		 *
 		 * @since    1.0.0
-		 * @version  2.0.0
+		 * @version  2.3.0
 		 */
 		public static function pagination() {
 
@@ -134,7 +134,7 @@ class Modern_Loop {
 
 			// Output
 
-				echo $output;
+				echo $output; // WPCS: XSS OK.
 
 		} // /pagination
 

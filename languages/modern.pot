@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Modern\n"
-"Report-Msgid-Bugs-To: https://www.webmandesign.eu/reference/#links-support\n"
+"Report-Msgid-Bugs-To: https://support.webmandesign.eu\n"
 "POT-Creation-Date: 2018-09-26 18:07+0200\n"
 "PO-Revision-Date: 2015-04-15 10:00+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"

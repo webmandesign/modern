@@ -5,7 +5,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  2.0.0
+ * @version  2.3.0
  *
  * Contents:
  *
@@ -21,6 +21,8 @@
  * 10) WordPress options
  */
 ( function( $ ) {
+
+	'use strict';
 
 
 
@@ -142,6 +144,8 @@
  * 100) Helpers
  */
 ( function( window ) {
+
+	'use strict';
 
 	window.modern = window.modern || {};
 

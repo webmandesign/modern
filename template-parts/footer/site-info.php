@@ -62,7 +62,7 @@
 			<?php else :
 
 				// No need to apply wp_kses_post() on output as it is already validated via Customizer.
-				echo $site_info_text;
+				echo $site_info_text; // WPCS: XSS OK.
 
 			endif; ?>
 		</div>

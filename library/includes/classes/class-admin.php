@@ -9,12 +9,12 @@
  *
  * @since    1.0.0
  * @version  2.7.0
+ * @version  2.3.0
  *
  * Contents:
  *
  *  0) Init
  * 10) Assets
- * 20) Messages
  */
 final class Modern_Library_Admin {
 

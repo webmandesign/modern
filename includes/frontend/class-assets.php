@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.2.3
+ * @version  2.3.0
  *
  * Contents:
  *
@@ -109,7 +109,7 @@ class Modern_Assets {
 		 * Registering theme styles
 		 *
 		 * @since    1.0.0
-		 * @version  2.2.3
+		 * @version  2.3.0
 		 */
 		public static function register_styles() {
 
@@ -118,6 +118,7 @@ class Modern_Assets {
 				$register_assets = array(
 					'genericons-neue'          => array( 'src' => get_theme_file_uri( 'assets/fonts/genericons-neue/genericons-neue.css' ) ),
 					'modern-google-fonts'      => array( 'src' => self::google_fonts_url() ),
+					'modern-stylesheet-custom' => array( 'src' => get_theme_file_uri( 'assets/css/custom-styles.css' ) ),
 					'modern-stylesheet-global' => array( 'src' => get_theme_file_uri( 'assets/css/main.css' ) ),
 				);
 
@@ -194,7 +195,7 @@ class Modern_Assets {
 		 * Frontend styles enqueue
 		 *
 		 * @since    1.0.0
-		 * @version  2.2.3
+		 * @version  2.3.0
 		 */
 		public static function enqueue_styles() {
 
@@ -206,26 +207,22 @@ class Modern_Assets {
 			// Processing
 
 				// Google Fonts
-
-					if ( self::google_fonts_url() ) {
-						$enqueue_assets[0] = 'modern-google-fonts';
-					}
+				if ( self::google_fonts_url() ) {
+					$enqueue_assets[0] = 'modern-google-fonts';
+				}
 
 				// Genericons Neue
-
-					$enqueue_assets[5] = 'genericons-neue';
+				$enqueue_assets[5] = 'genericons-neue';
 
 				// Main
+				$enqueue_assets[10] = 'modern-stylesheet-global';
+				wp_style_add_data( 'modern-stylesheet-global', 'rtl', 'replace' );
 
-					$enqueue_assets[10] = 'modern-stylesheet-global';
+				// Custom
+				$enqueue_assets[20] = 'modern-stylesheet-custom';
 
 				// Filter enqueue array
-
-					$enqueue_assets = (array) apply_filters( 'wmhook_modern_assets_enqueue_styles', $enqueue_assets );
-
-				// RTL setup
-
-					wp_style_add_data( 'modern-stylesheet-global', 'rtl', 'replace' );
+				$enqueue_assets = (array) apply_filters( 'wmhook_modern_assets_enqueue_styles', $enqueue_assets );
 
 				// Enqueue
 
@@ -556,7 +553,7 @@ class Modern_Assets {
 		 * https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400|Exo+2:400,700|Allan&subset=latin,latin-ext
 		 *
 		 * @since    1.0.0
-		 * @version  2.0.0
+		 * @version  2.3.0
 		 *
 		 * @param  array $fonts Fallback fonts.
 		 */
@@ -584,6 +581,8 @@ class Modern_Assets {
 					$fonts_setup = (array) $fonts;
 				}
 
+				$http = ( is_ssl() ) ? ( 'https' ) : ( 'http' );
+
 
 			// Requirements check
 
@@ -595,22 +594,21 @@ class Modern_Assets {
 			// Processing
 
 				foreach ( $fonts_setup as $section ) {
-
 					$font = trim( $section );
 
 					if ( $font ) {
 						$family[] = str_replace( ' ', '+', $font );
 					}
-
-				} // /foreach
+				}
 
 				if ( ! empty( $family ) ) {
-
-					$output = esc_url_raw( add_query_arg( array( // Use `esc_url_raw()` for HTTP requests.
+					$output = esc_url_raw( add_query_arg(
+						array(
 							'family' => implode( '|', (array) array_unique( $family ) ),
 							'subset' => implode( ',', (array) $subset ), // Subset can be array if multiselect Customizer input field used
-						), 'https://fonts.googleapis.com/css' ) );
-
+						),
+						$http . '://fonts.googleapis.com/css'
+					) );
 				}
 
 
@@ -632,13 +630,13 @@ class Modern_Assets {
 		 * Editor stylesheets array
 		 *
 		 * @since    2.0.0
-		 * @version  2.2.3
+		 * @version  2.3.0
 		 */
 		public static function editor_stylesheets() {
 
 			// Helper variables
 
-				$stylesheet_suffix = '-editor';
+				$stylesheet_suffix = '';
 				if ( is_rtl() ) {
 					$stylesheet_suffix .= '-rtl';
 				}
@@ -661,27 +659,15 @@ class Modern_Assets {
 					$visual_editor_stylesheets[10] = esc_url_raw( add_query_arg(
 						'ver',
 						MODERN_THEME_VERSION,
-						get_theme_file_uri( 'assets/css/main' . str_replace(
-							'-editor',
-							'',
-							$stylesheet_suffix
-						) . '.css' )
+						get_theme_file_uri( 'assets/css/main' . $stylesheet_suffix . '.css' )
 					) );
 
 					$visual_editor_stylesheets[15] = esc_url_raw( add_query_arg(
 						'ver',
 						MODERN_THEME_VERSION,
-						get_theme_file_uri( 'assets/css/editor-style' . str_replace(
-							'-editor',
-							'',
-							$stylesheet_suffix
-						) . '.css' )
+						get_theme_file_uri( 'assets/css/editor-style' . $stylesheet_suffix . '.css' )
 					) );
 
-					/**
-					 * In Modern_Customize_Styles::editor_stylesheet() this fallback custom styles stylesheet
-					 * will be overridden if the theme does not support `stylesheet-generator`.
-					 */
 					$visual_editor_stylesheets[20] = esc_url_raw( add_query_arg(
 						'ver',
 						MODERN_THEME_VERSION,

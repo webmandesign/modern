@@ -19,4 +19,4 @@ Otherwise follow these instructions:
 
 If you have obtained the theme from **[WordPress.org themes repository](https://wordpress.org/themes/author/webmandesign/)**, please translate the theme by clicking the [Translate Modern](https://translate.wordpress.org/projects/wp-themes/modern) link in [theme page](https://wordpress.org/themes/modern/) sidebar.
 
-Otherwise, if you would like to help out translating the theme, please contribute on our [Support Center](https://www.webmandesign.eu/reference/#links-support).
+Otherwise, if you would like to help out translating the theme, please contribute on our [Support Center](https://support.webmandesign.eu).

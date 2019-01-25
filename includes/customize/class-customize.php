@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.2.2
+ * @version  2.3.0
  *
  * Contents:
  *
@@ -28,8 +28,6 @@ class Modern_Customize {
 	 */
 
 		private static $instance;
-
-		public static $transient_upgrade = 'display_upgrade_notice';
 
 
 
@@ -1242,12 +1240,12 @@ class Modern_Customize {
 		 * Upgrade theme options
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.3.0
 		 *
 		 * @param  string $version_old
 		 * @param  string $version_new
 		 */
-		public static function upgrade_options( $version_old, $version_new ) {
+		public static function upgrade_options( $version_new, $version_old ) {
 
 			// Helper variables
 

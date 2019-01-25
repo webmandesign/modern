@@ -159,7 +159,7 @@ class Modern_Post {
 		 * @uses  `wmhook_modern_title_primary_disable` global hook to disable `#primary` section H1
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.3.0
 		 *
 		 * @param  array $args Heading setup arguments
 		 */
@@ -173,7 +173,7 @@ class Modern_Post {
 
 				if ( false !== $pre ) {
 					if ( true !== $pre ) {
-						echo $pre;
+						echo $pre; // Functionality bypass via filter.
 					}
 					return;
 				}

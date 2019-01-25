@@ -9,7 +9,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.3.0
  *
  * Contents:
  *
@@ -63,10 +63,6 @@ class Modern_Setup {
 						add_action( 'init', __CLASS__ . '::register_meta' );
 
 						add_action( 'admin_init', __CLASS__ . '::image_sizes_notice' );
-
-						add_action( 'admin_notices', __CLASS__ . '::admin_notice_upgrade', 100 );
-
-						add_action( 'wmhook_modern_library_theme_upgrade', __CLASS__ . '::upgrade_child_theme', 10, 2 );
 
 					// Filters
 
@@ -148,78 +144,6 @@ class Modern_Setup {
 				get_template_part( 'template-parts/admin/notice', 'welcome' );
 
 		} // /admin_notice_welcome
-
-
-
-		/**
-		 * Display "Upgrade" admin notice(s)
-		 *
-		 * Note that these notices are displayed just once!
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function admin_notice_upgrade() {
-
-			// Helper variables
-
-				$notices = array_unique( array_filter( (array) get_transient( Modern_Customize::$transient_upgrade ) ) );
-
-
-			// Processing
-
-				if ( ! empty( $notices ) ) {
-					asort( $notices );
-
-					foreach ( $notices as $notice ) {
-						get_template_part( 'template-parts/admin/notice-upgrade', $notice );
-					}
-
-					delete_transient( Modern_Customize::$transient_upgrade );
-				}
-
-		} // /admin_notice_upgrade
-
-
-
-		/**
-		 * Make sure we display child theme upgrade notice
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 *
-		 * @param  string $version_old
-		 * @param  string $version_new
-		 */
-		public static function upgrade_child_theme( $version_old, $version_new ) {
-
-			// Requirements check
-
-				if (
-					! is_child_theme()
-					|| empty( $version_old )
-					|| version_compare( $version_old, '2.0.0', '>=' )
-				) {
-					return;
-				}
-
-
-			// Helper variables
-
-				$upgrade_notice = (array) get_transient( Modern_Customize::$transient_upgrade );
-
-
-			// Processing
-
-				$upgrade_notice[] = 'child-theme'; // What admin notice to display?
-
-				set_transient(
-					Modern_Customize::$transient_upgrade,
-					$upgrade_notice,
-					7 * 24 * 60 * 60
-				);
-
-		} // /upgrade_child_theme
 
 
 

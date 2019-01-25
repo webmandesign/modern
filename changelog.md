@@ -1,5 +1,28 @@
 # Modern Changelog
 
+## 2.3.0
+
+* **Update**: Support URL
+* **Update**: Improving code
+* **Update**: Improving security
+* **Update**: Adding WPCS comments to code
+* **Update**: Improving widget areas markup
+* **Update**: `.screen-reader-text` CSS class styles
+* **Update**: Improving customizer functionality
+* **Update**: Using CSS variables instead of generating customized styles
+* **Update**: Removing obsolete functionality
+* **Update**: Removing media sizes override on theme activation
+* **Update**: Updating readme file
+* **Update**: Setting `use strict` in JavaScript
+* **Update**: Removing all `locate_template()` function references
+* **Update**: Localization
+* **Update**: Documentation
+
+### Files changed:
+
+	changelog.md
+
+
 ## 2.2.3
 
 * **Add**: More social icons

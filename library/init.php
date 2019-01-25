@@ -7,12 +7,13 @@
  * This way we prevent creating additional options in the database.
  *
  * @link  https://github.com/webmandesign/webman-theme-framework
- * @link  http://www.webmandesign.eu
+ * @link  https://www.webmandesign.eu
  *
  * @package    WebMan WordPress Theme Framework
  * @copyright  WebMan Design, Oliver Juhas
  * @license    GPL-3.0, http://www.gnu.org/licenses/gpl-3.0.html
  * @version    2.7.0
+ * @version    2.3.0
  *
  * Used development prefixes:
  *
@@ -64,50 +65,35 @@
  * 20) Load
  */
 
-	// Core class
+	// Core class.
+	require MODERN_LIBRARY . 'includes/classes/class-core.php';
 
-		require MODERN_LIBRARY . 'includes/classes/class-core.php';
+	// Customize (has to be frontend accessible, otherwise it hides the theme settings).
 
-	// Customize (has to be frontend accessible, otherwise it hides the theme settings)
+		// Sanitize class.
+		require MODERN_LIBRARY . 'includes/classes/class-sanitize.php';
 
-		// Customize class
+		// Customize class.
+		require MODERN_LIBRARY . 'includes/classes/class-customize.php';
 
-			require MODERN_LIBRARY . 'includes/classes/class-sanitize.php';
+		// CSS variables generator class.
+		require MODERN_LIBRARY . 'includes/classes/class-css-variables.php';
 
-		// Customize class
+	// Admin area related functionality.
+	if ( is_admin() ) {
 
-			require MODERN_LIBRARY . 'includes/classes/class-customize.php';
-
-		// CSS Styles Generator class
-
-			require MODERN_LIBRARY . 'includes/classes/class-customize-styles.php';
-
-	// Admin
-
-		if ( is_admin() ) {
-
-			// Load the theme welcome page
-
-				locate_template( 'includes/welcome/welcome.php', true );
-
-			// Admin class
-
-				require MODERN_LIBRARY . 'includes/classes/class-admin.php';
-
-			// Plugins suggestions
-
-				if (
-					(bool) apply_filters( 'wmhook_modern_plugins_suggestion_enabled', true )
-					&& locate_template( 'includes/tgmpa/plugins.php' )
-				) {
-					require MODERN_LIBRARY . 'includes/vendor/tgmpa/class-tgm-plugin-activation.php';
-					locate_template( 'includes/tgmpa/plugins.php', true );
-				}
-
-			// Child theme generator
-
-				if ( (bool) apply_filters( 'wmhook_modern_child_theme_generator_enabled', false ) ) {
-					require MODERN_LIBRARY . 'includes/vendor/use-child-theme/class-use-child-theme.php';
-				}
-
+		// Optional theme welcome page.
+		$welcome_page = get_theme_file_path( 'includes/welcome/welcome.php' );
+		if ( file_exists( $welcome_page ) ) {
+			require MODERN_LIBRARY . 'includes/classes/class-admin.php';
+			require $welcome_page;
 		}
+
+		// Optional plugins suggestions.
+		$plugins_suggestions = get_theme_file_path( 'includes/tgmpa/plugins.php' );
+		if ( (bool) apply_filters( 'wmhook_modern_plugins_suggestion_enabled', file_exists( $plugins_suggestions ) ) ) {
+			require MODERN_LIBRARY . 'includes/vendor/tgmpa/class-tgm-plugin-activation.php';
+			require $plugins_suggestions;
+		}
+
+	}

@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.3.0
  */
 
 
@@ -49,7 +49,7 @@
 
 		<a href="https://webmandesign.github.io/docs/modern/" class="button button-primary button-hero"><?php esc_html_e( 'Theme Documentation', 'modern' ); ?></a>
 
-		<a href="https://www.webmandesign.eu/reference/#links-support" class="button button-hero"><?php esc_html_e( 'Support Center', 'modern' ); ?></a>
+		<a href="https://support.webmandesign.eu" class="button button-hero"><?php esc_html_e( 'Support Center', 'modern' ); ?></a>
 
 	</p>
 

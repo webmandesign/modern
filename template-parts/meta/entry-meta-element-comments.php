@@ -33,7 +33,7 @@
 			<?php echo esc_html_x( 'Comments:', 'Post meta info description: comments count.', 'modern' ); ?>
 		</span>
 		<span class="comments-count">
-			<?php echo $comments_number; ?>
+			<?php echo $comments_number; /* WPCS: XSS OK. */ ?>
 		</span>
 	</a>
 </span>

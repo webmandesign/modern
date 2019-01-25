@@ -144,7 +144,7 @@ class Modern_Post_Media {
 		 * Entry media
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.3.0
 		 *
 		 * @param  array $args  Optional post helper variables.
 		 */
@@ -155,7 +155,7 @@ class Modern_Post_Media {
 				$pre = apply_filters( 'wmhook_modern_post_media_pre', false, $args );
 
 				if ( false !== $pre ) {
-					echo $pre;
+					echo $pre; // Functionality bypass via filter.
 					return;
 				}
 

@@ -29,5 +29,5 @@
 	<span class="entry-meta-description">
 		<?php echo esc_html_x( 'Categorized in:', 'Post meta info description: categories list.', 'modern' ); ?>
 	</span>
-	<?php echo $categories; ?>
+	<?php echo $categories; /* WPCS: XSS OK. */ ?>
 </span>

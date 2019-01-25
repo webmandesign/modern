@@ -26,5 +26,5 @@
 	<span class="entry-meta-description">
 		<?php echo esc_html_x( 'Tagged as:', 'Post meta info description: tags list.', 'modern' ); ?>
 	</span>
-	<?php echo $tags; ?>
+	<?php echo $tags; /* WPCS: XSS OK. */ ?>
 </span>
