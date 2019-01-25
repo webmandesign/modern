@@ -5,22 +5,60 @@
 * **Update**: Support URL
 * **Update**: Improving code
 * **Update**: Improving security
+* **Update**: Improving accessibility
 * **Update**: Adding WPCS comments to code
-* **Update**: Improving widget areas markup
-* **Update**: `.screen-reader-text` CSS class styles
 * **Update**: Improving customizer functionality
 * **Update**: Using CSS variables instead of generating customized styles
 * **Update**: Removing obsolete functionality
-* **Update**: Removing media sizes override on theme activation
 * **Update**: Updating readme file
 * **Update**: Setting `use strict` in JavaScript
 * **Update**: Removing all `locate_template()` function references
 * **Update**: Localization
 * **Update**: Documentation
+* **Update**: Removing old theme v2.0.0 upgrade notices and code (to update from pre v2.0.0 to v2.3.0, user need to install v2.0.0 first)
+* **Fix**: Styling issues
 
 ### Files changed:
 
 	changelog.md
+	readme.txt
+	style.css
+	assets/js/customize-preview.js
+	assets/js/scripts-global.js
+	assets/js/scripts-navigation-accessibility.js
+	assets/js/scripts-navigation-mobile.js
+	assets/js/skip-link-focus-fix.js
+	assets/scss/_css-vars.scss
+	assets/scss/_setup.scss
+	assets/scss/custom-styles-editor.scss
+	assets/scss/custom-styles.scss
+	assets/scss/main.scss
+	includes/customize/class-customize-styles.php
+	includes/customize/class-customize.php
+	includes/frontend/class-assets.php
+	includes/frontend/class-loop.php
+	includes/frontend/class-menu.php
+	includes/frontend/class-post-media.php
+	includes/frontend/class-post.php
+	includes/post-formats/class-post-formats.php
+	includes/setup/class-setup.php
+	languages/*.*
+	library/changelog.md
+	library/init.php
+	library/includes/classes/class-admin.php
+	library/includes/classes/class-core.php
+	library/includes/classes/class-css-variables.php
+	library/includes/classes/class-customize-control-html.php
+	library/includes/classes/class-customize-control-multiselect.php
+	library/includes/classes/class-customize-control-radio-matrix.php
+	library/includes/classes/class-customize-control-select.php
+	library/includes/classes/class-customize.php
+	library/includes/classes/class-sanitize.php
+	library/js/customize-control-multicheckbox.js
+	library/js/customize-control-radio-matrix.js
+	library/js/customize-controls.js
+	template-parts/admin/welcome-header.php
+	template-parts/admin/welcome-quickstart.php
 
 
 ## 2.2.3
