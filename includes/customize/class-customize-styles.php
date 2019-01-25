@@ -15,8 +15,6 @@
  *  20) Enqueue
  * 100) Helpers
  */
-<?php
-
 class Modern_Customize_Styles {
 
 
@@ -79,10 +77,7 @@ class Modern_Customize_Styles {
 
 			// Processing
 
-				/**
-				 * Nothing in here for this theme.
-				 * Keeping the method for the filter hook.
-				 */
+				$output .= '.intro-media::after { background-image: linear-gradient(transparent, ' . maybe_hash_hex_color( get_background_color() ) . ') }';
 
 
 			// Output

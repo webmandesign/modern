@@ -29,13 +29,13 @@
 		html {
 			max-width: 1200px + 40; // Default, will get overridden
 			padding: 20px;
+			font-size: 100%;
 		}
 
 		body {
 			width: 100%;
 			max-width: 39em;
 			max-width: 70ch;
-			font-size: 16px; // Default, will get overridden
 
 			*,
 			*::after,

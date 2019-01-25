@@ -289,20 +289,6 @@ class Modern_Customize {
 
 
 					/**
-					 * Colors: More colors info.
-					 */
-					'0' . 20 . 'colors' . 10 => array(
-						'id'          => 'more_colors_info',
-						'section'     => 'colors',
-						'priority'    => 999,
-						'type'        => 'html',
-						'content'     => '<h3>' . esc_html__( 'More colors&hellip;', 'modern' ) . '</h3>',
-						'description' => esc_html__( 'Find more color options in "Theme Options" panel.', 'modern' ),
-					),
-
-
-
-					/**
 					 * Theme credits
 					 */
 					'0' . 90 . 'placeholder' => array(

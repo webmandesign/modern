@@ -33,8 +33,8 @@
 	/* $content_width */
 	%content_width {
 		@extend %basic_width;
-		max-width: $content_width +px;
-		max-width: $content_width / $font_size +rem;
+		max-width: map_get( $customize_options, 'layout_width_content' );
+		max-width: var(--layout_width_content);
 	}
 
 	%full_width {

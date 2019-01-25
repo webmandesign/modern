@@ -23,7 +23,7 @@ form[role="search"],
 			top: 0;
 			line-height: $golden;
 			text-align: center;
-			font-size: $golden +em;
+			font-size: $golden +rem;
 			z-index: 1;
 		}
 
@@ -60,7 +60,7 @@ form[role="search"],
 		.site-header & {
 
 			&::before {
-				font-size: $golden +em;
+				font-size: $golden +rem;
 			}
 
 		}

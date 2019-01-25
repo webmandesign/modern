@@ -52,12 +52,16 @@
 				&-previous a {
 
 					&::before {
-						/*[*/
-						background-image: linear-gradient( to #{$right}, map_get( $colors, 'accent' ) 38%, transparent );
-						/*]*/
-						/*//
-						background-image: linear-gradient( to #{$right}, [[color_accent]] 38%, transparent );
-						//*/
+						background-image: linear-gradient(
+							to #{$right},
+							map_get( $customize_options, 'color_accent' ) 38%,
+							transparent
+						);
+						background-image: linear-gradient(
+							to #{$right},
+							var(--color_accent) 38%,
+							transparent
+						);
 					}
 
 				}
@@ -65,12 +69,16 @@
 				&-next a {
 
 					&::before {
-						/*[*/
-						background-image: linear-gradient( to #{$left}, map_get( $colors, 'accent' ) 38%, transparent );
-						/*]*/
-						/*//
-						background-image: linear-gradient( to #{$left}, [[color_accent]] 38%, transparent );
-						//*/
+						background-image: linear-gradient(
+							to #{$left},
+							map_get( $customize_options, 'color_accent' ) 38%,
+							transparent
+						);
+						background-image: linear-gradient(
+							to #{$left},
+							var(--color_accent) 38%,
+							transparent
+						);
 					}
 
 				}

@@ -116,7 +116,7 @@ class Modern_Library_CSS_Variables {
 						isset( $option['sanitize_callback'] )
 						&& is_callable( $option['sanitize_callback'] )
 					) {
-						$mod = call_user_func( $option['validate'], $mod );
+						$mod = call_user_func( $option['sanitize_callback'], $mod );
 					}
 					if (
 						! empty( $mod )

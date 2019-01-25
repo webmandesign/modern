@@ -34,12 +34,22 @@
 				position: relative;
 				list-style: none;
 
+				// Reset inheritance from Genericons Neue.
+				font-family: inherit;
+				line-height: inherit;
+				speak: normal;
+
 				&::before {
 					position: absolute;
 					#{$left}: -$golden_minor - 1em;
 					line-height: inherit;
 				}
 
+			}
+
+			&.genericons-neue::before {
+				font-family: 'Genericons-Neue';
+				speak: none;
 			}
 
 		}

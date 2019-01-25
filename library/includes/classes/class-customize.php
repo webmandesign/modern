@@ -234,14 +234,12 @@ final class Modern_Library_Customize {
 					is_array( $theme_options )
 					&& ! empty( $theme_options )
 				) {
-
 					foreach ( $theme_options as $theme_option ) {
-						$option_id = sanitize_title( $option_id );
-
 						if (
 							isset( $theme_option['preview_js'] )
 							&& is_array( $theme_option['preview_js'] )
 						) {
+							$option_id = sanitize_title( $theme_option['id'] );
 
 							$output_single  = "wp.customize("  . PHP_EOL;
 							$output_single .= "\t" . "'" . $option_id . "',"  . PHP_EOL;

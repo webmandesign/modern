@@ -13,19 +13,15 @@
 	body {
 		// This gets overridden with WordPress custom-background styles in HTML head,
 		// but is used in editor styles, that's why we need to define it here.
-		background-color: map_get( $colors, 'body_background' ); //*
+		background-color: #1a1c1e; //*
 	}
 
 	//
 	// Make site text (the text outside entry container) the intro text color
 	//
 	.site {
-		/*[*/
-		color: map_get( $colors, 'intro_text' );
-		/*]*/
-		/*//
-		color: [[color_intro_text]];
-		//*/
+		color: map_get( $customize_options, 'color_intro_text' );
+		color: var(--color_intro_text);
 	}
 
 	*,

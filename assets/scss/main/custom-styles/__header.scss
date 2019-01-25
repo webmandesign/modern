@@ -17,7 +17,8 @@
 	@extend %intro_colors;
 }
 
-.site-header-content,
-.site-header-navigation {
+// Requires higher specificity for browser with no CSS variables support.
+.site .site-header-content,
+.site .site-header-navigation {
 	background: none; //*
 }

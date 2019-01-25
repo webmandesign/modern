@@ -17,12 +17,8 @@
 	@extend %intro_colors;
 
 	&::after {
-		/*[*/
-		background-image: linear-gradient( transparent, map_get( $colors, 'body_background' ) );
-		/*]*/
-		/*//
-		background-image: linear-gradient( transparent, [[background_color]] );
-		//*/
+		// @see  Modern_Customize_Styles::get_css()
+		background-image: linear-gradient( transparent, #1a1c1e );
 	}
 
 }

@@ -1,21 +1,22 @@
 /* FILE: custom-styles-editor.scss */
+/* FILE: _setup.scss */
 /* inStyle (v1.6.3) github.com/salsita/inStyle 2016 | MIT @mixin ============================= */
 /* FILE: main/custom-styles/_editor-style.scss */
 /* FILE: main/custom-styles/__extenders.scss */
-.button, button, input[type="button"], input[type="reset"], input[type="submit"], .main-navigation-container .button > a, mark, #page mark, .highlight, #page .highlight, .pagination .current, .bypostauthor > .comment-body .comment-author::before, .widget_calendar tbody a, .widget .tagcloud a:hover, .widget .tagcloud a:focus, .widget .tagcloud a:active { /*[*/ background-color: #00855b; color: #ffffff; /*]*/ /*// background-color: [[color_accent]]; color: [[color_accent_text]]; //*/ }
+.button, button, input[type="button"], input[type="reset"], input[type="submit"], .main-navigation-container .button > a, mark, #page mark, .highlight, #page .highlight, .pagination .current, .bypostauthor > .comment-body .comment-author::before, .widget_calendar tbody a, .widget .tagcloud a:hover, .widget .tagcloud a:focus, .widget .tagcloud a:active { background-color: #00855b; color: #ffffff; background-color: var(--color_accent); color: var(--color_accent_text); }
 
-a, .accent-color { /*[*/ color: #00855b; /*]*/ /*// color: [[color_accent]]; //*/ }
+a, .accent-color { color: #00855b; color: var(--color_accent); }
 
-.button:focus, button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, .main-navigation-container .button > a:focus { /*[*/ outline: thin dashed #00855b; /*]*/ /*// outline: thin dashed [[color_accent]]; //*/ }
+.button:focus, button:focus, input:focus[type="button"], input:focus[type="reset"], input:focus[type="submit"], .main-navigation-container .button > a:focus { outline: thin dashed #00855b; outline: thin dashed var(--color_accent); }
 
-.mce-content-body { /*[*/ background-color: #ffffff; color: #6a6c6e; border-color: rgba(106, 108, 110, 0.2); /*]*/ /*// background-color: [[color_content_background]]; color: [[color_content_text]]; border-color: [[color_content_text(20)]]; //*/ }
+.mce-content-body { background-color: #ffffff; color: #6a6c6e; border-color: rgba(106, 108, 110, 0.2); background-color: var(--color_content_background); color: var(--color_content_text); border-color: var(--color_content_text--a20); }
 
-.mce-content-body h1, .mce-content-body .h1, .mce-content-body h2, .mce-content-body .h2, .mce-content-body h3, .mce-content-body .h3, .mce-content-body h4, .mce-content-body .h4, .mce-content-body h5, .mce-content-body .h5, .mce-content-body h6, .mce-content-body .h6, .mce-content-body .post-navigation, .mce-content-body .dropcap-text::first-letter { /*[*/ color: #1a1c1e; /*]*/ /*// color: [[color_content_headings]]; //*/ }
+.mce-content-body h1, .mce-content-body .h1, .mce-content-body h2, .mce-content-body .h2, .mce-content-body h3, .mce-content-body .h3, .mce-content-body h4, .mce-content-body .h4, .mce-content-body h5, .mce-content-body .h5, .mce-content-body h6, .mce-content-body .h6, .mce-content-body .post-navigation, .mce-content-body .dropcap-text::first-letter { color: #1a1c1e; color: var(--color_content_headings); }
 
 /* FILE: main/custom-styles/__base.scss */
 body { background-color: #1a1c1e; }
 
-.site { /*[*/ color: #ffffff; /*]*/ /*// color: [[color_intro_text]]; //*/ }
+.site { color: #ffffff; color: var(--color_intro_text); }
 
 *, *::after, *::before { border-color: inherit; }
 
@@ -48,9 +49,9 @@ button, input, select, textarea { background-color: transparent; }
 .color-warning a:not(.button) { color: inherit; }
 
 /* FILE: main/custom-styles/__accent.scss */
-mark, .highlight { /*[*/ -webkit-box-shadow: 0.38em 0 0 #00855b, -0.38em 0 0 #00855b; box-shadow: 0.38em 0 0 #00855b, -0.38em 0 0 #00855b; /*]*/ /*// box-shadow:  .38em 0 0 [[color_accent]], -.38em 0 0 [[color_accent]]; //*/ }
+mark, .highlight { -webkit-box-shadow: 0.38em 0 0 #00855b, -0.38em 0 0 #00855b; box-shadow: 0.38em 0 0 #00855b, -0.38em 0 0 #00855b; -webkit-box-shadow: 0.38em 0 0 var(--color_accent), -0.38em 0 0 var(--color_accent); box-shadow: 0.38em 0 0 var(--color_accent), -0.38em 0 0 var(--color_accent); }
 
-@media only screen and (max-width: 41.9375em) { .pagination a { /*[*/ background-color: #00855b; color: #ffffff; /*]*/ /*// background-color: [[color_accent]]; color: [[color_accent_text]]; //*/ } }
+@media only screen and (max-width: 41.9375em) { .pagination a { background-color: #00855b; color: #ffffff; background-color: var(--color_accent); color: var(--color_accent_text); } }
 
 /* FILE: main/custom-styles/__typography-editor.scss */
 .mce-content-body { line-height: 1.62; }
@@ -75,49 +76,17 @@ mark, .highlight { /*[*/ -webkit-box-shadow: 0.38em 0 0 #00855b, -0.38em 0 0 #00
 
 .mce-content-body .display-4 { line-height: 1.19; }
 
-.mce-content-body, .mce-content-body .font-body { font-family: 'Fira Sans', 'Helvetica Neue', Arial, sans-serif; }
+.mce-content-body, .mce-content-body .font-body { font-family: "Fira Sans", "Helvetica Neue", Arial, sans-serif; font-family: var(--typography_fonts_text); }
 
-.mce-content-body .font-headings, .mce-content-body .font-headings-primary { font-family: 'Fira Sans', 'Helvetica Neue', Arial, sans-serif; }
+.mce-content-body .font-headings, .mce-content-body .font-headings-primary { font-family: "Fira Sans", "Helvetica Neue", Arial, sans-serif; font-family: var(--typography_fonts_headings); }
 
-.mce-content-body .font-logo, .mce-content-body .font-headings-secondary { font-family: 'Fira Sans', 'Helvetica Neue', Arial, sans-serif; }
+.mce-content-body .font-logo, .mce-content-body .font-headings-secondary { font-family: "Fira Sans", "Helvetica Neue", Arial, sans-serif; font-family: var(--typography_fonts_logo); }
 
 .mce-content-body .font-inherit { font-family: inherit; }
 
-/**if(typography_custom_fonts)
+html { max-width: 1240px; padding: 20px; font-size: 100%; }
 
-	.mce-content-body,
-	.mce-content-body .font-body {
-		font-family: [[typography_fonts_text]];
-	}
-
-	.mce-content-body .font-headings,
-	.mce-content-body .font-headings-primary,
-	h1, .h1,
-	h2, .h2,
-	h3, .h3,
-	h4, .h4,
-	h5, .h5,
-	h6, .h6 {
-		font-family: [[typography_fonts_headings]];
-	}
-
-	.mce-content-body .font-logo,
-	.mce-content-body .font-headings-secondary,
-	h1.display-1, h2.display-1, h3.display-1,
-	.display-1.h1, .display-1.h2, .display-1.h3,
-	h1.display-2, h2.display-2, h3.display-2,
-	.display-2.h1, .display-2.h2, .display-2.h3,
-	h1.display-3, h2.display-3, h3.display-3,
-	.display-3.h1, .display-3.h2, .display-3.h3,
-	h1.display-4, h2.display-4, h3.display-4,
-	.display-4.h1, .display-4.h2, .display-4.h3 {
-		font-family: [[typography_fonts_logo]];
-	}
-
-endif(typography_custom_fonts)**/
-html { max-width: 1240px; padding: 20px; }
-
-body { width: 100%; max-width: 39em; max-width: 70ch; font-size: 16px; }
+body { width: 100%; max-width: 39em; max-width: 70ch; }
 
 body *, body *::after, body *::before { border-color: inherit; }
 

@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.2.3
+ * @version  2.3.0
  *
  * Contents:
  *
@@ -148,7 +148,7 @@ class Modern_Menu {
 			 * Primary navigation args
 			 *
 			 * @since    2.0.0
-			 * @version  2.0.0
+			 * @version  2.3.0
 			 *
 			 * @param  boolean $mobile_nav  Is mobile navigation enabled?
 			 * @param  boolean $fallback    Return arguments to set a `wp_page_menu()` fallback?
@@ -173,21 +173,21 @@ class Modern_Menu {
 							$args['theme_location']  = 'primary';
 							$args['container_class'] = 'menu';
 							$args['fallback_cb']     = 'Modern_Menu::primary_fallback';
-							$args['items_wrap']      = '<ul id="menu-primary" class="menu-primary" role="menubar">%3$s<li class="menu-toggle-skip-link-container"><a href="#menu-toggle" class="menu-toggle-skip-link">' . esc_html__( 'Skip to menu toggle button', 'modern' ) . '</a></li></ul>';
+							$args['items_wrap']      = '<ul id="menu-primary" class="menu-primary">%3$s<li class="menu-toggle-skip-link-container"><a href="#menu-toggle" class="menu-toggle-skip-link">' . esc_html__( 'Skip to menu toggle button', 'modern' ) . '</a></li></ul>';
 
 							if ( ! $mobile_nav ) {
-								$args['items_wrap'] = '<ul id="menu-primary" class="menu-primary" role="menubar">%3$s</ul>';
+								$args['items_wrap'] = '<ul id="menu-primary" class="menu-primary">%3$s</ul>';
 							}
 
 					} else {
 
 						// For `wp_page_menu()`
 
-							$args['before'] = '<ul id="menu-primary" class="menu-primary menu-fallback" role="menubar">';
+							$args['before'] = '<ul id="menu-primary" class="menu-primary menu-fallback">';
 							$args['after']  = '<li class="menu-toggle-skip-link-container"><a href="#menu-toggle" class="menu-toggle-skip-link">' . esc_html__( 'Skip to menu toggle button', 'modern' ) . '</a></li></ul>';
 
 							if ( ! $mobile_nav ) {
-								$args['before'] = '<ul id="menu-primary" class="menu-primary menu-fallback" role="menubar">';
+								$args['before'] = '<ul id="menu-primary" class="menu-primary menu-fallback">';
 								$args['after']  = '</ul>';
 							}
 

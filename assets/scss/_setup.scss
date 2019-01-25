@@ -1,217 +1,70 @@
-/////////////////////
+/* FILE: _setup.scss */
+
 //
-// Support
+// Stylesheets setup.
 //
-/////////////////////
-
-	//
-	// Post formats
-	//
-	// @see  includes/frontend/class-post-media.php
-	//
-
-		$supported_post_formats: (
-			'audio',
-			'gallery',
-			'image',
-			'link',
-			'quote',
-			'status',
-			'video',
-		);
-
-
-
-
-
-/////////////////////
+// @package    Modern
+// @copyright  WebMan Design, Oliver Juhas
 //
-// Logo
+// @since    2.0.0
+// @version  2.3.0
 //
-/////////////////////
 
-	$custom_logo_height: 100; // In px
+// Theme options
 
+	$customize_options: (
 
+		// Logo
 
+			'custom_logo_height': 100px,
 
+		// Colors
 
-/////////////////////
-//
-// Layout
-//
-/////////////////////
+			// For accessibility test with http://jxnblk.com/colorable/demos/text/
 
-	//
-	// Breakpoints info:
-	//
-	// 's'     :  448, // =  28em // Starting mobile landscape
-	// 'm'     :  672, // =  42em // Starting tablet portrait
-	// 'l'     :  880, // =  55em // Starting tablet landscape
-	// 'xl'    : 1280, // =  80em // Starting laptop
-	// 'xxl'   : 1600, // = 100em // Starting desktop
-	// 'xxxl'  : 1920, // = 120em // Starting desktop full HD
-	// 'xxxxl' : 2560, // = 160em // Starting desktop WQHD
-	//
+			'color_accent':      #00855b, // Changed in theme version 2.0.0 from #0aac8e to make it more accessible.
+			'color_accent_text': #ffffff,
 
-	//
-	// Site widths
-	//
+			'color_header_background': #0a0c0e,
+			'color_header_text':       #ffffff,
 
-		$boxed_width: 1640;   // In px // Default max boxed site width
-		$content_width: 1200; // In px // Default content width
+			'color_intro_background': #1a1c1e,
+			'color_intro_text':       #ffffff,
 
+			'color_content_background': #ffffff,
+			'color_content_text':       #6a6c6e,
+			'color_content_headings':   #1a1c1e,
 
+			'color_footer_background': #eaecee,
+			'color_footer_text':       #5a5c5e, // Changed in theme version 2.0.0 from #6a6c6e to make it more accessible.
+			'color_footer_headings':   #1a1c1e,
 
-	//
-	// Gaps
-	//
+		// Layout
 
-		$vertical_gap: 6rem;
+			'layout_width_content': 1200px,
 
+		// Typography
 
+			'typography_size_html': 16px,
+			'typography_fonts_text': ( 'Fira Sans', 'Helvetica Neue', Arial, sans-serif ),
+			'typography_fonts_headings': ( 'Fira Sans', 'Helvetica Neue', Arial, sans-serif ),
+			'typography_fonts_logo': ( 'Fira Sans', 'Helvetica Neue', Arial, sans-serif ),
 
-	//
-	// Mobile menu
-	//
-
-		$mobile_menu_toggle_height: 3.62; // In rem.
+	);
 
 
 
-
-
-/////////////////////
-//
-// Appearance
-//
-/////////////////////
-
-	//
-	// Automated color calculation
-	//
-
-		$border_opacity_from_text: (
-
-			'general': .20,
-
-			'header':  .20,
-			'content': .20,
-			'footer':  .20,
-
-		);
-
-		$overlay_from_text_color_opacity: .07;
-
-
-
-	//
-	// Theme colors
-	// For accessibility test with http://jxnblk.com/colorable/demos/text/
-	//
-	// //* = Doesn't change via Customizer.
-	//
-
-		$colors: (
-
-			// Accent color
-
-				'accent':      #00855b, // Changed in theme version 2.0.0 from #0aac8e to make it more accessible.
-				'accent_text': #ffffff,
-
-			// Body
-
-				'body_background': #1a1c1e,
-
-			// Site header
-
-				'header_background': #0a0c0e,
-				'header_text':       #ffffff,
-
-			// Intro
-
-				'intro_background': #1a1c1e,
-				'intro_text':       #ffffff,
-
-			// Site content
-
-				'content_background': #ffffff,
-				'content_text':       #6a6c6e,
-				'content_headings':   #1a1c1e,
-
-			// Site footer
-
-				'footer_background': #eaecee,
-				'footer_text':       #5a5c5e, // Changed in theme version 2.0.0 from #6a6c6e to make it more accessible.
-				'footer_headings':   #1a1c1e,
-
-			// Predefined colors
-
-				'error_background': rgba( #e00, .85 ),   //*
-				'error_text':       #fff,                //*
-
-				'info_background': rgba( #05e, .85 ),    //*
-				'info_text':       #fff,                 //*
-
-				'success_background': rgba( #072, .85 ), //*
-				'success_text':       #fff,              //*
-
-				'warning_background': rgba( #fd0, .85 ), //*
-				'warning_text':       #310,              //*
-
-		);
-
-
-
-	//
-	// Decorations
-	//
-
-		// Animation speeds
-
-			$small_animation_speed: .3; // In seconds
-			$large_animation_speed: .5; // In seconds
-
-
-
-
-
-/////////////////////
-//
 // Typography
-//
-/////////////////////
 
-	// Helper variables
+	// Starter CSS backwards compatibility.
+	$font_size: map_get( $customize_options, 'typography_size_html' ) / 1px; // "/ 1px" makes the value unitless.
 
-		$typography_line_height: 1.62;
-		$typography_margin_bottom: 1.62;
+	// Spacing
 
+		$typography_line_height: 1.618;
+		$typography_margin_bottom: 1.618;
 
-
-	//
-	// Font size
-	//
-
-		$font_size: 16; // Don't forget to set this also in Modern_Customize_Styles::get_custom_styles_array() class!
-
-
-
-	//
-	// Font families
-	//
-
-		$font_family: (
-			'body':     "'Fira Sans', 'Helvetica Neue', Arial, sans-serif",
-			'headings': "'Fira Sans', 'Helvetica Neue', Arial, sans-serif",
-			'logo':     "'Fira Sans', 'Helvetica Neue', Arial, sans-serif",
-		);
-
-
-
-	//
 	// Headings
-	//
 
 		$h_tags_setup: (
 
@@ -276,14 +129,9 @@
 
 		);
 
-
-
-	//
-	// Special typography
-	//
+	// Display font size
 
 		// @see "Golden Ditonic Scale" at http://spencermortensen.com/articles/typographic-scale/ or http://www.modularscale.com/?1&em&1.125
-
 		$display_text_size: (
 			1 : 2.281em,
 			2 : 2.887em,
@@ -293,17 +141,68 @@
 
 
 
-
-
-/////////////////////
-//
-// Icons
-//
-/////////////////////
+// Others
 
 	//
+	// Breakpoints info:
+	//
+	// 's'     :  448, // =  28em // Starting mobile landscape
+	// 'm'     :  672, // =  42em // Starting tablet portrait
+	// 'l'     :  880, // =  55em // Starting tablet landscape
+	// 'xl'    : 1280, // =  80em // Starting laptop
+	// 'xxl'   : 1600, // = 100em // Starting desktop
+	// 'xxxl'  : 1920, // = 120em // Starting desktop full HD
+	// 'xxxxl' : 2560, // = 160em // Starting desktop WQHD
+	//
+
+	// Support
+
+		// @subpackage  Post Formats
+		// @see  includes/frontend/class-post-media.php
+		$supported_post_formats: (
+			'audio',
+			'gallery',
+			'image',
+			'link',
+			'quote',
+			'status',
+			'video',
+		);
+
+	// Predefined colors
+
+		$colors: (
+
+			'error_background': rgba( #e00, .85 ),
+			'error_text':       #fff,
+
+			'info_background': rgba( #05e, .85 ),
+			'info_text':       #fff,
+
+			'success_background': rgba( #072, .85 ),
+			'success_text':       #fff,
+
+			'warning_background': rgba( #fd0, .85 ),
+			'warning_text':       #310,
+
+		);
+
+	// Spacing
+
+		$vertical_gap: 6rem;
+
+		$mobile_menu_toggle_height: 3.618; // In rem.
+
+	// Opacity
+
+		$overlay_from_text_color_opacity: .07;
+
+	// Animation
+
+		$small_animation_speed: .3; // Seconds
+		$large_animation_speed: .5; // Seconds
+
 	// Entry meta
-	//
 
 		$entry_meta_icons: (
 
@@ -317,20 +216,9 @@
 
 		);
 
+	// Elements
 
-
-
-
-/////////////////////
-//
-// Element groups
-//
-/////////////////////
-
-	//
-	// Margin elements
-	//
-
+		// Margin bottom
 		$tags_margin_bottom: (
 			'h1',
 			'h2',
@@ -346,12 +234,7 @@
 			'.tiled-gallery',
 		);
 
-
-
-	//
-	// Button elements
-	//
-
+		// Buttons
 		$button_elements: (
 			'.button',
 			'button',
