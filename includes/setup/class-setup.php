@@ -163,7 +163,7 @@ class Modern_Setup {
 		 * as indicating support for post thumbnails.
 		 *
 		 * @since    1.0.0
-		 * @version  2.0.0
+		 * @version  2.3.0
 		 */
 		public static function setup() {
 
@@ -286,22 +286,6 @@ class Modern_Setup {
 								}
 							}
 						}
-
-				// Force-regenerate styles
-
-					if ( get_transient( 'modern_regenerate_styles' ) ) {
-
-						if ( is_callable( 'Modern_Library_Customize_Styles::generate_main_css_all' ) ) {
-							Modern_Library_Customize_Styles::generate_main_css_all();
-						}
-
-						if ( is_callable( 'Modern_Library_Customize_Styles::custom_styles_cache_flush' ) ) {
-							Modern_Library_Customize_Styles::custom_styles_cache_flush();
-						}
-
-						delete_transient( 'modern_regenerate_styles' );
-
-					}
 
 		} // /setup
 
@@ -671,22 +655,6 @@ class Modern_Setup {
 	/**
 	 * 70) Others
 	 */
-
-		/**
-		 * Set transient to force styles regeneration
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function regenerate_styles() {
-
-			// Processing
-
-				set_transient( 'modern_regenerate_styles', true, 2 * 60 * 60 );
-
-		} // /regenerate_styles
-
-
 
 		/**
 		 * Register post meta

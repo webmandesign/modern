@@ -98,9 +98,6 @@ class Modern_Library_CSS_Variables {
 					}
 
 					// Custom fonts only if they are enabled.
-					/**
-					 * @todo  Double check the `typography_custom_fonts` option name.
-					 */
 					if (
 						'Modern_Library_Sanitize::css_fonts' === $option['css_var']
 						&& ! get_theme_mod( 'typography_custom_fonts', false )
