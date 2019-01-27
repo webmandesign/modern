@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modern\n"
 "Report-Msgid-Bugs-To: https://support.webmandesign.eu\n"
-"POT-Creation-Date: 2019-01-25 13:24+0100\n"
+"POT-Creation-Date: 2019-01-27 14:06+0100\n"
 "PO-Revision-Date: 2015-04-15 10:00+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: \n"
@@ -1599,83 +1599,6 @@ msgctxt "1: image width, 2: image height, 3: cropped or scaled?"
 msgid "%1$d &times; %2$d, %3$s"
 msgstr ""
 
-#: template-parts/admin/notice-upgrade-2.0.0.php:20
-msgid "IMPORTANT: Typography options change"
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-2.0.0.php:23
-msgid ""
-"Please note that custom typography options have been changed in this theme "
-"update to provide more flexible typography setup."
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-2.0.0.php:24
-msgid ""
-"You will most likely need to load your custom fonts using additional plugin."
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-2.0.0.php:25
-msgid ""
-"Please read the information in Appearance &rarr; Customize &rarr; Theme "
-"Options &rarr; Typography for more details on custom typography setup."
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-2.0.0.php:29
-msgid "Set customize typography now &raquo;"
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-2.0.0.php:40
-#: template-parts/admin/notice-upgrade-child-theme.php:53
-#: template-parts/admin/notice-welcome.php:41
-#, php-format
-msgctxt "%s: Theme name."
-msgid "Get started with %s"
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-child-theme.php:20
-msgid "IMPORTANT: This is a major theme upgrade"
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-child-theme.php:23
-msgid "Thank you for upgrading your theme!"
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-child-theme.php:24
-msgid "We have noticed you are using a child theme."
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-child-theme.php:25
-msgid ""
-"Please note that there are a lot of changes in this theme update and you "
-"should check the code of your child theme modifications for compatibility."
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-child-theme.php:28
-msgid "We are sorry for any inconvenience caused."
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-child-theme.php:29
-msgid ""
-"Please understand we strive to provide most relevant and up to date "
-"WordPress code in our products."
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-child-theme.php:30
-msgid "Thank you for understanding!"
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-child-theme.php:34
-msgid "Check documentation about child themes &raquo;"
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-child-theme.php:38
-msgid "Contact support for help &raquo;"
-msgstr ""
-
-#: template-parts/admin/notice-upgrade-child-theme.php:42
-msgid "Download a previous theme version &raquo;"
-msgstr ""
-
 #: template-parts/admin/notice-welcome.php:27
 #, php-format
 msgctxt "%s: Theme name."
@@ -1684,6 +1607,12 @@ msgstr ""
 
 #: template-parts/admin/notice-welcome.php:34
 msgid "Please read \"Welcome\" page for information about the theme setup."
+msgstr ""
+
+#: template-parts/admin/notice-welcome.php:41
+#, php-format
+msgctxt "%s: Theme name."
+msgid "Get started with %s"
 msgstr ""
 
 #: template-parts/admin/welcome-demo.php:22

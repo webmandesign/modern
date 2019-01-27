@@ -1,5 +1,20 @@
 # Modern Changelog
 
+## 2.3.1
+
+* **Update**: Removing obsolete files (related to v2.0.0 upgrade notices)
+* **Update**: Localization
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	style.css
+	languages/*.*
+	template-parts/admin/notice-upgrade-2.0.0.php
+	template-parts/admin/notice-upgrade-child-theme-2.0.0.php
+
+
 ## 2.3.0
 
 * **Update**: Support URL
