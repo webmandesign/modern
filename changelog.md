@@ -11,8 +11,8 @@
 	readme.txt
 	style.css
 	languages/*.*
-	template-parts/admin/notice-upgrade-2.0.0.php
-	template-parts/admin/notice-upgrade-child-theme-2.0.0.php
+	removing template-parts/admin/notice-upgrade-2.0.0.php
+	removing template-parts/admin/notice-upgrade-child-theme-2.0.0.php
 
 
 ## 2.3.0
