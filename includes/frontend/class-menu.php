@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.3.0
+ * @version  2.4.0
  *
  * Contents:
  *
@@ -281,12 +281,12 @@ class Modern_Menu {
 
 
 		/**
-		 * Menu item modification: submenu expander
+		 * Menu item modification: submenu expander.
 		 *
 		 * Primary menu only.
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.4.0
 		 *
 		 * @param  string $item_output Menu item output HTML (without closing `</li>`).
 		 * @param  object $item        The current menu item.
@@ -302,9 +302,10 @@ class Modern_Menu {
 					&& in_array( 'menu-item-has-children', (array) $item->classes )
 				) {
 
+					// `</a>` is required here as `$args->link_after` could also be an empty string.
 					$item_output = str_replace(
 						$args->link_after . '</a>',
-						$args->link_after . ' <span class="expander" aria-hidden="true"></span></a>', // Accessibility: on focus, no screen reader text required
+						$args->link_after . ' <span class="expander" aria-label="' . esc_attr__( '(Focus the link to toggle submenu.)', 'modern' ) . '"></span></a>',
 						$item_output
 					);
 

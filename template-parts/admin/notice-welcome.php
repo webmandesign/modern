@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.4.0
  */
 
 
@@ -24,25 +24,20 @@
 		<?php
 
 		printf(
-			esc_html_x( 'Thank you for installing %s!', '%s: Theme name.', 'modern' ),
+			esc_html_x( 'Thank you for installing %s theme!', '%s: Theme name.', 'modern' ),
 			'<strong>' . $theme_name . '</strong>'
 		);
 
 		?>
 	</h2>
 	<p>
-		<?php esc_html_e( 'Please read "Welcome" page for information about the theme setup.', 'modern' ); ?>
+		<?php esc_html_e( 'Visit "Welcome" page for information on how to set up your website.', 'modern' ); ?>
+		<br>
+		<?php echo Modern_Welcome::get_info_like(); ?>
 	</p>
 	<p class="call-to-action">
 		<a href="<?php echo esc_url( admin_url( 'themes.php?page=modern-welcome' ) ); ?>" class="button button-primary button-hero">
-			<?php
-
-			printf(
-				esc_html_x( 'Get started with %s', '%s: Theme name.', 'modern' ),
-				$theme_name
-			);
-
-			?>
+			<?php esc_html_e( 'Show "Welcome" page', 'modern' ); ?>
 		</a>
 	</p>
 </div>
@@ -50,15 +45,26 @@
 <style type="text/css" media="screen">
 
 	.notice.theme-welcome-notice {
-		padding: 2.62em;
+		padding: 1.62em;
+		line-height: 1.62;
+		font-size: 1.38em;
 		text-align: center;
-		background: rgba(0,0,0,.01);
-		border: 1em solid rgba(255,255,255,.85);
+		border: 0;
 	}
 
 	.theme-welcome-notice h2 {
-		margin: .5em 0;
+		margin: 0 0 .62em;
+		line-height: inherit;
+		font-size: 1.62em;
 		font-weight: 400;
+	}
+
+	.theme-welcome-notice p {
+		font-size: inherit;
+	}
+
+	.theme-welcome-notice a {
+		padding-bottom: 0;
 	}
 
 	.theme-welcome-notice strong {
@@ -66,7 +72,11 @@
 	}
 
 	.theme-welcome-notice .call-to-action {
-		margin-top: 1.62em;
+		margin-top: 1em;
+	}
+
+	.theme-welcome-notice .button.button {
+		font-size: 1em;
 	}
 
 </style>

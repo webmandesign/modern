@@ -8,7 +8,7 @@
  * @subpackage  Customize
  *
  * @since    2.3.0
- * @version  2.3.0
+ * @version  2.4.0
  *
  * Contents:
  *
@@ -66,7 +66,7 @@ class Modern_Library_CSS_Variables {
 		 * @uses  `wmhook_modern_theme_options` global hook
 		 *
 		 * @since    2.3.0
-		 * @version  2.3.0
+		 * @version  2.4.0
 		 */
 		public static function get_variables_array() {
 
@@ -153,7 +153,8 @@ class Modern_Library_CSS_Variables {
 						);
 					}
 
-					$css_vars[ '--' . sanitize_title( $option['id'] ) ] = esc_attr( $value );
+					// Do not apply `esc_attr()` as it will escape quote marks, such as in background image URL.
+					$css_vars[ '--' . sanitize_title( $option['id'] ) ] = $value;
 
 					/**
 					 * Filters CSS variables output in array after each single variable processing.
@@ -258,7 +259,7 @@ class Modern_Library_CSS_Variables {
 		 * @link  https://github.com/jhildenbiddle/css-vars-ponyfill
 		 *
 		 * @since    2.3.0
-		 * @version  2.3.0
+		 * @version  2.4.0
 		 */
 		public static function compatibility() {
 
@@ -273,7 +274,12 @@ class Modern_Library_CSS_Variables {
 
 				wp_add_inline_script(
 					'css-vars-ponyfill',
-					"cssVars( { onlyVars: true, exclude: 'link:not([href^=\"" . esc_url_raw( get_theme_root_uri() ) . "\"])' } );"
+					'window.onload = function() {' . PHP_EOL .
+					"\t" . 'cssVars( {' . PHP_EOL .
+					"\t\t" . 'onlyVars: true,' . PHP_EOL .
+					"\t\t" . 'exclude: \'link:not([href^="' . esc_url_raw( get_theme_root_uri() ) . '"])\'' . PHP_EOL .
+					"\t" . '} );' . PHP_EOL .
+					'};'
 				);
 
 		} // /compatibility

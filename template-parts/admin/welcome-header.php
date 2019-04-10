@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.3.0
+ * @version  2.4.0
  */
 
 
@@ -43,6 +43,8 @@
 		?>
 		<br>
 		<?php esc_html_e( 'Please take time to read the steps below to set up your website.', 'modern' ); ?>
+		<br>
+		<?php echo Modern_Welcome::get_info_like(); ?>
 	</div>
 
 	<p>

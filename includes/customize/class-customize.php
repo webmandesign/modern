@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.3.0
+ * @version  2.4.0
  *
  * Contents:
  *
@@ -239,7 +239,7 @@ class Modern_Customize {
 		 * Set theme options array
 		 *
 		 * @since    2.0.0
-		 * @version  2.3.0
+		 * @version  2.4.0
 		 *
 		 * @param  array $options
 		 */
@@ -768,23 +768,19 @@ class Modern_Customize {
 						),
 
 						900 . 'typography' . 200 => array(
-							'type'    => 'checkbox',
-							'id'      => 'typography_custom_fonts',
-							'label'   => esc_html__( 'Use custom fonts', 'modern' ),
-							'default' => false,
+							'type'        => 'checkbox',
+							'id'          => 'typography_custom_fonts',
+							'label'       => esc_html__( 'Use custom fonts', 'modern' ),
+							'description' => esc_html__( 'Disables theme default fonts loading and lets you set up your own custom fonts.', 'modern' ),
+							'default'     => false,
 						),
 
 							900 . 'typography' . 210 => array(
 								'type'    => 'html',
-								'content' => '<h3>' . esc_html__( 'Custom fonts setup', 'modern' ) . '</h3>' .
-								             '<p class="description">' .
-								             sprintf(
-								             		esc_html_x( 'This theme does not restrict you to choose from a predefined set of fonts. Instead, please use any font service (such as %s) plugin you like.', '%s: linked examples of web fonts libraries such as Google Fonts or Adobe Typekit.', 'modern' ),
-								             		'<a href="http://www.google.com/fonts"><strong>Google Fonts</strong></a>, <a href="https://typekit.com/fonts"><strong>Adobe Typekit</strong></a>'
-								             ) . '</p>' .
-								             '<p class="description">' .
-								             esc_html__( 'You can set your fonts plugin according to information provided below, or insert your custom font names (a value of "font-family" CSS property) directly into input fields (you still need to use a plugin to load those fonts on the website).', 'modern' ) .
-								             '</p>',
+								'content' => '<h3>' . esc_html__( 'Custom fonts setup', 'modern' ) . '</h3><p class="description">' . sprintf(
+										esc_html_x( 'This theme does not restrict you to choose from a predefined set of fonts. Instead, please use any font service (such as %s) plugin you like.', '%s: linked examples of web fonts libraries such as Google Fonts or Adobe Typekit.', 'modern' ),
+										'<a href="http://www.google.com/fonts"><strong>Google Fonts</strong></a>, <a href="https://typekit.com/fonts"><strong>Adobe Typekit</strong></a>'
+									) . '</p><p class="description">' . esc_html__( 'You can set your fonts plugin according to information provided below, or insert your custom font names (a value of "font-family" CSS property) directly into input fields (you still need to use a plugin to load those fonts on the website).', 'modern' ) . '</p>',
 								'active_callback' => __CLASS__ . '::is_typography_custom_fonts',
 							),
 
@@ -842,76 +838,27 @@ class Modern_Customize {
 							900 . 'typography' . 290 => array(
 								'type'            => 'html',
 								'content'         => '<h3>' . esc_html__( 'Info: CSS selectors', 'modern' ) . '</h3>'
-									. '<p class="description">'
-									. esc_html__( 'Here you can find CSS selectors list associated with each font group in the theme. You can use these in your custom font plugin settings.', 'modern' )
-									. '</p>'
+									. '<p class="description">' . esc_html__( 'Here you can find CSS selectors/variables list associated with each font group in the theme. You can use these in your custom font plugin settings.', 'modern' ) . '</p>'
 
 									. '<p>'
 									. '<strong>' . esc_html__( 'General text font CSS selectors:', 'modern' ) . '</strong>'
 									. '</p>'
 									. '<pre>'
-									. implode( ', ', array(
-										'html',
-										'.site .font-body',
-									) )
+									. '--typography_fonts_text'
 									. '</pre>'
 
 									. '<p>'
 									. '<strong>' . esc_html__( 'Headings font CSS selectors:', 'modern' ) . '</strong>'
 									. '</p>'
 									. '<pre>'
-									. implode( ', ', array(
-										'.site .font-headings',
-										'.site .font-headings-primary',
-
-										'h1, .h1',
-										'h2, .h2',
-										'h3, .h3',
-										'h4, .h4',
-										'h5, .h5',
-										'h6, .h6',
-									) )
+									. '--typography_fonts_headings'
 									. '</pre>'
 
 									. '<p>'
 									. '<strong>' . esc_html__( 'Logo font CSS selectors:', 'modern' ) . '</strong>'
 									. '</p>'
 									. '<pre>'
-									. implode( ', ', array(
-										'.site-title',
-										'.site .font-logo',
-										'.site .font-headings-secondary',
-
-										'h1.display-1',
-										'h1.display-2',
-										'h1.display-3',
-										'h1.display-4',
-
-										'h2.display-1',
-										'h2.display-2',
-										'h2.display-3',
-										'h2.display-4',
-
-										'h3.display-1',
-										'h3.display-2',
-										'h3.display-3',
-										'h3.display-4',
-
-										'.h1.display-1',
-										'.h1.display-2',
-										'.h1.display-3',
-										'.h1.display-4',
-
-										'.h2.display-1',
-										'.h2.display-2',
-										'.h2.display-3',
-										'.h2.display-4',
-
-										'.h3.display-1',
-										'.h3.display-2',
-										'.h3.display-3',
-										'.h3.display-4',
-									) )
+									. '--typography_fonts_logo'
 									. '</pre>',
 								'active_callback' => __CLASS__ . '::is_typography_custom_fonts',
 							),

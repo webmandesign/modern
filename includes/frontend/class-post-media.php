@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.0.0
+ * @version  2.4.0
  *
  * Contents:
  *
@@ -33,7 +33,7 @@ class Modern_Post_Media {
 		 * Constructor
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.4.0
 		 */
 		private function __construct() {
 
@@ -68,6 +68,12 @@ class Modern_Post_Media {
 						add_filter( 'wmhook_modern_post_media_pre', __CLASS__ . '::media_disable' );
 
 						add_filter( 'wmhook_modern_post_media_image_size', __CLASS__ . '::size' );
+
+						/**
+						 * @todo  Remove with WP 5.2+?
+						 * @link  https://core.trac.wordpress.org/ticket/43826
+						 */
+						add_filter( 'get_post_gallery', __CLASS__ . '::get_post_gallery_fix', 10, 2 );
 
 		} // /__construct
 
@@ -707,6 +713,64 @@ class Modern_Post_Media {
 				return $output;
 
 		} // /video
+
+
+
+		/**
+		 * @todo  Remove with WP 5.2+?
+		 *
+		 * Fix for retrieving Gutenberg gallery setup parameters in array.
+		 *
+		 * @link  https://core.trac.wordpress.org/ticket/43826
+		 *
+		 * @since    2.4.0
+		 * @version  2.4.0
+		 *
+		 * @param  array       $gallery  The first-found post gallery.
+		 * @param  int|WP_Post $post     Post ID or object.
+		 */
+		public static function get_post_gallery_fix( $gallery, $post ) {
+
+			// Variables
+
+				$post = get_post( $post );
+
+
+			// Requirements check
+
+				if (
+					$gallery
+					|| ! $post
+					|| ! function_exists( 'has_blocks' )
+					|| ! has_blocks( $post->post_content )
+				) {
+					return $gallery;
+				}
+
+
+			// Processing
+
+				preg_match_all(
+					'/wp:gallery(.*)-->/i',
+					$post->post_content,
+					$galleries
+				);
+
+				if ( ! empty( $galleries[1] ) ) {
+					$gallery = json_decode( reset( $galleries[1] ), true );
+					foreach ( $gallery as $key => $value ) {
+						if ( is_array( $value ) ) {
+							$gallery[ $key ] = implode( ',', $value );
+						}
+					}
+				}
+
+
+			// Output
+
+				return $gallery;
+
+		} // /get_post_gallery_fix
 
 
 

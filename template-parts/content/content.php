@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  2.0.0
+ * @version  2.4.0
  */
 
 
@@ -28,13 +28,13 @@ do_action( 'tha_entry_before' );
 		do_action( 'tha_entry_content_before' );
 
 		if ( Modern_Post::is_singular() ) {
-
-			if ( has_excerpt() && ! Modern_Post::is_paged() ) {
+			if (
+				has_excerpt()
+				&& ! Modern_Post::is_paged()
+			) {
 				the_excerpt();
 			}
-
-			the_content( apply_filters( 'wmhook_modern_summary_continue_reading', '' ) );
-
+			the_content();
 		} else {
 			the_excerpt();
 		}

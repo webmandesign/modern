@@ -9,7 +9,7 @@
  *
  * @since    1.0.0
  * @version  2.7.0
- * @version  2.3.0
+ * @version  2.4.0
  *
  * Contents:
  *
@@ -433,23 +433,25 @@ final class Modern_Library {
 		 *
 		 * @since    1.0.0
 		 * @version  2.4.3
+		 * @version  2.4.0
 		 *
 		 * @param  string $id     Link target element ID.
 		 * @param  string $text   Link text.
 		 * @param  string $class  Additional link CSS classes.
+		 * @param  string $html   Output html, use "%s" for actual link
 		 */
-		public static function link_skip_to( $id = 'content', $text = '', $class = '' ) {
+		public static function link_skip_to( $id = 'content', $text = '', $class = '', $html = '%s' ) {
 
 			// Pre
 
-				$pre = apply_filters( 'wmhook_modern_library_link_skip_to_pre', false, $id, $text, $class );
+				$pre = apply_filters( 'wmhook_modern_library_link_skip_to_pre', false, $id, $text, $class, $html );
 
 				if ( false !== $pre ) {
 					return $pre;
 				}
 
 
-			// Helper variables
+			// Processing
 
 				if ( empty( $text ) ) {
 					$text = __( 'Skip to main content', 'modern' );
@@ -458,7 +460,10 @@ final class Modern_Library {
 
 			// Output
 
-				return '<a class="' . esc_attr( trim( 'skip-link screen-reader-text ' . $class ) ) . '" href="#' . esc_attr( trim( $id ) ) . '">' . esc_html( $text ) . '</a>';
+				return sprintf(
+					(string) $html,
+					'<a class="' . esc_attr( trim( 'skip-link screen-reader-text ' . $class ) ) . '" href="#' . esc_attr( trim( $id ) ) . '">' . esc_html( $text ) . '</a>'
+				);
 
 		} // /link_skip_to
 

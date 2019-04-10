@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.2.0
+ * @version  2.4.0
  *
  * Contents:
  *
@@ -201,23 +201,13 @@ class Modern_Header {
 		 * Skip links: Body top
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.4.0
 		 */
 		public static function skip_links() {
 
 			// Output
 
-				echo '<ul class="skip-link-list">'
-				     . '<li class="skip-link-list-item">'
-				     . Modern_Library::link_skip_to( 'site-navigation', __( 'Skip to main navigation', 'modern' ) )
-				     . '</li>'
-				     . '<li class="skip-link-list-item">'
-				     . Modern_Library::link_skip_to( 'content' )
-				     . '</li>'
-				     . '<li class="skip-link-list-item">'
-				     . Modern_Library::link_skip_to( 'colophon', __( 'Skip to footer', 'modern' ) )
-				     . '</li>'
-				     . '</ul>';
+				get_template_part( 'template-parts/header/links', 'skip' );
 
 		} // /skip_links
 

@@ -1,5 +1,55 @@
 # Modern Changelog
 
+## 2.4.0
+
+* **Update**: Navigation accessibility and touch screen functionality
+* **Update**: Improving intro image accessibility
+* **Update**: Custom typography info in theme options
+* **Update**: Improving accessibility skip links
+* **Update**: Excerpts display
+* **Update**: Info about demo required plugins
+* **Update**: Demo content
+* **Update**: Welcome page and notice
+* **Update**: Improving CSS variables functionality for browsers with no support
+* **Update**: Donation links
+* **Update**: Improving code
+* **Update**: Localization
+* **Fix**: CSS variables background image code escaping
+* **Fix**: Gallery post format slideshow not working with Gutenberg editor
+
+### Files changed:
+
+	changelog.md
+	footer.php
+	header.php
+	readme.txt
+	style.css
+	assets/js/scripts-navigation-accessibility.js
+	assets/scss/custom-styles-editor.scss
+	includes/custom-header/class-intro.php
+	includes/customize/class-customize.php
+	includes/frontend/class-header.php
+	includes/frontend/class-menu.php
+	includes/frontend/class-post-media.php
+	includes/frontend/class-post-summary.php
+	includes/plugins/one-click-demo-import/class-one-click-demo-import.php
+	includes/plugins/one-click-demo-import/demo-content-modern.xml
+	includes/post-formats/class-post-formats.php
+	includes/welcome/class-welcome.php
+	languages/modern.pot
+	library/includes/classes/class-core.php
+	library/includes/classes/class-css-variables.php
+	template-parts/admin/notice-welcome.php
+	template-parts/admin/welcome-footer.php
+	template-parts/admin/welcome-header.php
+	template-parts/admin/welcome-promo.php
+	template-parts/component/link-more.php
+	template-parts/content/content.php
+	template-parts/header/links-skip.php
+	template-parts/meta/entry-meta-element-comments.php
+	template-parts/meta/entry-meta-element-date.php
+
+
 ## 2.3.1
 
 * **Update**: Removing obsolete files (related to v2.0.0 upgrade notices)
