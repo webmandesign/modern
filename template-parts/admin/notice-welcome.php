@@ -6,11 +6,18 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.0
+ * @version  2.4.1
  */
 
 
 
+
+
+// Requirements check
+
+	if ( ! class_exists( 'Modern_Welcome' ) ) {
+		return;
+	}
 
 
 // Helper variables

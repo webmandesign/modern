@@ -8,11 +8,18 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.3.0
+ * @version  2.4.1
  */
 
 
 
+
+
+// Requirements check
+
+	if ( ! class_exists( 'Modern_Welcome' ) ) {
+		return;
+	}
 
 
 // Helper variables
@@ -24,9 +31,9 @@
 
 <h2 class="screen-reader-text"><?php esc_html_e( 'Quickstart Guide', 'modern' ); ?></h2>
 
-<div class="feature-section three-col">
+<div class="feature-section three-col has-3-columns" style="max-width: none;">
 
-	<div class="first-feature col">
+	<div class="first-feature col column">
 
 		<span class="dropcap"><?php echo ++$step; ?></span>
 
@@ -46,7 +53,7 @@
 
 	</div>
 
-	<div class="second-feature col">
+	<div class="second-feature col column">
 
 		<span class="dropcap"><?php echo ++$step; ?></span>
 
@@ -72,7 +79,7 @@
 
 	</div>
 
-	<div class="last-feature col">
+	<div class="last-feature col column">
 
 		<span class="dropcap"><?php echo ++$step; ?></span>
 

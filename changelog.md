@@ -1,5 +1,30 @@
 # Modern Changelog
 
+## 2.4.1
+
+* **Add**: Adding WhatsApp and Google social icon
+* **Update**: Implementing WordPress 5.2 code updates
+* **Fix**: Preventing PHP error after theme activation
+
+### Files changed:
+
+	changelog.md
+	header.php
+	readme.txt
+	style.css
+	assets/images/svg/social-icons.svg
+	includes/frontend/class-header.php
+	includes/frontend/class-menu.php
+	includes/welcome/welcome.php
+	template-parts/admin/notice-welcome.php
+	template-parts/admin/welcome-demo.php
+	template-parts/admin/welcome-footer.php
+	template-parts/admin/welcome-header.php
+	template-parts/admin/welcome-promo.php
+	template-parts/admin/welcome-quickstart.php
+	template-parts/admin/welcome-wordpress.php
+
+
 ## 2.4.0
 
 * **Update**: Navigation accessibility and touch screen functionality

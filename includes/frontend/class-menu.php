@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.0
+ * @version  2.4.1
  *
  * Contents:
  *
@@ -417,7 +417,7 @@ class Modern_Menu {
 			 * Social links supported icons
 			 *
 			 * @since    2.0.0
-			 * @version  2.2.3
+			 * @version  2.4.1
 			 */
 			public static function social_links_icons() {
 
@@ -435,7 +435,8 @@ class Modern_Menu {
 						'facebook.com'      => 'facebook',
 						'flickr.com'        => 'flickr',
 						'foursquare.com'    => 'foursquare',
-						'plus.google.com'   => 'google-plus',
+						'plus.google.'      => 'google-plus',
+						'google.'           => 'google',
 						'github.com'        => 'github',
 						'instagram.com'     => 'instagram',
 						'linkedin.com'      => 'linkedin',
@@ -465,6 +466,7 @@ class Modern_Menu {
 						'vimeo.com'         => 'vimeo',
 						'vine.co'           => 'vine',
 						'vk.com'            => 'vk',
+						'wa.me'             => 'whatsapp',
 						'wordpress.org'     => 'wordpress',
 						'wordpress.com'     => 'wordpress',
 						'xing.com'          => 'xing',
