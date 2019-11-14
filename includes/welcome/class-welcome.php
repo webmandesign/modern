@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.0
+ * @version  2.4.2
  *
  * Contents:
  *
@@ -85,7 +85,7 @@ class Modern_Welcome {
 		 * Render the screen content
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.4.2
 		 */
 		public static function render() {
 
@@ -96,7 +96,6 @@ class Modern_Welcome {
 					10  => 'promo',
 					20  => 'wordpress',
 					30  => 'quickstart',
-					40  => 'demo',
 					100 => 'footer',
 				) );
 

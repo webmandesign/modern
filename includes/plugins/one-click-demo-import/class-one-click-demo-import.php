@@ -6,14 +6,13 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.0
+ * @version  2.4.2
  *
  * Contents:
  *
  *   0) Init
- *  10) Files
- *  20) Texts
- *  30) Setup
+ *  10) Texts
+ *  20) Setup
  * 100) Helpers
  */
 class Modern_One_Click_Demo_Import {
@@ -34,7 +33,7 @@ class Modern_One_Click_Demo_Import {
 		 * Constructor
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.4.2
 		 */
 		private function __construct() {
 
@@ -53,8 +52,6 @@ class Modern_One_Click_Demo_Import {
 						add_action( 'pt-ocdi/after_import', __CLASS__ . '::after' );
 
 					// Filters
-
-						add_filter( 'pt-ocdi/import_files', __CLASS__ . '::files' );
 
 						add_filter( 'pt-ocdi/plugin_intro_text', __CLASS__ . '::info' );
 						add_action( 'pt-ocdi/plugin_intro_text', __CLASS__ . '::jetpack_custom_posts' );
@@ -91,55 +88,38 @@ class Modern_One_Click_Demo_Import {
 
 
 	/**
-	 * 10) Files
-	 */
-
-		/**
-		 * Import files setup
-		 *
-		 * For WordPress.org repository themes the file URL needs to be local.
-		 * Add the demo XML and WIE files into `includes/starter-content` folder
-		 * and use `get_theme_file_uri()` for file URL.
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function files() {
-
-			// Output
-
-				return array(
-
-					array(
-						'import_file_name'       => esc_html__( 'Theme demo content', 'modern' ),
-						'import_file_url'        => esc_url( get_theme_file_uri( 'includes/plugins/one-click-demo-import/demo-content-modern.xml' ) ),
-						'import_widget_file_url' => esc_url( get_theme_file_uri( 'includes/plugins/one-click-demo-import/demo-widgets-modern.wie' ) ),
-						'preview_url'            => 'https://themedemos.webmandesign.eu/modern/',
-					),
-
-				);
-
-		} // /files
-
-
-
-
-
-	/**
-	 * 20) Texts
+	 * 10) Texts
 	 */
 
 		/**
 		 * Info texts
 		 *
 		 * @since    2.0.0
-		 * @version  2.4.0
+		 * @version  2.4.2
 		 *
 		 * @param  string $text  Default intro text.
 		 */
 		public static function info( $text = '' ) {
 
 			// Processing
+
+				$text .= '<div class="manual-import-info">';
+
+					$text .= '<h2>';
+					$text .= esc_html__( 'Manual import procedure', 'modern' );
+					$text .= '</h2>';
+
+					$text .= '<p>';
+					$text .= esc_html__( 'By importing this demo content you get the exact copy of the theme demo website.', 'modern' );
+					$text .= ' (<a href="https://themedemos.webmandesign.eu/modern/">' . esc_html__( 'Preview the theme demo website &raquo;', 'modern' ) . '</a>)';
+
+					$text .= '<br>';
+
+					$text .= esc_html__( 'For instructions on importing theme demo content please visit GitHub repository.', 'modern' );
+					$text .= ' (<a href="https://github.com/webmandesign/demo-content/blob/master/modern/readme.md#what-is-this">' . esc_html__( 'GitHub repository instructions &raquo;', 'modern' ) . '</a>)';
+					$text .= '</p>';
+
+				$text .= '</div>';
 
 				$text .= '<div class="media-files-quality-info">';
 
@@ -164,7 +144,7 @@ class Modern_One_Click_Demo_Import {
 					$text .= '<p>';
 					$text .= esc_html__( 'Please read the information about the theme demo required plugins first.', 'modern' );
 					$text .= ' ' . esc_html__( 'If you do not install and activate demo required plugins, some of the content will not be imported.', 'modern' );
-					$text .= ' <a href="https://github.com/webmandesign/demo-content/tree/master/modern/content#before-you-begin" title="' . esc_attr__( 'Read the information before you run the theme demo content import process.', 'modern' ) . '"><strong>';
+					$text .= ' <a href="https://github.com/webmandesign/demo-content/blob/master/modern/readme.md#required-plugins" title="' . esc_attr__( 'Read the information before you run the theme demo content import process.', 'modern' ) . '"><strong>';
 					$text .= esc_html__( 'View the list of required plugins &raquo;', 'modern' );
 					$text .= '</strong></a>';
 					$text .= '</p>';
@@ -189,7 +169,7 @@ class Modern_One_Click_Demo_Import {
 
 
 	/**
-	 * 30) Setup
+	 * 20) Setup
 	 */
 
 		/**

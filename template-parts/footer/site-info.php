@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.2.0
+ * @version  2.4.2
  */
 
 
@@ -47,8 +47,8 @@
 
 				printf(
 					esc_html_x( 'Using %1$s %2$s theme.', '1: theme name, 2: linked "WordPress" word.', 'modern' ),
-					'<a href="' . esc_url( wp_get_theme( 'modern' )->get( 'ThemeURI' ) ) . '"><strong>' . wp_get_theme( 'modern' )->get( 'Name' ) . '</strong></a>',
-					'<a href="' . esc_url( __( 'https://wordpress.org/', 'modern' ) ) . '">WordPress</a>'
+					'<a rel="nofollow" href="' . esc_url( wp_get_theme( 'modern' )->get( 'ThemeURI' ) ) . '"><strong>' . wp_get_theme( 'modern' )->get( 'Name' ) . '</strong></a>',
+					'<a rel="nofollow" href="' . esc_url( __( 'https://wordpress.org/', 'modern' ) ) . '">WordPress</a>'
 				);
 
 				if ( function_exists( 'the_privacy_policy_link' ) ) {

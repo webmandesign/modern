@@ -1,5 +1,25 @@
 # Modern Changelog
 
+## 2.4.2
+
+* **Update**: Adding `nofollow` rel attribute to footer links
+* **Update**: Removing demo content XML and setting manual import for One Click Demo Import plugin to comply with WordPress.org theme requirements
+* **Update**: Localization
+* **Fix**: Not wrapping post excerpt in additional DIV when its empty
+* **Fix**: Removing "Continue reading" link from blog page excerpt
+
+### Files changed:
+
+	changelog.md
+	index.php
+	style.css
+	includes/frontend/class-post-summary.php
+	includes/plugins/one-click-demo-import/class-one-click-demo-import.php
+	includes/welcome/class-welcome.php
+	library/changelog.md
+	template-parts/footer/site-info.php
+
+
 ## 2.4.1
 
 * **Add**: Adding WhatsApp and Google social icon

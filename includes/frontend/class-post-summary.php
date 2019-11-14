@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.0
+ * @version  2.4.2
  *
  * Contents:
  *
@@ -126,11 +126,18 @@ class Modern_Post_Summary {
 		 * Line breaks are required for proper functionality of `wpautop()` later on.
 		 *
 		 * @since    2.4.0
-		 * @version  2.4.0
+		 * @version  2.4.2
 		 *
 		 * @param  string $post_excerpt
 		 */
 		public static function wrap_excerpt( $post_excerpt = '' ) {
+
+			// Requirements check
+
+				if ( empty( $post_excerpt ) ) {
+					return $post_excerpt;
+				}
+
 
 			// Output
 

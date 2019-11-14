@@ -14,7 +14,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  2.2.1
+ * @version  2.4.2
  */
 
 
@@ -36,11 +36,13 @@ get_header();
 				$page_for_posts = absint( get_option( 'page_for_posts' ) );
 
 				if ( ! Modern_Post::is_paged() && has_excerpt( $page_for_posts ) ) :
+					add_filter( 'wmhook_modern_summary_continue_reading_pre', '__return_empty_string' );
 					?>
 					<div class="archive-description">
 						<?php echo get_the_excerpt( $page_for_posts ); ?>
 					</div>
 					<?php
+					remove_filter( 'wmhook_modern_summary_continue_reading_pre', '__return_empty_string' );
 				endif;
 				?>
 			</header>
