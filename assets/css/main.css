@@ -2,7 +2,7 @@
 /* FILE: main.scss */
 /* FILE: _setup.scss */
 /* FILE: _css-vars.scss */
-:root { --custom_logo_height: 100px; --color_accent: #00855b; --color_accent_text: #ffffff; --color_header_background: #0a0c0e; --color_header_text: #ffffff; --color_intro_background: #1a1c1e; --color_intro_text: #ffffff; --color_content_background: #ffffff; --color_content_text: #6a6c6e; --color_content_headings: #1a1c1e; --color_footer_background: #eaecee; --color_footer_text: #5a5c5e; --color_footer_headings: #1a1c1e; --layout_width_content: 1200px; --typography_size_html: 16px; --typography_fonts_text: "Fira Sans", "Helvetica Neue", Arial, sans-serif; --typography_fonts_headings: "Fira Sans", "Helvetica Neue", Arial, sans-serif; --typography_fonts_logo: "Fira Sans", "Helvetica Neue", Arial, sans-serif; --color_header_text--a20: rgba(255, 255, 255, 0.2); --color_content_text--a20: rgba(106, 108, 110, 0.2); --color_footer_text--a20: rgba(90, 92, 94, 0.2); }
+:root { --custom_logo_height: 100px; --color_accent: #00855b; --color_accent_text: #ffffff; --color_header_background: #0a0c0e; --color_header_text: #ffffff; --color_intro_background: #1a1c1e; --color_intro_text: #ffffff; --color_content_background: #ffffff; --color_content_text: #6a6c6e; --color_content_headings: #1a1c1e; --color_footer_background: #eaecee; --color_footer_text: #5a5c5e; --color_footer_headings: #1a1c1e; --layout_width_content: 1200px; --typography_size_html: 16px; --typography_fonts_text: "Fira Sans", "Helvetica Neue", Arial, sans-serif; --typography_fonts_headings: "Fira Sans", "Helvetica Neue", Arial, sans-serif; --typography_fonts_logo: "Fira Sans", "Helvetica Neue", Arial, sans-serif; --color_header_text--a20: rgba(255, 255, 255, 0.2); --color_content_text--a20: rgba(106, 108, 110, 0.2); --color_footer_text--a20: rgba(90, 92, 94, 0.2); --color_accent--a0: rgba(0, 133, 91, 0); }
 
 /* FILE: starter/_starter.scss */
 /* inStyle (v1.6.3) github.com/salsita/inStyle 2016 | MIT @mixin ============================= */
@@ -181,6 +181,8 @@ embed, iframe, object, video { width: 100%; max-width: 100%; }
 
 [role="button"] { cursor: pointer; }
 
+@media (prefers-reduced-motion: reduce), (update: slow) { *, *::before, *::after { -webkit-animation-duration: 0 !important; animation-duration: 0 !important; -webkit-animation-iteration-count: 1 !important; animation-iteration-count: 1 !important; -webkit-transition-duration: 0 !important; -o-transition-duration: 0 !important; transition-duration: 0 !important; } }
+
 /* FILE: starter/base/_base.scss */
 a:focus { outline: thin dashed; }
 
@@ -254,7 +256,7 @@ th, tfoot td { text-align: left; border-width: 2px; }
 
 .screen-reader-text, .comments-title .add-comment-link { padding: 0; margin: -1px; }
 
-.screen-reader-text.skip-link:hover, .comments-title .skip-link.add-comment-link:hover, .screen-reader-text.skip-link:active, .comments-title .skip-link.add-comment-link:active, .screen-reader-text.skip-link:focus, .comments-title .skip-link.add-comment-link:focus { height: auto; width: auto; line-height: inherit; word-wrap: break-word !important; -webkit-clip-path: none; clip-path: none; clip: auto; left: 0.38rem; top: 0.38rem; padding: 1rem; text-decoration: none; font-size: .81rem; font-weight: 700; background-color: #47c; color: #fff; z-index: 100000; /* Above WP toolbar. */ }
+.screen-reader-text.skip-link:hover, .comments-title .skip-link.add-comment-link:hover, .screen-reader-text.skip-link:active, .comments-title .skip-link.add-comment-link:active, .screen-reader-text.skip-link:focus, .comments-title .skip-link.add-comment-link:focus { height: auto; width: auto; line-height: inherit; word-wrap: break-word !important; -webkit-clip-path: none; clip-path: none; clip: auto; left: 0.38rem; top: 0.38rem; padding: 1rem; text-decoration: none; font-size: .81rem; font-weight: 700; background-color: #36b; color: #fff; z-index: 100000; /* Above WP toolbar. */ }
 
 .focus-position-static:hover, .comments-title .add-comment-link:hover, .focus-position-static:active, .comments-title .add-comment-link:active, .focus-position-static:focus, .comments-title .add-comment-link:focus { position: static !important; margin: 1px; text-align: center; }
 
@@ -1044,7 +1046,7 @@ div[class*="hover-color-"] .button, div[class*="hover-color-"] button, div[class
 .button:disabled, button:disabled, input:disabled[type="button"], input:disabled[type="reset"], input:disabled[type="submit"], .main-navigation-container .button > a:disabled { -webkit-box-shadow: none; box-shadow: none; opacity: .5; cursor: not-allowed; }
 
 /* FILE: main/forms/__search.scss */
-.site form[role="search"]::before, .site .search-form::before { content: '\f400'; position: absolute; width: 1.62em; height: 100%; right: 0; top: 0; line-height: 1.62; text-align: center; font-size: 1.62rem; z-index: 1; }
+.site form[role="search"]::before, .site .search-form::before { content: '\f400'; position: absolute; width: 1.62em; height: 1.62em; right: 0; top: 50%; line-height: 1.62; text-align: center; font-size: 1.62rem; z-index: 1; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
 
 .site form[role="search"] label, .site .search-form label { font-size: 1em; }
 
@@ -1225,13 +1227,15 @@ h1.screen-reader-text, .comments-title h1.add-comment-link, h2.screen-reader-tex
 
 .intro-container { padding: 0; margin: 0; border-width: 0; }
 
-.intro-media { position: absolute; width: 100%; left: 0; top: 0; background-color: inherit; overflow: hidden; z-index: 0; }
+.intro-media { position: absolute; width: 100%; left: 0; top: 0; text-align: center; background-color: inherit; overflow: hidden; z-index: 0; }
 
 .intro-media::after, .intro-media::before { content: ''; position: absolute; width: 100%; height: 100%; left: 0; bottom: 0; z-index: 1; }
 
 .intro-media::after { height: 62%; }
 
 .intro-media::before { background-color: inherit; opacity: .66; }
+
+.intro-media img { width: 100%; }
 
 body:not(.home) .intro-media img { width: calc( 100% + 20px); max-width: none; margin: -10px; -webkit-filter: blur(10px) grayscale(100%) contrast(66%); filter: blur(10px) grayscale(100%) contrast(66%); -webkit-transform: scaleX(-1); -ms-transform: scaleX(-1); transform: scaleX(-1); }
 

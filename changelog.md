@@ -1,5 +1,36 @@
 # Modern Changelog
 
+## 2.4.3
+
+* **Update**: Updating CSS Vars Ponyfill JS
+* **Update**: Improved accessibility styles
+* **Fix**: Homepage slideshow not working
+* **Fix**: Search form submit button alignment
+* **Fix**: Intro image not fullwidth
+* **Fix**: Safari browser linear gradient issue
+* **Fix**: Mobile navigation double tap issue
+* **Fix**: Color contrast on focused skip links
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	style.css
+	assets/js/scripts-navigation-accessibility.js
+	assets/scss/_css-vars.scss
+	assets/scss/custom-styles.scss
+	assets/scss/main.scss
+	includes/custom-header/class-intro.php
+	includes/customize/class-customize-styles.php
+	includes/customize/class-customize.php
+	includes/frontend/class-assets.php
+	includes/plugins/ns-featured-posts/class-ns-featured-posts.php
+	library/changelog.md
+	library/includes/classes/class-css-variables.php
+	library/js/vendors/css-vars-ponyfill/css-vars-ponyfill.js
+	library/js/vendors/css-vars-ponyfill/css-vars-ponyfill.min.js
+
+
 ## 2.4.2
 
 * **Update**: Adding `nofollow` rel attribute to footer links

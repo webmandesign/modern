@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.0
+ * @version  2.4.3
  *
  * Contents:
  *
@@ -1071,13 +1071,15 @@ class Modern_Customize {
 			 * Set alpha values (%) for CSS rgba() colors.
 			 *
 			 * @since    2.0.0
-			 * @version  2.3.0
+			 * @version  2.4.3
 			 *
 			 * @param  array $alphas
 			 */
 			public static function rgba_alphas( $alphas = array() ) {
 
 				// Processing
+
+					$alphas['color_accent'] = 0;
 
 					$alphas['color_header_text']  =
 					$alphas['color_content_text'] =

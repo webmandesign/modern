@@ -18,13 +18,14 @@ form[role="search"],
 			content: '\f400';
 			position: absolute;
 			width: $golden +em;
-			height: 100%;
+			height: $golden +em;
 			#{$right}: 0; // {{RTL}}
-			top: 0;
+			top: 50%;
 			line-height: $golden;
 			text-align: center;
 			font-size: $golden +rem;
 			z-index: 1;
+			transform: translateY(-50%);
 		}
 
 		input[type="submit"],

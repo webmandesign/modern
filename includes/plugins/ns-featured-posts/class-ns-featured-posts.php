@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.2.0
+ * @version  2.4.3
  *
  * Contents:
  *
@@ -33,7 +33,7 @@ class Modern_NS_Featured_Posts {
 		 * Constructor
 		 *
 		 * @since    2.0.0
-		 * @version  2.2.0
+		 * @version  2.4.3
 		 */
 		private function __construct() {
 
@@ -42,8 +42,8 @@ class Modern_NS_Featured_Posts {
 				$plugin_options = get_option( 'nsfp_plugin_options' );
 
 				if ( isset( $plugin_options['nsfp_posttypes'] ) ) {
-					foreach ( (array) $plugin_options['nsfp_posttypes'] as $post_type => $enabled ) {
-						if ( $enabled && post_type_exists( $post_type ) ) {
+					foreach ( (array) $plugin_options['nsfp_posttypes'] as $post_type ) {
+						if ( post_type_exists( $post_type ) ) {
 							self::$supported_post_types[] = $post_type;
 						}
 					}

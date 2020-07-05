@@ -6,17 +6,16 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.0
+ * @version  2.4.3
  *
  * Contents:
  *
- *   0) Init
- *  10) Setup
- *  20) Output
- *  30) Conditions
- *  40) Assets
- *  50) Slideshow
- * 100) Helpers
+ *  0) Init
+ * 10) Setup
+ * 20) Output
+ * 30) Conditions
+ * 40) Assets
+ * 50) Slideshow
  */
 class Modern_Intro {
 
@@ -38,7 +37,7 @@ class Modern_Intro {
 		 * @uses  `wmhook_modern_title_primary_disable` global hook to disable `#primary` section H1
 		 *
 		 * @since    2.0.0
-		 * @version  2.4.0
+		 * @version  2.4.3
 		 */
 		private function __construct() {
 
@@ -65,8 +64,6 @@ class Modern_Intro {
 						add_filter( 'wmhook_modern_intro_disable', __CLASS__ . '::disable', 5 );
 
 						add_filter( 'theme_mod_' . 'header_image', __CLASS__ . '::image', 15 ); // Has to be priority 15 for correct customizer previews.
-
-						add_filter( 'get_header_image_tag', __CLASS__ . '::image_alt_text', 10, 3 );
 
 		} // /__construct
 
@@ -465,54 +462,6 @@ class Modern_Intro {
 				return count( (array) self::get_slides() );
 
 		} // /get_slides_count
-
-
-
-
-
-	/**
-	 * 100) Helpers
-	 */
-
-		/**
-		 * Custom header image alt text fix.
-		 *
-		 * However, this does not always work. If the image URL is overridden
-		 * with `self::image()` above, the attachment ID is different, thus
-		 * the alt text could not be applied. This has to be fixed in WP core
-		 * or completely redone in theme with custom code...
-		 *
-		 * @link  https://core.trac.wordpress.org/ticket/46124
-		 * @todo  Remove with WordPress 5.2?
-		 *
-		 * @since    2.4.0
-		 * @version  2.4.0
-		 */
-		public static function image_alt_text( $html, $header, $attr ) {
-
-			// Processing
-
-				if ( isset( $header->attachment_id ) ) {
-					$image_alt = get_post_meta( $header->attachment_id, '_wp_attachment_image_alt', true );
-					if (
-						! empty( $image_alt )
-						&& wp_get_attachment_url( $header->attachment_id ) === $attr['src']
-					) {
-						$attr['alt'] = $image_alt;
-						$html = '<img';
-						foreach ( $attr as $name => $value ) {
-							$html .= ' ' . $name . '="' . esc_attr( $value ) . '"';
-						}
-						$html .= ' />';
-					}
-				}
-
-
-			// Output
-
-				return $html;
-
-		} // /image_alt_text
 
 
 

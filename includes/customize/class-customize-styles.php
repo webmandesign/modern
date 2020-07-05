@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.3.0
+ * @version  2.4.3
  *
  * Contents:
  *
@@ -66,7 +66,7 @@ class Modern_Customize_Styles {
 		 * Get custom CSS.
 		 *
 		 * @since    2.0.0
-		 * @version  2.3.0
+		 * @version  2.4.3
 		 */
 		public static function get_css() {
 
@@ -77,7 +77,13 @@ class Modern_Customize_Styles {
 
 			// Processing
 
-				$output .= '.intro-media::after { background-image: linear-gradient(transparent, ' . maybe_hash_hex_color( get_background_color() ) . ') }';
+				if ( $background_color = maybe_hash_hex_color( get_background_color() ) ) {
+					$output .=
+						':root {' .
+						'--background_color:' . esc_attr( $background_color ) . ';' .
+						'--background_color--a0:' . esc_attr( Modern_Customize::color_hex_to_rgba( $background_color, 0 ) ) . ';' .
+						'}';
+				}
 
 
 			// Output

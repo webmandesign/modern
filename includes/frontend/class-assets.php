@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.3.0
+ * @version  2.4.3
  *
  * Contents:
  *
@@ -240,7 +240,7 @@ class Modern_Assets {
 		 * Frontend scripts enqueue
 		 *
 		 * @since    1.0.0
-		 * @version  2.2.0
+		 * @version  2.4.3
 		 */
 		public static function enqueue_scripts() {
 
@@ -305,6 +305,7 @@ class Modern_Assets {
 								is_home()
 								|| is_archive()
 								|| is_search()
+								|| is_page_template( 'page-template/_front.php' )
 							)
 						)
 					) {

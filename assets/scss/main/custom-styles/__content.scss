@@ -55,12 +55,12 @@
 						background-image: linear-gradient(
 							to #{$right},
 							map_get( $customize_options, 'color_accent' ) 38%,
-							transparent
+							rgba( map_get( $customize_options, 'color_accent' ), 0 )
 						);
 						background-image: linear-gradient(
 							to #{$right},
 							var(--color_accent) 38%,
-							transparent
+							var(--color_accent--a0)
 						);
 					}
 
@@ -72,12 +72,12 @@
 						background-image: linear-gradient(
 							to #{$left},
 							map_get( $customize_options, 'color_accent' ) 38%,
-							transparent
+							rgba( map_get( $customize_options, 'color_accent' ), 0 )
 						);
 						background-image: linear-gradient(
 							to #{$left},
 							var(--color_accent) 38%,
-							transparent
+							var(--color_accent--a0)
 						);
 					}
 

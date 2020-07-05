@@ -18,7 +18,10 @@
 
 	&::after {
 		// @see  Modern_Customize_Styles::get_css()
-		background-image: linear-gradient( transparent, #1a1c1e );
+		background-image: linear-gradient(
+			var(--background_color--a0),
+			var(--background_color)
+		);
 	}
 
 }

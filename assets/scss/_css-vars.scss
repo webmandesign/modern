@@ -7,7 +7,7 @@
 // @copyright  WebMan Design, Oliver Juhas
 //
 // @since    2.3.0
-// @version  2.3.0
+// @version  2.4.3
 //
 
 :root {
@@ -19,17 +19,29 @@
 
 	// RGBA colors:
 	// @see  Modern_Customize::rgba_alphas()
-	$customize_options_rgba: (
-		'color_header_text',
-		'color_content_text',
-		'color_footer_text',
-	);
-	@each $option_rgba in $customize_options_rgba {
-		// As all of the RGBA options use the same alpha value,
-		// we just set it here directly (the `20`).
-		$value: rgba( map_get( $customize_options, $option_rgba ), 20 / 100 );
-		// Converting values to string to prevent issues.
-		--#{$option_rgba}--a20: #{$value+''};
-	}
+
+		$customize_options_rgba: (
+			'color_header_text',
+			'color_content_text',
+			'color_footer_text',
+		);
+		@each $option_rgba in $customize_options_rgba {
+			// As all of the RGBA options use the same alpha value,
+			// we just set it here directly (the `20`).
+			$value: rgba( map_get( $customize_options, $option_rgba ), 20 / 100 );
+			// Converting values to string to prevent issues.
+			--#{$option_rgba}--a20: #{$value+''};
+		}
+
+		$customize_options_rgba: (
+			'color_accent',
+		);
+		@each $option_rgba in $customize_options_rgba {
+			// As all of the RGBA options use the same alpha value,
+			// we just set it here directly (the `20`).
+			$value: rgba( map_get( $customize_options, $option_rgba ), 0 );
+			// Converting values to string to prevent issues.
+			--#{$option_rgba}--a0: #{$value+''};
+		}
 
 }

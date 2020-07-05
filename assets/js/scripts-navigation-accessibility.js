@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.0
+ * @version  2.4.3
  */
 
 
@@ -28,7 +28,8 @@
 	 */
 
 		var
-			$siteNavigation = $( document.getElementById( 'site-navigation' ) );
+			$siteNavigation = $( document.getElementById( 'site-navigation' ) ),
+			$breakpoints      = ( 'undefined' !== typeof $modernBreakpoints ) ? ( $modernBreakpoints ) : ( { 'l' : 880 } );
 
 
 
@@ -74,6 +75,16 @@
 
 		$siteNavigation
 			.on( 'touchstart', '.menu-item-has-children > a', function( e ) {
+
+				// Requirements check
+
+					/**
+					 * No need for mobile navigation as it causes double tap issue.
+					 */
+					if ( parseInt( $breakpoints['l'] ) >= window.innerWidth ) {
+						return;
+					}
+
 
 				// Helper variables
 
