@@ -48,5 +48,5 @@ Adding WordPress 5.6 compatibility, fixing bugs, updating JavaScript.
 * slick.js © 2014 Ken Wheeler, MIT
 * Genericons Neue © Automattic, GPL v2 or later
 * social-icons.svg © Based on Font Awesome icons font by Dave Gandy, SIL Open Font License 1.1
-* Header images © https://www.pixabay.com, https://stocksnap.io, https://unsplash.com CC0
-* screenshot.jpg images © https://www.pixabay.com, https://stocksnap.io, https://unsplash.com, CC0
+* Header images © https://stocksnap.io, CC0
+* screenshot.jpg images © https://stocksnap.io, CC0
