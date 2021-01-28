@@ -1,12 +1,12 @@
 /*!
  * css-vars-ponyfill
- * v2.3.1
+ * v2.4.2
  * https://jhildenbiddle.github.io/css-vars-ponyfill/
  * (c) 2018-2020 John Hildenbiddle <http://hildenbiddle.com>
  * MIT license
  */
 (function(global, factory) {
-    typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory() : typeof define === "function" && define.amd ? define(factory) : (global = global || self,
+    typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory() : typeof define === "function" && define.amd ? define(factory) : (global = typeof globalThis !== "undefined" ? globalThis : global || self,
     global.cssVars = factory());
 })(this, (function() {
     "use strict";
@@ -24,34 +24,9 @@
         };
         return _extends.apply(this, arguments);
     }
-    function _toConsumableArray(arr) {
-        return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-    }
-    function _arrayWithoutHoles(arr) {
-        if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-    }
-    function _iterableToArray(iter) {
-        if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
-    }
-    function _unsupportedIterableToArray(o, minLen) {
-        if (!o) return;
-        if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-        var n = Object.prototype.toString.call(o).slice(8, -1);
-        if (n === "Object" && o.constructor) n = o.constructor.name;
-        if (n === "Map" || n === "Set") return Array.from(o);
-        if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-    }
-    function _arrayLikeToArray(arr, len) {
-        if (len == null || len > arr.length) len = arr.length;
-        for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-        return arr2;
-    }
-    function _nonIterableSpread() {
-        throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-    }
     /*!
    * get-css-data
-   * v1.8.0
+   * v1.9.1
    * https://github.com/jhildenbiddle/get-css-data
    * (c) 2018-2020 John Hildenbiddle <http://hildenbiddle.com>
    * MIT license
@@ -68,10 +43,9 @@
         var urlQueue = Array.apply(null, Array(urlArray.length)).map((function(x) {
             return null;
         }));
-        function isValidCss() {
-            var cssText = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
-            var isHTML = cssText.trim().charAt(0) === "<";
-            return !isHTML;
+        function isValidCss(cssText) {
+            var isHTML = cssText && cssText.trim().charAt(0) === "<";
+            return cssText && !isHTML;
         }
         function onError(xhr, urlIndex) {
             settings.onError(xhr, urlArray[urlIndex], urlIndex);
@@ -125,6 +99,8 @@
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState === 4) {
                         if (xhr.status === 200 && isValidCss(xhr.responseText)) {
+                            onSuccess(xhr.responseText, i);
+                        } else if (xhr.status === 0 && isValidCss(xhr.responseText)) {
                             onSuccess(xhr.responseText, i);
                         } else {
                             onError(xhr, i);
@@ -303,9 +279,9 @@
             sourceNodes.forEach((function(node, i) {
                 var linkHref = node.getAttribute("href");
                 var linkRel = node.getAttribute("rel");
-                var isLink = node.nodeName === "LINK" && linkHref && linkRel && linkRel.toLowerCase().indexOf("stylesheet") !== -1;
+                var isLink = node.nodeName.toLowerCase() === "link" && linkHref && linkRel && linkRel.toLowerCase().indexOf("stylesheet") !== -1;
                 var isSkip = settings.skipDisabled === false ? false : node.disabled;
-                var isStyle = node.nodeName === "STYLE";
+                var isStyle = node.nodeName.toLowerCase() === "style";
                 if (isLink && !isSkip) {
                     getUrls(linkHref, {
                         mimeType: "text/css",
@@ -1020,8 +996,8 @@
    *                   messages will be displayed on the console
    * @param {boolean}  [options.updateDOM=true] Determines if the ponyfill will
    *                   update the DOM after processing CSS custom properties
-   * @param {boolean}  [options.updateURLs=true] Determines if the ponyfill will
-   *                   convert relative url() paths to absolute urls
+   * @param {boolean}  [options.updateURLs=true] Determines if relative url()
+   *                   paths will be converted to absolute urls in external CSS
    * @param {boolean}  [options.watch=false] Determines if a MutationObserver will
    *                   be created that will execute the ponyfill when a <link> or
    *                   <style> DOM mutation is observed
@@ -1112,11 +1088,20 @@
                 cssVarsDebounced(options);
                 return;
             }
+            var srcNodes = Array.apply(null, settings.rootElement.querySelectorAll('[data-cssvars]:not([data-cssvars="out"])'));
             settings.__benchmark = getTimeStamp();
-            settings.exclude = [ cssVarsObserver ? '[data-cssvars]:not([data-cssvars=""])' : '[data-cssvars="out"]', settings.exclude ].filter((function(selector) {
+            settings.exclude = [ cssVarsObserver ? '[data-cssvars]:not([data-cssvars=""])' : '[data-cssvars="out"]', "link[disabled]", settings.exclude ].filter((function(selector) {
                 return selector;
             })).join(",");
             settings.variables = fixVarNames(settings.variables);
+            srcNodes.forEach((function(srcNode) {
+                var hasStyleCache = srcNode.nodeName.toLowerCase() === "style" && srcNode.__cssVars.text;
+                var hasStyleChanged = hasStyleCache && srcNode.textContent !== srcNode.__cssVars.text;
+                if (hasStyleCache && hasStyleChanged) {
+                    srcNode.sheet && (srcNode.sheet.disabled = false);
+                    srcNode.setAttribute("data-cssvars", "");
+                }
+            }));
             if (!cssVarsObserver) {
                 var outNodes = Array.apply(null, settings.rootElement.querySelectorAll('[data-cssvars="out"]'));
                 outNodes.forEach((function(outNode) {
@@ -1126,12 +1111,9 @@
                         outNode.parentNode.removeChild(outNode);
                     }
                 }));
-                if (cssVarsSrcNodeCount) {
-                    var srcNodes = settings.rootElement.querySelectorAll('[data-cssvars]:not([data-cssvars="out"])');
-                    if (srcNodes.length < cssVarsSrcNodeCount) {
-                        cssVarsSrcNodeCount = srcNodes.length;
-                        variableStore.dom = {};
-                    }
+                if (cssVarsSrcNodeCount && srcNodes.length < cssVarsSrcNodeCount) {
+                    cssVarsSrcNodeCount = srcNodes.length;
+                    variableStore.dom = {};
                 }
             }
         }
@@ -1182,9 +1164,11 @@
                         handleError(errorMsg, node, xhr, responseUrl);
                     },
                     onSuccess: function onSuccess(cssText, node, url) {
+                        var isLink = node.nodeName.toLowerCase() === "link";
+                        var isStyleImport = node.nodeName.toLowerCase() === "style" && cssText !== node.textContent;
                         var returnVal = settings.onSuccess(cssText, node, url);
                         cssText = returnVal !== undefined && Boolean(returnVal) === false ? "" : returnVal || cssText;
-                        if (settings.updateURLs) {
+                        if (settings.updateURLs && (isLink || isStyleImport)) {
                             cssText = fixRelativeCssUrls(cssText, url);
                         }
                         return cssText;
@@ -1196,6 +1180,8 @@
                         variableStore.job = {};
                         nodeArray.forEach((function(node, i) {
                             var nodeCSS = cssArray[i];
+                            node.__cssVars = node.__cssVars || {};
+                            node.__cssVars.text = nodeCSS;
                             if (regex.cssVars.test(nodeCSS)) {
                                 try {
                                     var cssTree = parseCss(nodeCSS, {
@@ -1207,9 +1193,7 @@
                                         store: variableStore.dom,
                                         onWarning: handleWarning
                                     });
-                                    node.__cssVars = {
-                                        tree: cssTree
-                                    };
+                                    node.__cssVars.tree = cssTree;
                                 } catch (err) {
                                     handleError(err.message, node);
                                 }
@@ -1237,8 +1221,8 @@
                                 counters.job++;
                             }
                             nodeArray.forEach((function(node, i) {
-                                var isSkip = !node.__cssVars;
-                                if (node.__cssVars) {
+                                var isSkip = !node.__cssVars.tree;
+                                if (node.__cssVars.tree) {
                                     try {
                                         transformCss(node.__cssVars.tree, _extends({}, settings, {
                                             variables: variableStore.job,
@@ -1257,7 +1241,7 @@
                                                 var outNode = settings.rootElement.querySelector('[data-cssvars="out"][data-cssvars-group="'.concat(dataGroup, '"]')) || document.createElement("style");
                                                 hasKeyframesWithVars = hasKeyframesWithVars || regex.cssKeyframes.test(outCss);
                                                 if (settings.preserveStatic) {
-                                                    node.sheet.disabled = true;
+                                                    node.sheet && (node.sheet.disabled = true);
                                                 }
                                                 if (!outNode.hasAttribute("data-cssvars")) {
                                                     outNode.setAttribute("data-cssvars", "out");
@@ -1299,7 +1283,7 @@
                             }));
                             cssVarsSrcNodeCount = settings.rootElement.querySelectorAll('[data-cssvars]:not([data-cssvars="out"])').length;
                             if (settings.shadowDOM) {
-                                var elms = [ settings.rootElement ].concat(_toConsumableArray(settings.rootElement.querySelectorAll("*")));
+                                var elms = [].concat(settings.rootElement).concat(Array.apply(null, settings.rootElement.querySelectorAll("*")));
                                 for (var i = 0, elm; elm = elms[i]; ++i) {
                                     if (elm.shadowRoot && elm.shadowRoot.querySelector("style")) {
                                         var shadowSettings = _extends({}, settings, {
@@ -1343,45 +1327,81 @@
     };
     function addMutationObserver(settings) {
         function isDisabled(node) {
-            var isDisabledAttr = node.hasAttribute("disabled");
+            var isDisabledAttr = isLink(node) && node.hasAttribute("disabled");
             var isDisabledSheet = (node.sheet || {}).disabled;
             return isDisabledAttr || isDisabledSheet;
         }
         function isLink(node) {
-            var isStylesheet = node.tagName === "LINK" && (node.getAttribute("rel") || "").indexOf("stylesheet") !== -1;
-            return isStylesheet && !isDisabled(node);
+            var isStylesheet = node.nodeName.toLowerCase() === "link" && (node.getAttribute("rel") || "").indexOf("stylesheet") !== -1;
+            return isStylesheet;
         }
         function isStyle(node) {
-            return node.tagName === "STYLE" && !isDisabled(node);
+            return node.nodeName.toLowerCase() === "style";
         }
-        function isValidAddMutation(mutationNodes) {
-            return Array.apply(null, mutationNodes).some((function(node) {
-                var isElm = node.nodeType === 1;
-                var hasAttr = isElm && node.hasAttribute("data-cssvars");
-                var isStyleWithVars = isStyle(node) && regex.cssVars.test(node.textContent);
-                var isValid = !hasAttr && (isLink(node) || isStyleWithVars);
-                return isValid;
-            }));
-        }
-        function isValidRemoveMutation(mutationNodes) {
-            return Array.apply(null, mutationNodes).some((function(node) {
-                var isElm = node.nodeType === 1;
-                var isOutNode = isElm && node.getAttribute("data-cssvars") === "out";
-                var isSrcNode = isElm && node.getAttribute("data-cssvars") === "src";
-                var isValid = isSrcNode;
-                if (isSrcNode || isOutNode) {
-                    var dataGroup = node.getAttribute("data-cssvars-group");
-                    var orphanNode = settings.rootElement.querySelector('[data-cssvars-group="'.concat(dataGroup, '"]'));
-                    if (isSrcNode) {
-                        resetCssNodes(settings.rootElement);
-                        variableStore.dom = {};
+        function isValidAttributeMutation(mutation) {
+            var isValid = false;
+            if (mutation.type === "attributes" && isLink(mutation.target) && !isDisabled(mutation.target)) {
+                var isEnabledMutation = mutation.attributeName === "disabled";
+                var isHrefMutation = mutation.attributeName === "href";
+                var isSkipNode = mutation.target.getAttribute("data-cssvars") === "skip";
+                var isSrcNode = mutation.target.getAttribute("data-cssvars") === "src";
+                if (isEnabledMutation) {
+                    isValid = !isSkipNode && !isSrcNode;
+                } else if (isHrefMutation) {
+                    if (isSkipNode) {
+                        mutation.target.setAttribute("data-cssvars", "");
+                    } else if (isSrcNode) {
+                        resetCssNodes(settings.rootElement, true);
                     }
-                    if (orphanNode) {
-                        orphanNode.parentNode.removeChild(orphanNode);
-                    }
+                    isValid = true;
                 }
-                return isValid;
-            }));
+            }
+            return isValid;
+        }
+        function isValidStyleTextMutation(mutation) {
+            var isValid = false;
+            if (mutation.type === "childList") {
+                var isStyleElm = isStyle(mutation.target);
+                var isOutNode = mutation.target.getAttribute("data-cssvars") === "out";
+                isValid = isStyleElm && !isOutNode;
+            }
+            return isValid;
+        }
+        function isValidAddMutation(mutation) {
+            var isValid = false;
+            if (mutation.type === "childList") {
+                isValid = Array.apply(null, mutation.addedNodes).some((function(node) {
+                    var isElm = node.nodeType === 1;
+                    var hasAttr = isElm && node.hasAttribute("data-cssvars");
+                    var isStyleWithVars = isStyle(node) && regex.cssVars.test(node.textContent);
+                    var isValid = !hasAttr && (isLink(node) || isStyleWithVars);
+                    return isValid && !isDisabled(node);
+                }));
+            }
+            return isValid;
+        }
+        function isValidRemoveMutation(mutation) {
+            var isValid = false;
+            if (mutation.type === "childList") {
+                isValid = Array.apply(null, mutation.removedNodes).some((function(node) {
+                    var isElm = node.nodeType === 1;
+                    var isOutNode = isElm && node.getAttribute("data-cssvars") === "out";
+                    var isSrcNode = isElm && node.getAttribute("data-cssvars") === "src";
+                    var isValid = isSrcNode;
+                    if (isSrcNode || isOutNode) {
+                        var dataGroup = node.getAttribute("data-cssvars-group");
+                        var orphanNode = settings.rootElement.querySelector('[data-cssvars-group="'.concat(dataGroup, '"]'));
+                        if (isSrcNode) {
+                            resetCssNodes(settings.rootElement, true);
+                        }
+                        if (orphanNode) {
+                            orphanNode.parentNode.removeChild(orphanNode);
+                        }
+                    }
+                    return isValid;
+                }));
+            }
+            return isValid;
         }
         if (!window.MutationObserver) {
             return;
@@ -1392,13 +1412,7 @@
         }
         cssVarsObserver = new MutationObserver((function(mutations) {
             var hasValidMutation = mutations.some((function(mutation) {
-                var isValid = false;
-                if (mutation.type === "attributes") {
-                    isValid = isLink(mutation.target);
-                } else if (mutation.type === "childList") {
-                    isValid = isValidAddMutation(mutation.addedNodes) || isValidRemoveMutation(mutation.removedNodes);
-                }
-                return isValid;
+                return isValidAttributeMutation(mutation) || isValidStyleTextMutation(mutation) || isValidAddMutation(mutation) || isValidRemoveMutation(mutation);
             }));
             if (hasValidMutation) {
                 cssVars(settings);
@@ -1475,10 +1489,14 @@
         return isBrowser && (window.performance || {}).now ? window.performance.now() : (new Date).getTime();
     }
     function resetCssNodes(rootElement) {
+        var resetDOMVariableStore = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
         var resetNodes = Array.apply(null, rootElement.querySelectorAll('[data-cssvars="skip"],[data-cssvars="src"]'));
         resetNodes.forEach((function(node) {
             return node.setAttribute("data-cssvars", "");
         }));
+        if (resetDOMVariableStore) {
+            variableStore.dom = {};
+        }
     }
     return cssVars;
 }));

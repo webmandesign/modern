@@ -1,11 +1,10 @@
 === Modern ===
 Contributors: webmandesign
-Tags: one-column, two-columns, right-sidebar, grid-layout, flexible-header, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-image-header, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, portfolio
-Requires at least: 4.7.0
-Tested up to: 5.2
-Stable tag: 2.4.3
-License: GNU General Public License v3
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Requires at least: 4.8
+Tested up to: 5.6
+Requires PHP: 5.6
+License: GPL-3.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
 Modern is an accessibility ready blog and portfolio WordPress theme perfect for personal portfolio websites.
 
@@ -37,8 +36,8 @@ Please see `changelog.md` file.
 
 == Upgrade Notice ==
 
-= 2.4.3 =
-Fixing bugs: homepage slideshow not working, search form submit button alignment, intro image not fullwidth, Safari browser linear gradient issue, mobile navigation double tap issue, color contrast on focused skip links.
+= 2.4.4 =
+Adding WordPress 5.6 compatibility, fixing bugs, updating JavaScript.
 
 
 == Resources ==

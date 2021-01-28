@@ -1,5 +1,34 @@
 # Modern Changelog
 
+## 2.4.4, 20210128
+
+### Updated
+- Updating 3rd party JavaScript
+- Improving SEO
+- Improving compatibility with plugins such as bbPress
+
+### Fixed
+- Flex grow modifier class specificity
+- Range theme option field not working with WordPress 5.6
+- jQuery code for WordPress 5.6 compatibility
+
+### File updates
+	changelog.md
+	readme.txt
+	style.css
+	assets/js/vendors/fitvids/jquery.fitvids.js
+	assets/scss/main.scss
+	includes/frontend/class-header.php
+	library/includes/classes/class-css-variables.php
+	library/js/customize-control-multicheckbox.js
+	library/js/customize-control-radio-matrix.js
+	library/js/customize-controls.js
+	library/js/vendors/css-vars-ponyfill/css-vars-ponyfill.js
+	library/js/vendors/css-vars-ponyfill/css-vars-ponyfill.min.js
+	template-parts/content/content-page.php
+	template-parts/header/head.php
+
+
 ## 2.4.3
 
 * **Update**: Updating CSS Vars Ponyfill JS

@@ -195,7 +195,7 @@
 
 		.set-flex-grow-#{$i} {
 
-			.widget-area & {
+			.site .widget-area & {
 				flex-grow: $i;
 			}
 
