@@ -17,10 +17,15 @@
 			@extend %padding_bottom;
 			max-width: calc( 39em + #{ $golden * 2em } );
 			max-width: calc( 70ch + #{ $golden * 2em } );
-			padding-left: $golden +em;
-			padding-right: $golden +em;
+			padding-left: 1em;
+			padding-right: 1em;
 			margin-left: auto;
 			margin-right: auto;
+
+			@include media( map_get( $breakpoint, 'm' ) ) {
+				padding-left: $golden +em;
+				padding-right: $golden +em;
+			}
 
 			.content-layout-no-paddings .content-area & {
 				padding: 0;

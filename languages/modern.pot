@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modern\n"
 "Report-Msgid-Bugs-To: https://support.webmandesign.eu\n"
-"POT-Creation-Date: 2019-11-14 17:56+0100\n"
+"POT-Creation-Date: 2022-03-20 22:16+0100\n"
 "PO-Revision-Date: 2015-04-15 10:00+0100\n"
 "Last-Translator: Oliver Juhas, WebMan Design\n"
 "Language-Team: \n"
@@ -11,13 +11,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:27
@@ -48,7 +48,7 @@ msgid "Comments are closed."
 msgstr ""
 
 #. translators: Custom header image description, %d: image sequential number.
-#: includes/custom-header/class-intro.php:150
+#: includes/custom-header/class-intro.php:147
 #, php-format
 msgid "Header image %d"
 msgstr ""
@@ -410,12 +410,12 @@ msgid "Default value: %s"
 msgstr ""
 
 #: includes/customize/class-customize.php:807
-#: includes/setup/class-setup.php:591
+#: includes/setup/class-setup.php:596
 msgid "Headings font"
 msgstr ""
 
 #: includes/customize/class-customize.php:824
-#: includes/setup/class-setup.php:597
+#: includes/setup/class-setup.php:602
 msgid "Logo font"
 msgstr ""
 
@@ -491,12 +491,24 @@ msgctxt "%d: Position priority number."
 msgid "Below page content, position %d"
 msgstr ""
 
-#: includes/frontend/class-assets.php:317
+#. translators: %s: menu item label.
+#: includes/frontend/class-assets.php:286
+#, php-format
+msgid "Collapse menu: %s"
+msgstr ""
+
+#. translators: %s: menu item label.
+#: includes/frontend/class-assets.php:288
+#, php-format
+msgid "Expand menu: %s"
+msgstr ""
+
+#: includes/frontend/class-assets.php:334
 msgctxt "Slideshow slide."
 msgid "Previous"
 msgstr ""
 
-#: includes/frontend/class-assets.php:318
+#: includes/frontend/class-assets.php:335
 msgctxt "Slideshow slide."
 msgid "Next"
 msgstr ""
@@ -531,12 +543,8 @@ msgctxt "Navigational menu location"
 msgid "Social Links"
 msgstr ""
 
-#: includes/frontend/class-menu.php:176 includes/frontend/class-menu.php:187
+#: includes/frontend/class-menu.php:170
 msgid "Skip to menu toggle button"
-msgstr ""
-
-#: includes/frontend/class-menu.php:308
-msgid "(Focus the link to toggle submenu.)"
 msgstr ""
 
 #: includes/frontend/class-post-summary.php:84
@@ -547,25 +555,25 @@ msgstr ""
 msgid "Enter the password to view it."
 msgstr ""
 
-#: includes/frontend/class-post.php:333
+#: includes/frontend/class-post.php:342
 msgid "Skip back to main navigation"
 msgstr ""
 
-#: includes/frontend/class-post.php:370
+#: includes/frontend/class-post.php:381
 msgctxt "$s: Custom post type singular label"
 msgid "Previous $s"
 msgstr ""
 
-#: includes/frontend/class-post.php:376
+#: includes/frontend/class-post.php:387
 msgctxt "$s: Custom post type singular label"
 msgid "Next $s"
 msgstr ""
 
-#: includes/frontend/class-post.php:383
+#: includes/frontend/class-post.php:394
 msgid "Published in"
 msgstr ""
 
-#: includes/frontend/class-post.php:394
+#: includes/frontend/class-post.php:405
 msgid "Post navigation"
 msgstr ""
 
@@ -664,7 +672,7 @@ msgstr ""
 msgid "Options for setting up testimonials section on \"Front page\" template."
 msgstr ""
 
-#: includes/plugins/jetpack/class-jetpack-infinite-scroll.php:111
+#: includes/plugins/jetpack/class-jetpack-infinite-scroll.php:113
 msgid "Load more&hellip;"
 msgstr ""
 
@@ -776,25 +784,25 @@ msgstr ""
 msgid "Reload this page &raquo;"
 msgstr ""
 
-#: includes/setup/class-setup.php:360
+#: includes/setup/class-setup.php:365
 msgid "In posts list."
 msgstr ""
 
-#: includes/setup/class-setup.php:361
+#: includes/setup/class-setup.php:366
 msgid ""
 "You may want to rise this image size if you set posts to display in 2 "
 "columns."
 msgstr ""
 
-#: includes/setup/class-setup.php:372
+#: includes/setup/class-setup.php:377
 msgid "Not used in the theme."
 msgstr ""
 
-#: includes/setup/class-setup.php:379
+#: includes/setup/class-setup.php:384
 msgid "In single post or page."
 msgstr ""
 
-#: includes/setup/class-setup.php:386
+#: includes/setup/class-setup.php:391
 msgid "In intro section."
 msgstr ""
 
@@ -803,68 +811,68 @@ msgstr ""
 #. supported by the font, translate this to 'off'.
 #. The font will not load then.
 #.
-#: includes/setup/class-setup.php:490
+#: includes/setup/class-setup.php:495
 msgctxt "Fira Sans font: on or off"
 msgid "on"
 msgstr ""
 
-#: includes/setup/class-setup.php:551
+#: includes/setup/class-setup.php:556
 msgid "Thin (hairline) text"
 msgstr ""
 
-#: includes/setup/class-setup.php:552
+#: includes/setup/class-setup.php:557
 msgid "Extra light text"
 msgstr ""
 
-#: includes/setup/class-setup.php:553
+#: includes/setup/class-setup.php:558
 msgid "Light text"
 msgstr ""
 
-#: includes/setup/class-setup.php:554
+#: includes/setup/class-setup.php:559
 msgid "Normal weight text"
 msgstr ""
 
-#: includes/setup/class-setup.php:555
+#: includes/setup/class-setup.php:560
 msgid "Medium text"
 msgstr ""
 
-#: includes/setup/class-setup.php:556
+#: includes/setup/class-setup.php:561
 msgid "Semi bold text"
 msgstr ""
 
-#: includes/setup/class-setup.php:557
+#: includes/setup/class-setup.php:562
 msgid "Bold text"
 msgstr ""
 
-#: includes/setup/class-setup.php:558
+#: includes/setup/class-setup.php:563
 msgid "Extra bold text"
 msgstr ""
 
-#: includes/setup/class-setup.php:559
+#: includes/setup/class-setup.php:564
 msgid "Heavy text"
 msgstr ""
 
-#: includes/setup/class-setup.php:564
+#: includes/setup/class-setup.php:569
 msgid "Text weights"
 msgstr ""
 
-#: includes/setup/class-setup.php:581
+#: includes/setup/class-setup.php:586
 msgid "Fonts"
 msgstr ""
 
-#: includes/setup/class-setup.php:585
+#: includes/setup/class-setup.php:590
 msgid "General font"
 msgstr ""
 
-#: includes/setup/class-setup.php:603
+#: includes/setup/class-setup.php:608
 msgid "Inherit font"
 msgstr ""
 
-#: includes/setup/class-setup.php:614
+#: includes/setup/class-setup.php:619
 msgid "Columns"
 msgstr ""
 
-#: includes/setup/class-setup.php:621
+#: includes/setup/class-setup.php:626
 #, php-format
 msgctxt "%d: Number of columns."
 msgid "Text in %d column"
@@ -872,11 +880,11 @@ msgid_plural "Text in %d columns"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/setup/class-setup.php:632
+#: includes/setup/class-setup.php:637
 msgid "Buttons"
 msgstr ""
 
-#: includes/setup/class-setup.php:636
+#: includes/setup/class-setup.php:641
 msgid "Button from link"
 msgstr ""
 
@@ -955,28 +963,48 @@ msgstr ""
 msgid "For installing theme demo content easily."
 msgstr ""
 
-#: includes/tgmpa/class-tgmpa-plugins.php:166
+#: includes/tgmpa/class-tgmpa-plugins.php:137
+msgctxt "Plugin name."
+msgid "Classic Widgets"
+msgstr ""
+
+#: includes/tgmpa/class-tgmpa-plugins.php:138
+msgid "Improves widgets management screen."
+msgstr ""
+
+#: includes/tgmpa/class-tgmpa-plugins.php:138
+msgid "Restores the previous WordPress widgets settings screens."
+msgstr ""
+
+#: includes/tgmpa/class-tgmpa-plugins.php:138
+msgid ""
+"Sidebars and widgets are not going to be used in fully block themes in the "
+"future, so if your website still uses sidebars, it is better to use this "
+"plugin to enable classic user interface."
+msgstr ""
+
+#: includes/tgmpa/class-tgmpa-plugins.php:173
 msgid "Other useful plugins &raquo;"
 msgstr ""
 
-#: includes/tgmpa/class-tgmpa-plugins.php:191
+#: includes/tgmpa/class-tgmpa-plugins.php:198
 msgid "Description"
 msgstr ""
 
-#: includes/tgmpa/class-tgmpa-plugins.php:260
+#: includes/tgmpa/class-tgmpa-plugins.php:267
 msgctxt "Plugins."
 msgid "Recommended, not required"
 msgstr ""
 
-#: includes/tgmpa/class-tgmpa-plugins.php:263
+#: includes/tgmpa/class-tgmpa-plugins.php:270
 msgid "Please note that these are just recommended plugins, not required ones."
 msgstr ""
 
-#: includes/tgmpa/class-tgmpa-plugins.php:264
+#: includes/tgmpa/class-tgmpa-plugins.php:271
 msgid "Install only those plugins you will use."
 msgstr ""
 
-#: includes/tgmpa/class-tgmpa-plugins.php:265
+#: includes/tgmpa/class-tgmpa-plugins.php:272
 msgctxt "Plugins."
 msgid "Or install the ones you prefer."
 msgstr ""
@@ -1023,7 +1051,7 @@ msgid "(page %s)"
 msgstr ""
 
 #: library/includes/classes/class-core.php:457
-#: template-parts/header/links-skip.php:23
+#: template-parts/header/links-skip.php:20
 msgid "Skip to main content"
 msgstr ""
 
@@ -1927,19 +1955,23 @@ msgstr ""
 msgid "Back to top &uarr;"
 msgstr ""
 
-#: template-parts/header/links-skip.php:22
+#: template-parts/header/links-skip.php:14
+msgid "Skip links"
+msgstr ""
+
+#: template-parts/header/links-skip.php:19
 msgid "Skip to main navigation"
 msgstr ""
 
-#: template-parts/header/links-skip.php:24
+#: template-parts/header/links-skip.php:21
 msgid "Skip to footer"
 msgstr ""
 
-#: template-parts/menu/menu-primary.php:29
+#: template-parts/menu/menu-primary.php:21
 msgid "Primary Menu"
 msgstr ""
 
-#: template-parts/menu/menu-primary.php:32
+#: template-parts/menu/menu-primary.php:34
 msgctxt "Mobile navigation toggle button title."
 msgid "Menu"
 msgstr ""

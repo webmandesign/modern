@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.3.0
+ * @version  2.5.0
  *
  * Contents:
  *
@@ -159,7 +159,7 @@ class Modern_Post {
 		 * @uses  `wmhook_modern_title_primary_disable` global hook to disable `#primary` section H1
 		 *
 		 * @since    2.0.0
-		 * @version  2.3.0
+		 * @version  2.5.0
 		 *
 		 * @param  array $args Heading setup arguments
 		 */
@@ -213,6 +213,11 @@ class Modern_Post {
 							$args['title'] .= $suffix;
 						} else {
 							$args['title'] = $title;
+						}
+
+						if ( is_front_page() ) {
+							$args['tag']    = 'h2';
+							$args['class'] .= ' h1';
 						}
 
 					}
@@ -314,7 +319,7 @@ class Modern_Post {
 		 * Skip links: Entry bottom
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.5.0
 		 */
 		public static function skip_links() {
 
@@ -330,7 +335,13 @@ class Modern_Post {
 
 			// Output
 
-				echo Modern_Library::link_skip_to( 'site-navigation', esc_html__( 'Skip back to main navigation', 'modern' ), 'focus-position-static' );
+				echo
+					'<div class="entry-skip-links">'
+					. Modern_Library::link_skip_to(
+						'site-navigation',
+						esc_html__( 'Skip back to main navigation', 'modern' )
+					)
+					. '</div>';
 
 		} // /skip_links
 

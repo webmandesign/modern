@@ -69,19 +69,31 @@
 
 // Skip links list
 
-	.skip-link-list {
-		position: absolute;
-		#{$left}: 0; // {{RTL}}
-		top: 0;
-		padding: 0;
-		margin: 0;
-		list-style: none;
+	.menu-skip-links {
 
-		&-item {
+		ul {
+			position: absolute;
+			#{$left}: 0; // {{RTL}}
+			top: 0;
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		li {
 			list-style: inherit;
 			white-space: nowrap;
 		}
 
+	}
+
+	.skip-link {
+		background: #000;
+		color: #fff;
+	}
+
+	.entry-skip-links {
+		position: relative;
 	}
 
 

@@ -5,7 +5,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  2.3.0
+ * @version  2.5.0
  *
  * Contents:
  *
@@ -130,6 +130,57 @@
 
 		} ); // /background_color
 
+
+
+	/**
+	 * Footer widgets: masonry.
+	 */
+	if ( $( document.body ).hasClass( 'has-masonry-footer' ) ) {
+		/**
+		 * Customize preview widgets partial refresh
+		 *
+		 * From Twenty Thirteen WordPress theme.
+		 *
+		 * @see  `twentythirteen/js/functions.js`
+		 */
+		if ( 'undefined' !== typeof wp && wp.customize && wp.customize.selectiveRefresh ) {
+
+			// Retain previous masonry-brick initial position.
+			wp.customize.selectiveRefresh.bind( 'partial-content-rendered', function( placement ) {
+				var copyPosition = (
+					placement.partial.extended( wp.customize.widgetsPreview.WidgetPartial ) &&
+					placement.removedNodes instanceof jQuery &&
+					placement.removedNodes.is( '.masonry-brick' ) &&
+					placement.container instanceof jQuery
+				);
+				if ( copyPosition ) {
+					placement.container.css( {
+						position: placement.removedNodes.css( 'position' ),
+						top: placement.removedNodes.css( 'top' ),
+						left: placement.removedNodes.css( 'left' )
+					} );
+				}
+			} );
+
+			// Re-arrange footer widgets when sidebar is updated via selective refresh in the Customizer.
+			wp.customize.selectiveRefresh.bind( 'sidebar-updated', function( sidebarPartial ) {
+
+				// Processing
+
+					// Make sure we affect 'footer' widgetized area only.
+					if ( 'footer' === sidebarPartial.sidebarId ) {
+
+						$footerWidgetsContainer
+							.masonry( 'reloadItems' )
+							.masonry( 'layout' );
+
+					}
+
+			} );
+
+		}
+
+	}
 
 
 

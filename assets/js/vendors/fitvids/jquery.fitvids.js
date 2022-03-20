@@ -87,3 +87,15 @@
 
 // Works with either jQuery or Zepto
 })( window.jQuery || window.Zepto );
+
+( function( $ ) {
+	'use strict';
+
+	// Responsive videos.
+	if ( $().fitVids ) {
+
+		$( document.getElementById( 'page' ) )
+			.fitVids();
+
+	}
+} )( jQuery );

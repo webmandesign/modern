@@ -6,134 +6,114 @@
 // Class of `.megamenu` is applied on a primary menu item (on a `<li>` HTML tag).
 //
 
-
-
-
-
-@include media( map_get( $breakpoint, 'l' ) ) {
+@include media( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
 
 	.main-navigation-container .megamenu {
 
-		// Columns container
+		// Columns container.
+		> .sub-menu {
 
-			> ul {
-				display: flex;
+			// Column
+			> li {
+				flex: 0 1 14em;
+				padding: 0;
+				border-width: 0;
+				vertical-align: top;
 
+				+ li {
+					margin-#{$left}: power( $golden, 2 ) +rem; // {{RTL}}
+				}
 
+				// Label
+				> a {
+					margin-#{$left}: 2px; // Compensating for border width;
+					margin-bottom: $golden +em;
+					font-size: 1em - $golden_minor / 4;
+					font-weight: 700;
+					text-transform: uppercase;
+					letter-spacing: 1px;
+					border-width: 0;
+					border-radius: 0;
 
-				// Column
-
-					> li {
-						flex: 0 1 14em;
-						padding: 0;
-						border-width: 0;
-						vertical-align: top;
-
-						+ li {
-							margin-#{$left}: power( $golden, 2 ) +rem; // {{RTL}}
-						}
-
-						a {
-							min-width: 0;
-						}
-
-
-
-						// Label
-
-							> a {
-								margin-bottom: $golden +em;
-								text-transform: uppercase;
-								letter-spacing: 1px;
-								font-size: 1em - $golden_minor / 4;
-								font-weight: 700;
-								border-width: 0;
-								border-radius: 0;
-
-								.expander {
-									display: none;
-								}
-
-							}
-
-
-
-						// Content (sub-sub-menu)
-
-							> .sub-menu {
-								display: block;
-								position: relative;
-								min-width: 100%;
-								#{$left}: 0; // {{RTL}}
-								top: 0;
-								padding: 0;
-								margin: 1em 0 0;
-								background: none;
-								border-width: 0;
-								box-shadow: none;
-								transform: none;
-								transition: none;
-
-								> li > a {
-									padding-#{$right}: 1rem;
-								}
-
-
-
-								// Sub-sub-sub-menu
-
-									ul {
-										box-shadow: 0 .38em 1em rgba( #000, .25 );
-									}
-
-							}
-
-							&,
-							.no-js &:hover,
-							&.focus {
-
-								> .sub-menu {
-									#{$left}: 0; // {{RTL}}
-								}
-
-							}
-
+					&::after // Inaccessible menu fallback indicating submenu.
+					{
+						display: none;
 					}
 
+				}
+
+				> .button-toggle-sub-menu {
+					display: none;
+				}
+
+				// Content (sub-sub-menu)
+				> .sub-menu {
+					display: block;
+					position: relative;
+					min-width: 100%;
+					#{$left}: 0; // {{RTL}}
+					top: 0;
+					padding: 0;
+					margin: 1em 0 0;
+					background: none;
+					border-width: 0;
+					box-shadow: none;
+
+					> li > a {
+						padding-#{$right}: 1rem;
+					}
+
+					// Sub-sub-sub-menu
+					.sub-menu {
+						box-shadow: 0 .38em 1em rgba( #000, .25 );
+					}
+
+				}
+
 			}
 
+		}
 
+		&:hover > .sub-menu,
+		.no-js &:focus-within > .sub-menu {
+			display: flex;
+
+			.sub-menu {
+				animation: none;
+			}
+
+		}
+
+		.menu-item-has-children {
+			display: block;
+
+			.menu-item-has-children {
+				display: flex;
+			}
+
+		}
 
 		// Make sure the column border color is consistent
+		& > ul > li > a,
+		&:hover > ul > .current-menu-item > a,
+		&:hover > ul > .current-menu-ancestor > a {
+			border-color: currentColor;
+		}
 
-			& > ul > li > a,
-			&:hover > ul > .current-menu-item > a,
-			&:hover > ul > .current-menu-ancestor > a {
-				border-color: currentColor;
-			}
+	}
 
+	// A11yMenu JS accessible menu.
+	.toggle-sub-menus {
 
-
-		// Make sure the column content is opaque
-
-			.no-js &:hover ul,
-			&.focus ul {
-				opacity: 1;
-			}
+		.megamenu.has-expanded-sub-menu > .sub-menu {
+			display: flex;
+		}
 
 	}
 
 }
 
-
-
-@include media(
-	( map_get( $breakpoint, 'l' ), 'min-width' ),
-	( map_get( $breakpoint, 'xl' ), 'max-width' )
-) {
-
-	.main-navigation-container .megamenu {
-		position: static;
-	}
-
+.main-navigation .disable-link > a {
+	pointer-events: none;
+	cursor: text;
 }

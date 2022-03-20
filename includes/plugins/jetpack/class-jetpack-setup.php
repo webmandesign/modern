@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.2.0
+ * @version  2.5.0
  *
  * Contents:
  *
@@ -33,13 +33,15 @@ class Modern_Jetpack_Setup {
 		 * Constructor
 		 *
 		 * @since    2.0.0
-		 * @version  2.2.0
+		 * @version  2.5.0
 		 */
 		private function __construct() {
 
 			// Requirements check
 
-				if ( ! Jetpack::is_active() && ! Jetpack::is_development_mode() ) {
+				$status = new Automattic\Jetpack\Status();
+
+				if ( ! Jetpack::is_active() && ! $status->is_offline_mode() ) {
 					return;
 				}
 

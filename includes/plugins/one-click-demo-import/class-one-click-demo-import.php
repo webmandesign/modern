@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.2
+ * @version  2.5.0
  *
  * Contents:
  *
@@ -402,18 +402,16 @@ class Modern_One_Click_Demo_Import {
 		 * OCDI plugin admin page styles
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.5.0
 		 */
 		public static function styles() {
 
 			// Processing
 
-				// OCDI 2.0 styling fix
-
-					wp_add_inline_style(
-						'ocdi-main-css',
-						'.ocdi.about-wrap { max-width: 66em; }'
-					);
+				wp_add_inline_style(
+					'ocdi-main-css',
+					'.ocdi__content-container { max-width: 1024px; }'
+				);
 
 		} // /styles
 

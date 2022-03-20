@@ -49,6 +49,12 @@
 
 		.is-singular & {
 			@extend %box_shadow;
+
+			@include media( ( map_get( $breakpoint, 'm' ), 'max-width' ) ) {
+				margin-left: -1rem;
+				margin-right: -1rem;
+			}
+
 		}
 
 	}

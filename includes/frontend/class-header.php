@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.4
+ * @version  2.5.0
  *
  * Contents:
  *
@@ -34,7 +34,7 @@ class Modern_Header {
 		 * Constructor
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.5.0
 		 */
 		private function __construct() {
 
@@ -50,6 +50,8 @@ class Modern_Header {
 						add_action( 'wp_head', __CLASS__ . '::head', 1 );
 						add_action( 'wp_head', __CLASS__ . '::head_pingback', 1 );
 						add_action( 'wp_head', __CLASS__ . '::head_chrome_color', 1 );
+
+						add_action( 'tha_body_top', __CLASS__ . '::anchor_top_of_page', -10 );
 
 						add_action( 'tha_body_top', __CLASS__ . '::oldie', 5 );
 						add_action( 'tha_body_top', __CLASS__ . '::site_open' );
@@ -191,6 +193,25 @@ class Modern_Header {
 	/**
 	 * 20) Body start
 	 */
+
+		/**
+		 * Anchor for top of the page.
+		 *
+		 * Should be the first element on the page, before the skip links.
+		 *
+		 * @since  2.5.0
+		 *
+		 * @return  void
+		 */
+		public static function anchor_top_of_page() {
+
+			// Output
+
+				echo '<a name="top"></a>' . PHP_EOL.PHP_EOL;
+
+		} // /anchor_top_of_page
+
+
 
 		/**
 		 * IE upgrade message

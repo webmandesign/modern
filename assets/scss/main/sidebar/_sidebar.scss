@@ -26,7 +26,7 @@
 			$padding : power( $golden, 2 ); // In rem.
 
 			@extend %box_shadow;
-			padding: $padding / 2 +rem; // Half the padding for mobiles.
+			padding: 1rem;
 			margin-bottom: 2rem;
 
 			@include media( map_get( $breakpoint, 'm' ) ) {

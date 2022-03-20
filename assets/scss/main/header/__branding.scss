@@ -40,12 +40,7 @@
 		&-text {
 			@extend %line_height_golden_minor;
 			display: inline-block;
-			margin: ( $golden_major +em ) 0;
 			vertical-align: middle;
-
-			@include media( map_get( $breakpoint, 'm' ) ) {
-				margin: 0;
-			}
 
 			.site-title-hidden & {
 				@extend %screen_reader_hiding;

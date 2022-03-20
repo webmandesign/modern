@@ -1,39 +1,32 @@
 /* FILE: main/menu/_menu-primary-sub-menu.scss */
 
-//
-// Sub-menus
-//
-
-
-
-
+@keyframes showSubMenu {
+	from {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+	to {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+}
 
 .main-navigation-container {
 
-	li ul {
-
-		@include media( map_get( $breakpoint, 'l' ) ) {
-			position: absolute;
-			min-width: 100%;
-			min-width: calc( 100% + #{ $golden * 4rem } );
-			#{$left}: 0; // {{RTL}}
-			top: 100%;
-			padding: $golden +rem;
-			margin: 0 ( -$golden +rem );
-			border-top-width: 1px;
-			border-top-style: solid;
-			box-shadow: 0 .38em 1em rgba( #000, .25 );
-			opacity: 0;
-			z-index: 9;
-			pointer-events: none;
-			transform: scaleY(0);
-			transform-origin: 50% 0;
-		}
-
-		@include media( map_get( $breakpoint, 'xl' ) ) {
-			transition: transform ( $large_animation_speed +s ),
-			            opacity ( $large_animation_speed +s );
-		}
+	.sub-menu {
+		display: none;
+		position: absolute;
+		min-width: 100%;
+		min-width: calc( 100% + #{ $golden * 4rem } );
+		#{$left}: 0; // {{RTL}}
+		top: 100%;
+		padding: $golden +rem;
+		margin: 0 ( -$golden - $golden_minor +rem );
+		border-top-width: 1px;
+		border-top-style: solid;
+		box-shadow: 0 .38em 1em rgba( #000, .25 );
+		z-index: 9;
+		transform-origin: 50% 0;
 
 		a {
 			@extend %line_height_golden_minor;
@@ -44,7 +37,7 @@
 
 	.reverse-expand ul {
 
-		@include media( map_get( $breakpoint, 'l' ) ) {
+		@include responsive( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
 			#{$left}: auto; // {{RTL}}
 			#{$right}: 0; // {{RTL}}
 		}
@@ -53,7 +46,7 @@
 
 	li li {
 
-		@include media( map_get( $breakpoint, 'l' ) ) {
+		@include responsive( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
 			float: none;
 			display: block;
 
@@ -66,18 +59,7 @@
 
 	}
 
-	@include media(
-		( map_get( $breakpoint, 'l' ), 'min-width' ),
-		( map_get( $breakpoint, 'xl' ), 'max-width' )
-	) {
-
-		li .sub-menu {
-			margin-top: 0;
-		}
-
-	}
-
-	@include media( ( map_get( $breakpoint, 'l' ), 'max-width' ) ) {
+	@include media( ( map_get( $breakpoint, $mobile_menu_breakpoint ), 'max-width' ) ) {
 
 		li li a::before {
 			content: '';
@@ -90,31 +72,50 @@
 			border-bottom: 1px solid;
 			vertical-align: top;
 			opacity: .5;
+			speak: none;
 		}
 
 	}
 
+	.menu-item-has-children {
 
+		// Inaccessible menu fallback indicating submenu.
+		.no-js &:not([aria-haspopup]):not(.menu-item-is-depth-3) {
+			@include responsive( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
 
-	// Is active (visible)
+				> a {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
 
-		li {
-
-			.no-js &:hover,
-			&.focus {
-
-				> ul {
-
-					@include media( map_get( $breakpoint, 'l' ) ) {
-						pointer-events: auto;
-						transform: scaleY(1);
-						opacity: 1;
+					&::after {
+						content: '\25bc';
+						padding-#{$left}: 1em;
+						margin-#{$left}: auto;
+						font-size: .5em;
 					}
 
 				}
 
-			}
+				.menu-item-has-children:not(.menu-item-is-depth-3) > a::after {
+					@if 'left' == $left {
+						content: '\25b6';
+					} @else {
+						content: '\25C0';
+					}
+				}
 
+			}
 		}
+
+		&:hover > .sub-menu,
+		.no-js &:focus-within > .sub-menu {
+			@include responsive( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
+				display: block;
+				animation: showSubMenu ( $large_animation_speed +s );
+			}
+		}
+
+	}
 
 }

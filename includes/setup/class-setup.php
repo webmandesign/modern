@@ -9,7 +9,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.3.0
+ * @version  2.5.0
  *
  * Contents:
  *
@@ -163,7 +163,7 @@ class Modern_Setup {
 		 * as indicating support for post thumbnails.
 		 *
 		 * @since    1.0.0
-		 * @version  2.3.0
+		 * @version  2.5.0
 		 */
 		public static function setup() {
 
@@ -219,7 +219,9 @@ class Modern_Setup {
 					/**
 					 * @link  https://codex.wordpress.org/Theme_Logo
 					 */
-					add_theme_support( 'custom-logo' );
+					add_theme_support( 'custom-logo', array(
+						'unlink-homepage-logo' => true,
+					) );
 
 				// Feed links
 
@@ -238,7 +240,10 @@ class Modern_Setup {
 						'comment-form',
 						'comment-list',
 						'gallery',
+						'navigation-widgets',
 						'search-form',
+						'script',
+						'style',
 					) );
 
 				// Custom header

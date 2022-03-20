@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.3
+ * @version  2.5.0
  *
  * Contents:
  *
@@ -146,22 +146,21 @@ class Modern_Assets {
 		 * Registering theme scripts
 		 *
 		 * @since    1.0.0
-		 * @version  2.0.0
+		 * @version  2.5.0
 		 */
 		public static function register_scripts() {
 
 			// Helper variables
 
-				$script_global_deps = ( ! ( current_theme_supports( 'jetpack-responsive-videos' ) && function_exists( 'jetpack_responsive_videos_init' ) ) ) ? ( array( 'jquery-fitvids' ) ) : ( array( 'jquery' ) );
-
 				$register_assets = array(
-					'jquery-fitvids'             => array( get_theme_file_uri( 'assets/js/vendors/fitvids/jquery.fitvids.js' ) ),
-					'slick'                      => array( get_theme_file_uri( 'assets/js/vendors/slick/slick.min.js' ) ),
-					'modern-skip-link-focus-fix' => array( 'src' => get_theme_file_uri( 'assets/js/skip-link-focus-fix.js' ), 'deps' => array() ),
-					'modern-scripts-global'      => array( 'src' => get_theme_file_uri( 'assets/js/scripts-global.js' ), 'deps' => $script_global_deps ),
+					'a11y-menu'      => array( 'src' => get_theme_file_uri( 'assets/js/vendors/a11y-menu/a11y-menu.dist.min.js' ), 'in_footer' => false ),
+					'jquery-fitvids' => array( get_theme_file_uri( 'assets/js/vendors/fitvids/jquery.fitvids.js' ), 'deps' => array( 'jquery' ) ),
+					'jquery-slick'   => array( get_theme_file_uri( 'assets/js/vendors/slick/slick.min.js' ), 'deps' => array( 'jquery' ) ),
+
+					'modern-skip-link-focus-fix' => array( 'src' => get_theme_file_uri( 'assets/js/skip-link-focus-fix.js' ) ),
+					'modern-scripts-global'      => array( 'src' => get_theme_file_uri( 'assets/js/scripts-global.js' ) ),
 					'modern-scripts-masonry'     => array( 'src' => get_theme_file_uri( 'assets/js/scripts-masonry.js' ), 'deps' => array( 'jquery-masonry' ) ),
-					'modern-scripts-slick'       => array( 'src' => get_theme_file_uri( 'assets/js/scripts-slick.js' ), 'deps' => array( 'slick' ) ),
-					'modern-scripts-nav-a11y'    => array( get_theme_file_uri( 'assets/js/scripts-navigation-accessibility.js' ) ),
+					'modern-scripts-slick'       => array( 'src' => get_theme_file_uri( 'assets/js/scripts-slick.js' ), 'deps' => array( 'jquery-slick' ) ),
 					'modern-scripts-nav-mobile'  => array( get_theme_file_uri( 'assets/js/scripts-navigation-mobile.js' ) ),
 				);
 
@@ -173,7 +172,7 @@ class Modern_Assets {
 				foreach ( $register_assets as $handle => $atts ) {
 
 					$src       = ( isset( $atts['src'] ) ) ? ( $atts['src'] ) : ( $atts[0] );
-					$deps      = ( isset( $atts['deps'] ) ) ? ( $atts['deps'] ) : ( array( 'jquery' ) );
+					$deps      = ( isset( $atts['deps'] ) ) ? ( $atts['deps'] ) : ( array() );
 					$ver       = ( isset( $atts['ver'] ) ) ? ( $atts['ver'] ) : ( MODERN_THEME_VERSION );
 					$in_footer = ( isset( $atts['in_footer'] ) ) ? ( $atts['in_footer'] ) : ( true );
 
@@ -240,7 +239,7 @@ class Modern_Assets {
 		 * Frontend scripts enqueue
 		 *
 		 * @since    1.0.0
-		 * @version  2.4.3
+		 * @version  2.5.0
 		 */
 		public static function enqueue_scripts() {
 
@@ -273,7 +272,24 @@ class Modern_Assets {
 				// Navigation scripts
 
 					if ( ! apply_filters( 'wmhook_modern_disable_header', false ) ) {
-						$enqueue_assets[20] = 'modern-scripts-nav-a11y';
+						$enqueue_assets[20] = 'a11y-menu';
+						wp_localize_script(
+							'a11y-menu',
+							'a11yMenuConfig',
+							array(
+								'mode'              => array( 'esc', 'button' ),
+								'menu_selector'     => '.toggle-sub-menus',
+								'button_attributes' => array(
+									'class'      => 'button-toggle-sub-menu',
+									'aria-label' => array(
+										/* translators: %s: menu item label. */
+										'collapse' => esc_html__( 'Collapse menu: %s', 'modern' ),
+										/* translators: %s: menu item label. */
+										'expand'   => esc_html__( 'Expand menu: %s', 'modern' ),
+									),
+								),
+							)
+						);
 
 						if ( Modern_Library_Customize::get_theme_mod( 'navigation_mobile' ) ) {
 							$enqueue_assets[25] = 'modern-scripts-nav-mobile';
@@ -479,7 +495,7 @@ class Modern_Assets {
 		 * Enqueues FitVids only when needed
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.5.0
 		 *
 		 * @param  string $html The generated HTML of the shortcodes
 		 */
@@ -487,11 +503,13 @@ class Modern_Assets {
 
 			// Requirements check
 
-				if (
+				$default = ! (
 					is_admin()
 					|| empty( $html )
 					|| ! is_string( $html )
-				) {
+				);
+
+				if ( ! (bool) apply_filters( 'wmhook_modern_enable_fitvids', false, $default ) ) {
 					return $html;
 				}
 

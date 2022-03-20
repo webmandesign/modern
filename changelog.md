@@ -1,5 +1,55 @@
 # Modern Changelog
 
+## 2.5.0, 20220320
+
+### Added
+- TikTok social links icon
+- New accessible menu functionality using A11yMenu script
+
+### Updated
+- Improving accessibility
+- Headings structure
+- Recommended plugins list
+- Localization
+
+### Fixed
+- "Back to top" link functionality
+- Accessibility issues
+- Preventing PHP errors
+- Jetpack plugin compatibility
+
+### File updates
+	changelog.md
+	header.php
+	readme.txt
+	style.css
+	assets/images/svg/social-icons.svg
+	assets/js/customize-preview.js
+	assets/js/scripts-global.js
+	assets/js/scripts-masonry.js
+	assets/js/scripts-navigation-mobile.js
+	assets/js/vendors/a11y-menu/*.*
+	assets/js/vendors/fitvids/jquery.fitvids.js
+	assets/scss/_setup.scss
+	assets/scss/main.scss
+	includes/frontend/class-assets.php
+	includes/frontend/class-header.php
+	includes/frontend/class-menu.php
+	includes/frontend/class-post.php
+	includes/plugins/jetpack/class-jetpack-content-options.php
+	includes/plugins/jetpack/class-jetpack-custom-post-types.php
+	includes/plugins/jetpack/class-jetpack-infinite-scroll.php
+	includes/plugins/jetpack/class-jetpack-setup.php
+	includes/plugins/one-click-demo-import/class-one-click-demo-import.php
+	includes/setup/class-setup.php
+	includes/tgmpa/class-tgmpa-plugins.php
+	languages/modern.pot
+	template-parts/header/links-skip.php
+	template-parts/header/site-branding.php
+	template-parts/menu/menu-primary.php
+	template-parts/menu/menu-social.php
+
+
 ## 2.4.4, 20210128
 
 ### Updated

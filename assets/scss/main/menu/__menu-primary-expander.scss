@@ -1,99 +1,111 @@
 /* FILE: main/menu/_menu-primary-expander.scss */
 
-//
-// Sub-menu expander
-//
-
-
-
-
-
-.expander {
-
-	.main-navigation-container & {
-		// Do not display in mobile view
-		display: none;
+:root {
+	--button_toggle_sub_menu_size: 10px;
+	// Touch enabled devices.
+	@media (hover: none) {
+		--button_toggle_sub_menu_size: 24px;
 	}
+}
 
-	@include media( map_get( $breakpoint, 'l' ) ) {
+.has-navigation-mobile {
+	@include media( ( map_get( $breakpoint, $mobile_menu_breakpoint ), 'max-width' ) ) {
+		--button_toggle_sub_menu_size: 32px;
+	}
+}
 
-		.main-navigation-container & {
-			display: inline-block;
-			position: absolute;
-			width: 16px;
-			height: 16px;
-			#{$right}: $golden_minor +em; // {{RTL}}
-			top: 50%;
-			border-color: currentColor;
-			transform: translateY(-50%);
+// A11yMenu JS accessible menu.
+.toggle-sub-menus {
 
+	.menu-item-has-children {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 
-
-			// Using pseudo elements to create "+" to prevent issues with line-height
-
-				&::after,
-				&::before {
-					content: '';
-					position: absolute;
-					#{$left}: 50%; // {{RTL}}
-					top: 50%;
-					border-width: 1px;
-					border-style: solid;
-				}
-
-				&::before {
-					width: 8px;
-					height: 2px;
-					margin: -1px -4px;
-				}
-
-				&::after {
-					width: 2px;
-					height: 8px;
-					margin: -4px -1px;
-				}
-
+		> a {
+			padding-#{$right}: $golden_minor +em;
 		}
 
+		&.menu-item-has-description > a {
+			padding-#{$right}: $golden_major +em;
+		}
 
+	}
 
-		// Indicate expanded state
+	.button-toggle-sub-menu {
+		position: relative;
+		width: var(--button_toggle_sub_menu_size);
+		height: var(--button_toggle_sub_menu_size);
+		padding: 0;
+		border: 0;
+		background: none;
+		color: inherit;
+		box-shadow: none;
+		opacity: .33;
 
-			.no-js .main-navigation-container li:hover > a &,
-			.main-navigation-container li.focus > a & {
+		&:hover,
+		&:focus,
+		&:active {
+			background: none;
+			box-shadow: none;
+			opacity: 1;
+			animation: none;
+		}
 
-				&::after {
-					visibility: hidden;
-				}
+		// Touch enabled devices.
+		@media (hover: none) {
+			border: 1px solid;
+			border-color: inherit;
+			opacity: 1;
+		}
 
+		&::before,
+		&::after {
+			content: '';
+			display: block; // Required for mobile screen button overrides!
+			position: absolute;
+			width: 10px;
+			height: 2px;
+			left: 50%; // No RTL needed here.
+			top: 50%;
+			background: currentColor;
+			opacity: 1;
+			transform: translateX(-50%) translateY(-50%); // No RTL needed here.
+		}
+
+		&::after {
+			transform: translateX(-50%) translateY(-50%) rotate(90deg); // No RTL needed here.
+			transition: transform .2s;
+		}
+
+		.menu-item-is-depth-3 & {
+			display: none;
+		}
+
+	}
+
+	.has-expanded-sub-menu > .sub-menu {
+		display: block;
+
+		@include media( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
+			animation: showSubMenu ( $large_animation_speed +s );
+		}
+
+	}
+
+	.has-expanded-sub-menu > .button-toggle-sub-menu::after {
+		transform: translateX(-50%) translateY(-50%) rotate(0); // No RTL needed here.
+	}
+
+	.menu-item-has-children:hover > .button-toggle-sub-menu {
+		opacity: 1;
+
+		&::after {
+			@include media( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
+				transform: translateX(-50%) translateY(-50%) rotate(0); // No RTL needed here.
 			}
+		}
 
 	}
 
 }
-
-
-
-// Make space for expander
-
-	.main-navigation-container .menu-item-has-children > a,
-	.main-navigation-container .menu > ul > .menu-item-has-children > a {
-
-		@include media( map_get( $breakpoint, 'l' ) ) {
-			padding-#{$right}: calc( 16px + #{ $golden_minor * 2em } ); // {{RTL}}
-		}
-
-	}
-
-
-
-// In top level primary menu items
-
-	.main-navigation-container .menu > ul > .menu-item-has-children > a {
-		padding-#{$right}: calc( 16px + #{ $golden_minor +em } ); // {{RTL}}
-
-		.expander {
-			#{$right}: 0; // {{RTL}}
-		}
-
-	}

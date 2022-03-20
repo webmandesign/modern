@@ -9,7 +9,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  2.4.1
+ * @version  2.5.0
  */
 
 
@@ -20,7 +20,7 @@ do_action( 'tha_html_before' );
 
 ?>
 
-<html <?php language_attributes(); ?> class="no-js">
+<html <?php language_attributes(); ?>>
 
 <head>
 

@@ -21,8 +21,13 @@
 // Extenders
 
 	%basic_width {
-		width: 88%;
-		margin: 0 auto;
+		margin: 0 1rem;
+
+		@include media( map_get( $breakpoint, 'm' ) ) {
+			width: 88%;
+			margin: 0 auto;
+		}
+
 	}
 
 	%max_width_1920 {

@@ -1,23 +1,33 @@
 /* FILE: main/menu/_menu-primary.scss */
 
-//
-// Primary menu
-//
+.menu {
 
+	a {
+		text-decoration: none;
+	}
 
+	&-item .hide-on-mobile {
+		@include responsive( map_get( $breakpoint, 'm' ), 'max-width' ) {
+			clip: rect( 1px, 1px, 1px, 1px );
+			clip-path: inset( 50% );
+			position: absolute !important;
+			width: 1px;
+			height: 1px;
+			line-height: 1px;
+			overflow: hidden;
+		}
+	}
 
-
+}
 
 .main-navigation {
 	@extend %font_size_smaller;
 	position: relative;
 	width: 100%;
 
-
-
 	&-container {
 
-		@include media( map_get( $breakpoint, 'l' ) ) {
+		@include media( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
@@ -29,99 +39,81 @@
 
 		}
 
+		// Menu search form.
+		.menu-search {
+			max-width: map_get( $breakpoint, 's' ) / 16 +rem; // Match the mobile menu width
+			padding: 0 ( $golden +rem );
+			margin: 26vh auto 0;
 
-
-		// Menu search form
-
-			.menu-search {
-				max-width: 28rem;
-				padding: 0 ( $golden +rem );
-				margin: ( power( $golden, 3 ) +rem ) auto;
-
-				@include media( map_get( $breakpoint, 'l' ) ) {
-					order: 10;
-					padding: 0;
-					margin: 0;
-				}
-
-			}
-
-
-
-		// Menu wrapper
-
-			.menu {
-				margin-top: $golden +rem;
-
-				@include media( map_get( $breakpoint, 'm' ) ) {
-					margin-top: 0;
-				}
-
-			}
-
-
-
-		// Lists
-
-			ul {
+			@include media( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
+				order: 10;
 				padding: 0;
 				margin: 0;
-				list-style: none;
 			}
 
+		}
 
+		// Menu wrapper.
+		.menu {
+			margin-top: $golden +rem;
 
-		// List items
+			@include responsive( map_get( $breakpoint, 'm' ) ) {
+				margin-top: 0;
+			}
 
-			li {
-				position: relative;
-				padding: 0;
-				margin: 0;
+		}
 
-				@include media( map_get( $breakpoint, 'l' ) ) {
-					float: $left; // {{RTL}}
-					white-space: nowrap;
+		ul {
+			margin: 0;
+			list-style: none;
+		}
+
+		li {
+			position: relative;
+			padding: 0;
+			margin: 0;
+
+			@include responsive( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
+				float: $left; // {{RTL}}
+				white-space: nowrap;
+			}
+
+		}
+
+		a {
+			display: block;
+			max-width: 100%; // Fix for FF and IE.
+			padding: ( $golden_major +rem ) ( $golden_minor +rem );
+			border: 0 solid transparent;
+			border-#{$left}-width: 2px; // {{RTL}}
+			transition: border-color ( $small_animation_speed +s );
+
+			@include haf() {
+				border-color: currentColor;
+			}
+
+		}
+
+		.hide,
+		.hide-link {
+
+			> a {
+				@extend %screen_reader_hiding;
+
+				&:focus {
+					@extend %screen_reader_hiding_disable;
+					position: static !important;
 				}
 
 			}
 
+		}
 
-
-		// Links
-
-			a {
-				display: block;
-				position: relative; // Required for expander positioning
-				max-width: 100%; // Fix for FF and IE
-				padding: ( $golden_major +rem ) ( $golden_minor +rem );
-				text-decoration: none;
-				border: 0 solid transparent;
-				border-#{$left}-width: 2px; // {{RTL}}
-				transition: border-color ( $small_animation_speed +s );
-
-				@include haf() {
-					border-color: currentColor;
-				}
-
-			}
-
-			.hide,
-			.hide-link {
-
-				> a {
-					@extend %screen_reader_hiding;
-
-					&:focus {
-						@extend %screen_reader_hiding_disable;
-					}
-
-				}
-
-			}
+		// Current menu item.
 
 			.menu {
 
-				@include media( map_get( $breakpoint, 'l' ) ) {
+				@include media( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
 
 					&:hover .current-menu-item > a,
 					&:hover .current-menu-ancestor > a {
@@ -135,7 +127,7 @@
 					border-color: currentColor;
 				}
 
-				@include media( map_get( $breakpoint, 'l' ) ) {
+				@include media( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
 
 					.current-menu-ancestor > a,
 					.current-menu-ancestor > a:hover {
@@ -146,38 +138,32 @@
 
 			}
 
+			.current-menu-item > a {
+				position: relative;
+				border-color: currentColor;
+				z-index: 10;
+			}
 
+			@include media( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
 
-			// Current menu item
+				.has-expanded-sub-menu,
+				.current-menu-ancestor {
 
-				.current-menu-item > a {
-					position: relative;
-					border-color: currentColor;
-					z-index: 10;
-				}
-
-				@include media( map_get( $breakpoint, 'l' ) ) {
-
-					.focus,
-					.current-menu-ancestor {
-
-						> a {
-							position: relative;
-							border-color: currentColor;
-							z-index: 10;
-						}
-
+					> a {
+						position: relative;
+						border-color: currentColor;
+						z-index: 10;
 					}
 
 				}
 
-
+			}
 
 		// Icon in menu item (has to be included with HTML)
-
-			.icon {
-				margin-#{$right}: $golden_minor +em; // {{RTL}}
-			}
+		.icon,
+		[class^="icon-"] {
+			margin-#{$right}: $golden_minor +em; // {{RTL}}
+		}
 
 	}
 

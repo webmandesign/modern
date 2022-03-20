@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.2.3
+ * @version  2.5.0
  *
  * Contents:
  *
@@ -93,7 +93,7 @@ class Modern_TGMPA_Plugins {
 		 * @link  https://github.com/thomasgriffin/TGM-Plugin-Activation/blob/master/example.php
 		 *
 		 * @since    2.0.0
-		 * @version  2.2.3
+		 * @version  2.5.0
 		 */
 		public static function recommend() {
 
@@ -130,6 +130,13 @@ class Modern_TGMPA_Plugins {
 								'name'        => 'One Click Demo Import',
 								'description' => esc_html__( 'For installing theme demo content easily.', 'modern' ),
 								'slug'        => 'one-click-demo-import',
+								'required'    => false,
+							),
+
+							'classic-widgets' => array(
+								'name'        => esc_html_x( 'Classic Widgets', 'Plugin name.', 'modern' ),
+								'description' => esc_html__( 'Improves widgets management screen.', 'modern' ) . ' ' . esc_html__( 'Restores the previous WordPress widgets settings screens.', 'modern' ) . ' ' . esc_html__( 'Sidebars and widgets are not going to be used in fully block themes in the future, so if your website still uses sidebars, it is better to use this plugin to enable classic user interface.', 'modern' ),
+								'slug'        => 'classic-widgets',
 								'required'    => false,
 							),
 

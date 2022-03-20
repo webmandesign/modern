@@ -21,7 +21,7 @@ $padding : power( $golden, 2 ); // In em.
 		display: flex;
 		flex-direction: column;
 		position: relative;
-		padding: $padding / 2 +em; // Half the padding for mobiles.
+		padding: 1rem;
 		margin: $gutter / 2 +em;
 
 		// Small screens:
@@ -71,8 +71,8 @@ $padding : power( $golden, 2 ); // In em.
 		&-media {
 			flex: 0 1 auto;
 			width: auto;
-			margin: -$padding / 2 +em; // Half the padding for mobiles.
-			margin-bottom: $padding / 2 +em; // Half the padding for mobiles.
+			margin: -1rem;
+			margin-bottom: 1rem;
 
 			@include media( map_get( $breakpoint, 'm' ) ) {
 				margin: -$padding +em;

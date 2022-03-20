@@ -67,8 +67,18 @@
 
 
 		&-content {
-			padding-top: power( $golden, 2 ) +em;
-			padding-bottom: power( $golden, 2 ) +em;
+			padding-top: 1em;
+			padding-bottom: 1em;
+
+			@include media( map_get( $breakpoint, 's' ) ) {
+				padding-top: $golden +em;
+				padding-bottom: $golden +em;
+			}
+
+			@include media( map_get( $breakpoint, 'm' ) ) {
+				padding-top: power( $golden, 2 ) +em;
+				padding-bottom: power( $golden, 2 ) +em;
+			}
 
 			@include media( map_get( $breakpoint, 'l' ) ) {
 				padding-top: power( $golden, 3 ) +em;
