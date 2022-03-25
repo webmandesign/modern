@@ -38,7 +38,7 @@
 	.children {
 		clear: both;
 		margin: 0;
-		margin-#{$left}: $golden +em; // {{RTL}}
+		margin-#{$left}: 1em; // {{RTL}}
 
 		@include media( map_get( $breakpoint, 'm' ) ) {
 			margin-#{$left}: 5em - $golden; // {{RTL}}

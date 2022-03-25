@@ -11,7 +11,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.4.5
- * @version  2.5.0
+ * @version  2.5.1
  */
 
 ( function() {
@@ -62,7 +62,7 @@
 		const
 			selectors = 'a, button, input:not([type=hidden]), select',
 			elements  = container.querySelectorAll( selectors ),
-			firstEl   = elements[0];
+			firstEl   = elements[0],
 			lastEl    = elements[ elements.length - 1 ],
 			activeEl  = document.activeElement,
 			tabKey    = ( 9 === event.keyCode ),

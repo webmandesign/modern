@@ -1665,7 +1665,7 @@ form[role=search] .search-field,
 .comment-list .children {
   clear: both;
   margin: 0;
-  margin-right: 1.62em;
+  margin-right: 1em;
 }
 @media only screen and (min-width: 42em) {
   .comment-list .children {
@@ -2077,7 +2077,7 @@ div.sharedaddy .sd-social .sd-button .share-count {
 /* FILE: main/icons/_icons.scss */
 .breadcrumbs .home::before, .widget_archive li::before, .widget_categories li::before, .widget_pages li::before, .widget_recent_comments li::before, .widget_recent_entries li::before, .pingback .comment-body::before,
 .trackback .comment-body::before, .comment-edit-link::before,
-.comment-reply-link::before, .bypostauthor > .comment-body .comment-author::before, .entry-meta .tags-links a::before, .format-status .entry-content::before, .posts .format-link .entry-content a::before, .format-image .entry-media::before, .posts .type-page .entry-title::before, .posts .sticky::before, .social-links a.back-to-top::before, .menu-toggle::before, .post-password-form::before, .site form[role=search]::before,
+.comment-reply-link::before, .entry-meta .tags-links a::before, .format-status .entry-content::before, .posts .format-link .entry-content a::before, .format-image .entry-media::before, .posts .type-page .entry-title::before, .posts .sticky::before, .social-links a.back-to-top::before, .menu-toggle::before, .post-password-form::before, .site form[role=search]::before,
 .site .search-form::before, blockquote::before, .entry-meta-description::before, .slick-arrow::before {
   font-family: "Genericons-Neue";
   font-style: normal;
@@ -5049,28 +5049,9 @@ a .entry-date {
   list-style: decimal;
 }
 
-@media only screen and (max-width: 41.9375em) {
-  .bypostauthor > .comment-body .comment-author .avatar {
-    border-left: 0.38em solid;
-  }
-}
-@media only screen and (min-width: 42em) {
-  .bypostauthor > .comment-body .comment-author::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 30px;
-    height: 30px;
-    right: 25px;
-    top: 65px;
-    margin-top: 1.62em;
-    font-size: 16px;
-    line-height: 28px;
-    text-align: center;
-    font-size: 1.19em;
-    border-radius: 50%;
-    z-index: 1;
-  }
+.bypostauthor > .comment-body .vcard .fn::before {
+  content: "✍️ ";
+  speak: none;
 }
 
 .comment-edit-link,

@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.5.0
+ * @version  2.5.1
  *
  * Contents:
  *
@@ -146,7 +146,7 @@ class Modern_Assets {
 		 * Registering theme scripts
 		 *
 		 * @since    1.0.0
-		 * @version  2.5.0
+		 * @version  2.5.1
 		 */
 		public static function register_scripts() {
 
@@ -158,10 +158,10 @@ class Modern_Assets {
 					'jquery-slick'   => array( get_theme_file_uri( 'assets/js/vendors/slick/slick.min.js' ), 'deps' => array( 'jquery' ) ),
 
 					'modern-skip-link-focus-fix' => array( 'src' => get_theme_file_uri( 'assets/js/skip-link-focus-fix.js' ) ),
-					'modern-scripts-global'      => array( 'src' => get_theme_file_uri( 'assets/js/scripts-global.js' ) ),
+					'modern-scripts-global'      => array( 'src' => get_theme_file_uri( 'assets/js/scripts-global.min.js' ) ),
 					'modern-scripts-masonry'     => array( 'src' => get_theme_file_uri( 'assets/js/scripts-masonry.js' ), 'deps' => array( 'jquery-masonry' ) ),
 					'modern-scripts-slick'       => array( 'src' => get_theme_file_uri( 'assets/js/scripts-slick.js' ), 'deps' => array( 'jquery-slick' ) ),
-					'modern-scripts-nav-mobile'  => array( get_theme_file_uri( 'assets/js/scripts-navigation-mobile.js' ) ),
+					'modern-scripts-nav-mobile'  => array( get_theme_file_uri( 'assets/js/scripts-navigation-mobile.min.js' ) ),
 				);
 
 				$register_assets = (array) apply_filters( 'wmhook_modern_assets_register_scripts', $register_assets );

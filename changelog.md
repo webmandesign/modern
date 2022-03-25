@@ -1,5 +1,20 @@
 # Modern Changelog
 
+## 2.5.1, 20220325
+
+### Fixed
+- JavaScript error
+- Comments responsive styles
+
+### File updates
+	changelog.md
+	style.css
+	assets/js/scripts-global.js
+	assets/js/scripts-navigation-mobile.js
+	assets/scss/main.scss
+	includes/frontend/class-assets.php
+
+
 ## 2.5.0, 20220320
 
 ### Added
