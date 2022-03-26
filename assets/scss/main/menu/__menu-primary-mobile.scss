@@ -192,21 +192,15 @@ body:not(.has-navigation-mobile) {
 
 		// Small height
 
-			@include media(
-				( map_get( $breakpoint, $mobile_menu_breakpoint ), 'max-width' ),
-				( map_get( $breakpoint, 's' ), 'max-height' )
-			) {
+			@include media( ( map_get( $breakpoint, 's' ), 'max-height' ) ) {
 				position: relative;
 				width: 100%;
+				left: auto;
 				bottom: auto;
 				margin: 0;
 				border: 0;
 				border-radius: 0;
-
-				@at-root .site-header-navigation .site-header-inner {
-					width: 100%;
-				}
-
+				transform: none;
 			}
 
 		// Large screens

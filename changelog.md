@@ -1,5 +1,18 @@
 # Modern Changelog
 
+## 2.5.2, 20220326
+
+### Fixed
+- Minifying CSS
+- Mobile menu toggle button styles on mobile devices in landscape mode
+
+### File updates
+	changelog.md
+	style.css
+	assets/css/*.*
+	assets/scss/main.scss
+
+
 ## 2.5.1, 20220325
 
 ### Fixed

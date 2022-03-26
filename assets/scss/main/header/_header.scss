@@ -62,6 +62,18 @@
 				opacity: 1;
 			}
 
+			.site-header-inner {
+
+				@include media(
+					( map_get( $breakpoint, $mobile_menu_breakpoint ), 'max-width' ),
+					( map_get( $breakpoint, 's' ), 'max-height' )
+				) {
+					width: 100%;
+					margin: 0;
+				}
+
+			}
+
 		}
 
 
