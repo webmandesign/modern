@@ -30,7 +30,7 @@
 		@include media( map_get( $breakpoint, 'l' ) ) {
 
 			.main-navigation-container .megamenu > ul > li > a & {
-				margin-bottom: $golden_major +em;
+				margin-bottom: $golden_major + em;
 			}
 
 		}

@@ -17,13 +17,13 @@ form[role="search"],
 			@extend %genericon;
 			content: '\f400';
 			position: absolute;
-			width: $golden +em;
-			height: $golden +em;
+			width: $golden + em;
+			height: $golden + em;
 			#{$right}: 0; // {{RTL}}
 			top: 50%;
 			line-height: $golden;
 			text-align: center;
-			font-size: $golden +rem;
+			font-size: $golden + rem;
 			z-index: 1;
 			transform: translateY(-50%);
 		}
@@ -51,7 +51,7 @@ form[role="search"],
 
 	input[type="search"],
 	.search-field {
-		padding-#{$right}: power( $golden, 2 ) +rem; // {{RTL}}
+		padding-#{$right}: power( $golden, 2 ) + rem; // {{RTL}}
 	}
 
 
@@ -61,7 +61,7 @@ form[role="search"],
 		.site-header & {
 
 			&::before {
-				font-size: $golden +rem;
+				font-size: $golden + rem;
 			}
 
 		}
@@ -73,7 +73,7 @@ form[role="search"],
 		.search .site-content &,
 		.error-404 &,
 		.not-found & {
-			font-size: $golden +em;
+			font-size: $golden + em;
 		}
 
 }
@@ -82,7 +82,7 @@ form[role="search"],
 
 %form_search_submit_button {
 	position: absolute;
-	width: power( $golden, 2 ) +em;
+	width: power( $golden, 2 ) + em;
 	height: 100%;
 	#{$right}: 0; // {{RTL}}
 	top: 0;

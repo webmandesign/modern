@@ -41,8 +41,8 @@
 
 		// Menu search form.
 		.menu-search {
-			max-width: map_get( $breakpoint, 's' ) / 16 +rem; // Match the mobile menu width
-			padding: 0 ( $golden +rem );
+			max-width: map_get( $breakpoint, 's' ) / 16 + rem; // Match the mobile menu width
+			padding: 0 ( $golden + rem );
 			margin: 26vh auto 0;
 
 			@include media( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
@@ -55,7 +55,7 @@
 
 		// Menu wrapper.
 		.menu {
-			margin-top: $golden +rem;
+			margin-top: $golden + rem;
 
 			@include responsive( map_get( $breakpoint, 'm' ) ) {
 				margin-top: 0;
@@ -83,10 +83,10 @@
 		a {
 			display: block;
 			max-width: 100%; // Fix for FF and IE.
-			padding: ( $golden_major +rem ) ( $golden_minor +rem );
+			padding: ( $golden_major + rem ) ( $golden_minor + rem );
 			border: 0 solid transparent;
 			border-#{$left}-width: 2px; // {{RTL}}
-			transition: border-color ( $small_animation_speed +s );
+			transition: border-color ( $small_animation_speed + s );
 
 			@include haf() {
 				border-color: currentColor;
@@ -162,7 +162,7 @@
 		// Icon in menu item (has to be included with HTML)
 		.icon,
 		[class^="icon-"] {
-			margin-#{$right}: $golden_minor +em; // {{RTL}}
+			margin-#{$right}: $golden_minor + em; // {{RTL}}
 		}
 
 	}

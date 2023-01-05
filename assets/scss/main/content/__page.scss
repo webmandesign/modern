@@ -37,14 +37,14 @@
 
 			&-title {
 				@extend %font_weight_300;
-				padding: ( $golden +em ) 0;
+				padding: ( $golden + em ) 0;
 				margin: 0;
 				text-transform: uppercase;
 				border-top: 2px solid;
 			}
 
 			.archive-link {
-				margin-top: power( $golden, 2 ) +em;
+				margin-top: power( $golden, 2 ) + em;
 			}
 
 		}

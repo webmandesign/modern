@@ -11,7 +11,7 @@
 .comment-form {
 
 	p {
-		margin-bottom: $golden +em;
+		margin-bottom: $golden + em;
 
 		&:last-child {
 			margin-bottom: 0;
@@ -20,7 +20,7 @@
 	}
 
 	.form-submit {
-		margin-top: power( $golden, 2 ) +em;
+		margin-top: power( $golden, 2 ) + em;
 	}
 
 	::placeholder {

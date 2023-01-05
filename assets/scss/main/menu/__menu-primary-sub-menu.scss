@@ -20,8 +20,8 @@
 		min-width: calc( 100% + #{ $golden * 4rem } );
 		#{$left}: 0; // {{RTL}}
 		top: 100%;
-		padding: $golden +rem;
-		margin: 0 ( -$golden - $golden_minor +rem );
+		padding: $golden + rem;
+		margin: 0 ( -$golden - $golden_minor + rem );
 		border-top-width: 1px;
 		border-top-style: solid;
 		box-shadow: 0 .38em 1em rgba( #000, .25 );
@@ -80,7 +80,7 @@
 	.menu-item-has-children {
 
 		// Inaccessible menu fallback indicating submenu.
-		.no-js &:not([aria-haspopup]):not(.menu-item-is-depth-3) {
+		.no-js &:not(.menu-item-is-depth-3) {
 			@include responsive( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
 
 				> a {
@@ -112,7 +112,7 @@
 		.no-js &:focus-within > .sub-menu {
 			@include responsive( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
 				display: block;
-				animation: showSubMenu ( $large_animation_speed +s );
+				animation: showSubMenu ( $large_animation_speed + s );
 			}
 		}
 

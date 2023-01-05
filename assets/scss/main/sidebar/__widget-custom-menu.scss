@@ -49,9 +49,9 @@
 				text-transform: uppercase;
 				font-weight: 400;
 				color: inherit;
-				transition: background ( $small_animation_speed +s ),
-				            color ( $small_animation_speed +s ),
-				            box-shadow ( $small_animation_speed +s );
+				transition: background ( $small_animation_speed + s ),
+				            color ( $small_animation_speed + s ),
+				            box-shadow ( $small_animation_speed + s );
 
 				@include haf() {
 					@extend %font_weight_700;

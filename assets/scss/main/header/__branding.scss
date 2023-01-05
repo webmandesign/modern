@@ -21,12 +21,12 @@
 
 	.site-branding {
 		float: $left; // {{RTL}}
-		margin-#{$right}: $golden +em; // {{RTL}}
+		margin-#{$right}: $golden + em; // {{RTL}}
 		line-height: inherit;
 		color: inherit;
 
 		@include media( map_get( $breakpoint, 'xl' ) ) {
-			margin-#{$right}: power( $golden, 2 ) +em; // {{RTL}}
+			margin-#{$right}: power( $golden, 2 ) + em; // {{RTL}}
 		}
 
 		a {
@@ -61,7 +61,7 @@
 		@extend %font_style_normal;
 		margin: 0;
 		line-height: inherit;
-		font-size: nth( map_get( $h_tags_setup, 'h1, .h1' ), 1 ) +rem;
+		font-size: nth( map_get( $h_tags_setup, 'h1, .h1' ), 1 ) + rem;
 
 		@include media( map_get( $breakpoint, 'l' ) ) {
 			display: inline-block;
@@ -87,8 +87,8 @@
 
 		@include media( map_get( $breakpoint, 'xl' ) ) {
 			display: inline-block;
-			padding-#{$left}: $golden +em; // {{RTL}}
-			margin-#{$left}: $golden +em; // {{RTL}}
+			padding-#{$left}: $golden + em; // {{RTL}}
+			margin-#{$left}: $golden + em; // {{RTL}}
 			border-#{$left}: 1px solid; // {{RTL}}
 			vertical-align: middle;
 		}

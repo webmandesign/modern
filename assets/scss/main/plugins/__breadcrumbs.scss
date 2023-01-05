@@ -30,7 +30,7 @@
 			content: '\f409';
 			position: relative;
 			top: .1em;
-			margin-#{$right}: $golden_minor / 2 +em; // {{RTL}}
+			margin-#{$right}: $golden_minor / 2 + em; // {{RTL}}
 			line-height: $golden_major;
 			font-size: $golden_minor / 2 + 1rem;
 		}

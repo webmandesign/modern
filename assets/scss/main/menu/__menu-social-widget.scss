@@ -21,7 +21,7 @@
 
 			.sidebar & {
 				@extend %font_size_higher;
-				padding: 0 ( $golden_minor / 2 +em );
+				padding: 0 ( $golden_minor / 2 + em );
 			}
 
 			&::after {

@@ -87,7 +87,7 @@
 					}
 
 					// Convert query value to ems.
-					$query_value : $query_value / 16 +em;
+					$query_value : $query_value / 16 + em;
 
 					$query : set-nth( $query, 1, $query_value );
 
@@ -177,18 +177,18 @@
 		}
 
 		#{$selector} {
-			font-size: $size +em;
+			font-size: $size + em;
 			line-height: $line_height;
 
 			@if 1 < $size {
 
-				margin-top: $margin_top +em;
-				margin-bottom: $margin_bottom +em;
+				margin-top: $margin_top + em;
+				margin-bottom: $margin_bottom + em;
 
 			} @else {
 
-				margin-top: $golden_major +em;
-				margin-bottom: $golden_major +em;
+				margin-top: $golden_major + em;
+				margin-bottom: $golden_major + em;
 
 			}
 

@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.3
+ * @version  2.6.0
  *
  * Contents:
  *
@@ -239,7 +239,7 @@ class Modern_Customize {
 		 * Set theme options array
 		 *
 		 * @since    2.0.0
-		 * @version  2.4.0
+		 * @version  2.6.0
 		 *
 		 * @param  array $options
 		 */
@@ -795,7 +795,7 @@ class Modern_Customize {
 								'default'           => "'Fira Sans', sans-serif",
 								'active_callback'   => __CLASS__ . '::is_typography_custom_fonts',
 								'sanitize_callback' => 'Modern_Library_Sanitize::fonts',
-								'css_var'           => 'Theme_Slug_Library_Sanitize::css_fonts',
+								'css_var'           => 'Modern_Library_Sanitize::css_fonts',
 								'input_attrs'       => array(
 									'placeholder' => "'Fira Sans', sans-serif",
 								),
@@ -812,7 +812,7 @@ class Modern_Customize {
 								'default'           => "'Fira Sans', sans-serif",
 								'active_callback'   => __CLASS__ . '::is_typography_custom_fonts',
 								'sanitize_callback' => 'Modern_Library_Sanitize::fonts',
-								'css_var'           => 'Theme_Slug_Library_Sanitize::css_fonts',
+								'css_var'           => 'Modern_Library_Sanitize::css_fonts',
 								'input_attrs'       => array(
 									'placeholder' => "'Fira Sans', sans-serif",
 								),
@@ -829,7 +829,7 @@ class Modern_Customize {
 								'default'           => "'Fira Sans', sans-serif",
 								'active_callback'   => __CLASS__ . '::is_typography_custom_fonts',
 								'sanitize_callback' => 'Modern_Library_Sanitize::fonts',
-								'css_var'           => 'Theme_Slug_Library_Sanitize::css_fonts',
+								'css_var'           => 'Modern_Library_Sanitize::css_fonts',
 								'input_attrs'       => array(
 									'placeholder' => "'Fira Sans', sans-serif",
 								),

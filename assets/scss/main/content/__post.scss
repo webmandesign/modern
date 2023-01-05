@@ -23,8 +23,8 @@
 			margin-right: auto;
 
 			@include media( map_get( $breakpoint, 'm' ) ) {
-				padding-left: $golden +em;
-				padding-right: $golden +em;
+				padding-left: $golden + em;
+				padding-right: $golden + em;
 			}
 
 			.content-layout-no-paddings .content-area & {

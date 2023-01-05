@@ -9,7 +9,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.5.0
+ * @version  2.6.0
  *
  * Contents:
  *
@@ -163,7 +163,7 @@ class Modern_Setup {
 		 * as indicating support for post thumbnails.
 		 *
 		 * @since    1.0.0
-		 * @version  2.5.0
+		 * @version  2.6.0
 		 */
 		public static function setup() {
 
@@ -283,9 +283,9 @@ class Modern_Setup {
 
 									add_image_size(
 										$size,
-										$image_sizes[ $size ][0],
-										$image_sizes[ $size ][1],
-										$image_sizes[ $size ][2]
+										$image_sizes[ $size ]['width'],
+										$image_sizes[ $size ]['height'],
+										$image_sizes[ $size ]['crop']
 									);
 
 								}
@@ -329,21 +329,10 @@ class Modern_Setup {
 	 */
 
 		/**
-		 * Image sizes
-		 *
-		 * @example
-		 *
-		 *   $image_sizes = array(
-		 *     'image_size_id' => array(
-		 *       absint( width ),
-		 *       absint( height ),
-		 *       (bool) cropped?,
-		 *       (string) optional_theme_usage_explanation_text
-		 *     )
-		 *   );
+		 * Image sizes.
 		 *
 		 * @since    1.2.2
-		 * @version  2.0.0
+		 * @version  2.6.0
 		 *
 		 * @param  array $image_sizes
 		 */
@@ -359,11 +348,12 @@ class Modern_Setup {
 				$image_sizes = array(
 
 					'thumbnail' => array(
-						420,
-						0,
-						false,
-						esc_html__( 'In posts list.', 'modern' ) . ' ' .
+						'name'        => esc_html_x( 'Thumbnail size', 'WordPress predefined image size name.', 'modern' ),
+						'description' => esc_html__( 'In posts list.', 'modern' ) . ' ' .
 						esc_html__( 'You may want to rise this image size if you set posts to display in 2 columns.', 'modern' ),
+						'width'       => 420,
+						'height'      => 0,
+						'crop'        => false,
 					),
 
 					'medium' => array(
@@ -371,24 +361,27 @@ class Modern_Setup {
 						 * Ideally this should be 39em/70ch - the same as max entry content width.
 						 * But this actually depends on the font family used.
 						 */
-						absint( $content_width * .62 ),
-						0,
-						false,
-						esc_html__( 'Not used in the theme.', 'modern' ),
+						'name'        => esc_html_x( 'Medium size', 'WordPress predefined image size name.', 'modern' ),
+						'description' => esc_html__( 'Not used in the theme.', 'modern' ),
+						'width'       => absint( $content_width * .62 ),
+						'height'      => 0,
+						'crop'        => false,
 					),
 
 					'large' => array(
-						absint( $content_width ),
-						0,
-						false,
-						esc_html__( 'In single post or page.', 'modern' ),
+						'name'        => esc_html_x( 'Large size', 'WordPress predefined image size name.', 'modern' ),
+						'description' => esc_html__( 'In single post or page.', 'modern' ),
+						'width'       => absint( $content_width ),
+						'height'      => 0,
+						'crop'        => false,
 					),
 
 					'modern-intro' => array(
-						1920,
-						1080,
-						true,
-						esc_html__( 'In intro section.', 'modern' ),
+						'name'        => esc_html_x( 'Intro size', 'WordPress predefined image size name.', 'modern' ),
+						'description' => esc_html__( 'In intro section.', 'modern' ),
+						'width'       => 1920,
+						'height'      => 1080,
+						'crop'        => true,
 					),
 
 				);

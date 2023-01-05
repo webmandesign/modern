@@ -21,7 +21,9 @@
 		box-sizing: border-box;
 		scroll-behavior: smooth;
 
-		@media (prefers-reduced-motion: reduce) {
+		// Accessibility improvement, adapted from CSS-Tricks article code.
+		// @link  https://css-tricks.com/revisiting-prefers-reduced-motion-the-reduced-motion-media-query/
+		@media (prefers-reduced-motion: reduce), (update: slow) {
 			scroll-behavior: auto;
 		}
 
@@ -31,6 +33,15 @@
 	*::before,
 	*::after {
 		box-sizing: inherit;
+
+		// Accessibility improvement, adapted from CSS-Tricks article code.
+		// @link  https://css-tricks.com/revisiting-prefers-reduced-motion-the-reduced-motion-media-query/
+		@media (prefers-reduced-motion: reduce), (update: slow) {
+			animation-duration: 0s !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0s !important;
+		}
+
 	}
 
 	menu,

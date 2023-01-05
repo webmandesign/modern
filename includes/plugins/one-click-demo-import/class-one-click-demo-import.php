@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.5.0
+ * @version  2.6.0
  *
  * Contents:
  *
@@ -176,7 +176,7 @@ class Modern_One_Click_Demo_Import {
 		 * Before import actions
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.6.0
 		 */
 		public static function before() {
 
@@ -191,9 +191,9 @@ class Modern_One_Click_Demo_Import {
 
 					foreach ( array( 'thumbnail', 'medium', 'medium_large', 'large' ) as $size ) {
 						if ( isset( $image_sizes[ $size ] ) ) {
-							update_option( $size . '_size_w', $image_sizes[ $size ][0] );
-							update_option( $size . '_size_h', $image_sizes[ $size ][1] );
-							update_option( $size . '_crop', $image_sizes[ $size ][2] );
+							update_option( $size . '_size_w', $image_sizes[ $size ]['width'] );
+							update_option( $size . '_size_h', $image_sizes[ $size ]['height'] );
+							update_option( $size . '_crop', $image_sizes[ $size ]['crop'] );
 						}
 					}
 

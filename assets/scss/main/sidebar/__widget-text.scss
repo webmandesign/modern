@@ -14,7 +14,7 @@
 	ul {
 		margin-top: 0;
 		margin-bottom: 1em;
-		margin-#{$left}: $golden +em; // {{RTL}}
+		margin-#{$left}: $golden + em; // {{RTL}}
 		margin-#{$right}: 0; // {{RTL}}
 		list-style: square;
 

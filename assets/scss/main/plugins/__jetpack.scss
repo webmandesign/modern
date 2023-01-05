@@ -41,7 +41,7 @@
 // Sharing
 
 	div.sharedaddy {
-		margin: ( power( $golden, 2 ) +rem ) auto 0;
+		margin: ( power( $golden, 2 ) + rem ) auto 0;
 
 		.content-layout-no-paddings & {
 			max-width: calc( 39em + #{ $golden * 2em } );
@@ -101,19 +101,19 @@
 
 		.entry-author {
 			@extend %background_overlay_from_text_color;
-			padding: $padding / 2 +em; // Half the padding for mobiles.
-			margin: ( power( 1 + $golden_minor, 4 ) +em ) auto 0;
+			padding: $padding / 2 + em; // Half the padding for mobiles.
+			margin: ( power( 1 + $golden_minor, 4 ) + em ) auto 0;
 			border-width: 1px;
 			border-style: solid;
 
 			@include media( map_get( $breakpoint, 'm' ) ) {
-				padding: $padding +em;
+				padding: $padding + em;
 			}
 
 			.content-layout-no-paddings & {
 				max-width: calc( 39em + #{ $golden * 2em } );
 				max-width: calc( 70ch + #{ $golden * 2em } );
-				margin-bottom: power( 1 + $golden_minor, 4 ) +em;
+				margin-bottom: power( 1 + $golden_minor, 4 ) + em;
 			}
 
 			&::before {
@@ -137,7 +137,7 @@
 
 					@include media( map_get( $breakpoint, 'm' ) ) {
 						float: $left; // {{RTL}}
-						margin-#{$right}: $golden +em;
+						margin-#{$right}: $golden + em;
 					}
 
 				}
@@ -145,7 +145,7 @@
 				&-title {
 					@extend %font_size_small;
 					@extend %font_weight_400;
-					margin-bottom: $golden +em;
+					margin-bottom: $golden + em;
 					text-transform: uppercase;
 				}
 
@@ -153,7 +153,7 @@
 					@extend %font_size_golden_rem;
 					@extend %font_weight_700;
 					display: block;
-					margin-top: $golden_minor / 2 +em;
+					margin-top: $golden_minor / 2 + em;
 					text-transform: none;
 				}
 
@@ -290,14 +290,14 @@
 
 		.taxonomy-terms {
 			display: inline-block;
-			margin: 0 0 ( power( $golden, 2 ) +em );
+			margin: 0 0 ( power( $golden, 2 ) + em );
 			list-style: none;
 
 			&-item {
 				display: inline-block;
-				margin: ( $golden_minor +em ) 0;
-				margin-#{$right}: $golden_major +em; // {{RTL}}
-				transition: opacity ( $small_animation_speed +s );
+				margin: ( $golden_minor + em ) 0;
+				margin-#{$right}: $golden_major + em; // {{RTL}}
+				transition: opacity ( $small_animation_speed + s );
 			}
 
 			.button {

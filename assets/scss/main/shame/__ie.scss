@@ -90,7 +90,7 @@
 
 	@media
 		only screen
-		and (min-width: #{ map_get( $breakpoint, 'l' ) / 16 +em })
+		and (min-width: #{ map_get( $breakpoint, 'l' ) / 16 + em })
 		and (-ms-high-contrast: none), (-ms-high-contrast: active)
 	{
 

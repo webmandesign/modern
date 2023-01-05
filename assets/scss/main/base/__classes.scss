@@ -105,7 +105,7 @@
 		&::first-letter {
 			float: $left; // {{RTL}}
 			display: block;
-			padding: 0 ( $golden_minor / 2 +em );
+			padding: 0 ( $golden_minor / 2 + em );
 			padding-#{$left}: 0; // {{RTL}}
 			line-height: 1;
 			font-size: $golden * 2em; // 2 lines of text.
@@ -122,7 +122,7 @@
 		li,
 		.widget ul li {
 			display: inline-block;
-			padding: 0 ( $golden_major +em );
+			padding: 0 ( $golden_major + em );
 			border-width: 0;
 			border-#{$left}-width: 1px; // {{RTL}}
 			border-#{$left}-style: solid; // {{RTL}}
@@ -150,10 +150,10 @@
 	%column_base {
 		column-gap: 2em;
 		column-width: 12em;
-		margin: ( $golden +em ) 0;
+		margin: ( $golden + em ) 0;
 
 		@include media( map_get( $breakpoint, 'm' ) ) {
-			margin: ( power( $golden, 2 ) +em ) 0;
+			margin: ( power( $golden, 2 ) + em ) 0;
 		}
 
 		&:first-child,
@@ -176,7 +176,7 @@
 		h4,
 		h5,
 		h6 {
-			margin: 1em 0 ( $golden_major +em );
+			margin: 1em 0 ( $golden_major + em );
 			line-height: inherit;
 			text-transform: uppercase;
 			letter-spacing: .075em;

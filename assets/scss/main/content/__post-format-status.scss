@@ -34,12 +34,12 @@
 				// Posts entry padding.
 				$padding : power( $golden, 2 ); // In em.
 
-				max-width: power( $golden, 4 ) +em;
-				margin-top: $padding / 2 +em; // Half the padding for mobiles.
-				border-radius: power( $golden, 4 ) +em;
+				max-width: power( $golden, 4 ) + em;
+				margin-top: $padding / 2 + em; // Half the padding for mobiles.
+				border-radius: power( $golden, 4 ) + em;
 
 				@include media( map_get( $breakpoint, 'm' ) ) {
-					margin-top: $padding +em;
+					margin-top: $padding + em;
 				}
 
 			}
@@ -60,7 +60,7 @@
 				@extend %genericon;
 				content: '\f300';
 				float: $left;
-				margin-#{$right}: $golden_minor +em;
+				margin-#{$right}: $golden_minor + em;
 			}
 
 		}

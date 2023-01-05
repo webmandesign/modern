@@ -22,7 +22,7 @@
 	input,
 	select,
 	textarea {
-		transition: border-color ( $small_animation_speed +s );
+		transition: border-color ( $small_animation_speed + s );
 
 		&:focus {
 			border-color: currentColor;
@@ -36,7 +36,7 @@
 	}
 
 	select {
-		padding: calc( #{ $golden_major +em } - 2px ); // Compensating for border width
+		padding: calc( #{ $golden_major + em } - 2px ); // Compensating for border width
 	}
 
 

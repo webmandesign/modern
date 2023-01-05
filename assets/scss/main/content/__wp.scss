@@ -17,7 +17,7 @@
 			&.alignleft,
 			&.alignright {
 				padding: 0;
-				margin-top: $golden_major +em;
+				margin-top: $golden_major + em;
 
 				@include media( map_get( $breakpoint, 's' ) ) {
 					width: 35%;
@@ -113,13 +113,13 @@
 			&-current-item,
 			&-tracks {
 				height: auto;
-				padding: $golden +rem;
+				padding: $golden + rem;
 				margin: 0;
 			}
 
 			&-current-item {
 				@extend %font_weight_700;
-				padding-bottom: $golden_major +rem;
+				padding-bottom: $golden_major + rem;
 			}
 
 		}
@@ -155,8 +155,8 @@
 				position: absolute;
 				width: 2em;
 				height: 2em;
-				#{$right}: -$golden_minor +em; // {{RTL}}
-				top: -$golden_minor +em;
+				#{$right}: -$golden_minor + em; // {{RTL}}
+				top: -$golden_minor + em;
 				line-height: 2em;
 				text-align: center;
 			}

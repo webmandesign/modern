@@ -9,7 +9,7 @@
 
 
 .post-table-of-contents {
-	margin-top: power( $golden, 2 ) +rem;
+	margin-top: power( $golden, 2 ) + rem;
 
 	a {
 		@extend %font_weight_600;
@@ -41,8 +41,8 @@
 	}
 
 	a {
-		padding: ( $golden_major +em ) 1em;
-		padding-#{$left}: power( $golden, 2 ) +em; // {{RTL}}
+		padding: ( $golden_major + em ) 1em;
+		padding-#{$left}: power( $golden, 2 ) + em; // {{RTL}}
 
 		.entry-content & {
 			border-width: 0;
@@ -54,7 +54,7 @@
 			content: counter( table-of-contents-counter );
 			counter-increment: table-of-contents-counter;
 			float: $left; // {{RTL}}
-			margin-top: $golden_minor / -2 +em;
+			margin-top: $golden_minor / -2 + em;
 			margin-#{$left}: -1em - $golden_minor; // {{RTL}}
 			text-decoration: inherit;
 			font-weight: inherit;
@@ -63,7 +63,7 @@
 
 		&::after {
 			content: '\00bb';
-			margin-#{$left}: $golden_major +em; // {{RTL}}
+			margin-#{$left}: $golden_major + em; // {{RTL}}
 		}
 
 	}

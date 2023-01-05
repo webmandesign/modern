@@ -23,8 +23,8 @@
 				position: absolute;
 				width: 2em;
 				height: 2em;
-				#{$left}: -$golden_minor +em; // {{RTL}}
-				top: -$golden_minor +em;
+				#{$left}: -$golden_minor + em; // {{RTL}}
+				top: -$golden_minor + em;
 				line-height: 2em;
 				text-align: center;
 			}
@@ -32,7 +32,7 @@
 		}
 
 		.posts &-header {
-			margin-bottom: $golden_major +em;
+			margin-bottom: $golden_major + em;
 		}
 
 		&-title {

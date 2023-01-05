@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.5.1
+ * @version  2.6.0
  *
  * Contents:
  *
@@ -572,7 +572,7 @@ class Modern_Assets {
 		 * https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400|Exo+2:400,700|Allan&subset=latin,latin-ext
 		 *
 		 * @since    1.0.0
-		 * @version  2.3.0
+		 * @version  2.6.0
 		 *
 		 * @param  array $fonts Fallback fonts.
 		 */
@@ -580,10 +580,13 @@ class Modern_Assets {
 
 			// Pre
 
-				$pre = apply_filters( 'wmhook_modern_assets_google_fonts_url_pre', false, $fonts );
+				$pre = apply_filters( 'wmhook_modern_assets_google_fonts_url_pre', get_theme_mod( 'typography_custom_fonts', false ), $fonts );
 
 				if ( false !== $pre ) {
-					return $pre;
+					if ( true !== $pre ) {
+						return $pre; // Functionality bypass via filter.
+					}
+					return;
 				}
 
 

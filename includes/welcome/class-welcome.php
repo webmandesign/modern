@@ -1,254 +1,181 @@
 <?php
 /**
- * Welcome Page Class
+ * Welcome Page Class.
  *
  * @package    Modern
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.2
- *
- * Contents:
- *
- *   0) Init
- *  10) Renderer
- *  20) Admin menu
- *  30) Assets
- * 100) Others
+ * @version  2.6.0
  */
 class Modern_Welcome {
 
+	/**
+	 * Initialization.
+	 *
+	 * @since    2.0.0
+	 * @version  2.6.0
+	 */
+	public static function init() {
 
+		// Processing
 
+			// Hooks
 
+				// Actions
+
+					add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles' );
+
+					add_action( 'admin_menu', __CLASS__ . '::admin_menu' );
+
+	} // /init
 
 	/**
-	 * 0) Init
+	 * Render the screen content.
+	 *
+	 * @since    2.0.0
+	 * @version  2.6.0
 	 */
+	public static function render() {
 
-		private static $instance;
+		// Variables
 
+			$sections = (array) apply_filters( 'wmhook_modern_welcome_render_sections', array(
+				0   => 'header',
+				10  => 'a11y',
+				20  => 'guide',
+				30  => 'demo',
+				40  => 'promo',
+				100 => 'footer',
+			) );
 
-
-		/**
-		 * Constructor
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		private function __construct() {
-
-			// Processing
-
-				// Hooks
-
-					// Actions
-
-						add_action( 'admin_menu', __CLASS__ . '::admin_menu' );
-
-						add_action( 'admin_enqueue_scripts', __CLASS__ . '::assets', 1000 );
-
-		} // /__construct
+			ksort( $sections );
 
 
+		// Output
 
-		/**
-		 * Initialization (get instance)
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function init() {
+			?>
 
-			// Processing
-
-				if ( null === self::$instance ) {
-					self::$instance = new self;
-				}
-
-
-			// Output
-
-				return self::$instance;
-
-		} // /init
-
-
-
-
-
-	/**
-	 * 10) Renderer
-	 */
-
-		/**
-		 * Render the screen content
-		 *
-		 * @since    2.0.0
-		 * @version  2.4.2
-		 */
-		public static function render() {
-
-			// Helper variables
-
-				$sections = (array) apply_filters( 'wmhook_modern_welcome_render_sections', array(
-					0   => 'header',
-					10  => 'promo',
-					20  => 'wordpress',
-					30  => 'quickstart',
-					100 => 'footer',
-				) );
-
-				ksort( $sections );
-
-
-			// Output
-
-				?>
-
-				<div class="wrap welcome-wrap about-wrap">
-
-					<?php
-
-					do_action( 'wmhook_modern_welcome_render_top' );
-
-					foreach ( $sections as $section ) {
-						get_template_part( 'template-parts/admin/welcome', $section );
-					}
-
-					do_action( 'wmhook_modern_welcome_render_bottom' );
-
-					?>
-
-				</div>
+			<div class="wrap welcome__container">
 
 				<?php
 
-		} // /render
+				do_action( 'wmhook_modern_welcome_render_top' );
 
-
-
-
-
-	/**
-	 * 20) Admin menu
-	 */
-
-		/**
-		 * Add screen to WordPress admin menu
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 */
-		public static function admin_menu() {
-
-			// Processing
-
-				add_theme_page(
-					// $page_title
-					esc_html__( 'Welcome', 'modern' ),
-					// $menu_title
-					esc_html__( 'Welcome', 'modern' ),
-					// $capability
-					'edit_theme_options',
-					// $menu_slug
-					'modern-welcome',
-					// $function
-					__CLASS__ . '::render'
-				);
-
-		} // /admin_menu
-
-
-
-
-
-	/**
-	 * 30) Assets
-	 */
-
-		/**
-		 * Styles and scripts
-		 *
-		 * Use large priority (over 998) when hooking this method
-		 * to make sure the `modern-welcome` stylesheet
-		 * has been registered already.
-		 *
-		 * @since    2.0.0
-		 * @version  2.0.0
-		 *
-		 * @param  string $hook_suffix
-		 */
-		public static function assets( $hook_suffix = '' ) {
-
-			// Requirements check
-
-				if ( $hook_suffix !== get_plugin_page_hookname( 'modern-welcome', 'themes.php' ) ) {
-					return;
+				foreach ( $sections as $section ) {
+					get_template_part( 'template-parts/admin/welcome', $section );
 				}
 
+				do_action( 'wmhook_modern_welcome_render_bottom' );
 
-			// Processing
+				?>
 
-				// Styles
+			</div>
 
-					wp_enqueue_style( 'modern-welcome' );
+			<?php
 
-		} // /assets
-
-
-
-
+	} // /render
 
 	/**
-	 * 100) Others
+	 * Welcome screen CSS styles.
+	 *
+	 * @since  2.6.0
+	 *
+	 * @param  string $hook
+	 *
+	 * @return  void
 	 */
+	public static function styles( $hook = '' ) {
 
-		/**
-		 * Info text: Rate the theme.
-		 *
-		 * @since    2.4.0
-		 * @version  2.4.0
-		 */
-		public static function get_info_like() {
+		// Requirements check
 
-			// Output
+			if ( 'appearance_page_modern-welcome' !== $hook ) {
+				return;
+			}
 
-				return sprintf(
-					esc_html_x( 'If you %1$s like this theme, please rate it %2$s', '%1$s: heart icon, %2$s: star icons', 'modern' ),
+
+		// Processing
+
+			// Styles
+
+				wp_enqueue_style(
+					'modern-welcome',
+					get_theme_file_uri( 'assets/css/welcome.css' ),
+					array( 'about' ),
+					'v' . MODERN_THEME_VERSION
+				);
+
+	} // /styles
+
+	/**
+	 * Add screen to WordPress admin menu
+	 *
+	 * @since    2.0.0
+	 * @version  2.0.0
+	 */
+	public static function admin_menu() {
+
+		// Processing
+
+			add_theme_page(
+				// $page_title
+				esc_html__( 'Welcome', 'modern' ),
+				// $menu_title
+				esc_html__( 'Welcome', 'modern' ),
+				// $capability
+				'edit_theme_options',
+				// $menu_slug
+				'modern-welcome',
+				// $function
+				__CLASS__ . '::render'
+			);
+
+	} // /admin_menu
+
+	/**
+	 * Info text: Rate the theme.
+	 *
+	 * @since    2.4.0
+	 * @version  2.6.0
+	 */
+	public static function get_info_like() {
+
+		// Output
+
+			return
+				sprintf(
+					/* translators: %1$s: heart icon, %2$s: star icons. */
+					esc_html__( 'If you %1$s love this theme don\'t forget to rate it %2$s.', 'modern' ),
 					'<span class="dashicons dashicons-heart" style="color: red; vertical-align: middle;"></span>',
 					'<a href="https://wordpress.org/support/theme/modern/reviews/#new-post" style="display: inline-block; color: goldenrod; text-decoration-style: wavy; vertical-align: middle;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></span></a>'
 				)
+				. ' '
 				. '<br>'
-				. '<a href="http://webmandesign.eu/contact/?utm_source=modern">'
-				. esc_html__( 'And/or please consider a donation, thank you 🙏😊', 'modern' )
+				. '<a href="https://www.webmandesign.eu/contact/#donation">'
+				. esc_html__( 'And/or please consider a donation.', 'modern' )
+				. '</a>'
+				. ' '
+				. esc_html__( 'Thank you!', 'modern' );
+
+	} // /get_info_like
+
+	/**
+	 * Info text: Contact support.
+	 *
+	 * @since    2.4.0
+	 * @version  2.6.0
+	 */
+	public static function get_info_support() {
+
+		// Output
+
+			return
+				esc_html__( 'Have a suggestion for improvement or something is not working as it should?', 'modern' )
+				. ' <a href="https://support.webmandesign.eu/forums/forum/modern/">'
+				. esc_html__( '&rarr; Contact support', 'modern' )
 				. '</a>';
 
-		} // /get_info_like
-
-
-
-		/**
-		 * Info text: Contact support.
-		 *
-		 * @since    2.4.0
-		 * @version  2.4.0
-		 */
-		public static function get_info_support() {
-
-			// Output
-
-				return
-					esc_html__( 'Have a suggestion for improvement or something is not working as it should?', 'modern' )
-					. ' <a href="https://support.webmandesign.eu/">'
-					. esc_html__( 'Contact support center &rarr;', 'modern' )
-					. '</a>';
-
-		} // /get_info_support
-
-
-
-
+	} // /get_info_support
 
 } // /Modern_Welcome
 

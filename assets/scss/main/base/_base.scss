@@ -21,7 +21,7 @@
 	}
 
 	ul, ol {
-		margin-bottom: $golden +em;
+		margin-bottom: $golden + em;
 	}
 
 	ul {
@@ -67,7 +67,7 @@
 	blockquote {
 		@extend %font_weight_300;
 		padding: 0;
-		margin: 2rem 0 ( $golden +rem );
+		margin: 2rem 0 ( $golden + rem );
 
 		@include media( map_get( $breakpoint, 'm' ) ) {
 			font-size: $golden_minor / 2 + 1em;
@@ -78,7 +78,7 @@
 		}
 
 		&:first-child {
-			margin-top: $golden_major +em;
+			margin-top: $golden_major + em;
 		}
 
 		&:last-child {
@@ -104,7 +104,7 @@
 	}
 
 		pre {
-			border-radius: $golden_minor +em;
+			border-radius: $golden_minor + em;
 
 			code {
 				font-size: 1em;
@@ -119,12 +119,12 @@
 
 	hr {
 		height: 1px;
-		margin: ( power( 1 + $golden_minor, 3 ) +em ) 0;
+		margin: ( power( 1 + $golden_minor, 3 ) + em ) 0;
 		border-bottom-width: 1px;
 		border-bottom-style: solid;
 
 		@include media( map_get( $breakpoint, 'm' ) ) {
-			margin: ( power( 1 + $golden_minor, 4 ) +em ) 0;
+			margin: ( power( 1 + $golden_minor, 4 ) + em ) 0;
 		}
 
 		&:first-child {

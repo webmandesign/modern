@@ -17,9 +17,9 @@
 		transform: scaleY(0);
 		transform-origin: 50% 100%;
 		transition:
-			visibility 0s linear ( $small_animation_speed +s ),
-			opacity ( $small_animation_speed +s ),
-			transform ( $small_animation_speed +s );
+			visibility 0s linear ( $small_animation_speed + s ),
+			opacity ( $small_animation_speed + s ),
+			transform ( $small_animation_speed + s );
 
 		@include in( '^.toggled' ) {
 			visibility: visible;
@@ -27,16 +27,16 @@
 			transform: scaleY(1);
 			transition:
 				visibility 0s linear 0s,
-				opacity ( $small_animation_speed +s ),
-				transform ( $small_animation_speed +s );
+				opacity ( $small_animation_speed + s ),
+				transform ( $small_animation_speed + s );
 		}
 
 		.menu {
 			position: relative;
 
 			> ul {
-				max-width: map_get( $breakpoint, 's' ) / 16 +rem; // No need to stretch the menu, keep it narrow and centered
-				padding: ( power( $golden, 3 ) +rem ) ( $golden +rem ) ( power( $golden, 3 ) + $golden +rem );
+				max-width: map_get( $breakpoint, 's' ) / 16 + rem; // No need to stretch the menu, keep it narrow and centered
+				padding: ( power( $golden, 3 ) + rem ) ( $golden + rem ) ( power( $golden, 3 ) + $golden + rem );
 				margin-left: auto;
 				margin-right: auto;
 
@@ -107,7 +107,7 @@
 		}
 
 		.menu-search + .menu > ul {
-			padding-top: ( power( $golden, 3 ) +em );
+			padding-top: ( power( $golden, 3 ) + em );
 		}
 
 	}
@@ -118,8 +118,8 @@ body:not(.has-navigation-mobile) {
 	@include media( ( map_get( $breakpoint, $mobile_menu_breakpoint ), 'max-width' ) ) {
 
 		.site-header-navigation {
-			padding-top: $golden +rem;
-			padding-bottom: $golden +rem;
+			padding-top: $golden + rem;
+			padding-bottom: $golden + rem;
 
 			&::before {
 				opacity: 1;
@@ -161,7 +161,7 @@ body:not(.has-navigation-mobile) {
 			( map_get( $breakpoint, $mobile_menu_breakpoint ), 'max-width' ),
 			( map_get( $breakpoint, 's' ), 'min-height' )
 		) {
-			padding-bottom: $mobile_menu_toggle_height +rem;
+			padding-bottom: $mobile_menu_toggle_height + rem;
 		}
 
 	}
@@ -173,10 +173,10 @@ body:not(.has-navigation-mobile) {
 			@include media( ( map_get( $breakpoint, $mobile_menu_breakpoint ), 'max-width' ) ) {
 				position: fixed;
 				width: auto;
-				height: $mobile_menu_toggle_height +rem;
+				height: $mobile_menu_toggle_height + rem;
 				left: 50%;
 				bottom: -2px;
-				padding: 0 ( $golden +em );
+				padding: 0 ( $golden + em );
 				margin: 0;
 				line-height: 1 + $golden_minor;
 				text-align: center;
@@ -214,7 +214,7 @@ body:not(.has-navigation-mobile) {
 			&::before {
 				@extend %genericon;
 				content: '\f419';
-				margin-#{$right}: $golden_major +em; // {{RTL}}
+				margin-#{$right}: $golden_major + em; // {{RTL}}
 
 				.toggled & {
 					content: '\f406';

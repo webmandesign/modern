@@ -1,5 +1,54 @@
 # Modern Changelog
 
+## 2.6.0, 20230105
+
+### Updated
+- JavaScript libraries (A11yMenu and CSS Vars Ponyfill)
+- Media size info
+- Improving code
+- Improving accessibility
+- HTML head code
+- Welcome page
+- Localization
+
+### Fixed
+- Custom typography CSS vars not working
+- Google Fonts still being loaded even when using custom typography
+
+### File updates
+	changelog.md
+	readme.txt
+	style.css
+	assets/js/vendors/a11y-menu/*.*
+	assets/scss/main.scss
+	assets/scss/welcome.scss
+	assets/scss/starter/_starter.scss
+	assets/scss/starter/tools/_functions.scss
+	includes/custom-header/class-intro.php
+	includes/customize/class-customize.php
+	includes/frontend/class-assets.php
+	includes/frontend/class-header.php
+	includes/plugins/one-click-demo-import/class-one-click-demo-import.php
+	includes/setup/class-setup.php
+	includes/welcome/class-welcome.php
+	languages/*.*
+	library/changelog.md
+	library/includes/classes/class-core.php
+	library/includes/classes/class-css-variables.php
+	library/includes/vendor/tgmpa/class-tgm-plugin-activation.php
+	library/js/vendors/css-vars-ponyfill/*.*
+	library/scss/styles/_customize.scss
+	template-parts/admin/media-image-sizes.php
+	template-parts/admin/notice-welcome.php
+	template-parts/admin/welcome-a11y.php
+	template-parts/admin/welcome-demo.php
+	template-parts/admin/welcome-footer.php
+	template-parts/admin/welcome-guide.php
+	template-parts/admin/welcome-header.php
+	template-parts/admin/welcome-promo.php
+	template-parts/header/head.php
+
+
 ## 2.5.2, 20220326
 
 ### Fixed

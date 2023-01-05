@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.5.0
+ * @version  2.6.0
  *
  * Contents:
  *
@@ -34,7 +34,7 @@ class Modern_Header {
 		 * Constructor
 		 *
 		 * @since    2.0.0
-		 * @version  2.5.0
+		 * @version  2.6.0
 		 */
 		private function __construct() {
 
@@ -46,8 +46,7 @@ class Modern_Header {
 
 						add_action( 'tha_html_before', __CLASS__ . '::doctype' );
 
-						add_action( 'wp_head', __CLASS__ . '::charset', 0 );
-						add_action( 'wp_head', __CLASS__ . '::head', 1 );
+						add_action( 'wp_head', __CLASS__ . '::head', 0 );
 						add_action( 'wp_head', __CLASS__ . '::head_pingback', 1 );
 						add_action( 'wp_head', __CLASS__ . '::head_chrome_color', 1 );
 
@@ -114,23 +113,6 @@ class Modern_Header {
 				echo '<!doctype html>';
 
 		} // /doctype
-
-
-
-		/**
-		 * Meta charset.
-		 *
-		 * @since  2.4.4
-		 *
-		 * @return  void
-		 */
-		public static function charset() {
-
-			// Output
-
-				echo '<meta charset="' . esc_attr( get_bloginfo( 'charset' ) ) . '">' . PHP_EOL;
-
-		} // /charset
 
 
 

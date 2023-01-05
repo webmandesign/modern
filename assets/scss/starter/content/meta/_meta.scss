@@ -10,7 +10,7 @@
 
 .entry-meta {
 	padding: 1em 0 0;
-	margin: ( $golden +em ) 0 0;
+	margin: ( $golden + em ) 0 0;
 	border-top-width: 2px;
 	border-top-style: solid;
 
@@ -19,7 +19,7 @@
 	}
 
 	.single & {
-		margin-bottom: $golden +em;
+		margin-bottom: $golden + em;
 	}
 
 	&-top {
@@ -30,7 +30,7 @@
 	}
 
 	&-element {
-		margin-#{$right}: $golden_minor +em; // {{RTL}}
+		margin-#{$right}: $golden_minor + em; // {{RTL}}
 
 		.single & {
 			margin-#{$right}: 1em; // {{RTL}}
@@ -41,7 +41,7 @@
 	.tags-links {
 
 		a {
-			margin: 0 ( $golden_minor / 2 +em );
+			margin: 0 ( $golden_minor / 2 + em );
 		}
 
 	}

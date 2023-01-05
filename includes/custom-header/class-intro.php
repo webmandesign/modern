@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.3
+ * @version  2.6.0
  *
  * Contents:
  *
@@ -105,7 +105,7 @@ class Modern_Intro {
 		 * @link  https://make.wordpress.org/core/2016/11/26/video-headers-in-4-7/
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.0
+		 * @version  2.6.0
 		 */
 		public static function setup() {
 
@@ -118,8 +118,8 @@ class Modern_Intro {
 
 				add_theme_support( 'custom-header', apply_filters( 'wmhook_modern_custom_header_args', array(
 					'default-text-color' => 'ffffff',
-					'width'              => ( isset( $image_sizes['modern-intro'] ) ) ? ( $image_sizes['modern-intro'][0] ) : ( 1920 ),
-					'height'             => ( isset( $image_sizes['modern-intro'] ) ) ? ( $image_sizes['modern-intro'][1] ) : ( 1080 ),
+					'width'              => ( isset( $image_sizes['modern-intro'] ) ) ? ( $image_sizes['modern-intro']['width'] ) : ( 1920 ),
+					'height'             => ( isset( $image_sizes['modern-intro'] ) ) ? ( $image_sizes['modern-intro']['height'] ) : ( 1080 ),
 					'flex-width'         => true,
 					'flex-height'        => true,
 					'random-default'     => true,

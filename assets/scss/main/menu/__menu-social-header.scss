@@ -18,7 +18,7 @@
 
 		@include media( map_get( $breakpoint, 'm' ) ) {
 			width: auto;
-			padding-#{$left}: $golden +em; // {{RTL}}
+			padding-#{$left}: $golden + em; // {{RTL}}
 			margin-top: 0;
 			margin-#{$left}: auto; // {{RTL}}
 		}

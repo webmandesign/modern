@@ -29,11 +29,11 @@
 		display: inline-block;
 
 		.sidebar & {
-			margin-#{$right}: $golden_minor / 2 +em; // {{RTL}}
+			margin-#{$right}: $golden_minor / 2 + em; // {{RTL}}
 		}
 
 		.text-right & {
-			margin-#{$left}: $golden_minor / 2 +em; // {{RTL}}
+			margin-#{$left}: $golden_minor / 2 + em; // {{RTL}}
 			margin-#{$right}: 0; // {{RTL}}
 		}
 
@@ -41,8 +41,8 @@
 
 	a {
 		display: block;
-		padding-left: $golden_minor / 2 +em;
-		padding-right: $golden_minor / 2 +em;
+		padding-left: $golden_minor / 2 + em;
+		padding-right: $golden_minor / 2 + em;
 		margin: 1px; // For focus outline to be visible in whole.
 		text-decoration: none;
 		color: inherit;
@@ -61,7 +61,7 @@
 					@extend %genericon;
 					content: '\f435';
 					display: inline-block;
-					padding: 0 ( $golden_minor +em );
+					padding: 0 ( $golden_minor + em );
 					vertical-align: top;
 				}
 

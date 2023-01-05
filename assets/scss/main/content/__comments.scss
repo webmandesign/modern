@@ -12,8 +12,8 @@
 
 	.comments-area {
 		@extend %background_overlay_from_text_color;
-		padding-left: $golden +em;
-		padding-right: $golden +em;
+		padding-left: $golden + em;
+		padding-right: $golden + em;
 
 		&-inner {
 			@extend %padding_top;
@@ -40,7 +40,7 @@
 
 	.comments-title {
 		@extend %font_weight_700;
-		margin-bottom: $golden +rem;
+		margin-bottom: $golden + rem;
 
 		.add-comment-link {
 			@extend .screen-reader-text;
@@ -138,7 +138,7 @@
 		&::before {
 			@extend %genericon;
 			content: '\f466';
-			margin-#{$right}: $golden_minor / 2 +em; // {{RTL}}
+			margin-#{$right}: $golden_minor / 2 + em; // {{RTL}}
 			font-size: 1em + $golden_minor;
 			vertical-align: middle;
 		}
@@ -158,7 +158,7 @@
 // Navigation
 
 	.comment-navigation {
-		padding: ( $golden +em ) 0;
+		padding: ( $golden + em ) 0;
 		margin: 0;
 		text-align: inherit;
 
@@ -175,8 +175,8 @@
 
 			a,
 			span {
-				padding: ( $golden_major +em ) 0;
-				margin: $golden_minor / 2 +em;
+				padding: ( $golden_major + em ) 0;
+				margin: $golden_minor / 2 + em;
 				margin-#{$left}: 0;
 				line-height: inherit;
 
@@ -200,7 +200,7 @@
 
 		&,
 		.comment-list & {
-			margin-top: power( $golden, 2 ) +em;
+			margin-top: power( $golden, 2 ) + em;
 		}
 
 		&:first-child {
@@ -208,11 +208,11 @@
 		}
 
 		form {
-			margin-bottom: -$golden +em;
+			margin-bottom: -$golden + em;
 		}
 
 		.comment-list & {
-			padding: 0 ( $golden +em );
+			padding: 0 ( $golden + em );
 			border-width: 0;
 		}
 
@@ -246,7 +246,7 @@
 
 		.comment-body {
 			padding: 1em;
-			margin: ( $golden +em ) 0;
+			margin: ( $golden + em ) 0;
 			border-width: 1px;
 			border-style: dashed;
 			overflow: hidden;
@@ -254,7 +254,7 @@
 			&::before {
 				@extend %genericon;
 				content: '\f107';
-				margin-#{$right}: $golden_major +em;
+				margin-#{$right}: $golden_major + em;
 			}
 
 		}

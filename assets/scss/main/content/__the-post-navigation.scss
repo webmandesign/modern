@@ -33,7 +33,7 @@
 					top: 0;
 					z-index: -1;
 					opacity: .9;
-					transition: opacity ( $large_animation_speed +s );
+					transition: opacity ( $large_animation_speed + s );
 				}
 
 				&:hover::before {

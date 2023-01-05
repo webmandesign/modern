@@ -35,7 +35,7 @@
 	hr {
 		clear: both;
 		height: 2px;
-		margin: ( power( 1 + $golden_minor, 2 ) +rem ) 0;
+		margin: ( power( 1 + $golden_minor, 2 ) + rem ) 0;
 		border-width: 0;
 	}
 
@@ -74,7 +74,7 @@
 			@extend %font_size_small;
 			@extend %font_weight_400;
 			display: block;
-			margin-top: $golden_major +em;
+			margin-top: $golden_major + em;
 		}
 
 	}
@@ -94,8 +94,8 @@
 	mark,
 	ins,
 	.highlight {
-		padding: ( $golden_minor / 2 +em ) 0;
-		margin: 0 ( $golden_minor +em );
+		padding: ( $golden_minor / 2 + em ) 0;
+		margin: 0 ( $golden_minor + em );
 		box-decoration-break: clone;
 	}
 
@@ -128,8 +128,8 @@
 		@extend %font_size_small;
 		position: relative;
 		display: inline-block;
-		padding: 0 ( $golden_major +em );
-		margin: 0 ( $golden_minor / 2 +em );
+		padding: 0 ( $golden_major + em );
+		margin: 0 ( $golden_minor / 2 + em );
 
 		mark &,
 		ins &,
@@ -138,7 +138,7 @@
 		.taxonomy-description &,
 		.archive-description & {
 			display: inline;
-			padding: 0 ( $golden_minor +em );
+			padding: 0 ( $golden_minor + em );
 			background: none;
 			color: inherit;
 		}
@@ -150,7 +150,7 @@
 		position: relative;
 		max-width: 100%;
 		padding: 1em;
-		margin-bottom: $golden +em;
+		margin-bottom: $golden + em;
 		overflow: auto;
 		tab-size: 2;
 	}
@@ -174,12 +174,12 @@
 
 	dl {
 		margin-top: 0;
-		margin-bottom: $golden +em;
+		margin-bottom: $golden + em;
 	}
 
 	dt {
 		@extend %font_weight_700;
-		margin-top: $golden_major +em;
+		margin-top: $golden_major + em;
 
 		&:first-child {
 			margin-top: 0;
@@ -188,7 +188,7 @@
 	}
 
 	dd {
-		margin-#{$left}: $golden +em; // {{RTL}}
+		margin-#{$left}: $golden + em; // {{RTL}}
 	}
 
 

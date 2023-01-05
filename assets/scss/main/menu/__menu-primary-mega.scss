@@ -21,13 +21,13 @@
 				vertical-align: top;
 
 				+ li {
-					margin-#{$left}: power( $golden, 2 ) +rem; // {{RTL}}
+					margin-#{$left}: power( $golden, 2 ) + rem; // {{RTL}}
 				}
 
 				// Label
 				> a {
 					margin-#{$left}: 2px; // Compensating for border width;
-					margin-bottom: $golden +em;
+					margin-bottom: $golden + em;
 					font-size: 1em - $golden_minor / 4;
 					font-weight: 700;
 					text-transform: uppercase;

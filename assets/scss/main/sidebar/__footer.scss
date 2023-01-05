@@ -24,27 +24,27 @@
 	}
 
 	.widget {
-		min-width: calc( 100% - #{ 2 * $golden +rem } );
+		min-width: calc( 100% - #{ 2 * $golden + rem } );
 
 		@include media( map_get( $breakpoint, 'l' ) ) {
-			min-width: calc( 50% - #{ 2 * $golden +rem } );
+			min-width: calc( 50% - #{ 2 * $golden + rem } );
 
 			&:nth-child(1):nth-last-child(1) {
-				min-width: calc( 100% - #{ 2 * $golden +rem } );
+				min-width: calc( 100% - #{ 2 * $golden + rem } );
 			}
 
 		}
 
 		@include media( map_get( $breakpoint, 'xl' ) ) {
-			min-width: calc( 33.33% - #{ 2 * $golden +rem } );
+			min-width: calc( 33.33% - #{ 2 * $golden + rem } );
 
 			&:nth-child(1):nth-last-child(2),
 			&:nth-child(2):nth-last-child(1) {
-				min-width: calc( 50% - #{ 2 * $golden +rem } );
+				min-width: calc( 50% - #{ 2 * $golden + rem } );
 			}
 
 			&:nth-child(1):nth-last-child(1) {
-				min-width: calc( 100% - #{ 2 * $golden +rem } );
+				min-width: calc( 100% - #{ 2 * $golden + rem } );
 			}
 
 		}

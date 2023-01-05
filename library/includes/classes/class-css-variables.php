@@ -8,7 +8,7 @@
  * @subpackage  Customize
  *
  * @since    2.3.0
- * @version  2.4.4
+ * @version  2.6.0
  *
  * Contents:
  *
@@ -259,7 +259,7 @@ class Modern_Library_CSS_Variables {
 		 * @link  https://github.com/jhildenbiddle/css-vars-ponyfill
 		 *
 		 * @since    2.3.0
-		 * @version  2.4.4
+		 * @version  2.6.0
 		 */
 		public static function compatibility() {
 
@@ -269,7 +269,7 @@ class Modern_Library_CSS_Variables {
 					'css-vars-ponyfill',
 					get_theme_file_uri( MODERN_LIBRARY_DIR . 'js/vendors/css-vars-ponyfill/css-vars-ponyfill.min.js' ),
 					array(),
-					'v2.4.2'
+					'v2.4.7'
 				);
 
 				wp_add_inline_script(

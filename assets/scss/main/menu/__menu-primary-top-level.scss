@@ -6,8 +6,8 @@
 	> li {
 
 		@include media( map_get( $breakpoint, $mobile_menu_breakpoint ) ) {
-			padding-top: $golden_minor +rem;
-			padding-bottom: $golden_minor +rem;
+			padding-top: $golden_minor + rem;
+			padding-bottom: $golden_minor + rem;
 			margin-#{$right}: $golden_minor + 1rem; // {{RTL}}
 
 			> a {

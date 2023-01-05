@@ -11,7 +11,7 @@
 .social-links {
 
 	.footer-area-site-info & {
-		margin: ( $golden_major +em ) 0;
+		margin: ( $golden_major + em ) 0;
 
 		@include media( map_get( $breakpoint, 'm' ) ) {
 			margin: 0;

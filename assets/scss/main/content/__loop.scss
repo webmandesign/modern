@@ -14,7 +14,7 @@ $padding : power( $golden, 2 ); // In em.
 .posts {
 	display: flex;
 	flex-wrap: wrap;
-	margin: -$gutter / 2 +em;
+	margin: -$gutter / 2 + em;
 
 	.entry {
 		@extend %box_shadow;
@@ -22,18 +22,18 @@ $padding : power( $golden, 2 ); // In em.
 		flex-direction: column;
 		position: relative;
 		padding: 1rem;
-		margin: $gutter / 2 +em;
+		margin: $gutter / 2 + em;
 
 		// Small screens:
 		// 1 column
-		width: calc( 100% - #{ $gutter +em } );
+		width: calc( 100% - #{ $gutter + em } );
 
 		@include media( map_get( $breakpoint, 'm' ) ) {
 		// Medium screens:
 		// 2 columns
 
-			width: calc( 50% - #{ $gutter +em } );
-			padding: $padding +em;
+			width: calc( 50% - #{ $gutter + em } );
+			padding: $padding + em;
 		}
 
 		@include media( map_get( $breakpoint, 'l' ) ) {
@@ -46,7 +46,7 @@ $padding : power( $golden, 2 ); // In em.
 		// 2 columns when 3 or 4 columns layout is set
 
 			.no-widgets-sidebar:not(.posts-layout-columns-2) & {
-				width: calc( 33.33% - #{ $gutter +em } );
+				width: calc( 33.33% - #{ $gutter + em } );
 			}
 
 		}
@@ -59,11 +59,11 @@ $padding : power( $golden, 2 ); // In em.
 		// 3 columns when 4 columns layout is set
 
 			.posts-layout-columns-4.no-widgets-sidebar & { // Higher specificity selector required to override the "Large screen" styles.
-				width: calc( 25% - #{ $gutter +em } );
+				width: calc( 25% - #{ $gutter + em } );
 			}
 
 			.posts-layout-columns-4.has-widgets-sidebar & {
-				width: calc( 33.33% - #{ $gutter +em } );
+				width: calc( 33.33% - #{ $gutter + em } );
 			}
 
 		}
@@ -75,14 +75,14 @@ $padding : power( $golden, 2 ); // In em.
 			margin-bottom: 1rem;
 
 			@include media( map_get( $breakpoint, 'm' ) ) {
-				margin: -$padding +em;
-				margin-bottom: $padding +em;
+				margin: -$padding + em;
+				margin-bottom: $padding + em;
 			}
 
 		}
 
 		&-header {
-			margin-bottom: $golden +em;
+			margin-bottom: $golden + em;
 		}
 
 		&-title {
@@ -92,7 +92,7 @@ $padding : power( $golden, 2 ); // In em.
 				@include in( '^.type-page' ) {
 					@extend %genericon;
 					content: '\f443';
-					margin-#{$right}: $golden_major / 2 +em; // {{RTL}}
+					margin-#{$right}: $golden_major / 2 + em; // {{RTL}}
 					vertical-align: middle;
 				}
 
@@ -125,7 +125,7 @@ $padding : power( $golden, 2 ); // In em.
 		&-summary {
 
 			&:not(:last-child) {
-				margin-bottom: $golden +em;
+				margin-bottom: $golden + em;
 			}
 
 		}
@@ -146,7 +146,7 @@ $padding : power( $golden, 2 ); // In em.
 	.posts {
 
 		.search-results form + & {
-			margin-top: power( $golden, 2 ) +em;
+			margin-top: power( $golden, 2 ) + em;
 		}
 
 	}

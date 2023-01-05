@@ -39,7 +39,7 @@
 					&::before {
 						@extend %genericon;
 						content: '\f107';
-						margin: 0 ( $golden_minor / 2 +em );
+						margin: 0 ( $golden_minor / 2 + em );
 						opacity: .66;
 					}
 

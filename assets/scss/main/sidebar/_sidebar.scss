@@ -13,7 +13,7 @@
 	.sidebar {
 		@extend %font_size_smaller;
 		position: relative;
-		margin-top: power( $golden, 2 ) +rem;
+		margin-top: power( $golden, 2 ) + rem;
 
 		@include media( map_get( $breakpoint, 'l' ) ) {
 			width: 28%;
@@ -30,7 +30,7 @@
 			margin-bottom: 2rem;
 
 			@include media( map_get( $breakpoint, 'm' ) ) {
-				padding: $padding +rem;
+				padding: $padding + rem;
 			}
 
 		}

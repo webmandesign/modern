@@ -55,7 +55,7 @@
 				left: 0;
 				top: 0;
 				opacity: .8;
-				transition: opacity ( $small_animation_speed +s );
+				transition: opacity ( $small_animation_speed + s );
 			}
 
 			&:hover::before {
@@ -83,18 +83,18 @@
 			padding-bottom: 1em;
 
 			@include media( map_get( $breakpoint, 's' ) ) {
-				padding-top: $golden +em;
-				padding-bottom: $golden +em;
+				padding-top: $golden + em;
+				padding-bottom: $golden + em;
 			}
 
 			@include media( map_get( $breakpoint, 'm' ) ) {
-				padding-top: power( $golden, 2 ) +em;
-				padding-bottom: power( $golden, 2 ) +em;
+				padding-top: power( $golden, 2 ) + em;
+				padding-bottom: power( $golden, 2 ) + em;
 			}
 
 			@include media( map_get( $breakpoint, 'l' ) ) {
-				padding-top: power( $golden, 3 ) +em;
-				padding-bottom: power( $golden, 3 ) +em;
+				padding-top: power( $golden, 3 ) + em;
+				padding-bottom: power( $golden, 3 ) + em;
 				margin-top: 3.5em;
 			}
 
