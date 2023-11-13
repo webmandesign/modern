@@ -234,6 +234,7 @@ class Modern_Post_Formats {
 		 *
 		 * @since    1.0.0
 		 * @version  3.0.0
+		 * @version  2.6.1
 		 *
 		 * @param  int    $post_id
 		 * @param  string $format
@@ -285,7 +286,13 @@ class Modern_Post_Formats {
 
 				// Requirements check
 
-					if ( ! in_array( $format, $supported_formats ) ) {
+					if (
+						! in_array( $format, $supported_formats )
+						|| doing_action( 'save_post' )
+					) {
+
+						delete_post_meta( $post_id, '_' . $meta_name );
+
 						return;
 					}
 

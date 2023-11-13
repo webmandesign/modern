@@ -957,7 +957,7 @@ msgstr ""
 
 #: includes/starter-content/class-starter-content.php:254
 msgctxt "Theme starter content"
-msgid "Twitter"
+msgid "X"
 msgstr ""
 
 #: includes/starter-content/class-starter-content.php:286

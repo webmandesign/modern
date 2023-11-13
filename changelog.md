@@ -1,5 +1,25 @@
 # Modern Changelog
 
+## 2.6.1, 20231113
+
+### Updated
+- Twitter/X icon
+
+### Fixed
+- Preventing issue with post formats
+- Updating TGMPA script to prevent PHP8 error
+
+### File updates
+	changelog.md
+	readme.txt
+	style.css
+	assets/images/svg/social-icons.svg
+	includes/frontend/class-menu.php
+	includes/post-formats/class-post-formats.php
+	includes/starter-content/class-starter-content.php
+	library/includes/vendor/tgmpa/class-tgm-plugin-activation.php
+
+
 ## 2.6.0, 20230105
 
 ### Updated

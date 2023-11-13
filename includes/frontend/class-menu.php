@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.5.0
+ * @version  2.6.1
  *
  * Contents:
  *
@@ -421,7 +421,7 @@ class Modern_Menu {
 			 * Social links supported icons
 			 *
 			 * @since    2.0.0
-			 * @version  2.5.0
+			 * @version  2.6.1
 			 */
 			public static function social_links_icons() {
 
@@ -467,7 +467,7 @@ class Modern_Menu {
 						'tripadvisor.'      => 'tripadvisor',
 						'tumblr.com'        => 'tumblr',
 						'twitch.tv'         => 'twitch',
-						'twitter.com'       => 'twitter',
+						'twitter.com'       => 'x',
 						'vimeo.com'         => 'vimeo',
 						'vine.co'           => 'vine',
 						'vk.com'            => 'vk',
