@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.6.1
+ * @version  2.6.3
  *
  * Contents:
  *
@@ -202,7 +202,7 @@ class Modern_Starter_Content {
 		 * Navigational menus
 		 *
 		 * @since    2.0.0
-		 * @version  2.6.1
+		 * @version  2.6.3
 		 */
 		public static function nav_menus() {
 
@@ -250,9 +250,9 @@ class Modern_Starter_Content {
 								'url'   => 'https://www.facebook.com/',
 							),
 
-							'link_twitter' => array(
+							'link_x' => array(
 								'title' => esc_html_x( 'X', 'Theme starter content', 'modern' ),
-								'url'   => 'https://twitter.com/',
+								'url'   => 'https://x.com/',
 							),
 
 							'link_email',

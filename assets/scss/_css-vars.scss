@@ -7,41 +7,60 @@
 // @copyright  WebMan Design, Oliver Juhas
 //
 // @since    2.3.0
-// @version  2.4.3
+// @version  2.6.3
 //
 
 :root {
 
-	@each $option, $value in $customize_options {
-		// Converting values to string to prevent issues.
-		--#{$option}: #{$value+''};
-	}
+	// Theme options.
 
-	// RGBA colors:
-	// @see  Modern_Customize::rgba_alphas()
-
-		$customize_options_rgba: (
-			'color_header_text',
-			'color_content_text',
-			'color_footer_text',
-		);
-		@each $option_rgba in $customize_options_rgba {
-			// As all of the RGBA options use the same alpha value,
-			// we just set it here directly (the `20`).
-			$value: rgba( map_get( $customize_options, $option_rgba ), 20 / 100 );
+		@each $option, $value in $customize_options {
 			// Converting values to string to prevent issues.
-			--#{$option_rgba}--a20: #{$value+''};
+			--#{$option}: #{$value+''};
 		}
 
-		$customize_options_rgba: (
-			'color_accent',
-		);
-		@each $option_rgba in $customize_options_rgba {
-			// As all of the RGBA options use the same alpha value,
-			// we just set it here directly (the `20`).
-			$value: rgba( map_get( $customize_options, $option_rgba ), 0 );
-			// Converting values to string to prevent issues.
-			--#{$option_rgba}--a0: #{$value+''};
+		// RGBA colors:
+		// @see  Modern_Customize::rgba_alphas()
+
+			$customize_options_rgba: (
+				'color_header_text',
+				'color_content_text',
+				'color_footer_text',
+			);
+			@each $option_rgba in $customize_options_rgba {
+				// As all of the RGBA options use the same alpha value,
+				// we just set it here directly (the `20`).
+				$value: rgba( map_get( $customize_options, $option_rgba ), 20 / 100 );
+				// Converting values to string to prevent issues.
+				--#{$option_rgba}--a20: #{$value+''};
+			}
+
+			$customize_options_rgba: (
+				'color_accent',
+			);
+			@each $option_rgba in $customize_options_rgba {
+				// As all of the RGBA options use the same alpha value,
+				// we just set it here directly (the `20`).
+				$value: rgba( map_get( $customize_options, $option_rgba ), 0 );
+				// Converting values to string to prevent issues.
+				--#{$option_rgba}--a0: #{$value+''};
+			}
+
+	// White spaces.
+
+		--gap_elements: 0;
+		// Touch enabled devices.
+		@media (hover: none) {
+			--gap_elements: 10px;
 		}
 
+		--navigation_button_toggle_spacing: var(--gap_elements);
+
+	// Widths & heights.
+
+		--button_toggle_sub_menu_size: 10px;
+		// Touch enabled devices.
+		@media (hover: none) {
+			--button_toggle_sub_menu_size: 24px;
+		}
 }

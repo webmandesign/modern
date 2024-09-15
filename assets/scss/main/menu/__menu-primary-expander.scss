@@ -1,13 +1,5 @@
 /* FILE: main/menu/_menu-primary-expander.scss */
 
-:root {
-	--button_toggle_sub_menu_size: 10px;
-	// Touch enabled devices.
-	@media (hover: none) {
-		--button_toggle_sub_menu_size: 24px;
-	}
-}
-
 .has-navigation-mobile {
 	@include media( ( map_get( $breakpoint, $mobile_menu_breakpoint ), 'max-width' ) ) {
 		--button_toggle_sub_menu_size: 32px;
@@ -21,6 +13,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: var(--navigation_button_toggle_spacing);
 
 		> a {
 			padding-#{$right}: $golden_minor + em;

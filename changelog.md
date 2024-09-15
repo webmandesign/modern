@@ -1,5 +1,20 @@
 # Modern Changelog
 
+## 2.6.3, 20240915
+
+### Updated
+- Improving accessibility
+- Improving and fixing social icons (introducing option to force the icon with `has-icon-#` class)
+
+### File updates
+	changelog.md
+	style.css
+	assets/scss/_css-vars.scss
+	assets/scss/main.scss
+	includes/frontend/class-menu.php
+	includes/starter-content/class-starter-content.php
+
+
 ## 2.6.2, 20240902
 
 ### Updated
