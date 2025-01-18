@@ -1,5 +1,17 @@
 # Modern Changelog
 
+## 2.6.4, 20250118
+
+### Updated
+- Beaver Builder upgrade link
+
+### File updates
+	changelog.md
+	readme.txt
+	style.css
+	functions.php
+	
+
 ## 2.6.3, 20240915
 
 ### Updated

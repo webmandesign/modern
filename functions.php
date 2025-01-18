@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  2.2.3
+ * @version  2.6.4
  *
  * Contents:
  *
@@ -154,12 +154,12 @@
 			 * Upgrade link URL
 			 *
 			 * @since    2.0.0
-			 * @version  2.0.0
+			 * @version  2.6.4
 			 *
 			 * @param  string $url
 			 */
 			function modern_beaver_builder_upgrade_url( $url ) {
-				return esc_url( add_query_arg( 'fla', '67', $url ) );
+				return trailingslashit( FL_BUILDER_STORE_URL ) . 'fla/67/';
 			}
 			add_filter( 'fl_builder_upgrade_url', 'modern_beaver_builder_upgrade_url' );
 		}
