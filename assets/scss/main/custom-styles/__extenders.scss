@@ -43,12 +43,7 @@
 
 		%button_default_colors {
 			@extend %accent_colors;
-
-			&:focus {
-				outline: thin dashed map_get( $customize_options, 'color_accent' );
-				outline: thin dashed var(--color_accent);
-			}
-
+			@include button_focus();
 		}
 
 

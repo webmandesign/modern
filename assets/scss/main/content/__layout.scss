@@ -21,15 +21,6 @@
 			@extend %content_width;
 			@extend .clearfix;
 		}
-
-
-
-		// Do not show the outline on the skip link target
-
-			&[tabindex="-1"]:focus {
-				outline: 0;
-			}
-
 	}
 
 

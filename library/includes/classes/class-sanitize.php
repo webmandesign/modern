@@ -11,7 +11,7 @@
  *
  * @since    2.5.0
  * @version  2.7.0
- * @version  2.3.0
+ * @version  2.6.5
  *
  * Contents:
  *
@@ -405,7 +405,7 @@ final class Modern_Library_Sanitize {
 		 * Sanitize CSS image URL.
 		 *
 		 * @since    2.3.0
-		 * @version  2.3.0
+		 * @version  2.6.5
 		 *
 		 * @param  mixed $image  Could be a URL, numeric image ID or an array with `id` image ID key.
 		 */
@@ -423,8 +423,8 @@ final class Modern_Library_Sanitize {
 				}
 
 				if ( is_numeric( $image ) ) {
-					$image = wp_get_attachment_image_src( absint( $image ), 'full' );
-					$image = $image[0];
+					$image = (array) wp_get_attachment_image_src( absint( $image ), 'full' );
+					$image = (string) $image[0];
 				}
 
 				if ( ! empty( $image ) ) {

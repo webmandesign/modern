@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.6.0
+ * @version  2.6.5
  *
  * Contents:
  *
@@ -301,7 +301,7 @@ class Modern_Intro {
 		 * Header image URL
 		 *
 		 * @since    2.0.0
-		 * @version  2.0.2
+		 * @version  2.6.5
 		 *
 		 * @param  string $url  Image URL or other custom header value.
 		 */
@@ -337,17 +337,16 @@ class Modern_Intro {
 				if ( $intro_image ) {
 
 					if ( is_numeric( $intro_image ) ) {
-						$url = wp_get_attachment_image_src( absint( $intro_image ), $image_size );
-						$url = $url[0];
+						$url = (array) wp_get_attachment_image_src( absint( $intro_image ), $image_size );
+						$url = (string) $url[0];
 					} else {
 						$url = (string) $intro_image;
 					}
 
 				} elseif ( has_post_thumbnail( $post_id ) ) {
 
-					$url = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $image_size );
-					$url = $url[0];
-
+					$url = (array) wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $image_size );
+					$url = (string) $url[0];
 				}
 
 

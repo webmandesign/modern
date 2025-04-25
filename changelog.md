@@ -1,5 +1,23 @@
 # Modern Changelog
 
+## 2.6.5, 20250424
+
+### Updated
+- Accessibility styles
+- Improving code
+
+### File updates
+	changelog.md
+	readme.txt
+	style.css
+	assets/scss/main.scss
+	assets/scss/starter/_starter.scss
+	assets/scss/starter/generic/__normalize.scss
+	assets/scss/starter/tools/_mixins.scss
+	includes/custom-header/class-intro.php
+	library/includes/classes/class-sanitize.php
+
+
 ## 2.6.4, 20250118
 
 ### Updated
