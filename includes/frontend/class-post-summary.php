@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    2.0.0
- * @version  2.4.2
+ * @version  2.6.6
  *
  * Contents:
  *
@@ -66,7 +66,7 @@ class Modern_Post_Summary {
 		 * If the post has more tag, display the content appropriately.
 		 *
 		 * @since    1.0.0
-		 * @version  2.4.0
+		 * @version  2.6.6
 		 *
 		 * @param  string $excerpt
 		 */
@@ -93,7 +93,8 @@ class Modern_Post_Summary {
 			// Processing
 
 				if (
-					! is_single( $post_id )
+					false === strpos( $excerpt, 'page-summary' )
+					&& ! is_single( $post_id )
 					&& Modern_Library::has_more_tag()
 				) {
 

@@ -1,5 +1,16 @@
 # Modern Changelog
 
+## 2.6.6, 20250904
+
+### Fixed
+- Preventing post excerpt bleeding into category description
+
+### File updates
+	changelog.md
+	style.css
+	includes/frontend/class-post-summary.php
+
+
 ## 2.6.5, 20250424
 
 ### Updated
